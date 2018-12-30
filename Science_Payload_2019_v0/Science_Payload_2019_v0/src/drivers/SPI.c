@@ -6,7 +6,7 @@
  *  Author: Nathan U.
  */ 
 
-
+#include "SPI.h"
 //Initializes the SPI on Port C
 void SPI_init(char Port){
 	PORTC.DIRSET = 0b10110000;
@@ -16,9 +16,9 @@ void SPI_init(char Port){
 }
 
 void SPI_write(char Port,uint8_t data_byte){
-	switch (Port){
+	/*switch (Port){
 		case 'A'
-	}
+	};*/
 	SPIC.DATA = data_byte;
 	while(!(SPIC.STATUS>>7));
 }

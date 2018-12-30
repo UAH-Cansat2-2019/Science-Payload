@@ -62,6 +62,9 @@
 // From module: Common build items for user board support templates
 #include <user_board.h>
 
+// From module: GPIO - General purpose Input/Output
+#include <gpio.h>
+
 // From module: Generic board support
 #include <board.h>
 
@@ -76,9 +79,6 @@
 
 // From module: PMIC - Programmable Multi-level Interrupt Controller
 #include <pmic.h>
-
-// From module: PWM service using timer/counter
-#include <pwm.h>
 
 // From module: Part identification macros
 #include <parts.h>
@@ -101,6 +101,16 @@
 
 // From module: TC - Timer Counter
 #include <tc.h>
+
+// From module: TWI - Two-Wire Interface - XMEGA implementation
+#include <twi_master.h>
+#include <twi_slave.h>
+#include <xmega_twi/twi_master.h>
+#include <xmega_twi/twi_slave.h>
+
+// From module: TWI - Two-wire Master and Slave Interface
+#include <twim.h>
+#include <twis.h>
 
 // From module: USART - Universal Synchronous/Asynchronous Receiver/Transmitter
 #include <usart.h>

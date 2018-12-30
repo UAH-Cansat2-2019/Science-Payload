@@ -33,34 +33,35 @@
 #include <asf.h>
 #include <time.h>
 
-// Systems Data
-public uint8_t flight_state;
-pulbic uint16_t packet_count;
-public long mission_time;
-
-
-// GPS Data
-public long gps_time;
-public long gps_lat;
-public long gps_long;
-public long gps_alt;
-public uint8_t gps_sats;
-
-// Sensor Data
-public float pressure;
-public float board_temp;
-public float external_temp;
-public float voltage;
-
-public float roll;
-public float pitch;
-public float bonus_direction;
-public float spin_rate;
-
 
 
 int main (void)
 {
+	// Systems Data
+	uint8_t flight_state =0;
+	uint16_t packet_count =0;
+	long mission_time =0l;
+
+
+	// GPS Data
+	long gps_time =0l;
+	long gps_lat =0l;
+	long gps_long =0l;
+	long gps_alt =0l;
+	uint8_t gps_sats =0;
+
+	// Sensor Data
+	float pressure;
+	float board_temp;
+	float external_temp;
+	float voltage;
+
+	float roll;
+	float pitch;
+	float bonus_direction;
+	float spin_rate;
+
+
 	sysclk_init(); //initialize system clock
 				//TODO: make sure the system clock is set to the correct frequency
 				//TODO: make sure libraries are properly configured
@@ -87,7 +88,7 @@ int main (void)
 		//Initialize SPI Devices
 	
 	//Init ADC Ports
-	sysclk_enable_peripheral_clock(%ADCA); //EG Port - MIGHT NEED TO CHANGE
+	sysclk_enable_peripheral_clock(&ADCA); //EG Port - MIGHT NEED TO CHANGE
 		//Initialize ADC Devices
 		
 	
