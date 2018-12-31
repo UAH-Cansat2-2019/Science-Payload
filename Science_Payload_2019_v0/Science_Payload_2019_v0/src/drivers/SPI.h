@@ -13,8 +13,7 @@
 
 void SPI_init(char Port);
 void SPI_write(char Port,uint8_t data);
-uint8_t SPI_read (char Port);
-
+uint8_t SPI_read(char port);
 
 
 

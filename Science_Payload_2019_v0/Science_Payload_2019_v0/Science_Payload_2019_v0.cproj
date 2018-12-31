@@ -32,13 +32,14 @@
       <framework-data>
   <options>
     <option id="common.boards" value="Add" config="" content-id="Atmel.ASF" />
-    <option id="xmega.drivers.adc" value="Add" config="" content-id="Atmel.ASF" />
     <option id="common.services.basic.gpio" value="Add" config="" content-id="Atmel.ASF" />
+    <option id="common.services.basic.twi" value="Add" config="" content-id="Atmel.ASF" />
+    <option id="xmega.drivers.adc" value="Add" config="" content-id="Atmel.ASF" />
     <option id="xmega.drivers.rtc" value="Add" config="" content-id="Atmel.ASF" />
     <option id="xmega.drivers.spi" value="Add" config="" content-id="Atmel.ASF" />
     <option id="xmega.drivers.tc" value="Add" config="" content-id="Atmel.ASF" />
-    <option id="common.services.basic.twi" value="Add" config="" content-id="Atmel.ASF" />
     <option id="xmega.drivers.usart" value="Add" config="" content-id="Atmel.ASF" />
+    <option id="common.services.delay" value="Add" config="" content-id="Atmel.ASF" />
   </options>
   <configurations>
     <configuration key="config.xmega.drivers.twi.mode" value="both" default="both" content-id="Atmel.ASF" />
@@ -113,6 +114,8 @@
     <file path="src/Config/conf_twim.h" framework="" version="3.35.1" source="xmega\drivers\twi\module_config\conf_twim.h" changed="False" content-id="Atmel.ASF" />
     <file path="src/ASF/xmega/drivers/usart/usart.c" framework="" version="3.35.1" source="xmega\drivers\usart\usart.c" changed="False" content-id="Atmel.ASF" />
     <file path="src/ASF/xmega/drivers/usart/usart.h" framework="" version="3.35.1" source="xmega\drivers\usart\usart.h" changed="False" content-id="Atmel.ASF" />
+    <file path="src/ASF/common/services/delay/delay.h" framework="" version="3.35.1" source="common\services\delay\delay.h" changed="False" content-id="Atmel.ASF" />
+    <file path="src/ASF/common/services/delay/xmega/cycle_counter.h" framework="" version="3.35.1" source="common\services\delay\xmega\cycle_counter.h" changed="False" content-id="Atmel.ASF" />
   </files>
   <documentation help="http://asf.atmel.com/docs/3.35.1/common.applications.user_application.user_board.xmegaau/html/index.html" />
   <offline-documentation help="" />
@@ -165,6 +168,7 @@
       <Value>../src/ASF/xmega/drivers/adc</Value>
       <Value>../src/ASF/xmega/drivers/twi</Value>
       <Value>../src/ASF/xmega/drivers/usart</Value>
+      <Value>../src/ASF/common/services/delay</Value>
     </ListValues>
   </avrgcc.compiler.directories.IncludePaths>
   <avrgcc.compiler.optimization.level>Optimize for size (-Os)</avrgcc.compiler.optimization.level>
@@ -205,6 +209,7 @@
       <Value>../src/ASF/xmega/drivers/adc</Value>
       <Value>../src/ASF/xmega/drivers/twi</Value>
       <Value>../src/ASF/xmega/drivers/usart</Value>
+      <Value>../src/ASF/common/services/delay</Value>
     </ListValues>
   </avrgcc.assembler.general.IncludePaths>
 </AvrGcc>
@@ -251,6 +256,7 @@
       <Value>../src/ASF/xmega/drivers/adc</Value>
       <Value>../src/ASF/xmega/drivers/twi</Value>
       <Value>../src/ASF/xmega/drivers/usart</Value>
+      <Value>../src/ASF/common/services/delay</Value>
     </ListValues>
   </avrgcc.compiler.directories.IncludePaths>
   <avrgcc.compiler.optimization.level>Optimize (-O1)</avrgcc.compiler.optimization.level>
@@ -292,6 +298,7 @@
       <Value>../src/ASF/xmega/drivers/adc</Value>
       <Value>../src/ASF/xmega/drivers/twi</Value>
       <Value>../src/ASF/xmega/drivers/usart</Value>
+      <Value>../src/ASF/common/services/delay</Value>
     </ListValues>
   </avrgcc.assembler.general.IncludePaths>
   <avrgcc.assembler.debugging.DebugLevel>Default (-Wa,-g)</avrgcc.assembler.debugging.DebugLevel>
@@ -307,6 +314,8 @@
     <Folder Include="src\ASF\common\services\" />
     <Folder Include="src\ASF\common\services\clock\" />
     <Folder Include="src\ASF\common\services\clock\xmega\" />
+    <Folder Include="src\ASF\common\services\delay\" />
+    <Folder Include="src\ASF\common\services\delay\xmega\" />
     <Folder Include="src\ASF\common\services\gpio\" />
     <Folder Include="src\ASF\common\services\gpio\xmega_gpio\" />
     <Folder Include="src\ASF\common\services\ioport\" />
@@ -433,6 +442,12 @@
       <SubType>compile</SubType>
     </None>
     <None Include="src\ASF\common\services\ioport\ioport.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\common\services\delay\delay.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\common\services\delay\xmega\cycle_counter.h">
       <SubType>compile</SubType>
     </None>
     <Compile Include="src\ASF\common\services\ioport\xmega\ioport_compat.c">

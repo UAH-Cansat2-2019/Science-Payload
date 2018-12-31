@@ -13,8 +13,8 @@
 
 #include <asf.h>
 #include "drivers/SPI.h"
-
-
+void pressure_init(void);
+uint16_t promread(uint8_t prompt);
 
 
 #endif /* MS5607_H_ */

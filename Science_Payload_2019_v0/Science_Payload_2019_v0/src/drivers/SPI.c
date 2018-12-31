@@ -22,3 +22,9 @@ void SPI_write(char Port,uint8_t data_byte){
 	SPIC.DATA = data_byte;
 	while(!(SPIC.STATUS>>7));
 }
+uint8_t SPI_read(char port)
+{
+	SPIC.DATA = 0xFF; // make the DATA register something we know
+	while(!(SPIC.STATUS>>7)); // wait for the SPI interrupt flag to let us know the transfer is complete
+	return SPIC.DATA; // return the data from this function
+}
