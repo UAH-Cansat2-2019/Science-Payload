@@ -1,4 +1,4 @@
-src/main.d src/main.o: ../src/main.c ../src/asf.h \
+src/uart.d src/uart.o: ../src/uart.c ../src/asf.h \
  ../src/ASF/xmega/drivers/adc/adc.h ../src/ASF/xmega/utils/compiler.h \
  d:\program\ files\ (x86)\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h \
  d:\program\ files\ (x86)\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h \
@@ -71,8 +71,7 @@ src/main.d src/main.o: ../src/main.c ../src/asf.h \
  ../src/ASF/common/services/twi/xmega_twi/twi_slave.h \
  ../src/ASF/xmega/drivers/twi/twis.h \
  ../src/ASF/common/services/twi/xmega_twi/twi_master.h \
- ../src/ASF/common/services/twi/xmega_twi/twi_slave.h \
- d:\program\ files\ (x86)\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\time.h
+ ../src/ASF/common/services/twi/xmega_twi/twi_slave.h ../src/uart.h
 
 ../src/asf.h:
 
@@ -240,4 +239,4 @@ d:\program\ files\ (x86)\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr
 
 ../src/ASF/common/services/twi/xmega_twi/twi_slave.h:
 
-d:\program\ files\ (x86)\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\time.h:
+../src/uart.h:

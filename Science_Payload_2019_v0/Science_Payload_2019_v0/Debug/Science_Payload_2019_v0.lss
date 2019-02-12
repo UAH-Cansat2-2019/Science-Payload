@@ -15,21 +15,21 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY
   5 .debug_aranges 000002c8  00000000  00000000  000015f8  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   00008cf5  00000000  00000000  000018c0  2**0
+  6 .debug_info   00008ca8  00000000  00000000  000018c0  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 000038aa  00000000  00000000  0000a5b5  2**0
+  7 .debug_abbrev 000038ae  00000000  00000000  0000a568  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   00003ec7  00000000  00000000  0000de5f  2**0
+  8 .debug_line   00003fa0  00000000  00000000  0000de16  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  00001010  00000000  00000000  00011d28  2**2
+  9 .debug_frame  00001010  00000000  00000000  00011db8  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    0002be37  00000000  00000000  00012d38  2**0
+ 10 .debug_str    0002c291  00000000  00000000  00012dc8  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    00002f24  00000000  00000000  0003eb6f  2**0
+ 11 .debug_loc    00002f24  00000000  00000000  0003f059  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 00000288  00000000  00000000  00041a93  2**0
+ 12 .debug_ranges 00000288  00000000  00000000  00041f7d  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_macro  0000131c  00000000  00000000  00041d1b  2**0
+ 13 .debug_macro  0000136a  00000000  00000000  00042205  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -3288,7 +3288,7 @@ static inline void sysclk_enable_peripheral_clock(const volatile void *module)
 	float bonus_direction;
 	float spin_rate;
 
-
+*/
 	sysclk_init(); //initialize system clock
     14d4:	0e 94 25 01 	call	0x24a	; 0x24a <sysclk_init>
 				//TODO: make sure the system clock is set to the correct frequency

@@ -7,24 +7,22 @@
  */ 
 
 #include "SPI.h"
+#include "Pins.h"
 //Initializes the SPI on Port C
-void SPI_init(char Port){
-	PORTC.DIRSET = 0b10110000;
-	PORTC.DIRCLR = 0b01000000;
-	PORTC.OUTSET = 0b10110000;
-	SPIC.CTRL =	   0b01010011;
+void SPI_init(void){
+	SPIPORT.DIRSET = MISO|SPICLK;
+	SPIPORT.DIRCLR = MOSI;
+	//SPIPORT.OUTSET = 0b10110000;
+	SPI1.CTRL =	   0b01010011;
 }
 
-void SPI_write(char Port,uint8_t data_byte){
-	/*switch (Port){
-		case 'A'
-	};*/
-	SPIC.DATA = data_byte;
+void SPI_write(uint8_t data_byte){
+	SPI1.DATA = data_byte;
 	while(!(SPIC.STATUS>>7));
 }
-uint8_t SPI_read(char port)
+uint8_t SPI_read(void)
 {
-	SPIC.DATA = 0xFF; // make the DATA register something we know
-	while(!(SPIC.STATUS>>7)); // wait for the SPI interrupt flag to let us know the transfer is complete
-	return SPIC.DATA; // return the data from this function
+	SPI1.DATA = 0xFF; // make the DATA register something we know
+	while(!(SPI1.STATUS>>7)); // wait for the SPI interrupt flag to let us know the transfer is complete
+	return SPI1.DATA; // return the data from this function
 }

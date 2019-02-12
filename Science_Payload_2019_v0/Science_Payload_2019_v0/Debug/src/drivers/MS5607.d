@@ -1,5 +1,5 @@
 src/drivers/MS5607.d src/drivers/MS5607.o: ../src/drivers/MS5607.c \
- ../src/drivers/MS5607.h ../src/asf.h ../src/ASF/xmega/drivers/adc/adc.h \
+ ../src/asf.h ../src/ASF/xmega/drivers/adc/adc.h \
  ../src/ASF/xmega/utils/compiler.h \
  d:\program\ files\ (x86)\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h \
  d:\program\ files\ (x86)\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h \
@@ -57,6 +57,12 @@ src/drivers/MS5607.d src/drivers/MS5607.o: ../src/drivers/MS5607.c \
  ../src/config/conf_rtc.h ../src/ASF/xmega/drivers/spi/spi.h \
  ../src/ASF/xmega/utils/status_codes.h \
  ../src/ASF/common/services/sleepmgr/xmega/sleepmgr.h \
+ ../src/ASF/common/utils/stdio/stdio_serial/stdio_serial.h \
+ d:\program\ files\ (x86)\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdio.h \
+ d:\program\ files\ (x86)\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.h \
+ ../src/ASF/common/services/serial/serial.h \
+ ../src/ASF/common/services/serial/xmega_usart/usart_serial.h \
+ ../src/ASF/xmega/drivers/usart/usart.h ../src/config/conf_usart_serial.h \
  ../src/ASF/xmega/drivers/tc/tc.h \
  ../src/ASF/common/services/twi/twi_master.h \
  ../src/ASF/common/services/twi/xmega_twi/twi_master.h \
@@ -67,9 +73,7 @@ src/drivers/MS5607.d src/drivers/MS5607.o: ../src/drivers/MS5607.c \
  ../src/ASF/xmega/drivers/twi/twis.h \
  ../src/ASF/common/services/twi/xmega_twi/twi_master.h \
  ../src/ASF/common/services/twi/xmega_twi/twi_slave.h \
- ../src/ASF/xmega/drivers/usart/usart.h ../src/drivers/SPI.h
-
-../src/drivers/MS5607.h:
+ ../src/drivers/SPI.h ../src/drivers/Pins.h ../src/drivers/MS5607.h
 
 ../src/asf.h:
 
@@ -201,6 +205,20 @@ d:\program\ files\ (x86)\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include
 
 ../src/ASF/common/services/sleepmgr/xmega/sleepmgr.h:
 
+../src/ASF/common/utils/stdio/stdio_serial/stdio_serial.h:
+
+d:\program\ files\ (x86)\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdio.h:
+
+d:\program\ files\ (x86)\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.h:
+
+../src/ASF/common/services/serial/serial.h:
+
+../src/ASF/common/services/serial/xmega_usart/usart_serial.h:
+
+../src/ASF/xmega/drivers/usart/usart.h:
+
+../src/config/conf_usart_serial.h:
+
 ../src/ASF/xmega/drivers/tc/tc.h:
 
 ../src/ASF/common/services/twi/twi_master.h:
@@ -223,6 +241,8 @@ d:\program\ files\ (x86)\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include
 
 ../src/ASF/common/services/twi/xmega_twi/twi_slave.h:
 
-../src/ASF/xmega/drivers/usart/usart.h:
-
 ../src/drivers/SPI.h:
+
+../src/drivers/Pins.h:
+
+../src/drivers/MS5607.h:

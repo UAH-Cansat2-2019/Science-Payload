@@ -37,6 +37,8 @@
 
 int main (void)
 {
+	
+	/*
 	// Systems Data
 	uint8_t flight_state =0;
 	uint16_t packet_count =0;
@@ -61,7 +63,7 @@ int main (void)
 	float bonus_direction;
 	float spin_rate;
 
-
+*/
 	sysclk_init(); //initialize system clock
 				//TODO: make sure the system clock is set to the correct frequency
 				//TODO: make sure libraries are properly configured
@@ -125,7 +127,6 @@ int main (void)
 			// Clear EEProm (or just ignore it)
 			
 			// Initialize all variables not initialized
-			
 			
 	while(1)		// Main Program Loop
 	{

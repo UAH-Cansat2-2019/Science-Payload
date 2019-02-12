@@ -11,9 +11,9 @@
 
 #include <asf.h>
 
-void SPI_init(char Port);
-void SPI_write(char Port,uint8_t data);
-uint8_t SPI_read(char port);
+void SPI_init(void);
+void SPI_write(uint8_t data);
+uint8_t SPI_read(void);
 
 
 
