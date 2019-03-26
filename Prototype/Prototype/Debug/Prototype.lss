@@ -1,0 +1,5064 @@
+
+Prototype.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00002198  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00802000  00802000  0000220c  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000065  00802000  00802000  0000220c  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  0000220c  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  0000223c  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 00000b68  00000000  00000000  0000227c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   00014336  00000000  00000000  00002de4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 00004a29  00000000  00000000  0001711a  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   0000abb9  00000000  00000000  0001bb43  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  000042a4  00000000  00000000  000266fc  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    0003f921  00000000  00000000  0002a9a0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    00018533  00000000  00000000  0006a2c1  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 00000b58  00000000  00000000  000827f4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 13 .debug_macro  0000322b  00000000  00000000  0008334c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+       0:	fd c0       	rjmp	.+506    	; 0x1fc <__ctors_end>
+       2:	00 00       	nop
+       4:	21 c1       	rjmp	.+578    	; 0x248 <__bad_interrupt>
+       6:	00 00       	nop
+       8:	1f c1       	rjmp	.+574    	; 0x248 <__bad_interrupt>
+       a:	00 00       	nop
+       c:	1d c1       	rjmp	.+570    	; 0x248 <__bad_interrupt>
+       e:	00 00       	nop
+      10:	1b c1       	rjmp	.+566    	; 0x248 <__bad_interrupt>
+      12:	00 00       	nop
+      14:	19 c1       	rjmp	.+562    	; 0x248 <__bad_interrupt>
+      16:	00 00       	nop
+      18:	17 c1       	rjmp	.+558    	; 0x248 <__bad_interrupt>
+      1a:	00 00       	nop
+      1c:	15 c1       	rjmp	.+554    	; 0x248 <__bad_interrupt>
+      1e:	00 00       	nop
+      20:	13 c1       	rjmp	.+550    	; 0x248 <__bad_interrupt>
+      22:	00 00       	nop
+      24:	11 c1       	rjmp	.+546    	; 0x248 <__bad_interrupt>
+      26:	00 00       	nop
+      28:	10 c1       	rjmp	.+544    	; 0x24a <__vector_10>
+      2a:	00 00       	nop
+      2c:	31 c1       	rjmp	.+610    	; 0x290 <__vector_11>
+      2e:	00 00       	nop
+      30:	0b c1       	rjmp	.+534    	; 0x248 <__bad_interrupt>
+      32:	00 00       	nop
+      34:	0c 94 23 0b 	jmp	0x1646	; 0x1646 <__vector_13>
+      38:	af c1       	rjmp	.+862    	; 0x398 <__vector_14>
+      3a:	00 00       	nop
+      3c:	e5 c1       	rjmp	.+970    	; 0x408 <__vector_15>
+      3e:	00 00       	nop
+      40:	1b c2       	rjmp	.+1078   	; 0x478 <__vector_16>
+      42:	00 00       	nop
+      44:	51 c2       	rjmp	.+1186   	; 0x4e8 <__vector_17>
+      46:	00 00       	nop
+      48:	87 c2       	rjmp	.+1294   	; 0x558 <__vector_18>
+      4a:	00 00       	nop
+      4c:	bd c2       	rjmp	.+1402   	; 0x5c8 <__vector_19>
+      4e:	00 00       	nop
+      50:	f3 c2       	rjmp	.+1510   	; 0x638 <__vector_20>
+      52:	00 00       	nop
+      54:	29 c3       	rjmp	.+1618   	; 0x6a8 <__vector_21>
+      56:	00 00       	nop
+      58:	5f c3       	rjmp	.+1726   	; 0x718 <__vector_22>
+      5a:	00 00       	nop
+      5c:	95 c3       	rjmp	.+1834   	; 0x788 <__vector_23>
+      5e:	00 00       	nop
+      60:	f3 c0       	rjmp	.+486    	; 0x248 <__bad_interrupt>
+      62:	00 00       	nop
+      64:	f1 c0       	rjmp	.+482    	; 0x248 <__bad_interrupt>
+      66:	00 00       	nop
+      68:	ef c0       	rjmp	.+478    	; 0x248 <__bad_interrupt>
+      6a:	00 00       	nop
+      6c:	ed c0       	rjmp	.+474    	; 0x248 <__bad_interrupt>
+      6e:	00 00       	nop
+      70:	eb c0       	rjmp	.+470    	; 0x248 <__bad_interrupt>
+      72:	00 00       	nop
+      74:	e9 c0       	rjmp	.+466    	; 0x248 <__bad_interrupt>
+      76:	00 00       	nop
+      78:	e7 c0       	rjmp	.+462    	; 0x248 <__bad_interrupt>
+      7a:	00 00       	nop
+      7c:	e5 c0       	rjmp	.+458    	; 0x248 <__bad_interrupt>
+      7e:	00 00       	nop
+      80:	e3 c0       	rjmp	.+454    	; 0x248 <__bad_interrupt>
+      82:	00 00       	nop
+      84:	e1 c0       	rjmp	.+450    	; 0x248 <__bad_interrupt>
+      86:	00 00       	nop
+      88:	df c0       	rjmp	.+446    	; 0x248 <__bad_interrupt>
+      8a:	00 00       	nop
+      8c:	dd c0       	rjmp	.+442    	; 0x248 <__bad_interrupt>
+      8e:	00 00       	nop
+      90:	db c0       	rjmp	.+438    	; 0x248 <__bad_interrupt>
+      92:	00 00       	nop
+      94:	d9 c0       	rjmp	.+434    	; 0x248 <__bad_interrupt>
+      96:	00 00       	nop
+      98:	d7 c0       	rjmp	.+430    	; 0x248 <__bad_interrupt>
+      9a:	00 00       	nop
+      9c:	d5 c0       	rjmp	.+426    	; 0x248 <__bad_interrupt>
+      9e:	00 00       	nop
+      a0:	d3 c0       	rjmp	.+422    	; 0x248 <__bad_interrupt>
+      a2:	00 00       	nop
+      a4:	d1 c0       	rjmp	.+418    	; 0x248 <__bad_interrupt>
+      a6:	00 00       	nop
+      a8:	cf c0       	rjmp	.+414    	; 0x248 <__bad_interrupt>
+      aa:	00 00       	nop
+      ac:	cd c0       	rjmp	.+410    	; 0x248 <__bad_interrupt>
+      ae:	00 00       	nop
+      b0:	cb c0       	rjmp	.+406    	; 0x248 <__bad_interrupt>
+      b2:	00 00       	nop
+      b4:	c9 c0       	rjmp	.+402    	; 0x248 <__bad_interrupt>
+      b6:	00 00       	nop
+      b8:	0c 94 87 0b 	jmp	0x170e	; 0x170e <__vector_46>
+      bc:	cd c5       	rjmp	.+2970   	; 0xc58 <__vector_47>
+      be:	00 00       	nop
+      c0:	03 c6       	rjmp	.+3078   	; 0xcc8 <__vector_48>
+      c2:	00 00       	nop
+      c4:	39 c6       	rjmp	.+3186   	; 0xd38 <__vector_49>
+      c6:	00 00       	nop
+      c8:	6f c6       	rjmp	.+3294   	; 0xda8 <__vector_50>
+      ca:	00 00       	nop
+      cc:	a5 c6       	rjmp	.+3402   	; 0xe18 <__vector_51>
+      ce:	00 00       	nop
+      d0:	db c6       	rjmp	.+3510   	; 0xe88 <__vector_52>
+      d2:	00 00       	nop
+      d4:	11 c7       	rjmp	.+3618   	; 0xef8 <__vector_53>
+      d6:	00 00       	nop
+      d8:	47 c7       	rjmp	.+3726   	; 0xf68 <__vector_54>
+      da:	00 00       	nop
+      dc:	7d c7       	rjmp	.+3834   	; 0xfd8 <__vector_55>
+      de:	00 00       	nop
+      e0:	b3 c7       	rjmp	.+3942   	; 0x1048 <__vector_56>
+      e2:	00 00       	nop
+      e4:	b1 c0       	rjmp	.+354    	; 0x248 <__bad_interrupt>
+      e6:	00 00       	nop
+      e8:	af c0       	rjmp	.+350    	; 0x248 <__bad_interrupt>
+      ea:	00 00       	nop
+      ec:	ad c0       	rjmp	.+346    	; 0x248 <__bad_interrupt>
+      ee:	00 00       	nop
+      f0:	ab c0       	rjmp	.+342    	; 0x248 <__bad_interrupt>
+      f2:	00 00       	nop
+      f4:	a9 c0       	rjmp	.+338    	; 0x248 <__bad_interrupt>
+      f6:	00 00       	nop
+      f8:	a7 c0       	rjmp	.+334    	; 0x248 <__bad_interrupt>
+      fa:	00 00       	nop
+      fc:	a5 c0       	rjmp	.+330    	; 0x248 <__bad_interrupt>
+      fe:	00 00       	nop
+     100:	a3 c0       	rjmp	.+326    	; 0x248 <__bad_interrupt>
+     102:	00 00       	nop
+     104:	a1 c0       	rjmp	.+322    	; 0x248 <__bad_interrupt>
+     106:	00 00       	nop
+     108:	9f c0       	rjmp	.+318    	; 0x248 <__bad_interrupt>
+     10a:	00 00       	nop
+     10c:	9d c0       	rjmp	.+314    	; 0x248 <__bad_interrupt>
+     10e:	00 00       	nop
+     110:	9b c0       	rjmp	.+310    	; 0x248 <__bad_interrupt>
+     112:	00 00       	nop
+     114:	99 c0       	rjmp	.+306    	; 0x248 <__bad_interrupt>
+     116:	00 00       	nop
+     118:	97 c0       	rjmp	.+302    	; 0x248 <__bad_interrupt>
+     11a:	00 00       	nop
+     11c:	95 c0       	rjmp	.+298    	; 0x248 <__bad_interrupt>
+     11e:	00 00       	nop
+     120:	93 c0       	rjmp	.+294    	; 0x248 <__bad_interrupt>
+     122:	00 00       	nop
+     124:	91 c0       	rjmp	.+290    	; 0x248 <__bad_interrupt>
+     126:	00 00       	nop
+     128:	8f c0       	rjmp	.+286    	; 0x248 <__bad_interrupt>
+     12a:	00 00       	nop
+     12c:	8d c0       	rjmp	.+282    	; 0x248 <__bad_interrupt>
+     12e:	00 00       	nop
+     130:	0c 94 55 0b 	jmp	0x16aa	; 0x16aa <__vector_76>
+     134:	61 c3       	rjmp	.+1730   	; 0x7f8 <__vector_77>
+     136:	00 00       	nop
+     138:	97 c3       	rjmp	.+1838   	; 0x868 <__vector_78>
+     13a:	00 00       	nop
+     13c:	cd c3       	rjmp	.+1946   	; 0x8d8 <__vector_79>
+     13e:	00 00       	nop
+     140:	03 c4       	rjmp	.+2054   	; 0x948 <__vector_80>
+     142:	00 00       	nop
+     144:	39 c4       	rjmp	.+2162   	; 0x9b8 <__vector_81>
+     146:	00 00       	nop
+     148:	6f c4       	rjmp	.+2270   	; 0xa28 <__vector_82>
+     14a:	00 00       	nop
+     14c:	a5 c4       	rjmp	.+2378   	; 0xa98 <__vector_83>
+     14e:	00 00       	nop
+     150:	db c4       	rjmp	.+2486   	; 0xb08 <__vector_84>
+     152:	00 00       	nop
+     154:	11 c5       	rjmp	.+2594   	; 0xb78 <__vector_85>
+     156:	00 00       	nop
+     158:	47 c5       	rjmp	.+2702   	; 0xbe8 <__vector_86>
+     15a:	00 00       	nop
+     15c:	75 c0       	rjmp	.+234    	; 0x248 <__bad_interrupt>
+     15e:	00 00       	nop
+     160:	73 c0       	rjmp	.+230    	; 0x248 <__bad_interrupt>
+     162:	00 00       	nop
+     164:	71 c0       	rjmp	.+226    	; 0x248 <__bad_interrupt>
+     166:	00 00       	nop
+     168:	6f c0       	rjmp	.+222    	; 0x248 <__bad_interrupt>
+     16a:	00 00       	nop
+     16c:	6d c0       	rjmp	.+218    	; 0x248 <__bad_interrupt>
+     16e:	00 00       	nop
+     170:	6b c0       	rjmp	.+214    	; 0x248 <__bad_interrupt>
+     172:	00 00       	nop
+     174:	69 c0       	rjmp	.+210    	; 0x248 <__bad_interrupt>
+     176:	00 00       	nop
+     178:	67 c0       	rjmp	.+206    	; 0x248 <__bad_interrupt>
+     17a:	00 00       	nop
+     17c:	65 c0       	rjmp	.+202    	; 0x248 <__bad_interrupt>
+     17e:	00 00       	nop
+     180:	63 c0       	rjmp	.+198    	; 0x248 <__bad_interrupt>
+     182:	00 00       	nop
+     184:	61 c0       	rjmp	.+194    	; 0x248 <__bad_interrupt>
+     186:	00 00       	nop
+     188:	5f c0       	rjmp	.+190    	; 0x248 <__bad_interrupt>
+     18a:	00 00       	nop
+     18c:	5d c0       	rjmp	.+186    	; 0x248 <__bad_interrupt>
+     18e:	00 00       	nop
+     190:	5b c0       	rjmp	.+182    	; 0x248 <__bad_interrupt>
+     192:	00 00       	nop
+     194:	59 c0       	rjmp	.+178    	; 0x248 <__bad_interrupt>
+     196:	00 00       	nop
+     198:	57 c0       	rjmp	.+174    	; 0x248 <__bad_interrupt>
+     19a:	00 00       	nop
+     19c:	55 c0       	rjmp	.+170    	; 0x248 <__bad_interrupt>
+     19e:	00 00       	nop
+     1a0:	53 c0       	rjmp	.+166    	; 0x248 <__bad_interrupt>
+     1a2:	00 00       	nop
+     1a4:	51 c0       	rjmp	.+162    	; 0x248 <__bad_interrupt>
+     1a6:	00 00       	nop
+     1a8:	4f c0       	rjmp	.+158    	; 0x248 <__bad_interrupt>
+     1aa:	00 00       	nop
+     1ac:	0c 94 b9 0b 	jmp	0x1772	; 0x1772 <__vector_107>
+     1b0:	83 c7       	rjmp	.+3846   	; 0x10b8 <__vector_108>
+     1b2:	00 00       	nop
+     1b4:	b9 c7       	rjmp	.+3954   	; 0x1128 <__vector_109>
+     1b6:	00 00       	nop
+     1b8:	ef c7       	rjmp	.+4062   	; 0x1198 <__vector_110>
+     1ba:	00 00       	nop
+     1bc:	0c 94 04 09 	jmp	0x1208	; 0x1208 <__vector_111>
+     1c0:	0c 94 3c 09 	jmp	0x1278	; 0x1278 <__vector_112>
+     1c4:	0c 94 74 09 	jmp	0x12e8	; 0x12e8 <__vector_113>
+     1c8:	0c 94 ac 09 	jmp	0x1358	; 0x1358 <__vector_114>
+     1cc:	0c 94 e4 09 	jmp	0x13c8	; 0x13c8 <__vector_115>
+     1d0:	0c 94 1c 0a 	jmp	0x1438	; 0x1438 <__vector_116>
+     1d4:	0c 94 54 0a 	jmp	0x14a8	; 0x14a8 <__vector_117>
+     1d8:	37 c0       	rjmp	.+110    	; 0x248 <__bad_interrupt>
+     1da:	00 00       	nop
+     1dc:	35 c0       	rjmp	.+106    	; 0x248 <__bad_interrupt>
+     1de:	00 00       	nop
+     1e0:	33 c0       	rjmp	.+102    	; 0x248 <__bad_interrupt>
+     1e2:	00 00       	nop
+     1e4:	31 c0       	rjmp	.+98     	; 0x248 <__bad_interrupt>
+     1e6:	00 00       	nop
+     1e8:	2f c0       	rjmp	.+94     	; 0x248 <__bad_interrupt>
+     1ea:	00 00       	nop
+     1ec:	2d c0       	rjmp	.+90     	; 0x248 <__bad_interrupt>
+     1ee:	00 00       	nop
+     1f0:	2b c0       	rjmp	.+86     	; 0x248 <__bad_interrupt>
+     1f2:	00 00       	nop
+     1f4:	29 c0       	rjmp	.+82     	; 0x248 <__bad_interrupt>
+     1f6:	00 00       	nop
+     1f8:	27 c0       	rjmp	.+78     	; 0x248 <__bad_interrupt>
+	...
+
+000001fc <__ctors_end>:
+     1fc:	11 24       	eor	r1, r1
+     1fe:	1f be       	out	0x3f, r1	; 63
+     200:	cf ef       	ldi	r28, 0xFF	; 255
+     202:	cd bf       	out	0x3d, r28	; 61
+     204:	df e3       	ldi	r29, 0x3F	; 63
+     206:	de bf       	out	0x3e, r29	; 62
+     208:	00 e0       	ldi	r16, 0x00	; 0
+     20a:	0c bf       	out	0x3c, r16	; 60
+     20c:	18 be       	out	0x38, r1	; 56
+     20e:	19 be       	out	0x39, r1	; 57
+     210:	1a be       	out	0x3a, r1	; 58
+     212:	1b be       	out	0x3b, r1	; 59
+
+00000214 <__do_copy_data>:
+     214:	10 e2       	ldi	r17, 0x20	; 32
+     216:	a0 e0       	ldi	r26, 0x00	; 0
+     218:	b0 e2       	ldi	r27, 0x20	; 32
+     21a:	e8 e9       	ldi	r30, 0x98	; 152
+     21c:	f1 e2       	ldi	r31, 0x21	; 33
+     21e:	00 e0       	ldi	r16, 0x00	; 0
+     220:	0b bf       	out	0x3b, r16	; 59
+     222:	02 c0       	rjmp	.+4      	; 0x228 <__do_copy_data+0x14>
+     224:	07 90       	elpm	r0, Z+
+     226:	0d 92       	st	X+, r0
+     228:	a0 30       	cpi	r26, 0x00	; 0
+     22a:	b1 07       	cpc	r27, r17
+     22c:	d9 f7       	brne	.-10     	; 0x224 <__do_copy_data+0x10>
+     22e:	1b be       	out	0x3b, r1	; 59
+
+00000230 <__do_clear_bss>:
+     230:	20 e2       	ldi	r18, 0x20	; 32
+     232:	a0 e0       	ldi	r26, 0x00	; 0
+     234:	b0 e2       	ldi	r27, 0x20	; 32
+     236:	01 c0       	rjmp	.+2      	; 0x23a <.do_clear_bss_start>
+
+00000238 <.do_clear_bss_loop>:
+     238:	1d 92       	st	X+, r1
+
+0000023a <.do_clear_bss_start>:
+     23a:	a5 36       	cpi	r26, 0x65	; 101
+     23c:	b2 07       	cpc	r27, r18
+     23e:	e1 f7       	brne	.-8      	; 0x238 <.do_clear_bss_loop>
+     240:	0e 94 b1 0f 	call	0x1f62	; 0x1f62 <main>
+     244:	0c 94 ca 10 	jmp	0x2194	; 0x2194 <_exit>
+
+00000248 <__bad_interrupt>:
+     248:	db ce       	rjmp	.-586    	; 0x0 <__vectors>
+
+0000024a <__vector_10>:
+/**
+ * \internal
+ * \brief Overflow interrupt handling high counter
+ */
+ISR(RTC_OVF_vect)
+{
+     24a:	1f 92       	push	r1
+     24c:	0f 92       	push	r0
+     24e:	0f b6       	in	r0, 0x3f	; 63
+     250:	0f 92       	push	r0
+     252:	11 24       	eor	r1, r1
+     254:	08 b6       	in	r0, 0x38	; 56
+     256:	0f 92       	push	r0
+     258:	18 be       	out	0x38, r1	; 56
+     25a:	0b b6       	in	r0, 0x3b	; 59
+     25c:	0f 92       	push	r0
+     25e:	1b be       	out	0x3b, r1	; 59
+     260:	8f 93       	push	r24
+     262:	9f 93       	push	r25
+     264:	ef 93       	push	r30
+     266:	ff 93       	push	r31
+	rtc_data.counter_high++;
+     268:	ed e5       	ldi	r30, 0x5D	; 93
+     26a:	f0 e2       	ldi	r31, 0x20	; 32
+     26c:	80 81       	ld	r24, Z
+     26e:	91 81       	ldd	r25, Z+1	; 0x01
+     270:	01 96       	adiw	r24, 0x01	; 1
+     272:	80 83       	st	Z, r24
+     274:	91 83       	std	Z+1, r25	; 0x01
+}
+     276:	ff 91       	pop	r31
+     278:	ef 91       	pop	r30
+     27a:	9f 91       	pop	r25
+     27c:	8f 91       	pop	r24
+     27e:	0f 90       	pop	r0
+     280:	0b be       	out	0x3b, r0	; 59
+     282:	0f 90       	pop	r0
+     284:	08 be       	out	0x38, r0	; 56
+     286:	0f 90       	pop	r0
+     288:	0f be       	out	0x3f, r0	; 63
+     28a:	0f 90       	pop	r0
+     28c:	1f 90       	pop	r1
+     28e:	18 95       	reti
+
+00000290 <__vector_11>:
+/**
+ * \internal
+ * \brief Compare interrupt used for alarm
+ */
+ISR(RTC_COMP_vect)
+{
+     290:	1f 92       	push	r1
+     292:	0f 92       	push	r0
+     294:	0f b6       	in	r0, 0x3f	; 63
+     296:	0f 92       	push	r0
+     298:	11 24       	eor	r1, r1
+     29a:	08 b6       	in	r0, 0x38	; 56
+     29c:	0f 92       	push	r0
+     29e:	18 be       	out	0x38, r1	; 56
+     2a0:	09 b6       	in	r0, 0x39	; 57
+     2a2:	0f 92       	push	r0
+     2a4:	19 be       	out	0x39, r1	; 57
+     2a6:	0b b6       	in	r0, 0x3b	; 59
+     2a8:	0f 92       	push	r0
+     2aa:	1b be       	out	0x3b, r1	; 59
+     2ac:	cf 92       	push	r12
+     2ae:	df 92       	push	r13
+     2b0:	ef 92       	push	r14
+     2b2:	ff 92       	push	r15
+     2b4:	0f 93       	push	r16
+     2b6:	1f 93       	push	r17
+     2b8:	2f 93       	push	r18
+     2ba:	3f 93       	push	r19
+     2bc:	4f 93       	push	r20
+     2be:	5f 93       	push	r21
+     2c0:	6f 93       	push	r22
+     2c2:	7f 93       	push	r23
+     2c4:	8f 93       	push	r24
+     2c6:	9f 93       	push	r25
+     2c8:	af 93       	push	r26
+     2ca:	bf 93       	push	r27
+     2cc:	ef 93       	push	r30
+     2ce:	ff 93       	push	r31
+	if (rtc_data.counter_high >= rtc_data.alarm_high) {
+     2d0:	ed e5       	ldi	r30, 0x5D	; 93
+     2d2:	f0 e2       	ldi	r31, 0x20	; 32
+     2d4:	80 81       	ld	r24, Z
+     2d6:	91 81       	ldd	r25, Z+1	; 0x01
+     2d8:	22 81       	ldd	r18, Z+2	; 0x02
+     2da:	33 81       	ldd	r19, Z+3	; 0x03
+     2dc:	82 17       	cp	r24, r18
+     2de:	93 07       	cpc	r25, r19
+     2e0:	f0 f1       	brcs	.+124    	; 0x35e <__vector_11+0xce>
+		RTC.INTCTRL = RTC_OVERFLOW_INT_LEVEL;
+     2e2:	21 e0       	ldi	r18, 0x01	; 1
+     2e4:	20 93 02 04 	sts	0x0402, r18	; 0x800402 <__TEXT_REGION_LENGTH__+0x700402>
+		if (rtc_data.callback) {
+     2e8:	e0 91 63 20 	lds	r30, 0x2063	; 0x802063 <rtc_data+0x6>
+     2ec:	f0 91 64 20 	lds	r31, 0x2064	; 0x802064 <rtc_data+0x7>
+     2f0:	30 97       	sbiw	r30, 0x00	; 0
+     2f2:	a9 f1       	breq	.+106    	; 0x35e <__vector_11+0xce>
+			uint32_t count = ((uint32_t)rtc_data.counter_high << 16)
+					| RTC.CNT;
+     2f4:	60 91 08 04 	lds	r22, 0x0408	; 0x800408 <__TEXT_REGION_LENGTH__+0x700408>
+     2f8:	70 91 09 04 	lds	r23, 0x0409	; 0x800409 <__TEXT_REGION_LENGTH__+0x700409>
+ISR(RTC_COMP_vect)
+{
+	if (rtc_data.counter_high >= rtc_data.alarm_high) {
+		RTC.INTCTRL = RTC_OVERFLOW_INT_LEVEL;
+		if (rtc_data.callback) {
+			uint32_t count = ((uint32_t)rtc_data.counter_high << 16)
+     2fc:	a0 e0       	ldi	r26, 0x00	; 0
+     2fe:	b0 e0       	ldi	r27, 0x00	; 0
+     300:	dc 01       	movw	r26, r24
+     302:	99 27       	eor	r25, r25
+     304:	88 27       	eor	r24, r24
+     306:	ab 01       	movw	r20, r22
+     308:	60 e0       	ldi	r22, 0x00	; 0
+     30a:	70 e0       	ldi	r23, 0x00	; 0
+     30c:	8c 01       	movw	r16, r24
+     30e:	9d 01       	movw	r18, r26
+     310:	04 2b       	or	r16, r20
+     312:	15 2b       	or	r17, r21
+     314:	26 2b       	or	r18, r22
+     316:	37 2b       	or	r19, r23
+     318:	c9 01       	movw	r24, r18
+     31a:	b8 01       	movw	r22, r16
+					| RTC.CNT;
+			uint32_t alarm = ((uint32_t)rtc_data.alarm_high << 16)
+     31c:	ad e5       	ldi	r26, 0x5D	; 93
+     31e:	b0 e2       	ldi	r27, 0x20	; 32
+     320:	12 96       	adiw	r26, 0x02	; 2
+     322:	0d 91       	ld	r16, X+
+     324:	1c 91       	ld	r17, X
+     326:	13 97       	sbiw	r26, 0x03	; 3
+     328:	20 e0       	ldi	r18, 0x00	; 0
+     32a:	30 e0       	ldi	r19, 0x00	; 0
+     32c:	98 01       	movw	r18, r16
+     32e:	11 27       	eor	r17, r17
+     330:	00 27       	eor	r16, r16
+     332:	14 96       	adiw	r26, 0x04	; 4
+     334:	cd 90       	ld	r12, X+
+     336:	dc 90       	ld	r13, X
+     338:	15 97       	sbiw	r26, 0x05	; 5
+     33a:	e1 2c       	mov	r14, r1
+     33c:	f1 2c       	mov	r15, r1
+     33e:	0c 29       	or	r16, r12
+     340:	1d 29       	or	r17, r13
+     342:	2e 29       	or	r18, r14
+     344:	3f 29       	or	r19, r15
+					| rtc_data.alarm_low;
+			/* Workaround for errata. Count might not be updated
+			 * when waking up from sleep, so in this case use alarm
+			 * time plus one.
+			 */
+			if (alarm >= count)
+     346:	06 17       	cp	r16, r22
+     348:	17 07       	cpc	r17, r23
+     34a:	28 07       	cpc	r18, r24
+     34c:	39 07       	cpc	r19, r25
+     34e:	30 f0       	brcs	.+12     	; 0x35c <__vector_11+0xcc>
+				count = alarm + 1;
+     350:	c9 01       	movw	r24, r18
+     352:	b8 01       	movw	r22, r16
+     354:	6f 5f       	subi	r22, 0xFF	; 255
+     356:	7f 4f       	sbci	r23, 0xFF	; 255
+     358:	8f 4f       	sbci	r24, 0xFF	; 255
+     35a:	9f 4f       	sbci	r25, 0xFF	; 255
+			rtc_data.callback(count);
+     35c:	19 95       	eicall
+		}
+	}
+}
+     35e:	ff 91       	pop	r31
+     360:	ef 91       	pop	r30
+     362:	bf 91       	pop	r27
+     364:	af 91       	pop	r26
+     366:	9f 91       	pop	r25
+     368:	8f 91       	pop	r24
+     36a:	7f 91       	pop	r23
+     36c:	6f 91       	pop	r22
+     36e:	5f 91       	pop	r21
+     370:	4f 91       	pop	r20
+     372:	3f 91       	pop	r19
+     374:	2f 91       	pop	r18
+     376:	1f 91       	pop	r17
+     378:	0f 91       	pop	r16
+     37a:	ff 90       	pop	r15
+     37c:	ef 90       	pop	r14
+     37e:	df 90       	pop	r13
+     380:	cf 90       	pop	r12
+     382:	0f 90       	pop	r0
+     384:	0b be       	out	0x3b, r0	; 59
+     386:	0f 90       	pop	r0
+     388:	09 be       	out	0x39, r0	; 57
+     38a:	0f 90       	pop	r0
+     38c:	08 be       	out	0x38, r0	; 56
+     38e:	0f 90       	pop	r0
+     390:	0f be       	out	0x3f, r0	; 63
+     392:	0f 90       	pop	r0
+     394:	1f 90       	pop	r1
+     396:	18 95       	reti
+
+00000398 <__vector_14>:
+ *
+ * This function will handle interrupt on Timer Counter CO overflow and
+ * call the callback function.
+ */
+ISR(TCC0_OVF_vect)
+{
+     398:	1f 92       	push	r1
+     39a:	0f 92       	push	r0
+     39c:	0f b6       	in	r0, 0x3f	; 63
+     39e:	0f 92       	push	r0
+     3a0:	11 24       	eor	r1, r1
+     3a2:	08 b6       	in	r0, 0x38	; 56
+     3a4:	0f 92       	push	r0
+     3a6:	18 be       	out	0x38, r1	; 56
+     3a8:	09 b6       	in	r0, 0x39	; 57
+     3aa:	0f 92       	push	r0
+     3ac:	19 be       	out	0x39, r1	; 57
+     3ae:	0b b6       	in	r0, 0x3b	; 59
+     3b0:	0f 92       	push	r0
+     3b2:	1b be       	out	0x3b, r1	; 59
+     3b4:	2f 93       	push	r18
+     3b6:	3f 93       	push	r19
+     3b8:	4f 93       	push	r20
+     3ba:	5f 93       	push	r21
+     3bc:	6f 93       	push	r22
+     3be:	7f 93       	push	r23
+     3c0:	8f 93       	push	r24
+     3c2:	9f 93       	push	r25
+     3c4:	af 93       	push	r26
+     3c6:	bf 93       	push	r27
+     3c8:	ef 93       	push	r30
+     3ca:	ff 93       	push	r31
+	if (tc_tcc0_ovf_callback) {
+     3cc:	e0 91 4e 20 	lds	r30, 0x204E	; 0x80204e <tc_tcc0_ovf_callback>
+     3d0:	f0 91 4f 20 	lds	r31, 0x204F	; 0x80204f <tc_tcc0_ovf_callback+0x1>
+     3d4:	30 97       	sbiw	r30, 0x00	; 0
+     3d6:	09 f0       	breq	.+2      	; 0x3da <__vector_14+0x42>
+		tc_tcc0_ovf_callback();
+     3d8:	19 95       	eicall
+	}
+}
+     3da:	ff 91       	pop	r31
+     3dc:	ef 91       	pop	r30
+     3de:	bf 91       	pop	r27
+     3e0:	af 91       	pop	r26
+     3e2:	9f 91       	pop	r25
+     3e4:	8f 91       	pop	r24
+     3e6:	7f 91       	pop	r23
+     3e8:	6f 91       	pop	r22
+     3ea:	5f 91       	pop	r21
+     3ec:	4f 91       	pop	r20
+     3ee:	3f 91       	pop	r19
+     3f0:	2f 91       	pop	r18
+     3f2:	0f 90       	pop	r0
+     3f4:	0b be       	out	0x3b, r0	; 59
+     3f6:	0f 90       	pop	r0
+     3f8:	09 be       	out	0x39, r0	; 57
+     3fa:	0f 90       	pop	r0
+     3fc:	08 be       	out	0x38, r0	; 56
+     3fe:	0f 90       	pop	r0
+     400:	0f be       	out	0x3f, r0	; 63
+     402:	0f 90       	pop	r0
+     404:	1f 90       	pop	r1
+     406:	18 95       	reti
+
+00000408 <__vector_15>:
+ *
+ * This function will handle interrupt on Timer Counter CO error and
+ * call the callback function.
+ */
+ISR(TCC0_ERR_vect)
+{
+     408:	1f 92       	push	r1
+     40a:	0f 92       	push	r0
+     40c:	0f b6       	in	r0, 0x3f	; 63
+     40e:	0f 92       	push	r0
+     410:	11 24       	eor	r1, r1
+     412:	08 b6       	in	r0, 0x38	; 56
+     414:	0f 92       	push	r0
+     416:	18 be       	out	0x38, r1	; 56
+     418:	09 b6       	in	r0, 0x39	; 57
+     41a:	0f 92       	push	r0
+     41c:	19 be       	out	0x39, r1	; 57
+     41e:	0b b6       	in	r0, 0x3b	; 59
+     420:	0f 92       	push	r0
+     422:	1b be       	out	0x3b, r1	; 59
+     424:	2f 93       	push	r18
+     426:	3f 93       	push	r19
+     428:	4f 93       	push	r20
+     42a:	5f 93       	push	r21
+     42c:	6f 93       	push	r22
+     42e:	7f 93       	push	r23
+     430:	8f 93       	push	r24
+     432:	9f 93       	push	r25
+     434:	af 93       	push	r26
+     436:	bf 93       	push	r27
+     438:	ef 93       	push	r30
+     43a:	ff 93       	push	r31
+	if (tc_tcc0_err_callback) {
+     43c:	e0 91 4c 20 	lds	r30, 0x204C	; 0x80204c <tc_tcc0_err_callback>
+     440:	f0 91 4d 20 	lds	r31, 0x204D	; 0x80204d <tc_tcc0_err_callback+0x1>
+     444:	30 97       	sbiw	r30, 0x00	; 0
+     446:	09 f0       	breq	.+2      	; 0x44a <__vector_15+0x42>
+		tc_tcc0_err_callback();
+     448:	19 95       	eicall
+	}
+}
+     44a:	ff 91       	pop	r31
+     44c:	ef 91       	pop	r30
+     44e:	bf 91       	pop	r27
+     450:	af 91       	pop	r26
+     452:	9f 91       	pop	r25
+     454:	8f 91       	pop	r24
+     456:	7f 91       	pop	r23
+     458:	6f 91       	pop	r22
+     45a:	5f 91       	pop	r21
+     45c:	4f 91       	pop	r20
+     45e:	3f 91       	pop	r19
+     460:	2f 91       	pop	r18
+     462:	0f 90       	pop	r0
+     464:	0b be       	out	0x3b, r0	; 59
+     466:	0f 90       	pop	r0
+     468:	09 be       	out	0x39, r0	; 57
+     46a:	0f 90       	pop	r0
+     46c:	08 be       	out	0x38, r0	; 56
+     46e:	0f 90       	pop	r0
+     470:	0f be       	out	0x3f, r0	; 63
+     472:	0f 90       	pop	r0
+     474:	1f 90       	pop	r1
+     476:	18 95       	reti
+
+00000478 <__vector_16>:
+ *
+ * This function will handle interrupt on Timer Counter CO Compare/CaptureA and
+ * call the callback function.
+ */
+ISR(TCC0_CCA_vect)
+{
+     478:	1f 92       	push	r1
+     47a:	0f 92       	push	r0
+     47c:	0f b6       	in	r0, 0x3f	; 63
+     47e:	0f 92       	push	r0
+     480:	11 24       	eor	r1, r1
+     482:	08 b6       	in	r0, 0x38	; 56
+     484:	0f 92       	push	r0
+     486:	18 be       	out	0x38, r1	; 56
+     488:	09 b6       	in	r0, 0x39	; 57
+     48a:	0f 92       	push	r0
+     48c:	19 be       	out	0x39, r1	; 57
+     48e:	0b b6       	in	r0, 0x3b	; 59
+     490:	0f 92       	push	r0
+     492:	1b be       	out	0x3b, r1	; 59
+     494:	2f 93       	push	r18
+     496:	3f 93       	push	r19
+     498:	4f 93       	push	r20
+     49a:	5f 93       	push	r21
+     49c:	6f 93       	push	r22
+     49e:	7f 93       	push	r23
+     4a0:	8f 93       	push	r24
+     4a2:	9f 93       	push	r25
+     4a4:	af 93       	push	r26
+     4a6:	bf 93       	push	r27
+     4a8:	ef 93       	push	r30
+     4aa:	ff 93       	push	r31
+	if (tc_tcc0_cca_callback) {
+     4ac:	e0 91 4a 20 	lds	r30, 0x204A	; 0x80204a <tc_tcc0_cca_callback>
+     4b0:	f0 91 4b 20 	lds	r31, 0x204B	; 0x80204b <tc_tcc0_cca_callback+0x1>
+     4b4:	30 97       	sbiw	r30, 0x00	; 0
+     4b6:	09 f0       	breq	.+2      	; 0x4ba <__vector_16+0x42>
+		tc_tcc0_cca_callback();
+     4b8:	19 95       	eicall
+	}
+}
+     4ba:	ff 91       	pop	r31
+     4bc:	ef 91       	pop	r30
+     4be:	bf 91       	pop	r27
+     4c0:	af 91       	pop	r26
+     4c2:	9f 91       	pop	r25
+     4c4:	8f 91       	pop	r24
+     4c6:	7f 91       	pop	r23
+     4c8:	6f 91       	pop	r22
+     4ca:	5f 91       	pop	r21
+     4cc:	4f 91       	pop	r20
+     4ce:	3f 91       	pop	r19
+     4d0:	2f 91       	pop	r18
+     4d2:	0f 90       	pop	r0
+     4d4:	0b be       	out	0x3b, r0	; 59
+     4d6:	0f 90       	pop	r0
+     4d8:	09 be       	out	0x39, r0	; 57
+     4da:	0f 90       	pop	r0
+     4dc:	08 be       	out	0x38, r0	; 56
+     4de:	0f 90       	pop	r0
+     4e0:	0f be       	out	0x3f, r0	; 63
+     4e2:	0f 90       	pop	r0
+     4e4:	1f 90       	pop	r1
+     4e6:	18 95       	reti
+
+000004e8 <__vector_17>:
+ *
+ * This function will handle interrupt on Timer Counter CO Compare/CaptureB and
+ * call the callback function.
+ */
+ISR(TCC0_CCB_vect)
+{
+     4e8:	1f 92       	push	r1
+     4ea:	0f 92       	push	r0
+     4ec:	0f b6       	in	r0, 0x3f	; 63
+     4ee:	0f 92       	push	r0
+     4f0:	11 24       	eor	r1, r1
+     4f2:	08 b6       	in	r0, 0x38	; 56
+     4f4:	0f 92       	push	r0
+     4f6:	18 be       	out	0x38, r1	; 56
+     4f8:	09 b6       	in	r0, 0x39	; 57
+     4fa:	0f 92       	push	r0
+     4fc:	19 be       	out	0x39, r1	; 57
+     4fe:	0b b6       	in	r0, 0x3b	; 59
+     500:	0f 92       	push	r0
+     502:	1b be       	out	0x3b, r1	; 59
+     504:	2f 93       	push	r18
+     506:	3f 93       	push	r19
+     508:	4f 93       	push	r20
+     50a:	5f 93       	push	r21
+     50c:	6f 93       	push	r22
+     50e:	7f 93       	push	r23
+     510:	8f 93       	push	r24
+     512:	9f 93       	push	r25
+     514:	af 93       	push	r26
+     516:	bf 93       	push	r27
+     518:	ef 93       	push	r30
+     51a:	ff 93       	push	r31
+	if (tc_tcc0_ccb_callback) {
+     51c:	e0 91 48 20 	lds	r30, 0x2048	; 0x802048 <tc_tcc0_ccb_callback>
+     520:	f0 91 49 20 	lds	r31, 0x2049	; 0x802049 <tc_tcc0_ccb_callback+0x1>
+     524:	30 97       	sbiw	r30, 0x00	; 0
+     526:	09 f0       	breq	.+2      	; 0x52a <__vector_17+0x42>
+		tc_tcc0_ccb_callback();
+     528:	19 95       	eicall
+	}
+}
+     52a:	ff 91       	pop	r31
+     52c:	ef 91       	pop	r30
+     52e:	bf 91       	pop	r27
+     530:	af 91       	pop	r26
+     532:	9f 91       	pop	r25
+     534:	8f 91       	pop	r24
+     536:	7f 91       	pop	r23
+     538:	6f 91       	pop	r22
+     53a:	5f 91       	pop	r21
+     53c:	4f 91       	pop	r20
+     53e:	3f 91       	pop	r19
+     540:	2f 91       	pop	r18
+     542:	0f 90       	pop	r0
+     544:	0b be       	out	0x3b, r0	; 59
+     546:	0f 90       	pop	r0
+     548:	09 be       	out	0x39, r0	; 57
+     54a:	0f 90       	pop	r0
+     54c:	08 be       	out	0x38, r0	; 56
+     54e:	0f 90       	pop	r0
+     550:	0f be       	out	0x3f, r0	; 63
+     552:	0f 90       	pop	r0
+     554:	1f 90       	pop	r1
+     556:	18 95       	reti
+
+00000558 <__vector_18>:
+ *
+ * This function will handle interrupt on Timer Counter CO Compare/CaptureC and
+ * call the callback function.
+ */
+ISR(TCC0_CCC_vect)
+{
+     558:	1f 92       	push	r1
+     55a:	0f 92       	push	r0
+     55c:	0f b6       	in	r0, 0x3f	; 63
+     55e:	0f 92       	push	r0
+     560:	11 24       	eor	r1, r1
+     562:	08 b6       	in	r0, 0x38	; 56
+     564:	0f 92       	push	r0
+     566:	18 be       	out	0x38, r1	; 56
+     568:	09 b6       	in	r0, 0x39	; 57
+     56a:	0f 92       	push	r0
+     56c:	19 be       	out	0x39, r1	; 57
+     56e:	0b b6       	in	r0, 0x3b	; 59
+     570:	0f 92       	push	r0
+     572:	1b be       	out	0x3b, r1	; 59
+     574:	2f 93       	push	r18
+     576:	3f 93       	push	r19
+     578:	4f 93       	push	r20
+     57a:	5f 93       	push	r21
+     57c:	6f 93       	push	r22
+     57e:	7f 93       	push	r23
+     580:	8f 93       	push	r24
+     582:	9f 93       	push	r25
+     584:	af 93       	push	r26
+     586:	bf 93       	push	r27
+     588:	ef 93       	push	r30
+     58a:	ff 93       	push	r31
+	if (tc_tcc0_ccc_callback) {
+     58c:	e0 91 46 20 	lds	r30, 0x2046	; 0x802046 <tc_tcc0_ccc_callback>
+     590:	f0 91 47 20 	lds	r31, 0x2047	; 0x802047 <tc_tcc0_ccc_callback+0x1>
+     594:	30 97       	sbiw	r30, 0x00	; 0
+     596:	09 f0       	breq	.+2      	; 0x59a <__vector_18+0x42>
+		tc_tcc0_ccc_callback();
+     598:	19 95       	eicall
+	}
+}
+     59a:	ff 91       	pop	r31
+     59c:	ef 91       	pop	r30
+     59e:	bf 91       	pop	r27
+     5a0:	af 91       	pop	r26
+     5a2:	9f 91       	pop	r25
+     5a4:	8f 91       	pop	r24
+     5a6:	7f 91       	pop	r23
+     5a8:	6f 91       	pop	r22
+     5aa:	5f 91       	pop	r21
+     5ac:	4f 91       	pop	r20
+     5ae:	3f 91       	pop	r19
+     5b0:	2f 91       	pop	r18
+     5b2:	0f 90       	pop	r0
+     5b4:	0b be       	out	0x3b, r0	; 59
+     5b6:	0f 90       	pop	r0
+     5b8:	09 be       	out	0x39, r0	; 57
+     5ba:	0f 90       	pop	r0
+     5bc:	08 be       	out	0x38, r0	; 56
+     5be:	0f 90       	pop	r0
+     5c0:	0f be       	out	0x3f, r0	; 63
+     5c2:	0f 90       	pop	r0
+     5c4:	1f 90       	pop	r1
+     5c6:	18 95       	reti
+
+000005c8 <__vector_19>:
+ *
+ * This function will handle interrupt on Timer Counter CO Compare/CaptureD and
+ * call the callback function.
+ */
+ISR(TCC0_CCD_vect)
+{
+     5c8:	1f 92       	push	r1
+     5ca:	0f 92       	push	r0
+     5cc:	0f b6       	in	r0, 0x3f	; 63
+     5ce:	0f 92       	push	r0
+     5d0:	11 24       	eor	r1, r1
+     5d2:	08 b6       	in	r0, 0x38	; 56
+     5d4:	0f 92       	push	r0
+     5d6:	18 be       	out	0x38, r1	; 56
+     5d8:	09 b6       	in	r0, 0x39	; 57
+     5da:	0f 92       	push	r0
+     5dc:	19 be       	out	0x39, r1	; 57
+     5de:	0b b6       	in	r0, 0x3b	; 59
+     5e0:	0f 92       	push	r0
+     5e2:	1b be       	out	0x3b, r1	; 59
+     5e4:	2f 93       	push	r18
+     5e6:	3f 93       	push	r19
+     5e8:	4f 93       	push	r20
+     5ea:	5f 93       	push	r21
+     5ec:	6f 93       	push	r22
+     5ee:	7f 93       	push	r23
+     5f0:	8f 93       	push	r24
+     5f2:	9f 93       	push	r25
+     5f4:	af 93       	push	r26
+     5f6:	bf 93       	push	r27
+     5f8:	ef 93       	push	r30
+     5fa:	ff 93       	push	r31
+	if (tc_tcc0_ccd_callback) {
+     5fc:	e0 91 44 20 	lds	r30, 0x2044	; 0x802044 <tc_tcc0_ccd_callback>
+     600:	f0 91 45 20 	lds	r31, 0x2045	; 0x802045 <tc_tcc0_ccd_callback+0x1>
+     604:	30 97       	sbiw	r30, 0x00	; 0
+     606:	09 f0       	breq	.+2      	; 0x60a <__vector_19+0x42>
+		tc_tcc0_ccd_callback();
+     608:	19 95       	eicall
+	}
+}
+     60a:	ff 91       	pop	r31
+     60c:	ef 91       	pop	r30
+     60e:	bf 91       	pop	r27
+     610:	af 91       	pop	r26
+     612:	9f 91       	pop	r25
+     614:	8f 91       	pop	r24
+     616:	7f 91       	pop	r23
+     618:	6f 91       	pop	r22
+     61a:	5f 91       	pop	r21
+     61c:	4f 91       	pop	r20
+     61e:	3f 91       	pop	r19
+     620:	2f 91       	pop	r18
+     622:	0f 90       	pop	r0
+     624:	0b be       	out	0x3b, r0	; 59
+     626:	0f 90       	pop	r0
+     628:	09 be       	out	0x39, r0	; 57
+     62a:	0f 90       	pop	r0
+     62c:	08 be       	out	0x38, r0	; 56
+     62e:	0f 90       	pop	r0
+     630:	0f be       	out	0x3f, r0	; 63
+     632:	0f 90       	pop	r0
+     634:	1f 90       	pop	r1
+     636:	18 95       	reti
+
+00000638 <__vector_20>:
+ *
+ * This function will handle interrupt on Timer Counter C1 overflow and
+ * call the callback function.
+ */
+ISR(TCC1_OVF_vect)
+{
+     638:	1f 92       	push	r1
+     63a:	0f 92       	push	r0
+     63c:	0f b6       	in	r0, 0x3f	; 63
+     63e:	0f 92       	push	r0
+     640:	11 24       	eor	r1, r1
+     642:	08 b6       	in	r0, 0x38	; 56
+     644:	0f 92       	push	r0
+     646:	18 be       	out	0x38, r1	; 56
+     648:	09 b6       	in	r0, 0x39	; 57
+     64a:	0f 92       	push	r0
+     64c:	19 be       	out	0x39, r1	; 57
+     64e:	0b b6       	in	r0, 0x3b	; 59
+     650:	0f 92       	push	r0
+     652:	1b be       	out	0x3b, r1	; 59
+     654:	2f 93       	push	r18
+     656:	3f 93       	push	r19
+     658:	4f 93       	push	r20
+     65a:	5f 93       	push	r21
+     65c:	6f 93       	push	r22
+     65e:	7f 93       	push	r23
+     660:	8f 93       	push	r24
+     662:	9f 93       	push	r25
+     664:	af 93       	push	r26
+     666:	bf 93       	push	r27
+     668:	ef 93       	push	r30
+     66a:	ff 93       	push	r31
+	if (tc_tcc1_ovf_callback) {
+     66c:	e0 91 42 20 	lds	r30, 0x2042	; 0x802042 <tc_tcc1_ovf_callback>
+     670:	f0 91 43 20 	lds	r31, 0x2043	; 0x802043 <tc_tcc1_ovf_callback+0x1>
+     674:	30 97       	sbiw	r30, 0x00	; 0
+     676:	09 f0       	breq	.+2      	; 0x67a <__vector_20+0x42>
+		tc_tcc1_ovf_callback();
+     678:	19 95       	eicall
+	}
+}
+     67a:	ff 91       	pop	r31
+     67c:	ef 91       	pop	r30
+     67e:	bf 91       	pop	r27
+     680:	af 91       	pop	r26
+     682:	9f 91       	pop	r25
+     684:	8f 91       	pop	r24
+     686:	7f 91       	pop	r23
+     688:	6f 91       	pop	r22
+     68a:	5f 91       	pop	r21
+     68c:	4f 91       	pop	r20
+     68e:	3f 91       	pop	r19
+     690:	2f 91       	pop	r18
+     692:	0f 90       	pop	r0
+     694:	0b be       	out	0x3b, r0	; 59
+     696:	0f 90       	pop	r0
+     698:	09 be       	out	0x39, r0	; 57
+     69a:	0f 90       	pop	r0
+     69c:	08 be       	out	0x38, r0	; 56
+     69e:	0f 90       	pop	r0
+     6a0:	0f be       	out	0x3f, r0	; 63
+     6a2:	0f 90       	pop	r0
+     6a4:	1f 90       	pop	r1
+     6a6:	18 95       	reti
+
+000006a8 <__vector_21>:
+ *
+ * This function will handle interrupt on Timer Counter C1 error and
+ * call the callback function.
+ */
+ISR(TCC1_ERR_vect)
+{
+     6a8:	1f 92       	push	r1
+     6aa:	0f 92       	push	r0
+     6ac:	0f b6       	in	r0, 0x3f	; 63
+     6ae:	0f 92       	push	r0
+     6b0:	11 24       	eor	r1, r1
+     6b2:	08 b6       	in	r0, 0x38	; 56
+     6b4:	0f 92       	push	r0
+     6b6:	18 be       	out	0x38, r1	; 56
+     6b8:	09 b6       	in	r0, 0x39	; 57
+     6ba:	0f 92       	push	r0
+     6bc:	19 be       	out	0x39, r1	; 57
+     6be:	0b b6       	in	r0, 0x3b	; 59
+     6c0:	0f 92       	push	r0
+     6c2:	1b be       	out	0x3b, r1	; 59
+     6c4:	2f 93       	push	r18
+     6c6:	3f 93       	push	r19
+     6c8:	4f 93       	push	r20
+     6ca:	5f 93       	push	r21
+     6cc:	6f 93       	push	r22
+     6ce:	7f 93       	push	r23
+     6d0:	8f 93       	push	r24
+     6d2:	9f 93       	push	r25
+     6d4:	af 93       	push	r26
+     6d6:	bf 93       	push	r27
+     6d8:	ef 93       	push	r30
+     6da:	ff 93       	push	r31
+	if (tc_tcc1_err_callback) {
+     6dc:	e0 91 40 20 	lds	r30, 0x2040	; 0x802040 <tc_tcc1_err_callback>
+     6e0:	f0 91 41 20 	lds	r31, 0x2041	; 0x802041 <tc_tcc1_err_callback+0x1>
+     6e4:	30 97       	sbiw	r30, 0x00	; 0
+     6e6:	09 f0       	breq	.+2      	; 0x6ea <__vector_21+0x42>
+		tc_tcc1_err_callback();
+     6e8:	19 95       	eicall
+	}
+}
+     6ea:	ff 91       	pop	r31
+     6ec:	ef 91       	pop	r30
+     6ee:	bf 91       	pop	r27
+     6f0:	af 91       	pop	r26
+     6f2:	9f 91       	pop	r25
+     6f4:	8f 91       	pop	r24
+     6f6:	7f 91       	pop	r23
+     6f8:	6f 91       	pop	r22
+     6fa:	5f 91       	pop	r21
+     6fc:	4f 91       	pop	r20
+     6fe:	3f 91       	pop	r19
+     700:	2f 91       	pop	r18
+     702:	0f 90       	pop	r0
+     704:	0b be       	out	0x3b, r0	; 59
+     706:	0f 90       	pop	r0
+     708:	09 be       	out	0x39, r0	; 57
+     70a:	0f 90       	pop	r0
+     70c:	08 be       	out	0x38, r0	; 56
+     70e:	0f 90       	pop	r0
+     710:	0f be       	out	0x3f, r0	; 63
+     712:	0f 90       	pop	r0
+     714:	1f 90       	pop	r1
+     716:	18 95       	reti
+
+00000718 <__vector_22>:
+ *
+ * This function will handle interrupt on Timer Counter C1 Compare/CaptureA and
+ * call the callback function.
+ */
+ISR(TCC1_CCA_vect)
+{
+     718:	1f 92       	push	r1
+     71a:	0f 92       	push	r0
+     71c:	0f b6       	in	r0, 0x3f	; 63
+     71e:	0f 92       	push	r0
+     720:	11 24       	eor	r1, r1
+     722:	08 b6       	in	r0, 0x38	; 56
+     724:	0f 92       	push	r0
+     726:	18 be       	out	0x38, r1	; 56
+     728:	09 b6       	in	r0, 0x39	; 57
+     72a:	0f 92       	push	r0
+     72c:	19 be       	out	0x39, r1	; 57
+     72e:	0b b6       	in	r0, 0x3b	; 59
+     730:	0f 92       	push	r0
+     732:	1b be       	out	0x3b, r1	; 59
+     734:	2f 93       	push	r18
+     736:	3f 93       	push	r19
+     738:	4f 93       	push	r20
+     73a:	5f 93       	push	r21
+     73c:	6f 93       	push	r22
+     73e:	7f 93       	push	r23
+     740:	8f 93       	push	r24
+     742:	9f 93       	push	r25
+     744:	af 93       	push	r26
+     746:	bf 93       	push	r27
+     748:	ef 93       	push	r30
+     74a:	ff 93       	push	r31
+	if (tc_tcc1_cca_callback) {
+     74c:	e0 91 3e 20 	lds	r30, 0x203E	; 0x80203e <tc_tcc1_cca_callback>
+     750:	f0 91 3f 20 	lds	r31, 0x203F	; 0x80203f <tc_tcc1_cca_callback+0x1>
+     754:	30 97       	sbiw	r30, 0x00	; 0
+     756:	09 f0       	breq	.+2      	; 0x75a <__vector_22+0x42>
+		tc_tcc1_cca_callback();
+     758:	19 95       	eicall
+	}
+}
+     75a:	ff 91       	pop	r31
+     75c:	ef 91       	pop	r30
+     75e:	bf 91       	pop	r27
+     760:	af 91       	pop	r26
+     762:	9f 91       	pop	r25
+     764:	8f 91       	pop	r24
+     766:	7f 91       	pop	r23
+     768:	6f 91       	pop	r22
+     76a:	5f 91       	pop	r21
+     76c:	4f 91       	pop	r20
+     76e:	3f 91       	pop	r19
+     770:	2f 91       	pop	r18
+     772:	0f 90       	pop	r0
+     774:	0b be       	out	0x3b, r0	; 59
+     776:	0f 90       	pop	r0
+     778:	09 be       	out	0x39, r0	; 57
+     77a:	0f 90       	pop	r0
+     77c:	08 be       	out	0x38, r0	; 56
+     77e:	0f 90       	pop	r0
+     780:	0f be       	out	0x3f, r0	; 63
+     782:	0f 90       	pop	r0
+     784:	1f 90       	pop	r1
+     786:	18 95       	reti
+
+00000788 <__vector_23>:
+ *
+ * This function will handle interrupt on Timer Counter C1 Compare/CaptureB and
+ * call the callback function.
+ */
+ISR(TCC1_CCB_vect)
+{
+     788:	1f 92       	push	r1
+     78a:	0f 92       	push	r0
+     78c:	0f b6       	in	r0, 0x3f	; 63
+     78e:	0f 92       	push	r0
+     790:	11 24       	eor	r1, r1
+     792:	08 b6       	in	r0, 0x38	; 56
+     794:	0f 92       	push	r0
+     796:	18 be       	out	0x38, r1	; 56
+     798:	09 b6       	in	r0, 0x39	; 57
+     79a:	0f 92       	push	r0
+     79c:	19 be       	out	0x39, r1	; 57
+     79e:	0b b6       	in	r0, 0x3b	; 59
+     7a0:	0f 92       	push	r0
+     7a2:	1b be       	out	0x3b, r1	; 59
+     7a4:	2f 93       	push	r18
+     7a6:	3f 93       	push	r19
+     7a8:	4f 93       	push	r20
+     7aa:	5f 93       	push	r21
+     7ac:	6f 93       	push	r22
+     7ae:	7f 93       	push	r23
+     7b0:	8f 93       	push	r24
+     7b2:	9f 93       	push	r25
+     7b4:	af 93       	push	r26
+     7b6:	bf 93       	push	r27
+     7b8:	ef 93       	push	r30
+     7ba:	ff 93       	push	r31
+	if (tc_tcc1_ccb_callback) {
+     7bc:	e0 91 3c 20 	lds	r30, 0x203C	; 0x80203c <tc_tcc1_ccb_callback>
+     7c0:	f0 91 3d 20 	lds	r31, 0x203D	; 0x80203d <tc_tcc1_ccb_callback+0x1>
+     7c4:	30 97       	sbiw	r30, 0x00	; 0
+     7c6:	09 f0       	breq	.+2      	; 0x7ca <__vector_23+0x42>
+		tc_tcc1_ccb_callback();
+     7c8:	19 95       	eicall
+	}
+}
+     7ca:	ff 91       	pop	r31
+     7cc:	ef 91       	pop	r30
+     7ce:	bf 91       	pop	r27
+     7d0:	af 91       	pop	r26
+     7d2:	9f 91       	pop	r25
+     7d4:	8f 91       	pop	r24
+     7d6:	7f 91       	pop	r23
+     7d8:	6f 91       	pop	r22
+     7da:	5f 91       	pop	r21
+     7dc:	4f 91       	pop	r20
+     7de:	3f 91       	pop	r19
+     7e0:	2f 91       	pop	r18
+     7e2:	0f 90       	pop	r0
+     7e4:	0b be       	out	0x3b, r0	; 59
+     7e6:	0f 90       	pop	r0
+     7e8:	09 be       	out	0x39, r0	; 57
+     7ea:	0f 90       	pop	r0
+     7ec:	08 be       	out	0x38, r0	; 56
+     7ee:	0f 90       	pop	r0
+     7f0:	0f be       	out	0x3f, r0	; 63
+     7f2:	0f 90       	pop	r0
+     7f4:	1f 90       	pop	r1
+     7f6:	18 95       	reti
+
+000007f8 <__vector_77>:
+ *
+ * This function will handle interrupt on Timer Counter D0 overflow and
+ * call the callback function.
+ */
+ISR(TCD0_OVF_vect)
+{
+     7f8:	1f 92       	push	r1
+     7fa:	0f 92       	push	r0
+     7fc:	0f b6       	in	r0, 0x3f	; 63
+     7fe:	0f 92       	push	r0
+     800:	11 24       	eor	r1, r1
+     802:	08 b6       	in	r0, 0x38	; 56
+     804:	0f 92       	push	r0
+     806:	18 be       	out	0x38, r1	; 56
+     808:	09 b6       	in	r0, 0x39	; 57
+     80a:	0f 92       	push	r0
+     80c:	19 be       	out	0x39, r1	; 57
+     80e:	0b b6       	in	r0, 0x3b	; 59
+     810:	0f 92       	push	r0
+     812:	1b be       	out	0x3b, r1	; 59
+     814:	2f 93       	push	r18
+     816:	3f 93       	push	r19
+     818:	4f 93       	push	r20
+     81a:	5f 93       	push	r21
+     81c:	6f 93       	push	r22
+     81e:	7f 93       	push	r23
+     820:	8f 93       	push	r24
+     822:	9f 93       	push	r25
+     824:	af 93       	push	r26
+     826:	bf 93       	push	r27
+     828:	ef 93       	push	r30
+     82a:	ff 93       	push	r31
+	if (tc_tcd0_ovf_callback) {
+     82c:	e0 91 3a 20 	lds	r30, 0x203A	; 0x80203a <tc_tcd0_ovf_callback>
+     830:	f0 91 3b 20 	lds	r31, 0x203B	; 0x80203b <tc_tcd0_ovf_callback+0x1>
+     834:	30 97       	sbiw	r30, 0x00	; 0
+     836:	09 f0       	breq	.+2      	; 0x83a <__vector_77+0x42>
+		tc_tcd0_ovf_callback();
+     838:	19 95       	eicall
+	}
+}
+     83a:	ff 91       	pop	r31
+     83c:	ef 91       	pop	r30
+     83e:	bf 91       	pop	r27
+     840:	af 91       	pop	r26
+     842:	9f 91       	pop	r25
+     844:	8f 91       	pop	r24
+     846:	7f 91       	pop	r23
+     848:	6f 91       	pop	r22
+     84a:	5f 91       	pop	r21
+     84c:	4f 91       	pop	r20
+     84e:	3f 91       	pop	r19
+     850:	2f 91       	pop	r18
+     852:	0f 90       	pop	r0
+     854:	0b be       	out	0x3b, r0	; 59
+     856:	0f 90       	pop	r0
+     858:	09 be       	out	0x39, r0	; 57
+     85a:	0f 90       	pop	r0
+     85c:	08 be       	out	0x38, r0	; 56
+     85e:	0f 90       	pop	r0
+     860:	0f be       	out	0x3f, r0	; 63
+     862:	0f 90       	pop	r0
+     864:	1f 90       	pop	r1
+     866:	18 95       	reti
+
+00000868 <__vector_78>:
+ *
+ * This function will handle interrupt on Timer Counter D0 error and
+ * call the callback function.
+ */
+ISR(TCD0_ERR_vect)
+{
+     868:	1f 92       	push	r1
+     86a:	0f 92       	push	r0
+     86c:	0f b6       	in	r0, 0x3f	; 63
+     86e:	0f 92       	push	r0
+     870:	11 24       	eor	r1, r1
+     872:	08 b6       	in	r0, 0x38	; 56
+     874:	0f 92       	push	r0
+     876:	18 be       	out	0x38, r1	; 56
+     878:	09 b6       	in	r0, 0x39	; 57
+     87a:	0f 92       	push	r0
+     87c:	19 be       	out	0x39, r1	; 57
+     87e:	0b b6       	in	r0, 0x3b	; 59
+     880:	0f 92       	push	r0
+     882:	1b be       	out	0x3b, r1	; 59
+     884:	2f 93       	push	r18
+     886:	3f 93       	push	r19
+     888:	4f 93       	push	r20
+     88a:	5f 93       	push	r21
+     88c:	6f 93       	push	r22
+     88e:	7f 93       	push	r23
+     890:	8f 93       	push	r24
+     892:	9f 93       	push	r25
+     894:	af 93       	push	r26
+     896:	bf 93       	push	r27
+     898:	ef 93       	push	r30
+     89a:	ff 93       	push	r31
+	if (tc_tcd0_err_callback) {
+     89c:	e0 91 38 20 	lds	r30, 0x2038	; 0x802038 <tc_tcd0_err_callback>
+     8a0:	f0 91 39 20 	lds	r31, 0x2039	; 0x802039 <tc_tcd0_err_callback+0x1>
+     8a4:	30 97       	sbiw	r30, 0x00	; 0
+     8a6:	09 f0       	breq	.+2      	; 0x8aa <__vector_78+0x42>
+		tc_tcd0_err_callback();
+     8a8:	19 95       	eicall
+	}
+}
+     8aa:	ff 91       	pop	r31
+     8ac:	ef 91       	pop	r30
+     8ae:	bf 91       	pop	r27
+     8b0:	af 91       	pop	r26
+     8b2:	9f 91       	pop	r25
+     8b4:	8f 91       	pop	r24
+     8b6:	7f 91       	pop	r23
+     8b8:	6f 91       	pop	r22
+     8ba:	5f 91       	pop	r21
+     8bc:	4f 91       	pop	r20
+     8be:	3f 91       	pop	r19
+     8c0:	2f 91       	pop	r18
+     8c2:	0f 90       	pop	r0
+     8c4:	0b be       	out	0x3b, r0	; 59
+     8c6:	0f 90       	pop	r0
+     8c8:	09 be       	out	0x39, r0	; 57
+     8ca:	0f 90       	pop	r0
+     8cc:	08 be       	out	0x38, r0	; 56
+     8ce:	0f 90       	pop	r0
+     8d0:	0f be       	out	0x3f, r0	; 63
+     8d2:	0f 90       	pop	r0
+     8d4:	1f 90       	pop	r1
+     8d6:	18 95       	reti
+
+000008d8 <__vector_79>:
+ *
+ * This function will handle interrupt on Timer Counter D0 Compare/CaptureA and
+ * call the callback function.
+ */
+ISR(TCD0_CCA_vect)
+{
+     8d8:	1f 92       	push	r1
+     8da:	0f 92       	push	r0
+     8dc:	0f b6       	in	r0, 0x3f	; 63
+     8de:	0f 92       	push	r0
+     8e0:	11 24       	eor	r1, r1
+     8e2:	08 b6       	in	r0, 0x38	; 56
+     8e4:	0f 92       	push	r0
+     8e6:	18 be       	out	0x38, r1	; 56
+     8e8:	09 b6       	in	r0, 0x39	; 57
+     8ea:	0f 92       	push	r0
+     8ec:	19 be       	out	0x39, r1	; 57
+     8ee:	0b b6       	in	r0, 0x3b	; 59
+     8f0:	0f 92       	push	r0
+     8f2:	1b be       	out	0x3b, r1	; 59
+     8f4:	2f 93       	push	r18
+     8f6:	3f 93       	push	r19
+     8f8:	4f 93       	push	r20
+     8fa:	5f 93       	push	r21
+     8fc:	6f 93       	push	r22
+     8fe:	7f 93       	push	r23
+     900:	8f 93       	push	r24
+     902:	9f 93       	push	r25
+     904:	af 93       	push	r26
+     906:	bf 93       	push	r27
+     908:	ef 93       	push	r30
+     90a:	ff 93       	push	r31
+	if (tc_tcd0_cca_callback) {
+     90c:	e0 91 36 20 	lds	r30, 0x2036	; 0x802036 <tc_tcd0_cca_callback>
+     910:	f0 91 37 20 	lds	r31, 0x2037	; 0x802037 <tc_tcd0_cca_callback+0x1>
+     914:	30 97       	sbiw	r30, 0x00	; 0
+     916:	09 f0       	breq	.+2      	; 0x91a <__vector_79+0x42>
+		tc_tcd0_cca_callback();
+     918:	19 95       	eicall
+	}
+}
+     91a:	ff 91       	pop	r31
+     91c:	ef 91       	pop	r30
+     91e:	bf 91       	pop	r27
+     920:	af 91       	pop	r26
+     922:	9f 91       	pop	r25
+     924:	8f 91       	pop	r24
+     926:	7f 91       	pop	r23
+     928:	6f 91       	pop	r22
+     92a:	5f 91       	pop	r21
+     92c:	4f 91       	pop	r20
+     92e:	3f 91       	pop	r19
+     930:	2f 91       	pop	r18
+     932:	0f 90       	pop	r0
+     934:	0b be       	out	0x3b, r0	; 59
+     936:	0f 90       	pop	r0
+     938:	09 be       	out	0x39, r0	; 57
+     93a:	0f 90       	pop	r0
+     93c:	08 be       	out	0x38, r0	; 56
+     93e:	0f 90       	pop	r0
+     940:	0f be       	out	0x3f, r0	; 63
+     942:	0f 90       	pop	r0
+     944:	1f 90       	pop	r1
+     946:	18 95       	reti
+
+00000948 <__vector_80>:
+ *
+ * This function will handle interrupt on Timer Counter D0 Compare/CaptureB and
+ * call the callback function.
+ */
+ISR(TCD0_CCB_vect)
+{
+     948:	1f 92       	push	r1
+     94a:	0f 92       	push	r0
+     94c:	0f b6       	in	r0, 0x3f	; 63
+     94e:	0f 92       	push	r0
+     950:	11 24       	eor	r1, r1
+     952:	08 b6       	in	r0, 0x38	; 56
+     954:	0f 92       	push	r0
+     956:	18 be       	out	0x38, r1	; 56
+     958:	09 b6       	in	r0, 0x39	; 57
+     95a:	0f 92       	push	r0
+     95c:	19 be       	out	0x39, r1	; 57
+     95e:	0b b6       	in	r0, 0x3b	; 59
+     960:	0f 92       	push	r0
+     962:	1b be       	out	0x3b, r1	; 59
+     964:	2f 93       	push	r18
+     966:	3f 93       	push	r19
+     968:	4f 93       	push	r20
+     96a:	5f 93       	push	r21
+     96c:	6f 93       	push	r22
+     96e:	7f 93       	push	r23
+     970:	8f 93       	push	r24
+     972:	9f 93       	push	r25
+     974:	af 93       	push	r26
+     976:	bf 93       	push	r27
+     978:	ef 93       	push	r30
+     97a:	ff 93       	push	r31
+	if (tc_tcd0_ccb_callback) {
+     97c:	e0 91 34 20 	lds	r30, 0x2034	; 0x802034 <tc_tcd0_ccb_callback>
+     980:	f0 91 35 20 	lds	r31, 0x2035	; 0x802035 <tc_tcd0_ccb_callback+0x1>
+     984:	30 97       	sbiw	r30, 0x00	; 0
+     986:	09 f0       	breq	.+2      	; 0x98a <__vector_80+0x42>
+		tc_tcd0_ccb_callback();
+     988:	19 95       	eicall
+	}
+}
+     98a:	ff 91       	pop	r31
+     98c:	ef 91       	pop	r30
+     98e:	bf 91       	pop	r27
+     990:	af 91       	pop	r26
+     992:	9f 91       	pop	r25
+     994:	8f 91       	pop	r24
+     996:	7f 91       	pop	r23
+     998:	6f 91       	pop	r22
+     99a:	5f 91       	pop	r21
+     99c:	4f 91       	pop	r20
+     99e:	3f 91       	pop	r19
+     9a0:	2f 91       	pop	r18
+     9a2:	0f 90       	pop	r0
+     9a4:	0b be       	out	0x3b, r0	; 59
+     9a6:	0f 90       	pop	r0
+     9a8:	09 be       	out	0x39, r0	; 57
+     9aa:	0f 90       	pop	r0
+     9ac:	08 be       	out	0x38, r0	; 56
+     9ae:	0f 90       	pop	r0
+     9b0:	0f be       	out	0x3f, r0	; 63
+     9b2:	0f 90       	pop	r0
+     9b4:	1f 90       	pop	r1
+     9b6:	18 95       	reti
+
+000009b8 <__vector_81>:
+ *
+ * This function will handle interrupt on Timer Counter D0 Compare/CaptureC and
+ * call the callback function.
+ */
+ISR(TCD0_CCC_vect)
+{
+     9b8:	1f 92       	push	r1
+     9ba:	0f 92       	push	r0
+     9bc:	0f b6       	in	r0, 0x3f	; 63
+     9be:	0f 92       	push	r0
+     9c0:	11 24       	eor	r1, r1
+     9c2:	08 b6       	in	r0, 0x38	; 56
+     9c4:	0f 92       	push	r0
+     9c6:	18 be       	out	0x38, r1	; 56
+     9c8:	09 b6       	in	r0, 0x39	; 57
+     9ca:	0f 92       	push	r0
+     9cc:	19 be       	out	0x39, r1	; 57
+     9ce:	0b b6       	in	r0, 0x3b	; 59
+     9d0:	0f 92       	push	r0
+     9d2:	1b be       	out	0x3b, r1	; 59
+     9d4:	2f 93       	push	r18
+     9d6:	3f 93       	push	r19
+     9d8:	4f 93       	push	r20
+     9da:	5f 93       	push	r21
+     9dc:	6f 93       	push	r22
+     9de:	7f 93       	push	r23
+     9e0:	8f 93       	push	r24
+     9e2:	9f 93       	push	r25
+     9e4:	af 93       	push	r26
+     9e6:	bf 93       	push	r27
+     9e8:	ef 93       	push	r30
+     9ea:	ff 93       	push	r31
+	if (tc_tcd0_ccc_callback) {
+     9ec:	e0 91 32 20 	lds	r30, 0x2032	; 0x802032 <tc_tcd0_ccc_callback>
+     9f0:	f0 91 33 20 	lds	r31, 0x2033	; 0x802033 <tc_tcd0_ccc_callback+0x1>
+     9f4:	30 97       	sbiw	r30, 0x00	; 0
+     9f6:	09 f0       	breq	.+2      	; 0x9fa <__vector_81+0x42>
+		tc_tcd0_ccc_callback();
+     9f8:	19 95       	eicall
+	}
+}
+     9fa:	ff 91       	pop	r31
+     9fc:	ef 91       	pop	r30
+     9fe:	bf 91       	pop	r27
+     a00:	af 91       	pop	r26
+     a02:	9f 91       	pop	r25
+     a04:	8f 91       	pop	r24
+     a06:	7f 91       	pop	r23
+     a08:	6f 91       	pop	r22
+     a0a:	5f 91       	pop	r21
+     a0c:	4f 91       	pop	r20
+     a0e:	3f 91       	pop	r19
+     a10:	2f 91       	pop	r18
+     a12:	0f 90       	pop	r0
+     a14:	0b be       	out	0x3b, r0	; 59
+     a16:	0f 90       	pop	r0
+     a18:	09 be       	out	0x39, r0	; 57
+     a1a:	0f 90       	pop	r0
+     a1c:	08 be       	out	0x38, r0	; 56
+     a1e:	0f 90       	pop	r0
+     a20:	0f be       	out	0x3f, r0	; 63
+     a22:	0f 90       	pop	r0
+     a24:	1f 90       	pop	r1
+     a26:	18 95       	reti
+
+00000a28 <__vector_82>:
+ *
+ * This function will handle interrupt on Timer Counter D0 Compare/CaptureD and
+ * call the callback function.
+ */
+ISR(TCD0_CCD_vect)
+{
+     a28:	1f 92       	push	r1
+     a2a:	0f 92       	push	r0
+     a2c:	0f b6       	in	r0, 0x3f	; 63
+     a2e:	0f 92       	push	r0
+     a30:	11 24       	eor	r1, r1
+     a32:	08 b6       	in	r0, 0x38	; 56
+     a34:	0f 92       	push	r0
+     a36:	18 be       	out	0x38, r1	; 56
+     a38:	09 b6       	in	r0, 0x39	; 57
+     a3a:	0f 92       	push	r0
+     a3c:	19 be       	out	0x39, r1	; 57
+     a3e:	0b b6       	in	r0, 0x3b	; 59
+     a40:	0f 92       	push	r0
+     a42:	1b be       	out	0x3b, r1	; 59
+     a44:	2f 93       	push	r18
+     a46:	3f 93       	push	r19
+     a48:	4f 93       	push	r20
+     a4a:	5f 93       	push	r21
+     a4c:	6f 93       	push	r22
+     a4e:	7f 93       	push	r23
+     a50:	8f 93       	push	r24
+     a52:	9f 93       	push	r25
+     a54:	af 93       	push	r26
+     a56:	bf 93       	push	r27
+     a58:	ef 93       	push	r30
+     a5a:	ff 93       	push	r31
+	if (tc_tcd0_ccd_callback) {
+     a5c:	e0 91 30 20 	lds	r30, 0x2030	; 0x802030 <tc_tcd0_ccd_callback>
+     a60:	f0 91 31 20 	lds	r31, 0x2031	; 0x802031 <tc_tcd0_ccd_callback+0x1>
+     a64:	30 97       	sbiw	r30, 0x00	; 0
+     a66:	09 f0       	breq	.+2      	; 0xa6a <__vector_82+0x42>
+		tc_tcd0_ccd_callback();
+     a68:	19 95       	eicall
+	}
+}
+     a6a:	ff 91       	pop	r31
+     a6c:	ef 91       	pop	r30
+     a6e:	bf 91       	pop	r27
+     a70:	af 91       	pop	r26
+     a72:	9f 91       	pop	r25
+     a74:	8f 91       	pop	r24
+     a76:	7f 91       	pop	r23
+     a78:	6f 91       	pop	r22
+     a7a:	5f 91       	pop	r21
+     a7c:	4f 91       	pop	r20
+     a7e:	3f 91       	pop	r19
+     a80:	2f 91       	pop	r18
+     a82:	0f 90       	pop	r0
+     a84:	0b be       	out	0x3b, r0	; 59
+     a86:	0f 90       	pop	r0
+     a88:	09 be       	out	0x39, r0	; 57
+     a8a:	0f 90       	pop	r0
+     a8c:	08 be       	out	0x38, r0	; 56
+     a8e:	0f 90       	pop	r0
+     a90:	0f be       	out	0x3f, r0	; 63
+     a92:	0f 90       	pop	r0
+     a94:	1f 90       	pop	r1
+     a96:	18 95       	reti
+
+00000a98 <__vector_83>:
+ *
+ * This function will handle interrupt on Timer Counter D1 overflow and
+ * call the callback function.
+ */
+ISR(TCD1_OVF_vect)
+{
+     a98:	1f 92       	push	r1
+     a9a:	0f 92       	push	r0
+     a9c:	0f b6       	in	r0, 0x3f	; 63
+     a9e:	0f 92       	push	r0
+     aa0:	11 24       	eor	r1, r1
+     aa2:	08 b6       	in	r0, 0x38	; 56
+     aa4:	0f 92       	push	r0
+     aa6:	18 be       	out	0x38, r1	; 56
+     aa8:	09 b6       	in	r0, 0x39	; 57
+     aaa:	0f 92       	push	r0
+     aac:	19 be       	out	0x39, r1	; 57
+     aae:	0b b6       	in	r0, 0x3b	; 59
+     ab0:	0f 92       	push	r0
+     ab2:	1b be       	out	0x3b, r1	; 59
+     ab4:	2f 93       	push	r18
+     ab6:	3f 93       	push	r19
+     ab8:	4f 93       	push	r20
+     aba:	5f 93       	push	r21
+     abc:	6f 93       	push	r22
+     abe:	7f 93       	push	r23
+     ac0:	8f 93       	push	r24
+     ac2:	9f 93       	push	r25
+     ac4:	af 93       	push	r26
+     ac6:	bf 93       	push	r27
+     ac8:	ef 93       	push	r30
+     aca:	ff 93       	push	r31
+	if (tc_tcd1_ovf_callback) {
+     acc:	e0 91 2e 20 	lds	r30, 0x202E	; 0x80202e <tc_tcd1_ovf_callback>
+     ad0:	f0 91 2f 20 	lds	r31, 0x202F	; 0x80202f <tc_tcd1_ovf_callback+0x1>
+     ad4:	30 97       	sbiw	r30, 0x00	; 0
+     ad6:	09 f0       	breq	.+2      	; 0xada <__vector_83+0x42>
+		tc_tcd1_ovf_callback();
+     ad8:	19 95       	eicall
+	}
+}
+     ada:	ff 91       	pop	r31
+     adc:	ef 91       	pop	r30
+     ade:	bf 91       	pop	r27
+     ae0:	af 91       	pop	r26
+     ae2:	9f 91       	pop	r25
+     ae4:	8f 91       	pop	r24
+     ae6:	7f 91       	pop	r23
+     ae8:	6f 91       	pop	r22
+     aea:	5f 91       	pop	r21
+     aec:	4f 91       	pop	r20
+     aee:	3f 91       	pop	r19
+     af0:	2f 91       	pop	r18
+     af2:	0f 90       	pop	r0
+     af4:	0b be       	out	0x3b, r0	; 59
+     af6:	0f 90       	pop	r0
+     af8:	09 be       	out	0x39, r0	; 57
+     afa:	0f 90       	pop	r0
+     afc:	08 be       	out	0x38, r0	; 56
+     afe:	0f 90       	pop	r0
+     b00:	0f be       	out	0x3f, r0	; 63
+     b02:	0f 90       	pop	r0
+     b04:	1f 90       	pop	r1
+     b06:	18 95       	reti
+
+00000b08 <__vector_84>:
+ *
+ * This function will handle interrupt on Timer Counter D1 error and
+ * call the callback function.
+ */
+ISR(TCD1_ERR_vect)
+{
+     b08:	1f 92       	push	r1
+     b0a:	0f 92       	push	r0
+     b0c:	0f b6       	in	r0, 0x3f	; 63
+     b0e:	0f 92       	push	r0
+     b10:	11 24       	eor	r1, r1
+     b12:	08 b6       	in	r0, 0x38	; 56
+     b14:	0f 92       	push	r0
+     b16:	18 be       	out	0x38, r1	; 56
+     b18:	09 b6       	in	r0, 0x39	; 57
+     b1a:	0f 92       	push	r0
+     b1c:	19 be       	out	0x39, r1	; 57
+     b1e:	0b b6       	in	r0, 0x3b	; 59
+     b20:	0f 92       	push	r0
+     b22:	1b be       	out	0x3b, r1	; 59
+     b24:	2f 93       	push	r18
+     b26:	3f 93       	push	r19
+     b28:	4f 93       	push	r20
+     b2a:	5f 93       	push	r21
+     b2c:	6f 93       	push	r22
+     b2e:	7f 93       	push	r23
+     b30:	8f 93       	push	r24
+     b32:	9f 93       	push	r25
+     b34:	af 93       	push	r26
+     b36:	bf 93       	push	r27
+     b38:	ef 93       	push	r30
+     b3a:	ff 93       	push	r31
+	if (tc_tcd1_err_callback) {
+     b3c:	e0 91 2c 20 	lds	r30, 0x202C	; 0x80202c <tc_tcd1_err_callback>
+     b40:	f0 91 2d 20 	lds	r31, 0x202D	; 0x80202d <tc_tcd1_err_callback+0x1>
+     b44:	30 97       	sbiw	r30, 0x00	; 0
+     b46:	09 f0       	breq	.+2      	; 0xb4a <__vector_84+0x42>
+		tc_tcd1_err_callback();
+     b48:	19 95       	eicall
+	}
+}
+     b4a:	ff 91       	pop	r31
+     b4c:	ef 91       	pop	r30
+     b4e:	bf 91       	pop	r27
+     b50:	af 91       	pop	r26
+     b52:	9f 91       	pop	r25
+     b54:	8f 91       	pop	r24
+     b56:	7f 91       	pop	r23
+     b58:	6f 91       	pop	r22
+     b5a:	5f 91       	pop	r21
+     b5c:	4f 91       	pop	r20
+     b5e:	3f 91       	pop	r19
+     b60:	2f 91       	pop	r18
+     b62:	0f 90       	pop	r0
+     b64:	0b be       	out	0x3b, r0	; 59
+     b66:	0f 90       	pop	r0
+     b68:	09 be       	out	0x39, r0	; 57
+     b6a:	0f 90       	pop	r0
+     b6c:	08 be       	out	0x38, r0	; 56
+     b6e:	0f 90       	pop	r0
+     b70:	0f be       	out	0x3f, r0	; 63
+     b72:	0f 90       	pop	r0
+     b74:	1f 90       	pop	r1
+     b76:	18 95       	reti
+
+00000b78 <__vector_85>:
+ *
+ * This function will handle interrupt on Timer Counter D1 Compare/CaptureA and
+ * call the callback function.
+ */
+ISR(TCD1_CCA_vect)
+{
+     b78:	1f 92       	push	r1
+     b7a:	0f 92       	push	r0
+     b7c:	0f b6       	in	r0, 0x3f	; 63
+     b7e:	0f 92       	push	r0
+     b80:	11 24       	eor	r1, r1
+     b82:	08 b6       	in	r0, 0x38	; 56
+     b84:	0f 92       	push	r0
+     b86:	18 be       	out	0x38, r1	; 56
+     b88:	09 b6       	in	r0, 0x39	; 57
+     b8a:	0f 92       	push	r0
+     b8c:	19 be       	out	0x39, r1	; 57
+     b8e:	0b b6       	in	r0, 0x3b	; 59
+     b90:	0f 92       	push	r0
+     b92:	1b be       	out	0x3b, r1	; 59
+     b94:	2f 93       	push	r18
+     b96:	3f 93       	push	r19
+     b98:	4f 93       	push	r20
+     b9a:	5f 93       	push	r21
+     b9c:	6f 93       	push	r22
+     b9e:	7f 93       	push	r23
+     ba0:	8f 93       	push	r24
+     ba2:	9f 93       	push	r25
+     ba4:	af 93       	push	r26
+     ba6:	bf 93       	push	r27
+     ba8:	ef 93       	push	r30
+     baa:	ff 93       	push	r31
+	if (tc_tcd1_cca_callback) {
+     bac:	e0 91 2a 20 	lds	r30, 0x202A	; 0x80202a <tc_tcd1_cca_callback>
+     bb0:	f0 91 2b 20 	lds	r31, 0x202B	; 0x80202b <tc_tcd1_cca_callback+0x1>
+     bb4:	30 97       	sbiw	r30, 0x00	; 0
+     bb6:	09 f0       	breq	.+2      	; 0xbba <__vector_85+0x42>
+		tc_tcd1_cca_callback();
+     bb8:	19 95       	eicall
+	}
+}
+     bba:	ff 91       	pop	r31
+     bbc:	ef 91       	pop	r30
+     bbe:	bf 91       	pop	r27
+     bc0:	af 91       	pop	r26
+     bc2:	9f 91       	pop	r25
+     bc4:	8f 91       	pop	r24
+     bc6:	7f 91       	pop	r23
+     bc8:	6f 91       	pop	r22
+     bca:	5f 91       	pop	r21
+     bcc:	4f 91       	pop	r20
+     bce:	3f 91       	pop	r19
+     bd0:	2f 91       	pop	r18
+     bd2:	0f 90       	pop	r0
+     bd4:	0b be       	out	0x3b, r0	; 59
+     bd6:	0f 90       	pop	r0
+     bd8:	09 be       	out	0x39, r0	; 57
+     bda:	0f 90       	pop	r0
+     bdc:	08 be       	out	0x38, r0	; 56
+     bde:	0f 90       	pop	r0
+     be0:	0f be       	out	0x3f, r0	; 63
+     be2:	0f 90       	pop	r0
+     be4:	1f 90       	pop	r1
+     be6:	18 95       	reti
+
+00000be8 <__vector_86>:
+ *
+ * This function will handle interrupt on Timer Counter D1 Compare/CaptureB and
+ * call the callback function.
+ */
+ISR(TCD1_CCB_vect)
+{
+     be8:	1f 92       	push	r1
+     bea:	0f 92       	push	r0
+     bec:	0f b6       	in	r0, 0x3f	; 63
+     bee:	0f 92       	push	r0
+     bf0:	11 24       	eor	r1, r1
+     bf2:	08 b6       	in	r0, 0x38	; 56
+     bf4:	0f 92       	push	r0
+     bf6:	18 be       	out	0x38, r1	; 56
+     bf8:	09 b6       	in	r0, 0x39	; 57
+     bfa:	0f 92       	push	r0
+     bfc:	19 be       	out	0x39, r1	; 57
+     bfe:	0b b6       	in	r0, 0x3b	; 59
+     c00:	0f 92       	push	r0
+     c02:	1b be       	out	0x3b, r1	; 59
+     c04:	2f 93       	push	r18
+     c06:	3f 93       	push	r19
+     c08:	4f 93       	push	r20
+     c0a:	5f 93       	push	r21
+     c0c:	6f 93       	push	r22
+     c0e:	7f 93       	push	r23
+     c10:	8f 93       	push	r24
+     c12:	9f 93       	push	r25
+     c14:	af 93       	push	r26
+     c16:	bf 93       	push	r27
+     c18:	ef 93       	push	r30
+     c1a:	ff 93       	push	r31
+	if (tc_tcd1_ccb_callback) {
+     c1c:	e0 91 28 20 	lds	r30, 0x2028	; 0x802028 <tc_tcd1_ccb_callback>
+     c20:	f0 91 29 20 	lds	r31, 0x2029	; 0x802029 <tc_tcd1_ccb_callback+0x1>
+     c24:	30 97       	sbiw	r30, 0x00	; 0
+     c26:	09 f0       	breq	.+2      	; 0xc2a <__vector_86+0x42>
+		tc_tcd1_ccb_callback();
+     c28:	19 95       	eicall
+	}
+}
+     c2a:	ff 91       	pop	r31
+     c2c:	ef 91       	pop	r30
+     c2e:	bf 91       	pop	r27
+     c30:	af 91       	pop	r26
+     c32:	9f 91       	pop	r25
+     c34:	8f 91       	pop	r24
+     c36:	7f 91       	pop	r23
+     c38:	6f 91       	pop	r22
+     c3a:	5f 91       	pop	r21
+     c3c:	4f 91       	pop	r20
+     c3e:	3f 91       	pop	r19
+     c40:	2f 91       	pop	r18
+     c42:	0f 90       	pop	r0
+     c44:	0b be       	out	0x3b, r0	; 59
+     c46:	0f 90       	pop	r0
+     c48:	09 be       	out	0x39, r0	; 57
+     c4a:	0f 90       	pop	r0
+     c4c:	08 be       	out	0x38, r0	; 56
+     c4e:	0f 90       	pop	r0
+     c50:	0f be       	out	0x3f, r0	; 63
+     c52:	0f 90       	pop	r0
+     c54:	1f 90       	pop	r1
+     c56:	18 95       	reti
+
+00000c58 <__vector_47>:
+ *
+ * This function will handle interrupt on Timer Counter E0 overflow and
+ * call the callback function.
+ */
+ISR(TCE0_OVF_vect)
+{
+     c58:	1f 92       	push	r1
+     c5a:	0f 92       	push	r0
+     c5c:	0f b6       	in	r0, 0x3f	; 63
+     c5e:	0f 92       	push	r0
+     c60:	11 24       	eor	r1, r1
+     c62:	08 b6       	in	r0, 0x38	; 56
+     c64:	0f 92       	push	r0
+     c66:	18 be       	out	0x38, r1	; 56
+     c68:	09 b6       	in	r0, 0x39	; 57
+     c6a:	0f 92       	push	r0
+     c6c:	19 be       	out	0x39, r1	; 57
+     c6e:	0b b6       	in	r0, 0x3b	; 59
+     c70:	0f 92       	push	r0
+     c72:	1b be       	out	0x3b, r1	; 59
+     c74:	2f 93       	push	r18
+     c76:	3f 93       	push	r19
+     c78:	4f 93       	push	r20
+     c7a:	5f 93       	push	r21
+     c7c:	6f 93       	push	r22
+     c7e:	7f 93       	push	r23
+     c80:	8f 93       	push	r24
+     c82:	9f 93       	push	r25
+     c84:	af 93       	push	r26
+     c86:	bf 93       	push	r27
+     c88:	ef 93       	push	r30
+     c8a:	ff 93       	push	r31
+	if (tc_tce0_ovf_callback) {
+     c8c:	e0 91 26 20 	lds	r30, 0x2026	; 0x802026 <tc_tce0_ovf_callback>
+     c90:	f0 91 27 20 	lds	r31, 0x2027	; 0x802027 <tc_tce0_ovf_callback+0x1>
+     c94:	30 97       	sbiw	r30, 0x00	; 0
+     c96:	09 f0       	breq	.+2      	; 0xc9a <__vector_47+0x42>
+		tc_tce0_ovf_callback();
+     c98:	19 95       	eicall
+	}
+}
+     c9a:	ff 91       	pop	r31
+     c9c:	ef 91       	pop	r30
+     c9e:	bf 91       	pop	r27
+     ca0:	af 91       	pop	r26
+     ca2:	9f 91       	pop	r25
+     ca4:	8f 91       	pop	r24
+     ca6:	7f 91       	pop	r23
+     ca8:	6f 91       	pop	r22
+     caa:	5f 91       	pop	r21
+     cac:	4f 91       	pop	r20
+     cae:	3f 91       	pop	r19
+     cb0:	2f 91       	pop	r18
+     cb2:	0f 90       	pop	r0
+     cb4:	0b be       	out	0x3b, r0	; 59
+     cb6:	0f 90       	pop	r0
+     cb8:	09 be       	out	0x39, r0	; 57
+     cba:	0f 90       	pop	r0
+     cbc:	08 be       	out	0x38, r0	; 56
+     cbe:	0f 90       	pop	r0
+     cc0:	0f be       	out	0x3f, r0	; 63
+     cc2:	0f 90       	pop	r0
+     cc4:	1f 90       	pop	r1
+     cc6:	18 95       	reti
+
+00000cc8 <__vector_48>:
+ *
+ * This function will handle interrupt on Timer Counter E0 error and
+ * call the callback function.
+ */
+ISR(TCE0_ERR_vect)
+{
+     cc8:	1f 92       	push	r1
+     cca:	0f 92       	push	r0
+     ccc:	0f b6       	in	r0, 0x3f	; 63
+     cce:	0f 92       	push	r0
+     cd0:	11 24       	eor	r1, r1
+     cd2:	08 b6       	in	r0, 0x38	; 56
+     cd4:	0f 92       	push	r0
+     cd6:	18 be       	out	0x38, r1	; 56
+     cd8:	09 b6       	in	r0, 0x39	; 57
+     cda:	0f 92       	push	r0
+     cdc:	19 be       	out	0x39, r1	; 57
+     cde:	0b b6       	in	r0, 0x3b	; 59
+     ce0:	0f 92       	push	r0
+     ce2:	1b be       	out	0x3b, r1	; 59
+     ce4:	2f 93       	push	r18
+     ce6:	3f 93       	push	r19
+     ce8:	4f 93       	push	r20
+     cea:	5f 93       	push	r21
+     cec:	6f 93       	push	r22
+     cee:	7f 93       	push	r23
+     cf0:	8f 93       	push	r24
+     cf2:	9f 93       	push	r25
+     cf4:	af 93       	push	r26
+     cf6:	bf 93       	push	r27
+     cf8:	ef 93       	push	r30
+     cfa:	ff 93       	push	r31
+	if (tc_tce0_err_callback) {
+     cfc:	e0 91 24 20 	lds	r30, 0x2024	; 0x802024 <tc_tce0_err_callback>
+     d00:	f0 91 25 20 	lds	r31, 0x2025	; 0x802025 <tc_tce0_err_callback+0x1>
+     d04:	30 97       	sbiw	r30, 0x00	; 0
+     d06:	09 f0       	breq	.+2      	; 0xd0a <__vector_48+0x42>
+		tc_tce0_err_callback();
+     d08:	19 95       	eicall
+	}
+}
+     d0a:	ff 91       	pop	r31
+     d0c:	ef 91       	pop	r30
+     d0e:	bf 91       	pop	r27
+     d10:	af 91       	pop	r26
+     d12:	9f 91       	pop	r25
+     d14:	8f 91       	pop	r24
+     d16:	7f 91       	pop	r23
+     d18:	6f 91       	pop	r22
+     d1a:	5f 91       	pop	r21
+     d1c:	4f 91       	pop	r20
+     d1e:	3f 91       	pop	r19
+     d20:	2f 91       	pop	r18
+     d22:	0f 90       	pop	r0
+     d24:	0b be       	out	0x3b, r0	; 59
+     d26:	0f 90       	pop	r0
+     d28:	09 be       	out	0x39, r0	; 57
+     d2a:	0f 90       	pop	r0
+     d2c:	08 be       	out	0x38, r0	; 56
+     d2e:	0f 90       	pop	r0
+     d30:	0f be       	out	0x3f, r0	; 63
+     d32:	0f 90       	pop	r0
+     d34:	1f 90       	pop	r1
+     d36:	18 95       	reti
+
+00000d38 <__vector_49>:
+ *
+ * This function will handle interrupt on Timer Counter E0 Compare/CaptureA and
+ * call the callback function.
+ */
+ISR(TCE0_CCA_vect)
+{
+     d38:	1f 92       	push	r1
+     d3a:	0f 92       	push	r0
+     d3c:	0f b6       	in	r0, 0x3f	; 63
+     d3e:	0f 92       	push	r0
+     d40:	11 24       	eor	r1, r1
+     d42:	08 b6       	in	r0, 0x38	; 56
+     d44:	0f 92       	push	r0
+     d46:	18 be       	out	0x38, r1	; 56
+     d48:	09 b6       	in	r0, 0x39	; 57
+     d4a:	0f 92       	push	r0
+     d4c:	19 be       	out	0x39, r1	; 57
+     d4e:	0b b6       	in	r0, 0x3b	; 59
+     d50:	0f 92       	push	r0
+     d52:	1b be       	out	0x3b, r1	; 59
+     d54:	2f 93       	push	r18
+     d56:	3f 93       	push	r19
+     d58:	4f 93       	push	r20
+     d5a:	5f 93       	push	r21
+     d5c:	6f 93       	push	r22
+     d5e:	7f 93       	push	r23
+     d60:	8f 93       	push	r24
+     d62:	9f 93       	push	r25
+     d64:	af 93       	push	r26
+     d66:	bf 93       	push	r27
+     d68:	ef 93       	push	r30
+     d6a:	ff 93       	push	r31
+	if (tc_tce0_cca_callback) {
+     d6c:	e0 91 22 20 	lds	r30, 0x2022	; 0x802022 <tc_tce0_cca_callback>
+     d70:	f0 91 23 20 	lds	r31, 0x2023	; 0x802023 <tc_tce0_cca_callback+0x1>
+     d74:	30 97       	sbiw	r30, 0x00	; 0
+     d76:	09 f0       	breq	.+2      	; 0xd7a <__vector_49+0x42>
+		tc_tce0_cca_callback();
+     d78:	19 95       	eicall
+	}
+}
+     d7a:	ff 91       	pop	r31
+     d7c:	ef 91       	pop	r30
+     d7e:	bf 91       	pop	r27
+     d80:	af 91       	pop	r26
+     d82:	9f 91       	pop	r25
+     d84:	8f 91       	pop	r24
+     d86:	7f 91       	pop	r23
+     d88:	6f 91       	pop	r22
+     d8a:	5f 91       	pop	r21
+     d8c:	4f 91       	pop	r20
+     d8e:	3f 91       	pop	r19
+     d90:	2f 91       	pop	r18
+     d92:	0f 90       	pop	r0
+     d94:	0b be       	out	0x3b, r0	; 59
+     d96:	0f 90       	pop	r0
+     d98:	09 be       	out	0x39, r0	; 57
+     d9a:	0f 90       	pop	r0
+     d9c:	08 be       	out	0x38, r0	; 56
+     d9e:	0f 90       	pop	r0
+     da0:	0f be       	out	0x3f, r0	; 63
+     da2:	0f 90       	pop	r0
+     da4:	1f 90       	pop	r1
+     da6:	18 95       	reti
+
+00000da8 <__vector_50>:
+ *
+ * This function will handle interrupt on Timer Counter E0 Compare/CaptureB and
+ * call the callback function.
+ */
+ISR(TCE0_CCB_vect)
+{
+     da8:	1f 92       	push	r1
+     daa:	0f 92       	push	r0
+     dac:	0f b6       	in	r0, 0x3f	; 63
+     dae:	0f 92       	push	r0
+     db0:	11 24       	eor	r1, r1
+     db2:	08 b6       	in	r0, 0x38	; 56
+     db4:	0f 92       	push	r0
+     db6:	18 be       	out	0x38, r1	; 56
+     db8:	09 b6       	in	r0, 0x39	; 57
+     dba:	0f 92       	push	r0
+     dbc:	19 be       	out	0x39, r1	; 57
+     dbe:	0b b6       	in	r0, 0x3b	; 59
+     dc0:	0f 92       	push	r0
+     dc2:	1b be       	out	0x3b, r1	; 59
+     dc4:	2f 93       	push	r18
+     dc6:	3f 93       	push	r19
+     dc8:	4f 93       	push	r20
+     dca:	5f 93       	push	r21
+     dcc:	6f 93       	push	r22
+     dce:	7f 93       	push	r23
+     dd0:	8f 93       	push	r24
+     dd2:	9f 93       	push	r25
+     dd4:	af 93       	push	r26
+     dd6:	bf 93       	push	r27
+     dd8:	ef 93       	push	r30
+     dda:	ff 93       	push	r31
+	if (tc_tce0_ccb_callback) {
+     ddc:	e0 91 20 20 	lds	r30, 0x2020	; 0x802020 <tc_tce0_ccb_callback>
+     de0:	f0 91 21 20 	lds	r31, 0x2021	; 0x802021 <tc_tce0_ccb_callback+0x1>
+     de4:	30 97       	sbiw	r30, 0x00	; 0
+     de6:	09 f0       	breq	.+2      	; 0xdea <__vector_50+0x42>
+		tc_tce0_ccb_callback();
+     de8:	19 95       	eicall
+	}
+}
+     dea:	ff 91       	pop	r31
+     dec:	ef 91       	pop	r30
+     dee:	bf 91       	pop	r27
+     df0:	af 91       	pop	r26
+     df2:	9f 91       	pop	r25
+     df4:	8f 91       	pop	r24
+     df6:	7f 91       	pop	r23
+     df8:	6f 91       	pop	r22
+     dfa:	5f 91       	pop	r21
+     dfc:	4f 91       	pop	r20
+     dfe:	3f 91       	pop	r19
+     e00:	2f 91       	pop	r18
+     e02:	0f 90       	pop	r0
+     e04:	0b be       	out	0x3b, r0	; 59
+     e06:	0f 90       	pop	r0
+     e08:	09 be       	out	0x39, r0	; 57
+     e0a:	0f 90       	pop	r0
+     e0c:	08 be       	out	0x38, r0	; 56
+     e0e:	0f 90       	pop	r0
+     e10:	0f be       	out	0x3f, r0	; 63
+     e12:	0f 90       	pop	r0
+     e14:	1f 90       	pop	r1
+     e16:	18 95       	reti
+
+00000e18 <__vector_51>:
+ *
+ * This function will handle interrupt on Timer Counter E0 Compare/CaptureC and
+ * call the callback function.
+ */
+ISR(TCE0_CCC_vect)
+{
+     e18:	1f 92       	push	r1
+     e1a:	0f 92       	push	r0
+     e1c:	0f b6       	in	r0, 0x3f	; 63
+     e1e:	0f 92       	push	r0
+     e20:	11 24       	eor	r1, r1
+     e22:	08 b6       	in	r0, 0x38	; 56
+     e24:	0f 92       	push	r0
+     e26:	18 be       	out	0x38, r1	; 56
+     e28:	09 b6       	in	r0, 0x39	; 57
+     e2a:	0f 92       	push	r0
+     e2c:	19 be       	out	0x39, r1	; 57
+     e2e:	0b b6       	in	r0, 0x3b	; 59
+     e30:	0f 92       	push	r0
+     e32:	1b be       	out	0x3b, r1	; 59
+     e34:	2f 93       	push	r18
+     e36:	3f 93       	push	r19
+     e38:	4f 93       	push	r20
+     e3a:	5f 93       	push	r21
+     e3c:	6f 93       	push	r22
+     e3e:	7f 93       	push	r23
+     e40:	8f 93       	push	r24
+     e42:	9f 93       	push	r25
+     e44:	af 93       	push	r26
+     e46:	bf 93       	push	r27
+     e48:	ef 93       	push	r30
+     e4a:	ff 93       	push	r31
+	if (tc_tce0_ccc_callback) {
+     e4c:	e0 91 1e 20 	lds	r30, 0x201E	; 0x80201e <tc_tce0_ccc_callback>
+     e50:	f0 91 1f 20 	lds	r31, 0x201F	; 0x80201f <tc_tce0_ccc_callback+0x1>
+     e54:	30 97       	sbiw	r30, 0x00	; 0
+     e56:	09 f0       	breq	.+2      	; 0xe5a <__vector_51+0x42>
+		tc_tce0_ccc_callback();
+     e58:	19 95       	eicall
+	}
+}
+     e5a:	ff 91       	pop	r31
+     e5c:	ef 91       	pop	r30
+     e5e:	bf 91       	pop	r27
+     e60:	af 91       	pop	r26
+     e62:	9f 91       	pop	r25
+     e64:	8f 91       	pop	r24
+     e66:	7f 91       	pop	r23
+     e68:	6f 91       	pop	r22
+     e6a:	5f 91       	pop	r21
+     e6c:	4f 91       	pop	r20
+     e6e:	3f 91       	pop	r19
+     e70:	2f 91       	pop	r18
+     e72:	0f 90       	pop	r0
+     e74:	0b be       	out	0x3b, r0	; 59
+     e76:	0f 90       	pop	r0
+     e78:	09 be       	out	0x39, r0	; 57
+     e7a:	0f 90       	pop	r0
+     e7c:	08 be       	out	0x38, r0	; 56
+     e7e:	0f 90       	pop	r0
+     e80:	0f be       	out	0x3f, r0	; 63
+     e82:	0f 90       	pop	r0
+     e84:	1f 90       	pop	r1
+     e86:	18 95       	reti
+
+00000e88 <__vector_52>:
+ *
+ * This function will handle interrupt on Timer Counter E0 Compare/CaptureD and
+ * call the callback function.
+ */
+ISR(TCE0_CCD_vect)
+{
+     e88:	1f 92       	push	r1
+     e8a:	0f 92       	push	r0
+     e8c:	0f b6       	in	r0, 0x3f	; 63
+     e8e:	0f 92       	push	r0
+     e90:	11 24       	eor	r1, r1
+     e92:	08 b6       	in	r0, 0x38	; 56
+     e94:	0f 92       	push	r0
+     e96:	18 be       	out	0x38, r1	; 56
+     e98:	09 b6       	in	r0, 0x39	; 57
+     e9a:	0f 92       	push	r0
+     e9c:	19 be       	out	0x39, r1	; 57
+     e9e:	0b b6       	in	r0, 0x3b	; 59
+     ea0:	0f 92       	push	r0
+     ea2:	1b be       	out	0x3b, r1	; 59
+     ea4:	2f 93       	push	r18
+     ea6:	3f 93       	push	r19
+     ea8:	4f 93       	push	r20
+     eaa:	5f 93       	push	r21
+     eac:	6f 93       	push	r22
+     eae:	7f 93       	push	r23
+     eb0:	8f 93       	push	r24
+     eb2:	9f 93       	push	r25
+     eb4:	af 93       	push	r26
+     eb6:	bf 93       	push	r27
+     eb8:	ef 93       	push	r30
+     eba:	ff 93       	push	r31
+	if (tc_tce0_ccd_callback) {
+     ebc:	e0 91 1c 20 	lds	r30, 0x201C	; 0x80201c <tc_tce0_ccd_callback>
+     ec0:	f0 91 1d 20 	lds	r31, 0x201D	; 0x80201d <tc_tce0_ccd_callback+0x1>
+     ec4:	30 97       	sbiw	r30, 0x00	; 0
+     ec6:	09 f0       	breq	.+2      	; 0xeca <__vector_52+0x42>
+		tc_tce0_ccd_callback();
+     ec8:	19 95       	eicall
+	}
+}
+     eca:	ff 91       	pop	r31
+     ecc:	ef 91       	pop	r30
+     ece:	bf 91       	pop	r27
+     ed0:	af 91       	pop	r26
+     ed2:	9f 91       	pop	r25
+     ed4:	8f 91       	pop	r24
+     ed6:	7f 91       	pop	r23
+     ed8:	6f 91       	pop	r22
+     eda:	5f 91       	pop	r21
+     edc:	4f 91       	pop	r20
+     ede:	3f 91       	pop	r19
+     ee0:	2f 91       	pop	r18
+     ee2:	0f 90       	pop	r0
+     ee4:	0b be       	out	0x3b, r0	; 59
+     ee6:	0f 90       	pop	r0
+     ee8:	09 be       	out	0x39, r0	; 57
+     eea:	0f 90       	pop	r0
+     eec:	08 be       	out	0x38, r0	; 56
+     eee:	0f 90       	pop	r0
+     ef0:	0f be       	out	0x3f, r0	; 63
+     ef2:	0f 90       	pop	r0
+     ef4:	1f 90       	pop	r1
+     ef6:	18 95       	reti
+
+00000ef8 <__vector_53>:
+ *
+ * This function will handle interrupt on Timer Counter E1 overflow and
+ * call the callback function.
+ */
+ISR(TCE1_OVF_vect)
+{
+     ef8:	1f 92       	push	r1
+     efa:	0f 92       	push	r0
+     efc:	0f b6       	in	r0, 0x3f	; 63
+     efe:	0f 92       	push	r0
+     f00:	11 24       	eor	r1, r1
+     f02:	08 b6       	in	r0, 0x38	; 56
+     f04:	0f 92       	push	r0
+     f06:	18 be       	out	0x38, r1	; 56
+     f08:	09 b6       	in	r0, 0x39	; 57
+     f0a:	0f 92       	push	r0
+     f0c:	19 be       	out	0x39, r1	; 57
+     f0e:	0b b6       	in	r0, 0x3b	; 59
+     f10:	0f 92       	push	r0
+     f12:	1b be       	out	0x3b, r1	; 59
+     f14:	2f 93       	push	r18
+     f16:	3f 93       	push	r19
+     f18:	4f 93       	push	r20
+     f1a:	5f 93       	push	r21
+     f1c:	6f 93       	push	r22
+     f1e:	7f 93       	push	r23
+     f20:	8f 93       	push	r24
+     f22:	9f 93       	push	r25
+     f24:	af 93       	push	r26
+     f26:	bf 93       	push	r27
+     f28:	ef 93       	push	r30
+     f2a:	ff 93       	push	r31
+	if (tc_tce1_ovf_callback) {
+     f2c:	e0 91 1a 20 	lds	r30, 0x201A	; 0x80201a <tc_tce1_ovf_callback>
+     f30:	f0 91 1b 20 	lds	r31, 0x201B	; 0x80201b <tc_tce1_ovf_callback+0x1>
+     f34:	30 97       	sbiw	r30, 0x00	; 0
+     f36:	09 f0       	breq	.+2      	; 0xf3a <__vector_53+0x42>
+		tc_tce1_ovf_callback();
+     f38:	19 95       	eicall
+	}
+}
+     f3a:	ff 91       	pop	r31
+     f3c:	ef 91       	pop	r30
+     f3e:	bf 91       	pop	r27
+     f40:	af 91       	pop	r26
+     f42:	9f 91       	pop	r25
+     f44:	8f 91       	pop	r24
+     f46:	7f 91       	pop	r23
+     f48:	6f 91       	pop	r22
+     f4a:	5f 91       	pop	r21
+     f4c:	4f 91       	pop	r20
+     f4e:	3f 91       	pop	r19
+     f50:	2f 91       	pop	r18
+     f52:	0f 90       	pop	r0
+     f54:	0b be       	out	0x3b, r0	; 59
+     f56:	0f 90       	pop	r0
+     f58:	09 be       	out	0x39, r0	; 57
+     f5a:	0f 90       	pop	r0
+     f5c:	08 be       	out	0x38, r0	; 56
+     f5e:	0f 90       	pop	r0
+     f60:	0f be       	out	0x3f, r0	; 63
+     f62:	0f 90       	pop	r0
+     f64:	1f 90       	pop	r1
+     f66:	18 95       	reti
+
+00000f68 <__vector_54>:
+ *
+ * This function will handle interrupt on Timer Counter E1 error and
+ * call the callback function.
+ */
+ISR(TCE1_ERR_vect)
+{
+     f68:	1f 92       	push	r1
+     f6a:	0f 92       	push	r0
+     f6c:	0f b6       	in	r0, 0x3f	; 63
+     f6e:	0f 92       	push	r0
+     f70:	11 24       	eor	r1, r1
+     f72:	08 b6       	in	r0, 0x38	; 56
+     f74:	0f 92       	push	r0
+     f76:	18 be       	out	0x38, r1	; 56
+     f78:	09 b6       	in	r0, 0x39	; 57
+     f7a:	0f 92       	push	r0
+     f7c:	19 be       	out	0x39, r1	; 57
+     f7e:	0b b6       	in	r0, 0x3b	; 59
+     f80:	0f 92       	push	r0
+     f82:	1b be       	out	0x3b, r1	; 59
+     f84:	2f 93       	push	r18
+     f86:	3f 93       	push	r19
+     f88:	4f 93       	push	r20
+     f8a:	5f 93       	push	r21
+     f8c:	6f 93       	push	r22
+     f8e:	7f 93       	push	r23
+     f90:	8f 93       	push	r24
+     f92:	9f 93       	push	r25
+     f94:	af 93       	push	r26
+     f96:	bf 93       	push	r27
+     f98:	ef 93       	push	r30
+     f9a:	ff 93       	push	r31
+	if (tc_tce1_err_callback) {
+     f9c:	e0 91 18 20 	lds	r30, 0x2018	; 0x802018 <tc_tce1_err_callback>
+     fa0:	f0 91 19 20 	lds	r31, 0x2019	; 0x802019 <tc_tce1_err_callback+0x1>
+     fa4:	30 97       	sbiw	r30, 0x00	; 0
+     fa6:	09 f0       	breq	.+2      	; 0xfaa <__vector_54+0x42>
+		tc_tce1_err_callback();
+     fa8:	19 95       	eicall
+	}
+}
+     faa:	ff 91       	pop	r31
+     fac:	ef 91       	pop	r30
+     fae:	bf 91       	pop	r27
+     fb0:	af 91       	pop	r26
+     fb2:	9f 91       	pop	r25
+     fb4:	8f 91       	pop	r24
+     fb6:	7f 91       	pop	r23
+     fb8:	6f 91       	pop	r22
+     fba:	5f 91       	pop	r21
+     fbc:	4f 91       	pop	r20
+     fbe:	3f 91       	pop	r19
+     fc0:	2f 91       	pop	r18
+     fc2:	0f 90       	pop	r0
+     fc4:	0b be       	out	0x3b, r0	; 59
+     fc6:	0f 90       	pop	r0
+     fc8:	09 be       	out	0x39, r0	; 57
+     fca:	0f 90       	pop	r0
+     fcc:	08 be       	out	0x38, r0	; 56
+     fce:	0f 90       	pop	r0
+     fd0:	0f be       	out	0x3f, r0	; 63
+     fd2:	0f 90       	pop	r0
+     fd4:	1f 90       	pop	r1
+     fd6:	18 95       	reti
+
+00000fd8 <__vector_55>:
+ *
+ * This function will handle interrupt on Timer Counter E1 Compare/CaptureA and
+ * call the callback function.
+ */
+ISR(TCE1_CCA_vect)
+{
+     fd8:	1f 92       	push	r1
+     fda:	0f 92       	push	r0
+     fdc:	0f b6       	in	r0, 0x3f	; 63
+     fde:	0f 92       	push	r0
+     fe0:	11 24       	eor	r1, r1
+     fe2:	08 b6       	in	r0, 0x38	; 56
+     fe4:	0f 92       	push	r0
+     fe6:	18 be       	out	0x38, r1	; 56
+     fe8:	09 b6       	in	r0, 0x39	; 57
+     fea:	0f 92       	push	r0
+     fec:	19 be       	out	0x39, r1	; 57
+     fee:	0b b6       	in	r0, 0x3b	; 59
+     ff0:	0f 92       	push	r0
+     ff2:	1b be       	out	0x3b, r1	; 59
+     ff4:	2f 93       	push	r18
+     ff6:	3f 93       	push	r19
+     ff8:	4f 93       	push	r20
+     ffa:	5f 93       	push	r21
+     ffc:	6f 93       	push	r22
+     ffe:	7f 93       	push	r23
+    1000:	8f 93       	push	r24
+    1002:	9f 93       	push	r25
+    1004:	af 93       	push	r26
+    1006:	bf 93       	push	r27
+    1008:	ef 93       	push	r30
+    100a:	ff 93       	push	r31
+	if (tc_tce1_cca_callback) {
+    100c:	e0 91 16 20 	lds	r30, 0x2016	; 0x802016 <tc_tce1_cca_callback>
+    1010:	f0 91 17 20 	lds	r31, 0x2017	; 0x802017 <tc_tce1_cca_callback+0x1>
+    1014:	30 97       	sbiw	r30, 0x00	; 0
+    1016:	09 f0       	breq	.+2      	; 0x101a <__vector_55+0x42>
+		tc_tce1_cca_callback();
+    1018:	19 95       	eicall
+	}
+}
+    101a:	ff 91       	pop	r31
+    101c:	ef 91       	pop	r30
+    101e:	bf 91       	pop	r27
+    1020:	af 91       	pop	r26
+    1022:	9f 91       	pop	r25
+    1024:	8f 91       	pop	r24
+    1026:	7f 91       	pop	r23
+    1028:	6f 91       	pop	r22
+    102a:	5f 91       	pop	r21
+    102c:	4f 91       	pop	r20
+    102e:	3f 91       	pop	r19
+    1030:	2f 91       	pop	r18
+    1032:	0f 90       	pop	r0
+    1034:	0b be       	out	0x3b, r0	; 59
+    1036:	0f 90       	pop	r0
+    1038:	09 be       	out	0x39, r0	; 57
+    103a:	0f 90       	pop	r0
+    103c:	08 be       	out	0x38, r0	; 56
+    103e:	0f 90       	pop	r0
+    1040:	0f be       	out	0x3f, r0	; 63
+    1042:	0f 90       	pop	r0
+    1044:	1f 90       	pop	r1
+    1046:	18 95       	reti
+
+00001048 <__vector_56>:
+ *
+ * This function will handle interrupt on Timer Counter E1 Compare/CaptureB and
+ * call the callback function.
+ */
+ISR(TCE1_CCB_vect)
+{
+    1048:	1f 92       	push	r1
+    104a:	0f 92       	push	r0
+    104c:	0f b6       	in	r0, 0x3f	; 63
+    104e:	0f 92       	push	r0
+    1050:	11 24       	eor	r1, r1
+    1052:	08 b6       	in	r0, 0x38	; 56
+    1054:	0f 92       	push	r0
+    1056:	18 be       	out	0x38, r1	; 56
+    1058:	09 b6       	in	r0, 0x39	; 57
+    105a:	0f 92       	push	r0
+    105c:	19 be       	out	0x39, r1	; 57
+    105e:	0b b6       	in	r0, 0x3b	; 59
+    1060:	0f 92       	push	r0
+    1062:	1b be       	out	0x3b, r1	; 59
+    1064:	2f 93       	push	r18
+    1066:	3f 93       	push	r19
+    1068:	4f 93       	push	r20
+    106a:	5f 93       	push	r21
+    106c:	6f 93       	push	r22
+    106e:	7f 93       	push	r23
+    1070:	8f 93       	push	r24
+    1072:	9f 93       	push	r25
+    1074:	af 93       	push	r26
+    1076:	bf 93       	push	r27
+    1078:	ef 93       	push	r30
+    107a:	ff 93       	push	r31
+	if (tc_tce1_ccb_callback) {
+    107c:	e0 91 14 20 	lds	r30, 0x2014	; 0x802014 <tc_tce1_ccb_callback>
+    1080:	f0 91 15 20 	lds	r31, 0x2015	; 0x802015 <tc_tce1_ccb_callback+0x1>
+    1084:	30 97       	sbiw	r30, 0x00	; 0
+    1086:	09 f0       	breq	.+2      	; 0x108a <__vector_56+0x42>
+		tc_tce1_ccb_callback();
+    1088:	19 95       	eicall
+	}
+}
+    108a:	ff 91       	pop	r31
+    108c:	ef 91       	pop	r30
+    108e:	bf 91       	pop	r27
+    1090:	af 91       	pop	r26
+    1092:	9f 91       	pop	r25
+    1094:	8f 91       	pop	r24
+    1096:	7f 91       	pop	r23
+    1098:	6f 91       	pop	r22
+    109a:	5f 91       	pop	r21
+    109c:	4f 91       	pop	r20
+    109e:	3f 91       	pop	r19
+    10a0:	2f 91       	pop	r18
+    10a2:	0f 90       	pop	r0
+    10a4:	0b be       	out	0x3b, r0	; 59
+    10a6:	0f 90       	pop	r0
+    10a8:	09 be       	out	0x39, r0	; 57
+    10aa:	0f 90       	pop	r0
+    10ac:	08 be       	out	0x38, r0	; 56
+    10ae:	0f 90       	pop	r0
+    10b0:	0f be       	out	0x3f, r0	; 63
+    10b2:	0f 90       	pop	r0
+    10b4:	1f 90       	pop	r1
+    10b6:	18 95       	reti
+
+000010b8 <__vector_108>:
+ *
+ * This function will handle interrupt on Timer Counter F0 overflow and
+ * call the callback function.
+ */
+ISR(TCF0_OVF_vect)
+{
+    10b8:	1f 92       	push	r1
+    10ba:	0f 92       	push	r0
+    10bc:	0f b6       	in	r0, 0x3f	; 63
+    10be:	0f 92       	push	r0
+    10c0:	11 24       	eor	r1, r1
+    10c2:	08 b6       	in	r0, 0x38	; 56
+    10c4:	0f 92       	push	r0
+    10c6:	18 be       	out	0x38, r1	; 56
+    10c8:	09 b6       	in	r0, 0x39	; 57
+    10ca:	0f 92       	push	r0
+    10cc:	19 be       	out	0x39, r1	; 57
+    10ce:	0b b6       	in	r0, 0x3b	; 59
+    10d0:	0f 92       	push	r0
+    10d2:	1b be       	out	0x3b, r1	; 59
+    10d4:	2f 93       	push	r18
+    10d6:	3f 93       	push	r19
+    10d8:	4f 93       	push	r20
+    10da:	5f 93       	push	r21
+    10dc:	6f 93       	push	r22
+    10de:	7f 93       	push	r23
+    10e0:	8f 93       	push	r24
+    10e2:	9f 93       	push	r25
+    10e4:	af 93       	push	r26
+    10e6:	bf 93       	push	r27
+    10e8:	ef 93       	push	r30
+    10ea:	ff 93       	push	r31
+	if (tc_tcf0_ovf_callback) {
+    10ec:	e0 91 12 20 	lds	r30, 0x2012	; 0x802012 <tc_tcf0_ovf_callback>
+    10f0:	f0 91 13 20 	lds	r31, 0x2013	; 0x802013 <tc_tcf0_ovf_callback+0x1>
+    10f4:	30 97       	sbiw	r30, 0x00	; 0
+    10f6:	09 f0       	breq	.+2      	; 0x10fa <__vector_108+0x42>
+		tc_tcf0_ovf_callback();
+    10f8:	19 95       	eicall
+	}
+}
+    10fa:	ff 91       	pop	r31
+    10fc:	ef 91       	pop	r30
+    10fe:	bf 91       	pop	r27
+    1100:	af 91       	pop	r26
+    1102:	9f 91       	pop	r25
+    1104:	8f 91       	pop	r24
+    1106:	7f 91       	pop	r23
+    1108:	6f 91       	pop	r22
+    110a:	5f 91       	pop	r21
+    110c:	4f 91       	pop	r20
+    110e:	3f 91       	pop	r19
+    1110:	2f 91       	pop	r18
+    1112:	0f 90       	pop	r0
+    1114:	0b be       	out	0x3b, r0	; 59
+    1116:	0f 90       	pop	r0
+    1118:	09 be       	out	0x39, r0	; 57
+    111a:	0f 90       	pop	r0
+    111c:	08 be       	out	0x38, r0	; 56
+    111e:	0f 90       	pop	r0
+    1120:	0f be       	out	0x3f, r0	; 63
+    1122:	0f 90       	pop	r0
+    1124:	1f 90       	pop	r1
+    1126:	18 95       	reti
+
+00001128 <__vector_109>:
+ *
+ * This function will handle interrupt on Timer Counter F0 error and
+ * call the callback function.
+ */
+ISR(TCF0_ERR_vect)
+{
+    1128:	1f 92       	push	r1
+    112a:	0f 92       	push	r0
+    112c:	0f b6       	in	r0, 0x3f	; 63
+    112e:	0f 92       	push	r0
+    1130:	11 24       	eor	r1, r1
+    1132:	08 b6       	in	r0, 0x38	; 56
+    1134:	0f 92       	push	r0
+    1136:	18 be       	out	0x38, r1	; 56
+    1138:	09 b6       	in	r0, 0x39	; 57
+    113a:	0f 92       	push	r0
+    113c:	19 be       	out	0x39, r1	; 57
+    113e:	0b b6       	in	r0, 0x3b	; 59
+    1140:	0f 92       	push	r0
+    1142:	1b be       	out	0x3b, r1	; 59
+    1144:	2f 93       	push	r18
+    1146:	3f 93       	push	r19
+    1148:	4f 93       	push	r20
+    114a:	5f 93       	push	r21
+    114c:	6f 93       	push	r22
+    114e:	7f 93       	push	r23
+    1150:	8f 93       	push	r24
+    1152:	9f 93       	push	r25
+    1154:	af 93       	push	r26
+    1156:	bf 93       	push	r27
+    1158:	ef 93       	push	r30
+    115a:	ff 93       	push	r31
+	if (tc_tcf0_err_callback) {
+    115c:	e0 91 10 20 	lds	r30, 0x2010	; 0x802010 <tc_tcf0_err_callback>
+    1160:	f0 91 11 20 	lds	r31, 0x2011	; 0x802011 <tc_tcf0_err_callback+0x1>
+    1164:	30 97       	sbiw	r30, 0x00	; 0
+    1166:	09 f0       	breq	.+2      	; 0x116a <__vector_109+0x42>
+		tc_tcf0_err_callback();
+    1168:	19 95       	eicall
+	}
+}
+    116a:	ff 91       	pop	r31
+    116c:	ef 91       	pop	r30
+    116e:	bf 91       	pop	r27
+    1170:	af 91       	pop	r26
+    1172:	9f 91       	pop	r25
+    1174:	8f 91       	pop	r24
+    1176:	7f 91       	pop	r23
+    1178:	6f 91       	pop	r22
+    117a:	5f 91       	pop	r21
+    117c:	4f 91       	pop	r20
+    117e:	3f 91       	pop	r19
+    1180:	2f 91       	pop	r18
+    1182:	0f 90       	pop	r0
+    1184:	0b be       	out	0x3b, r0	; 59
+    1186:	0f 90       	pop	r0
+    1188:	09 be       	out	0x39, r0	; 57
+    118a:	0f 90       	pop	r0
+    118c:	08 be       	out	0x38, r0	; 56
+    118e:	0f 90       	pop	r0
+    1190:	0f be       	out	0x3f, r0	; 63
+    1192:	0f 90       	pop	r0
+    1194:	1f 90       	pop	r1
+    1196:	18 95       	reti
+
+00001198 <__vector_110>:
+ *
+ * This function will handle interrupt on Timer Counter F0 Compare/CaptureA and
+ * call the callback function.
+ */
+ISR(TCF0_CCA_vect)
+{
+    1198:	1f 92       	push	r1
+    119a:	0f 92       	push	r0
+    119c:	0f b6       	in	r0, 0x3f	; 63
+    119e:	0f 92       	push	r0
+    11a0:	11 24       	eor	r1, r1
+    11a2:	08 b6       	in	r0, 0x38	; 56
+    11a4:	0f 92       	push	r0
+    11a6:	18 be       	out	0x38, r1	; 56
+    11a8:	09 b6       	in	r0, 0x39	; 57
+    11aa:	0f 92       	push	r0
+    11ac:	19 be       	out	0x39, r1	; 57
+    11ae:	0b b6       	in	r0, 0x3b	; 59
+    11b0:	0f 92       	push	r0
+    11b2:	1b be       	out	0x3b, r1	; 59
+    11b4:	2f 93       	push	r18
+    11b6:	3f 93       	push	r19
+    11b8:	4f 93       	push	r20
+    11ba:	5f 93       	push	r21
+    11bc:	6f 93       	push	r22
+    11be:	7f 93       	push	r23
+    11c0:	8f 93       	push	r24
+    11c2:	9f 93       	push	r25
+    11c4:	af 93       	push	r26
+    11c6:	bf 93       	push	r27
+    11c8:	ef 93       	push	r30
+    11ca:	ff 93       	push	r31
+	if (tc_tcf0_cca_callback) {
+    11cc:	e0 91 0e 20 	lds	r30, 0x200E	; 0x80200e <tc_tcf0_cca_callback>
+    11d0:	f0 91 0f 20 	lds	r31, 0x200F	; 0x80200f <tc_tcf0_cca_callback+0x1>
+    11d4:	30 97       	sbiw	r30, 0x00	; 0
+    11d6:	09 f0       	breq	.+2      	; 0x11da <__vector_110+0x42>
+		tc_tcf0_cca_callback();
+    11d8:	19 95       	eicall
+	}
+}
+    11da:	ff 91       	pop	r31
+    11dc:	ef 91       	pop	r30
+    11de:	bf 91       	pop	r27
+    11e0:	af 91       	pop	r26
+    11e2:	9f 91       	pop	r25
+    11e4:	8f 91       	pop	r24
+    11e6:	7f 91       	pop	r23
+    11e8:	6f 91       	pop	r22
+    11ea:	5f 91       	pop	r21
+    11ec:	4f 91       	pop	r20
+    11ee:	3f 91       	pop	r19
+    11f0:	2f 91       	pop	r18
+    11f2:	0f 90       	pop	r0
+    11f4:	0b be       	out	0x3b, r0	; 59
+    11f6:	0f 90       	pop	r0
+    11f8:	09 be       	out	0x39, r0	; 57
+    11fa:	0f 90       	pop	r0
+    11fc:	08 be       	out	0x38, r0	; 56
+    11fe:	0f 90       	pop	r0
+    1200:	0f be       	out	0x3f, r0	; 63
+    1202:	0f 90       	pop	r0
+    1204:	1f 90       	pop	r1
+    1206:	18 95       	reti
+
+00001208 <__vector_111>:
+ *
+ * This function will handle interrupt on Timer Counter F0 Compare/CaptureB and
+ * call the callback function.
+ */
+ISR(TCF0_CCB_vect)
+{
+    1208:	1f 92       	push	r1
+    120a:	0f 92       	push	r0
+    120c:	0f b6       	in	r0, 0x3f	; 63
+    120e:	0f 92       	push	r0
+    1210:	11 24       	eor	r1, r1
+    1212:	08 b6       	in	r0, 0x38	; 56
+    1214:	0f 92       	push	r0
+    1216:	18 be       	out	0x38, r1	; 56
+    1218:	09 b6       	in	r0, 0x39	; 57
+    121a:	0f 92       	push	r0
+    121c:	19 be       	out	0x39, r1	; 57
+    121e:	0b b6       	in	r0, 0x3b	; 59
+    1220:	0f 92       	push	r0
+    1222:	1b be       	out	0x3b, r1	; 59
+    1224:	2f 93       	push	r18
+    1226:	3f 93       	push	r19
+    1228:	4f 93       	push	r20
+    122a:	5f 93       	push	r21
+    122c:	6f 93       	push	r22
+    122e:	7f 93       	push	r23
+    1230:	8f 93       	push	r24
+    1232:	9f 93       	push	r25
+    1234:	af 93       	push	r26
+    1236:	bf 93       	push	r27
+    1238:	ef 93       	push	r30
+    123a:	ff 93       	push	r31
+	if (tc_tcf0_ccb_callback) {
+    123c:	e0 91 0c 20 	lds	r30, 0x200C	; 0x80200c <tc_tcf0_ccb_callback>
+    1240:	f0 91 0d 20 	lds	r31, 0x200D	; 0x80200d <tc_tcf0_ccb_callback+0x1>
+    1244:	30 97       	sbiw	r30, 0x00	; 0
+    1246:	09 f0       	breq	.+2      	; 0x124a <__vector_111+0x42>
+		tc_tcf0_ccb_callback();
+    1248:	19 95       	eicall
+	}
+}
+    124a:	ff 91       	pop	r31
+    124c:	ef 91       	pop	r30
+    124e:	bf 91       	pop	r27
+    1250:	af 91       	pop	r26
+    1252:	9f 91       	pop	r25
+    1254:	8f 91       	pop	r24
+    1256:	7f 91       	pop	r23
+    1258:	6f 91       	pop	r22
+    125a:	5f 91       	pop	r21
+    125c:	4f 91       	pop	r20
+    125e:	3f 91       	pop	r19
+    1260:	2f 91       	pop	r18
+    1262:	0f 90       	pop	r0
+    1264:	0b be       	out	0x3b, r0	; 59
+    1266:	0f 90       	pop	r0
+    1268:	09 be       	out	0x39, r0	; 57
+    126a:	0f 90       	pop	r0
+    126c:	08 be       	out	0x38, r0	; 56
+    126e:	0f 90       	pop	r0
+    1270:	0f be       	out	0x3f, r0	; 63
+    1272:	0f 90       	pop	r0
+    1274:	1f 90       	pop	r1
+    1276:	18 95       	reti
+
+00001278 <__vector_112>:
+ *
+ * This function will handle interrupt on Timer Counter F0 Compare/CaptureC and
+ * call the callback function.
+ */
+ISR(TCF0_CCC_vect)
+{
+    1278:	1f 92       	push	r1
+    127a:	0f 92       	push	r0
+    127c:	0f b6       	in	r0, 0x3f	; 63
+    127e:	0f 92       	push	r0
+    1280:	11 24       	eor	r1, r1
+    1282:	08 b6       	in	r0, 0x38	; 56
+    1284:	0f 92       	push	r0
+    1286:	18 be       	out	0x38, r1	; 56
+    1288:	09 b6       	in	r0, 0x39	; 57
+    128a:	0f 92       	push	r0
+    128c:	19 be       	out	0x39, r1	; 57
+    128e:	0b b6       	in	r0, 0x3b	; 59
+    1290:	0f 92       	push	r0
+    1292:	1b be       	out	0x3b, r1	; 59
+    1294:	2f 93       	push	r18
+    1296:	3f 93       	push	r19
+    1298:	4f 93       	push	r20
+    129a:	5f 93       	push	r21
+    129c:	6f 93       	push	r22
+    129e:	7f 93       	push	r23
+    12a0:	8f 93       	push	r24
+    12a2:	9f 93       	push	r25
+    12a4:	af 93       	push	r26
+    12a6:	bf 93       	push	r27
+    12a8:	ef 93       	push	r30
+    12aa:	ff 93       	push	r31
+	if (tc_tcf0_ccc_callback) {
+    12ac:	e0 91 0a 20 	lds	r30, 0x200A	; 0x80200a <tc_tcf0_ccc_callback>
+    12b0:	f0 91 0b 20 	lds	r31, 0x200B	; 0x80200b <tc_tcf0_ccc_callback+0x1>
+    12b4:	30 97       	sbiw	r30, 0x00	; 0
+    12b6:	09 f0       	breq	.+2      	; 0x12ba <__vector_112+0x42>
+		tc_tcf0_ccc_callback();
+    12b8:	19 95       	eicall
+	}
+}
+    12ba:	ff 91       	pop	r31
+    12bc:	ef 91       	pop	r30
+    12be:	bf 91       	pop	r27
+    12c0:	af 91       	pop	r26
+    12c2:	9f 91       	pop	r25
+    12c4:	8f 91       	pop	r24
+    12c6:	7f 91       	pop	r23
+    12c8:	6f 91       	pop	r22
+    12ca:	5f 91       	pop	r21
+    12cc:	4f 91       	pop	r20
+    12ce:	3f 91       	pop	r19
+    12d0:	2f 91       	pop	r18
+    12d2:	0f 90       	pop	r0
+    12d4:	0b be       	out	0x3b, r0	; 59
+    12d6:	0f 90       	pop	r0
+    12d8:	09 be       	out	0x39, r0	; 57
+    12da:	0f 90       	pop	r0
+    12dc:	08 be       	out	0x38, r0	; 56
+    12de:	0f 90       	pop	r0
+    12e0:	0f be       	out	0x3f, r0	; 63
+    12e2:	0f 90       	pop	r0
+    12e4:	1f 90       	pop	r1
+    12e6:	18 95       	reti
+
+000012e8 <__vector_113>:
+ *
+ * This function will handle interrupt on Timer Counter F0 Compare/CaptureD and
+ * call the callback function.
+ */
+ISR(TCF0_CCD_vect)
+{
+    12e8:	1f 92       	push	r1
+    12ea:	0f 92       	push	r0
+    12ec:	0f b6       	in	r0, 0x3f	; 63
+    12ee:	0f 92       	push	r0
+    12f0:	11 24       	eor	r1, r1
+    12f2:	08 b6       	in	r0, 0x38	; 56
+    12f4:	0f 92       	push	r0
+    12f6:	18 be       	out	0x38, r1	; 56
+    12f8:	09 b6       	in	r0, 0x39	; 57
+    12fa:	0f 92       	push	r0
+    12fc:	19 be       	out	0x39, r1	; 57
+    12fe:	0b b6       	in	r0, 0x3b	; 59
+    1300:	0f 92       	push	r0
+    1302:	1b be       	out	0x3b, r1	; 59
+    1304:	2f 93       	push	r18
+    1306:	3f 93       	push	r19
+    1308:	4f 93       	push	r20
+    130a:	5f 93       	push	r21
+    130c:	6f 93       	push	r22
+    130e:	7f 93       	push	r23
+    1310:	8f 93       	push	r24
+    1312:	9f 93       	push	r25
+    1314:	af 93       	push	r26
+    1316:	bf 93       	push	r27
+    1318:	ef 93       	push	r30
+    131a:	ff 93       	push	r31
+	if (tc_tcf0_ccd_callback) {
+    131c:	e0 91 08 20 	lds	r30, 0x2008	; 0x802008 <tc_tcf0_ccd_callback>
+    1320:	f0 91 09 20 	lds	r31, 0x2009	; 0x802009 <tc_tcf0_ccd_callback+0x1>
+    1324:	30 97       	sbiw	r30, 0x00	; 0
+    1326:	09 f0       	breq	.+2      	; 0x132a <__vector_113+0x42>
+		tc_tcf0_ccd_callback();
+    1328:	19 95       	eicall
+	}
+}
+    132a:	ff 91       	pop	r31
+    132c:	ef 91       	pop	r30
+    132e:	bf 91       	pop	r27
+    1330:	af 91       	pop	r26
+    1332:	9f 91       	pop	r25
+    1334:	8f 91       	pop	r24
+    1336:	7f 91       	pop	r23
+    1338:	6f 91       	pop	r22
+    133a:	5f 91       	pop	r21
+    133c:	4f 91       	pop	r20
+    133e:	3f 91       	pop	r19
+    1340:	2f 91       	pop	r18
+    1342:	0f 90       	pop	r0
+    1344:	0b be       	out	0x3b, r0	; 59
+    1346:	0f 90       	pop	r0
+    1348:	09 be       	out	0x39, r0	; 57
+    134a:	0f 90       	pop	r0
+    134c:	08 be       	out	0x38, r0	; 56
+    134e:	0f 90       	pop	r0
+    1350:	0f be       	out	0x3f, r0	; 63
+    1352:	0f 90       	pop	r0
+    1354:	1f 90       	pop	r1
+    1356:	18 95       	reti
+
+00001358 <__vector_114>:
+ *
+ * This function will handle interrupt on Timer Counter F1 overflow and
+ * call the callback function.
+ */
+ISR(TCF1_OVF_vect)
+{
+    1358:	1f 92       	push	r1
+    135a:	0f 92       	push	r0
+    135c:	0f b6       	in	r0, 0x3f	; 63
+    135e:	0f 92       	push	r0
+    1360:	11 24       	eor	r1, r1
+    1362:	08 b6       	in	r0, 0x38	; 56
+    1364:	0f 92       	push	r0
+    1366:	18 be       	out	0x38, r1	; 56
+    1368:	09 b6       	in	r0, 0x39	; 57
+    136a:	0f 92       	push	r0
+    136c:	19 be       	out	0x39, r1	; 57
+    136e:	0b b6       	in	r0, 0x3b	; 59
+    1370:	0f 92       	push	r0
+    1372:	1b be       	out	0x3b, r1	; 59
+    1374:	2f 93       	push	r18
+    1376:	3f 93       	push	r19
+    1378:	4f 93       	push	r20
+    137a:	5f 93       	push	r21
+    137c:	6f 93       	push	r22
+    137e:	7f 93       	push	r23
+    1380:	8f 93       	push	r24
+    1382:	9f 93       	push	r25
+    1384:	af 93       	push	r26
+    1386:	bf 93       	push	r27
+    1388:	ef 93       	push	r30
+    138a:	ff 93       	push	r31
+	if (tc_tcf1_ovf_callback) {
+    138c:	e0 91 06 20 	lds	r30, 0x2006	; 0x802006 <tc_tcf1_ovf_callback>
+    1390:	f0 91 07 20 	lds	r31, 0x2007	; 0x802007 <tc_tcf1_ovf_callback+0x1>
+    1394:	30 97       	sbiw	r30, 0x00	; 0
+    1396:	09 f0       	breq	.+2      	; 0x139a <__vector_114+0x42>
+		tc_tcf1_ovf_callback();
+    1398:	19 95       	eicall
+	}
+}
+    139a:	ff 91       	pop	r31
+    139c:	ef 91       	pop	r30
+    139e:	bf 91       	pop	r27
+    13a0:	af 91       	pop	r26
+    13a2:	9f 91       	pop	r25
+    13a4:	8f 91       	pop	r24
+    13a6:	7f 91       	pop	r23
+    13a8:	6f 91       	pop	r22
+    13aa:	5f 91       	pop	r21
+    13ac:	4f 91       	pop	r20
+    13ae:	3f 91       	pop	r19
+    13b0:	2f 91       	pop	r18
+    13b2:	0f 90       	pop	r0
+    13b4:	0b be       	out	0x3b, r0	; 59
+    13b6:	0f 90       	pop	r0
+    13b8:	09 be       	out	0x39, r0	; 57
+    13ba:	0f 90       	pop	r0
+    13bc:	08 be       	out	0x38, r0	; 56
+    13be:	0f 90       	pop	r0
+    13c0:	0f be       	out	0x3f, r0	; 63
+    13c2:	0f 90       	pop	r0
+    13c4:	1f 90       	pop	r1
+    13c6:	18 95       	reti
+
+000013c8 <__vector_115>:
+ *
+ * This function will handle interrupt on Timer Counter F1 error and
+ * call the callback function.
+ */
+ISR(TCF1_ERR_vect)
+{
+    13c8:	1f 92       	push	r1
+    13ca:	0f 92       	push	r0
+    13cc:	0f b6       	in	r0, 0x3f	; 63
+    13ce:	0f 92       	push	r0
+    13d0:	11 24       	eor	r1, r1
+    13d2:	08 b6       	in	r0, 0x38	; 56
+    13d4:	0f 92       	push	r0
+    13d6:	18 be       	out	0x38, r1	; 56
+    13d8:	09 b6       	in	r0, 0x39	; 57
+    13da:	0f 92       	push	r0
+    13dc:	19 be       	out	0x39, r1	; 57
+    13de:	0b b6       	in	r0, 0x3b	; 59
+    13e0:	0f 92       	push	r0
+    13e2:	1b be       	out	0x3b, r1	; 59
+    13e4:	2f 93       	push	r18
+    13e6:	3f 93       	push	r19
+    13e8:	4f 93       	push	r20
+    13ea:	5f 93       	push	r21
+    13ec:	6f 93       	push	r22
+    13ee:	7f 93       	push	r23
+    13f0:	8f 93       	push	r24
+    13f2:	9f 93       	push	r25
+    13f4:	af 93       	push	r26
+    13f6:	bf 93       	push	r27
+    13f8:	ef 93       	push	r30
+    13fa:	ff 93       	push	r31
+	if (tc_tcf1_err_callback) {
+    13fc:	e0 91 04 20 	lds	r30, 0x2004	; 0x802004 <tc_tcf1_err_callback>
+    1400:	f0 91 05 20 	lds	r31, 0x2005	; 0x802005 <tc_tcf1_err_callback+0x1>
+    1404:	30 97       	sbiw	r30, 0x00	; 0
+    1406:	09 f0       	breq	.+2      	; 0x140a <__vector_115+0x42>
+		tc_tcf1_err_callback();
+    1408:	19 95       	eicall
+	}
+}
+    140a:	ff 91       	pop	r31
+    140c:	ef 91       	pop	r30
+    140e:	bf 91       	pop	r27
+    1410:	af 91       	pop	r26
+    1412:	9f 91       	pop	r25
+    1414:	8f 91       	pop	r24
+    1416:	7f 91       	pop	r23
+    1418:	6f 91       	pop	r22
+    141a:	5f 91       	pop	r21
+    141c:	4f 91       	pop	r20
+    141e:	3f 91       	pop	r19
+    1420:	2f 91       	pop	r18
+    1422:	0f 90       	pop	r0
+    1424:	0b be       	out	0x3b, r0	; 59
+    1426:	0f 90       	pop	r0
+    1428:	09 be       	out	0x39, r0	; 57
+    142a:	0f 90       	pop	r0
+    142c:	08 be       	out	0x38, r0	; 56
+    142e:	0f 90       	pop	r0
+    1430:	0f be       	out	0x3f, r0	; 63
+    1432:	0f 90       	pop	r0
+    1434:	1f 90       	pop	r1
+    1436:	18 95       	reti
+
+00001438 <__vector_116>:
+ *
+ * This function will handle interrupt on Timer Counter F1 Compare/CaptureA and
+ * call the callback function.
+ */
+ISR(TCF1_CCA_vect)
+{
+    1438:	1f 92       	push	r1
+    143a:	0f 92       	push	r0
+    143c:	0f b6       	in	r0, 0x3f	; 63
+    143e:	0f 92       	push	r0
+    1440:	11 24       	eor	r1, r1
+    1442:	08 b6       	in	r0, 0x38	; 56
+    1444:	0f 92       	push	r0
+    1446:	18 be       	out	0x38, r1	; 56
+    1448:	09 b6       	in	r0, 0x39	; 57
+    144a:	0f 92       	push	r0
+    144c:	19 be       	out	0x39, r1	; 57
+    144e:	0b b6       	in	r0, 0x3b	; 59
+    1450:	0f 92       	push	r0
+    1452:	1b be       	out	0x3b, r1	; 59
+    1454:	2f 93       	push	r18
+    1456:	3f 93       	push	r19
+    1458:	4f 93       	push	r20
+    145a:	5f 93       	push	r21
+    145c:	6f 93       	push	r22
+    145e:	7f 93       	push	r23
+    1460:	8f 93       	push	r24
+    1462:	9f 93       	push	r25
+    1464:	af 93       	push	r26
+    1466:	bf 93       	push	r27
+    1468:	ef 93       	push	r30
+    146a:	ff 93       	push	r31
+	if (tc_tcf1_cca_callback) {
+    146c:	e0 91 02 20 	lds	r30, 0x2002	; 0x802002 <tc_tcf1_cca_callback>
+    1470:	f0 91 03 20 	lds	r31, 0x2003	; 0x802003 <tc_tcf1_cca_callback+0x1>
+    1474:	30 97       	sbiw	r30, 0x00	; 0
+    1476:	09 f0       	breq	.+2      	; 0x147a <__vector_116+0x42>
+		tc_tcf1_cca_callback();
+    1478:	19 95       	eicall
+	}
+}
+    147a:	ff 91       	pop	r31
+    147c:	ef 91       	pop	r30
+    147e:	bf 91       	pop	r27
+    1480:	af 91       	pop	r26
+    1482:	9f 91       	pop	r25
+    1484:	8f 91       	pop	r24
+    1486:	7f 91       	pop	r23
+    1488:	6f 91       	pop	r22
+    148a:	5f 91       	pop	r21
+    148c:	4f 91       	pop	r20
+    148e:	3f 91       	pop	r19
+    1490:	2f 91       	pop	r18
+    1492:	0f 90       	pop	r0
+    1494:	0b be       	out	0x3b, r0	; 59
+    1496:	0f 90       	pop	r0
+    1498:	09 be       	out	0x39, r0	; 57
+    149a:	0f 90       	pop	r0
+    149c:	08 be       	out	0x38, r0	; 56
+    149e:	0f 90       	pop	r0
+    14a0:	0f be       	out	0x3f, r0	; 63
+    14a2:	0f 90       	pop	r0
+    14a4:	1f 90       	pop	r1
+    14a6:	18 95       	reti
+
+000014a8 <__vector_117>:
+ *
+ * This function will handle interrupt on Timer Counter F1 Compare/CaptureB and
+ * call the callback function.
+ */
+ISR(TCF1_CCB_vect)
+{
+    14a8:	1f 92       	push	r1
+    14aa:	0f 92       	push	r0
+    14ac:	0f b6       	in	r0, 0x3f	; 63
+    14ae:	0f 92       	push	r0
+    14b0:	11 24       	eor	r1, r1
+    14b2:	08 b6       	in	r0, 0x38	; 56
+    14b4:	0f 92       	push	r0
+    14b6:	18 be       	out	0x38, r1	; 56
+    14b8:	09 b6       	in	r0, 0x39	; 57
+    14ba:	0f 92       	push	r0
+    14bc:	19 be       	out	0x39, r1	; 57
+    14be:	0b b6       	in	r0, 0x3b	; 59
+    14c0:	0f 92       	push	r0
+    14c2:	1b be       	out	0x3b, r1	; 59
+    14c4:	2f 93       	push	r18
+    14c6:	3f 93       	push	r19
+    14c8:	4f 93       	push	r20
+    14ca:	5f 93       	push	r21
+    14cc:	6f 93       	push	r22
+    14ce:	7f 93       	push	r23
+    14d0:	8f 93       	push	r24
+    14d2:	9f 93       	push	r25
+    14d4:	af 93       	push	r26
+    14d6:	bf 93       	push	r27
+    14d8:	ef 93       	push	r30
+    14da:	ff 93       	push	r31
+	if (tc_tcf1_ccb_callback) {
+    14dc:	e0 91 00 20 	lds	r30, 0x2000	; 0x802000 <__data_end>
+    14e0:	f0 91 01 20 	lds	r31, 0x2001	; 0x802001 <__data_end+0x1>
+    14e4:	30 97       	sbiw	r30, 0x00	; 0
+    14e6:	09 f0       	breq	.+2      	; 0x14ea <__vector_117+0x42>
+		tc_tcf1_ccb_callback();
+    14e8:	19 95       	eicall
+	}
+}
+    14ea:	ff 91       	pop	r31
+    14ec:	ef 91       	pop	r30
+    14ee:	bf 91       	pop	r27
+    14f0:	af 91       	pop	r26
+    14f2:	9f 91       	pop	r25
+    14f4:	8f 91       	pop	r24
+    14f6:	7f 91       	pop	r23
+    14f8:	6f 91       	pop	r22
+    14fa:	5f 91       	pop	r21
+    14fc:	4f 91       	pop	r20
+    14fe:	3f 91       	pop	r19
+    1500:	2f 91       	pop	r18
+    1502:	0f 90       	pop	r0
+    1504:	0b be       	out	0x3b, r0	; 59
+    1506:	0f 90       	pop	r0
+    1508:	09 be       	out	0x39, r0	; 57
+    150a:	0f 90       	pop	r0
+    150c:	08 be       	out	0x38, r0	; 56
+    150e:	0f 90       	pop	r0
+    1510:	0f be       	out	0x3f, r0	; 63
+    1512:	0f 90       	pop	r0
+    1514:	1f 90       	pop	r1
+    1516:	18 95       	reti
+
+00001518 <twim_interrupt_handler>:
+ * \brief Common TWI master interrupt service routine.
+ *
+ *  Check current status and calls the appropriate handler.
+ */
+static void twim_interrupt_handler(void)
+{
+    1518:	cf 93       	push	r28
+    151a:	df 93       	push	r29
+	uint8_t const master_status = transfer.bus->MASTER.STATUS;
+    151c:	e0 91 50 20 	lds	r30, 0x2050	; 0x802050 <transfer>
+    1520:	f0 91 51 20 	lds	r31, 0x2051	; 0x802051 <transfer+0x1>
+    1524:	84 81       	ldd	r24, Z+4	; 0x04
+
+	if (master_status & TWI_MASTER_ARBLOST_bm) {
+    1526:	83 ff       	sbrs	r24, 3
+    1528:	08 c0       	rjmp	.+16     	; 0x153a <twim_interrupt_handler+0x22>
+
+		transfer.bus->MASTER.STATUS = master_status | TWI_MASTER_ARBLOST_bm;
+    152a:	88 60       	ori	r24, 0x08	; 8
+    152c:	84 83       	std	Z+4, r24	; 0x04
+		transfer.bus->MASTER.CTRLC  = TWI_MASTER_CMD_STOP_gc;
+    152e:	83 e0       	ldi	r24, 0x03	; 3
+    1530:	83 83       	std	Z+3, r24	; 0x03
+		transfer.status = ERR_BUSY;
+    1532:	86 ef       	ldi	r24, 0xF6	; 246
+    1534:	80 93 5a 20 	sts	0x205A, r24	; 0x80205a <transfer+0xa>
+    1538:	83 c0       	rjmp	.+262    	; 0x1640 <twim_interrupt_handler+0x128>
+
+	} else if ((master_status & TWI_MASTER_BUSERR_bm) ||
+    153a:	98 2f       	mov	r25, r24
+    153c:	94 71       	andi	r25, 0x14	; 20
+    153e:	31 f0       	breq	.+12     	; 0x154c <twim_interrupt_handler+0x34>
+		(master_status & TWI_MASTER_RXACK_bm)) {
+
+		transfer.bus->MASTER.CTRLC = TWI_MASTER_CMD_STOP_gc;
+    1540:	83 e0       	ldi	r24, 0x03	; 3
+    1542:	83 83       	std	Z+3, r24	; 0x03
+		transfer.status = ERR_IO_ERROR;
+    1544:	8f ef       	ldi	r24, 0xFF	; 255
+    1546:	80 93 5a 20 	sts	0x205A, r24	; 0x80205a <transfer+0xa>
+    154a:	7a c0       	rjmp	.+244    	; 0x1640 <twim_interrupt_handler+0x128>
+
+	} else if (master_status & TWI_MASTER_WIF_bm) {
+    154c:	86 ff       	sbrs	r24, 6
+    154e:	43 c0       	rjmp	.+134    	; 0x15d6 <twim_interrupt_handler+0xbe>
+ *  Handles TWI transactions (master write) and responses to (N)ACK.
+ */
+static inline void twim_write_handler(void)
+{
+	TWI_t * const         bus = transfer.bus;
+	twi_package_t * const pkg = transfer.pkg;
+    1550:	c0 e5       	ldi	r28, 0x50	; 80
+    1552:	d0 e2       	ldi	r29, 0x20	; 32
+    1554:	aa 81       	ldd	r26, Y+2	; 0x02
+    1556:	bb 81       	ldd	r27, Y+3	; 0x03
+
+	if (transfer.addr_count < pkg->addr_length) {
+    1558:	8c 81       	ldd	r24, Y+4	; 0x04
+    155a:	9d 81       	ldd	r25, Y+5	; 0x05
+    155c:	14 96       	adiw	r26, 0x04	; 4
+    155e:	2d 91       	ld	r18, X+
+    1560:	3c 91       	ld	r19, X
+    1562:	15 97       	sbiw	r26, 0x05	; 5
+    1564:	82 17       	cp	r24, r18
+    1566:	93 07       	cpc	r25, r19
+    1568:	6c f4       	brge	.+26     	; 0x1584 <twim_interrupt_handler+0x6c>
+
+		const uint8_t * const data = pkg->addr;
+		bus->MASTER.DATA = data[transfer.addr_count++];
+    156a:	9c 01       	movw	r18, r24
+    156c:	2f 5f       	subi	r18, 0xFF	; 255
+    156e:	3f 4f       	sbci	r19, 0xFF	; 255
+    1570:	20 93 54 20 	sts	0x2054, r18	; 0x802054 <transfer+0x4>
+    1574:	30 93 55 20 	sts	0x2055, r19	; 0x802055 <transfer+0x5>
+    1578:	a8 0f       	add	r26, r24
+    157a:	b9 1f       	adc	r27, r25
+    157c:	11 96       	adiw	r26, 0x01	; 1
+    157e:	8c 91       	ld	r24, X
+    1580:	87 83       	std	Z+7, r24	; 0x07
+    1582:	5e c0       	rjmp	.+188    	; 0x1640 <twim_interrupt_handler+0x128>
+
+	} else if (transfer.data_count < pkg->length) {
+    1584:	80 91 56 20 	lds	r24, 0x2056	; 0x802056 <transfer+0x6>
+    1588:	90 91 57 20 	lds	r25, 0x2057	; 0x802057 <transfer+0x7>
+    158c:	18 96       	adiw	r26, 0x08	; 8
+    158e:	2d 91       	ld	r18, X+
+    1590:	3c 91       	ld	r19, X
+    1592:	19 97       	sbiw	r26, 0x09	; 9
+    1594:	82 17       	cp	r24, r18
+    1596:	93 07       	cpc	r25, r19
+    1598:	c8 f4       	brcc	.+50     	; 0x15cc <twim_interrupt_handler+0xb4>
+
+		if (transfer.read) {
+    159a:	20 91 58 20 	lds	r18, 0x2058	; 0x802058 <transfer+0x8>
+    159e:	22 23       	and	r18, r18
+    15a0:	21 f0       	breq	.+8      	; 0x15aa <twim_interrupt_handler+0x92>
+
+			/* Send repeated START condition (Address|R/W=1). */
+
+			bus->MASTER.ADDR |= 0x01;
+    15a2:	86 81       	ldd	r24, Z+6	; 0x06
+    15a4:	81 60       	ori	r24, 0x01	; 1
+    15a6:	86 83       	std	Z+6, r24	; 0x06
+    15a8:	4b c0       	rjmp	.+150    	; 0x1640 <twim_interrupt_handler+0x128>
+
+		} else {
+			const uint8_t * const data = pkg->buffer;
+    15aa:	16 96       	adiw	r26, 0x06	; 6
+    15ac:	2d 91       	ld	r18, X+
+    15ae:	3c 91       	ld	r19, X
+    15b0:	17 97       	sbiw	r26, 0x07	; 7
+			bus->MASTER.DATA = data[transfer.data_count++];
+    15b2:	ac 01       	movw	r20, r24
+    15b4:	4f 5f       	subi	r20, 0xFF	; 255
+    15b6:	5f 4f       	sbci	r21, 0xFF	; 255
+    15b8:	40 93 56 20 	sts	0x2056, r20	; 0x802056 <transfer+0x6>
+    15bc:	50 93 57 20 	sts	0x2057, r21	; 0x802057 <transfer+0x7>
+    15c0:	d9 01       	movw	r26, r18
+    15c2:	a8 0f       	add	r26, r24
+    15c4:	b9 1f       	adc	r27, r25
+    15c6:	8c 91       	ld	r24, X
+    15c8:	87 83       	std	Z+7, r24	; 0x07
+    15ca:	3a c0       	rjmp	.+116    	; 0x1640 <twim_interrupt_handler+0x128>
+
+	} else {
+
+		/* Send STOP condition to complete the transaction. */
+
+		bus->MASTER.CTRLC = TWI_MASTER_CMD_STOP_gc;
+    15cc:	83 e0       	ldi	r24, 0x03	; 3
+    15ce:	83 83       	std	Z+3, r24	; 0x03
+		transfer.status = STATUS_OK;
+    15d0:	10 92 5a 20 	sts	0x205A, r1	; 0x80205a <transfer+0xa>
+    15d4:	35 c0       	rjmp	.+106    	; 0x1640 <twim_interrupt_handler+0x128>
+
+	} else if (master_status & TWI_MASTER_WIF_bm) {
+
+		twim_write_handler();
+
+	} else if (master_status & TWI_MASTER_RIF_bm) {
+    15d6:	88 23       	and	r24, r24
+    15d8:	84 f5       	brge	.+96     	; 0x163a <twim_interrupt_handler+0x122>
+ *  reading bytes from the TWI slave.
+ */
+static inline void twim_read_handler(void)
+{
+	TWI_t * const         bus = transfer.bus;
+	twi_package_t * const pkg = transfer.pkg;
+    15da:	a0 e5       	ldi	r26, 0x50	; 80
+    15dc:	b0 e2       	ldi	r27, 0x20	; 32
+    15de:	12 96       	adiw	r26, 0x02	; 2
+    15e0:	cd 91       	ld	r28, X+
+    15e2:	dc 91       	ld	r29, X
+    15e4:	13 97       	sbiw	r26, 0x03	; 3
+
+	if (transfer.data_count < pkg->length) {
+    15e6:	16 96       	adiw	r26, 0x06	; 6
+    15e8:	8d 91       	ld	r24, X+
+    15ea:	9c 91       	ld	r25, X
+    15ec:	17 97       	sbiw	r26, 0x07	; 7
+    15ee:	28 85       	ldd	r18, Y+8	; 0x08
+    15f0:	39 85       	ldd	r19, Y+9	; 0x09
+    15f2:	82 17       	cp	r24, r18
+    15f4:	93 07       	cpc	r25, r19
+    15f6:	d8 f4       	brcc	.+54     	; 0x162e <twim_interrupt_handler+0x116>
+
+		uint8_t * const data = pkg->buffer;
+    15f8:	6e 81       	ldd	r22, Y+6	; 0x06
+    15fa:	7f 81       	ldd	r23, Y+7	; 0x07
+		data[transfer.data_count++] = bus->MASTER.DATA;
+    15fc:	9c 01       	movw	r18, r24
+    15fe:	2f 5f       	subi	r18, 0xFF	; 255
+    1600:	3f 4f       	sbci	r19, 0xFF	; 255
+    1602:	20 93 56 20 	sts	0x2056, r18	; 0x802056 <transfer+0x6>
+    1606:	30 93 57 20 	sts	0x2057, r19	; 0x802057 <transfer+0x7>
+    160a:	47 81       	ldd	r20, Z+7	; 0x07
+    160c:	db 01       	movw	r26, r22
+    160e:	a8 0f       	add	r26, r24
+    1610:	b9 1f       	adc	r27, r25
+    1612:	4c 93       	st	X, r20
+
+		/* If there is more to read, issue ACK and start a byte read.
+		 * Otherwise, issue NACK and STOP to complete the transaction.
+		 */
+		if (transfer.data_count < pkg->length) {
+    1614:	88 85       	ldd	r24, Y+8	; 0x08
+    1616:	99 85       	ldd	r25, Y+9	; 0x09
+    1618:	28 17       	cp	r18, r24
+    161a:	39 07       	cpc	r19, r25
+    161c:	18 f4       	brcc	.+6      	; 0x1624 <twim_interrupt_handler+0x10c>
+
+			bus->MASTER.CTRLC = TWI_MASTER_CMD_RECVTRANS_gc;
+    161e:	82 e0       	ldi	r24, 0x02	; 2
+    1620:	83 83       	std	Z+3, r24	; 0x03
+    1622:	0e c0       	rjmp	.+28     	; 0x1640 <twim_interrupt_handler+0x128>
+
+		} else {
+
+			bus->MASTER.CTRLC = TWI_MASTER_ACKACT_bm | TWI_MASTER_CMD_STOP_gc;
+    1624:	87 e0       	ldi	r24, 0x07	; 7
+    1626:	83 83       	std	Z+3, r24	; 0x03
+			transfer.status = STATUS_OK;
+    1628:	10 92 5a 20 	sts	0x205A, r1	; 0x80205a <transfer+0xa>
+    162c:	09 c0       	rjmp	.+18     	; 0x1640 <twim_interrupt_handler+0x128>
+
+	} else {
+
+		/* Issue STOP and buffer overflow condition. */
+
+		bus->MASTER.CTRLC = TWI_MASTER_CMD_STOP_gc;
+    162e:	83 e0       	ldi	r24, 0x03	; 3
+    1630:	83 83       	std	Z+3, r24	; 0x03
+		transfer.status = ERR_NO_MEMORY;
+    1632:	89 ef       	ldi	r24, 0xF9	; 249
+    1634:	80 93 5a 20 	sts	0x205A, r24	; 0x80205a <transfer+0xa>
+    1638:	03 c0       	rjmp	.+6      	; 0x1640 <twim_interrupt_handler+0x128>
+
+		twim_read_handler();
+
+	} else {
+
+		transfer.status = ERR_PROTOCOL;
+    163a:	8b ef       	ldi	r24, 0xFB	; 251
+    163c:	80 93 5a 20 	sts	0x205A, r24	; 0x80205a <transfer+0xa>
+	}
+}
+    1640:	df 91       	pop	r29
+    1642:	cf 91       	pop	r28
+    1644:	08 95       	ret
+
+00001646 <__vector_13>:
+ * parameters specified in the global \c transfer structure.
+ */
+static void twim_interrupt_handler(void);
+
+#ifdef TWIC
+ISR(TWIC_TWIM_vect) { twim_interrupt_handler(); }
+    1646:	1f 92       	push	r1
+    1648:	0f 92       	push	r0
+    164a:	0f b6       	in	r0, 0x3f	; 63
+    164c:	0f 92       	push	r0
+    164e:	11 24       	eor	r1, r1
+    1650:	08 b6       	in	r0, 0x38	; 56
+    1652:	0f 92       	push	r0
+    1654:	18 be       	out	0x38, r1	; 56
+    1656:	09 b6       	in	r0, 0x39	; 57
+    1658:	0f 92       	push	r0
+    165a:	19 be       	out	0x39, r1	; 57
+    165c:	0b b6       	in	r0, 0x3b	; 59
+    165e:	0f 92       	push	r0
+    1660:	1b be       	out	0x3b, r1	; 59
+    1662:	2f 93       	push	r18
+    1664:	3f 93       	push	r19
+    1666:	4f 93       	push	r20
+    1668:	5f 93       	push	r21
+    166a:	6f 93       	push	r22
+    166c:	7f 93       	push	r23
+    166e:	8f 93       	push	r24
+    1670:	9f 93       	push	r25
+    1672:	af 93       	push	r26
+    1674:	bf 93       	push	r27
+    1676:	ef 93       	push	r30
+    1678:	ff 93       	push	r31
+    167a:	4e df       	rcall	.-356    	; 0x1518 <twim_interrupt_handler>
+    167c:	ff 91       	pop	r31
+    167e:	ef 91       	pop	r30
+    1680:	bf 91       	pop	r27
+    1682:	af 91       	pop	r26
+    1684:	9f 91       	pop	r25
+    1686:	8f 91       	pop	r24
+    1688:	7f 91       	pop	r23
+    168a:	6f 91       	pop	r22
+    168c:	5f 91       	pop	r21
+    168e:	4f 91       	pop	r20
+    1690:	3f 91       	pop	r19
+    1692:	2f 91       	pop	r18
+    1694:	0f 90       	pop	r0
+    1696:	0b be       	out	0x3b, r0	; 59
+    1698:	0f 90       	pop	r0
+    169a:	09 be       	out	0x39, r0	; 57
+    169c:	0f 90       	pop	r0
+    169e:	08 be       	out	0x38, r0	; 56
+    16a0:	0f 90       	pop	r0
+    16a2:	0f be       	out	0x3f, r0	; 63
+    16a4:	0f 90       	pop	r0
+    16a6:	1f 90       	pop	r1
+    16a8:	18 95       	reti
+
+000016aa <__vector_76>:
+#endif
+#ifdef TWID
+ISR(TWID_TWIM_vect) { twim_interrupt_handler(); }
+    16aa:	1f 92       	push	r1
+    16ac:	0f 92       	push	r0
+    16ae:	0f b6       	in	r0, 0x3f	; 63
+    16b0:	0f 92       	push	r0
+    16b2:	11 24       	eor	r1, r1
+    16b4:	08 b6       	in	r0, 0x38	; 56
+    16b6:	0f 92       	push	r0
+    16b8:	18 be       	out	0x38, r1	; 56
+    16ba:	09 b6       	in	r0, 0x39	; 57
+    16bc:	0f 92       	push	r0
+    16be:	19 be       	out	0x39, r1	; 57
+    16c0:	0b b6       	in	r0, 0x3b	; 59
+    16c2:	0f 92       	push	r0
+    16c4:	1b be       	out	0x3b, r1	; 59
+    16c6:	2f 93       	push	r18
+    16c8:	3f 93       	push	r19
+    16ca:	4f 93       	push	r20
+    16cc:	5f 93       	push	r21
+    16ce:	6f 93       	push	r22
+    16d0:	7f 93       	push	r23
+    16d2:	8f 93       	push	r24
+    16d4:	9f 93       	push	r25
+    16d6:	af 93       	push	r26
+    16d8:	bf 93       	push	r27
+    16da:	ef 93       	push	r30
+    16dc:	ff 93       	push	r31
+    16de:	1c df       	rcall	.-456    	; 0x1518 <twim_interrupt_handler>
+    16e0:	ff 91       	pop	r31
+    16e2:	ef 91       	pop	r30
+    16e4:	bf 91       	pop	r27
+    16e6:	af 91       	pop	r26
+    16e8:	9f 91       	pop	r25
+    16ea:	8f 91       	pop	r24
+    16ec:	7f 91       	pop	r23
+    16ee:	6f 91       	pop	r22
+    16f0:	5f 91       	pop	r21
+    16f2:	4f 91       	pop	r20
+    16f4:	3f 91       	pop	r19
+    16f6:	2f 91       	pop	r18
+    16f8:	0f 90       	pop	r0
+    16fa:	0b be       	out	0x3b, r0	; 59
+    16fc:	0f 90       	pop	r0
+    16fe:	09 be       	out	0x39, r0	; 57
+    1700:	0f 90       	pop	r0
+    1702:	08 be       	out	0x38, r0	; 56
+    1704:	0f 90       	pop	r0
+    1706:	0f be       	out	0x3f, r0	; 63
+    1708:	0f 90       	pop	r0
+    170a:	1f 90       	pop	r1
+    170c:	18 95       	reti
+
+0000170e <__vector_46>:
+#endif
+#ifdef TWIE
+ISR(TWIE_TWIM_vect) { twim_interrupt_handler(); }
+    170e:	1f 92       	push	r1
+    1710:	0f 92       	push	r0
+    1712:	0f b6       	in	r0, 0x3f	; 63
+    1714:	0f 92       	push	r0
+    1716:	11 24       	eor	r1, r1
+    1718:	08 b6       	in	r0, 0x38	; 56
+    171a:	0f 92       	push	r0
+    171c:	18 be       	out	0x38, r1	; 56
+    171e:	09 b6       	in	r0, 0x39	; 57
+    1720:	0f 92       	push	r0
+    1722:	19 be       	out	0x39, r1	; 57
+    1724:	0b b6       	in	r0, 0x3b	; 59
+    1726:	0f 92       	push	r0
+    1728:	1b be       	out	0x3b, r1	; 59
+    172a:	2f 93       	push	r18
+    172c:	3f 93       	push	r19
+    172e:	4f 93       	push	r20
+    1730:	5f 93       	push	r21
+    1732:	6f 93       	push	r22
+    1734:	7f 93       	push	r23
+    1736:	8f 93       	push	r24
+    1738:	9f 93       	push	r25
+    173a:	af 93       	push	r26
+    173c:	bf 93       	push	r27
+    173e:	ef 93       	push	r30
+    1740:	ff 93       	push	r31
+    1742:	ea de       	rcall	.-556    	; 0x1518 <twim_interrupt_handler>
+    1744:	ff 91       	pop	r31
+    1746:	ef 91       	pop	r30
+    1748:	bf 91       	pop	r27
+    174a:	af 91       	pop	r26
+    174c:	9f 91       	pop	r25
+    174e:	8f 91       	pop	r24
+    1750:	7f 91       	pop	r23
+    1752:	6f 91       	pop	r22
+    1754:	5f 91       	pop	r21
+    1756:	4f 91       	pop	r20
+    1758:	3f 91       	pop	r19
+    175a:	2f 91       	pop	r18
+    175c:	0f 90       	pop	r0
+    175e:	0b be       	out	0x3b, r0	; 59
+    1760:	0f 90       	pop	r0
+    1762:	09 be       	out	0x39, r0	; 57
+    1764:	0f 90       	pop	r0
+    1766:	08 be       	out	0x38, r0	; 56
+    1768:	0f 90       	pop	r0
+    176a:	0f be       	out	0x3f, r0	; 63
+    176c:	0f 90       	pop	r0
+    176e:	1f 90       	pop	r1
+    1770:	18 95       	reti
+
+00001772 <__vector_107>:
+#endif
+#ifdef TWIF
+ISR(TWIF_TWIM_vect) { twim_interrupt_handler(); }
+    1772:	1f 92       	push	r1
+    1774:	0f 92       	push	r0
+    1776:	0f b6       	in	r0, 0x3f	; 63
+    1778:	0f 92       	push	r0
+    177a:	11 24       	eor	r1, r1
+    177c:	08 b6       	in	r0, 0x38	; 56
+    177e:	0f 92       	push	r0
+    1780:	18 be       	out	0x38, r1	; 56
+    1782:	09 b6       	in	r0, 0x39	; 57
+    1784:	0f 92       	push	r0
+    1786:	19 be       	out	0x39, r1	; 57
+    1788:	0b b6       	in	r0, 0x3b	; 59
+    178a:	0f 92       	push	r0
+    178c:	1b be       	out	0x3b, r1	; 59
+    178e:	2f 93       	push	r18
+    1790:	3f 93       	push	r19
+    1792:	4f 93       	push	r20
+    1794:	5f 93       	push	r21
+    1796:	6f 93       	push	r22
+    1798:	7f 93       	push	r23
+    179a:	8f 93       	push	r24
+    179c:	9f 93       	push	r25
+    179e:	af 93       	push	r26
+    17a0:	bf 93       	push	r27
+    17a2:	ef 93       	push	r30
+    17a4:	ff 93       	push	r31
+    17a6:	b8 de       	rcall	.-656    	; 0x1518 <twim_interrupt_handler>
+    17a8:	ff 91       	pop	r31
+    17aa:	ef 91       	pop	r30
+    17ac:	bf 91       	pop	r27
+    17ae:	af 91       	pop	r26
+    17b0:	9f 91       	pop	r25
+    17b2:	8f 91       	pop	r24
+    17b4:	7f 91       	pop	r23
+    17b6:	6f 91       	pop	r22
+    17b8:	5f 91       	pop	r21
+    17ba:	4f 91       	pop	r20
+    17bc:	3f 91       	pop	r19
+    17be:	2f 91       	pop	r18
+    17c0:	0f 90       	pop	r0
+    17c2:	0b be       	out	0x3b, r0	; 59
+    17c4:	0f 90       	pop	r0
+    17c6:	09 be       	out	0x39, r0	; 57
+    17c8:	0f 90       	pop	r0
+    17ca:	08 be       	out	0x38, r0	; 56
+    17cc:	0f 90       	pop	r0
+    17ce:	0f be       	out	0x3f, r0	; 63
+    17d0:	0f 90       	pop	r0
+    17d2:	1f 90       	pop	r1
+    17d4:	18 95       	reti
+
+000017d6 <bno055_init>:
+			}
+		} else {
+		com_rslt = BNO055_ERROR;
+		}
+	return com_rslt;
+}
+    17d6:	1f 93       	push	r17
+    17d8:	cf 93       	push	r28
+    17da:	df 93       	push	r29
+    17dc:	00 d0       	rcall	.+0      	; 0x17de <bno055_init+0x8>
+    17de:	1f 92       	push	r1
+    17e0:	cd b7       	in	r28, 0x3d	; 61
+    17e2:	de b7       	in	r29, 0x3e	; 62
+    17e4:	19 82       	std	Y+1, r1	; 0x01
+    17e6:	1a 82       	std	Y+2, r1	; 0x02
+    17e8:	1b 82       	std	Y+3, r1	; 0x03
+    17ea:	1c 82       	std	Y+4, r1	; 0x04
+    17ec:	80 93 5b 20 	sts	0x205B, r24	; 0x80205b <p_bno055>
+    17f0:	90 93 5c 20 	sts	0x205C, r25	; 0x80205c <p_bno055+0x1>
+    17f4:	dc 01       	movw	r26, r24
+    17f6:	19 96       	adiw	r26, 0x09	; 9
+    17f8:	ed 91       	ld	r30, X+
+    17fa:	fc 91       	ld	r31, X
+    17fc:	1a 97       	sbiw	r26, 0x0a	; 10
+    17fe:	21 e0       	ldi	r18, 0x01	; 1
+    1800:	ae 01       	movw	r20, r28
+    1802:	4e 5f       	subi	r20, 0xFE	; 254
+    1804:	5f 4f       	sbci	r21, 0xFF	; 255
+    1806:	67 e0       	ldi	r22, 0x07	; 7
+    1808:	18 96       	adiw	r26, 0x08	; 8
+    180a:	8c 91       	ld	r24, X
+    180c:	19 95       	eicall
+    180e:	18 2f       	mov	r17, r24
+    1810:	a0 91 5b 20 	lds	r26, 0x205B	; 0x80205b <p_bno055>
+    1814:	b0 91 5c 20 	lds	r27, 0x205C	; 0x80205c <p_bno055+0x1>
+    1818:	1b 96       	adiw	r26, 0x0b	; 11
+    181a:	ed 91       	ld	r30, X+
+    181c:	fc 91       	ld	r31, X
+    181e:	1c 97       	sbiw	r26, 0x0c	; 12
+    1820:	21 e0       	ldi	r18, 0x01	; 1
+    1822:	ae 01       	movw	r20, r28
+    1824:	4f 5f       	subi	r20, 0xFF	; 255
+    1826:	5f 4f       	sbci	r21, 0xFF	; 255
+    1828:	60 e0       	ldi	r22, 0x00	; 0
+    182a:	18 96       	adiw	r26, 0x08	; 8
+    182c:	8c 91       	ld	r24, X
+    182e:	19 95       	eicall
+    1830:	18 0f       	add	r17, r24
+    1832:	a0 91 5b 20 	lds	r26, 0x205B	; 0x80205b <p_bno055>
+    1836:	b0 91 5c 20 	lds	r27, 0x205C	; 0x80205c <p_bno055+0x1>
+    183a:	89 81       	ldd	r24, Y+1	; 0x01
+    183c:	8c 93       	st	X, r24
+    183e:	1b 96       	adiw	r26, 0x0b	; 11
+    1840:	ed 91       	ld	r30, X+
+    1842:	fc 91       	ld	r31, X
+    1844:	1c 97       	sbiw	r26, 0x0c	; 12
+    1846:	21 e0       	ldi	r18, 0x01	; 1
+    1848:	ae 01       	movw	r20, r28
+    184a:	4f 5f       	subi	r20, 0xFF	; 255
+    184c:	5f 4f       	sbci	r21, 0xFF	; 255
+    184e:	61 e0       	ldi	r22, 0x01	; 1
+    1850:	18 96       	adiw	r26, 0x08	; 8
+    1852:	8c 91       	ld	r24, X
+    1854:	19 95       	eicall
+    1856:	18 0f       	add	r17, r24
+    1858:	a0 91 5b 20 	lds	r26, 0x205B	; 0x80205b <p_bno055>
+    185c:	b0 91 5c 20 	lds	r27, 0x205C	; 0x80205c <p_bno055+0x1>
+    1860:	89 81       	ldd	r24, Y+1	; 0x01
+    1862:	14 96       	adiw	r26, 0x04	; 4
+    1864:	8c 93       	st	X, r24
+    1866:	14 97       	sbiw	r26, 0x04	; 4
+    1868:	1b 96       	adiw	r26, 0x0b	; 11
+    186a:	ed 91       	ld	r30, X+
+    186c:	fc 91       	ld	r31, X
+    186e:	1c 97       	sbiw	r26, 0x0c	; 12
+    1870:	21 e0       	ldi	r18, 0x01	; 1
+    1872:	ae 01       	movw	r20, r28
+    1874:	4f 5f       	subi	r20, 0xFF	; 255
+    1876:	5f 4f       	sbci	r21, 0xFF	; 255
+    1878:	62 e0       	ldi	r22, 0x02	; 2
+    187a:	18 96       	adiw	r26, 0x08	; 8
+    187c:	8c 91       	ld	r24, X
+    187e:	19 95       	eicall
+    1880:	18 0f       	add	r17, r24
+    1882:	a0 91 5b 20 	lds	r26, 0x205B	; 0x80205b <p_bno055>
+    1886:	b0 91 5c 20 	lds	r27, 0x205C	; 0x80205c <p_bno055+0x1>
+    188a:	89 81       	ldd	r24, Y+1	; 0x01
+    188c:	15 96       	adiw	r26, 0x05	; 5
+    188e:	8c 93       	st	X, r24
+    1890:	15 97       	sbiw	r26, 0x05	; 5
+    1892:	1b 96       	adiw	r26, 0x0b	; 11
+    1894:	ed 91       	ld	r30, X+
+    1896:	fc 91       	ld	r31, X
+    1898:	1c 97       	sbiw	r26, 0x0c	; 12
+    189a:	21 e0       	ldi	r18, 0x01	; 1
+    189c:	ae 01       	movw	r20, r28
+    189e:	4f 5f       	subi	r20, 0xFF	; 255
+    18a0:	5f 4f       	sbci	r21, 0xFF	; 255
+    18a2:	63 e0       	ldi	r22, 0x03	; 3
+    18a4:	18 96       	adiw	r26, 0x08	; 8
+    18a6:	8c 91       	ld	r24, X
+    18a8:	19 95       	eicall
+    18aa:	18 0f       	add	r17, r24
+    18ac:	a0 91 5b 20 	lds	r26, 0x205B	; 0x80205b <p_bno055>
+    18b0:	b0 91 5c 20 	lds	r27, 0x205C	; 0x80205c <p_bno055+0x1>
+    18b4:	89 81       	ldd	r24, Y+1	; 0x01
+    18b6:	16 96       	adiw	r26, 0x06	; 6
+    18b8:	8c 93       	st	X, r24
+    18ba:	16 97       	sbiw	r26, 0x06	; 6
+    18bc:	1b 96       	adiw	r26, 0x0b	; 11
+    18be:	ed 91       	ld	r30, X+
+    18c0:	fc 91       	ld	r31, X
+    18c2:	1c 97       	sbiw	r26, 0x0c	; 12
+    18c4:	21 e0       	ldi	r18, 0x01	; 1
+    18c6:	ae 01       	movw	r20, r28
+    18c8:	4f 5f       	subi	r20, 0xFF	; 255
+    18ca:	5f 4f       	sbci	r21, 0xFF	; 255
+    18cc:	66 e0       	ldi	r22, 0x06	; 6
+    18ce:	18 96       	adiw	r26, 0x08	; 8
+    18d0:	8c 91       	ld	r24, X
+    18d2:	19 95       	eicall
+    18d4:	18 0f       	add	r17, r24
+    18d6:	a0 91 5b 20 	lds	r26, 0x205B	; 0x80205b <p_bno055>
+    18da:	b0 91 5c 20 	lds	r27, 0x205C	; 0x80205c <p_bno055+0x1>
+    18de:	89 81       	ldd	r24, Y+1	; 0x01
+    18e0:	17 96       	adiw	r26, 0x07	; 7
+    18e2:	8c 93       	st	X, r24
+    18e4:	17 97       	sbiw	r26, 0x07	; 7
+    18e6:	1b 96       	adiw	r26, 0x0b	; 11
+    18e8:	ed 91       	ld	r30, X+
+    18ea:	fc 91       	ld	r31, X
+    18ec:	1c 97       	sbiw	r26, 0x0c	; 12
+    18ee:	22 e0       	ldi	r18, 0x02	; 2
+    18f0:	ae 01       	movw	r20, r28
+    18f2:	4d 5f       	subi	r20, 0xFD	; 253
+    18f4:	5f 4f       	sbci	r21, 0xFF	; 255
+    18f6:	64 e0       	ldi	r22, 0x04	; 4
+    18f8:	18 96       	adiw	r26, 0x08	; 8
+    18fa:	8c 91       	ld	r24, X
+    18fc:	19 95       	eicall
+    18fe:	18 0f       	add	r17, r24
+    1900:	a0 91 5b 20 	lds	r26, 0x205B	; 0x80205b <p_bno055>
+    1904:	b0 91 5c 20 	lds	r27, 0x205C	; 0x80205c <p_bno055+0x1>
+    1908:	8c 81       	ldd	r24, Y+4	; 0x04
+    190a:	90 e0       	ldi	r25, 0x00	; 0
+    190c:	98 2f       	mov	r25, r24
+    190e:	88 27       	eor	r24, r24
+    1910:	2b 81       	ldd	r18, Y+3	; 0x03
+    1912:	82 2b       	or	r24, r18
+    1914:	11 96       	adiw	r26, 0x01	; 1
+    1916:	8d 93       	st	X+, r24
+    1918:	9c 93       	st	X, r25
+    191a:	12 97       	sbiw	r26, 0x02	; 2
+    191c:	1b 96       	adiw	r26, 0x0b	; 11
+    191e:	ed 91       	ld	r30, X+
+    1920:	fc 91       	ld	r31, X
+    1922:	1c 97       	sbiw	r26, 0x0c	; 12
+    1924:	21 e0       	ldi	r18, 0x01	; 1
+    1926:	ae 01       	movw	r20, r28
+    1928:	4f 5f       	subi	r20, 0xFF	; 255
+    192a:	5f 4f       	sbci	r21, 0xFF	; 255
+    192c:	67 e0       	ldi	r22, 0x07	; 7
+    192e:	18 96       	adiw	r26, 0x08	; 8
+    1930:	8c 91       	ld	r24, X
+    1932:	19 95       	eicall
+    1934:	e0 91 5b 20 	lds	r30, 0x205B	; 0x80205b <p_bno055>
+    1938:	f0 91 5c 20 	lds	r31, 0x205C	; 0x80205c <p_bno055+0x1>
+    193c:	99 81       	ldd	r25, Y+1	; 0x01
+    193e:	93 83       	std	Z+3, r25	; 0x03
+    1940:	81 0f       	add	r24, r17
+    1942:	24 96       	adiw	r28, 0x04	; 4
+    1944:	cd bf       	out	0x3d, r28	; 61
+    1946:	de bf       	out	0x3e, r29	; 62
+    1948:	df 91       	pop	r29
+    194a:	cf 91       	pop	r28
+    194c:	1f 91       	pop	r17
+    194e:	08 95       	ret
+
+00001950 <bno055_write_register>:
+    1950:	a0 91 5b 20 	lds	r26, 0x205B	; 0x80205b <p_bno055>
+    1954:	b0 91 5c 20 	lds	r27, 0x205C	; 0x80205c <p_bno055+0x1>
+    1958:	10 97       	sbiw	r26, 0x00	; 0
+    195a:	59 f0       	breq	.+22     	; 0x1972 <bno055_write_register+0x22>
+    195c:	24 2f       	mov	r18, r20
+    195e:	ab 01       	movw	r20, r22
+    1960:	68 2f       	mov	r22, r24
+    1962:	19 96       	adiw	r26, 0x09	; 9
+    1964:	ed 91       	ld	r30, X+
+    1966:	fc 91       	ld	r31, X
+    1968:	1a 97       	sbiw	r26, 0x0a	; 10
+    196a:	18 96       	adiw	r26, 0x08	; 8
+    196c:	8c 91       	ld	r24, X
+    196e:	19 95       	eicall
+    1970:	08 95       	ret
+    1972:	81 e8       	ldi	r24, 0x81	; 129
+    1974:	08 95       	ret
+
+00001976 <bno055_write_page_id>:
+    1976:	1f 93       	push	r17
+    1978:	cf 93       	push	r28
+    197a:	df 93       	push	r29
+    197c:	1f 92       	push	r1
+    197e:	cd b7       	in	r28, 0x3d	; 61
+    1980:	de b7       	in	r29, 0x3e	; 62
+    1982:	19 82       	std	Y+1, r1	; 0x01
+    1984:	a0 91 5b 20 	lds	r26, 0x205B	; 0x80205b <p_bno055>
+    1988:	b0 91 5c 20 	lds	r27, 0x205C	; 0x80205c <p_bno055+0x1>
+    198c:	10 97       	sbiw	r26, 0x00	; 0
+    198e:	41 f1       	breq	.+80     	; 0x19e0 <bno055_write_page_id+0x6a>
+    1990:	18 2f       	mov	r17, r24
+    1992:	1b 96       	adiw	r26, 0x0b	; 11
+    1994:	ed 91       	ld	r30, X+
+    1996:	fc 91       	ld	r31, X
+    1998:	1c 97       	sbiw	r26, 0x0c	; 12
+    199a:	21 e0       	ldi	r18, 0x01	; 1
+    199c:	ae 01       	movw	r20, r28
+    199e:	4f 5f       	subi	r20, 0xFF	; 255
+    19a0:	5f 4f       	sbci	r21, 0xFF	; 255
+    19a2:	67 e0       	ldi	r22, 0x07	; 7
+    19a4:	18 96       	adiw	r26, 0x08	; 8
+    19a6:	8c 91       	ld	r24, X
+    19a8:	19 95       	eicall
+    19aa:	81 11       	cpse	r24, r1
+    19ac:	1b c0       	rjmp	.+54     	; 0x19e4 <bno055_write_page_id+0x6e>
+    19ae:	19 83       	std	Y+1, r17	; 0x01
+    19b0:	a0 91 5b 20 	lds	r26, 0x205B	; 0x80205b <p_bno055>
+    19b4:	b0 91 5c 20 	lds	r27, 0x205C	; 0x80205c <p_bno055+0x1>
+    19b8:	19 96       	adiw	r26, 0x09	; 9
+    19ba:	ed 91       	ld	r30, X+
+    19bc:	fc 91       	ld	r31, X
+    19be:	1a 97       	sbiw	r26, 0x0a	; 10
+    19c0:	21 e0       	ldi	r18, 0x01	; 1
+    19c2:	ae 01       	movw	r20, r28
+    19c4:	4f 5f       	subi	r20, 0xFF	; 255
+    19c6:	5f 4f       	sbci	r21, 0xFF	; 255
+    19c8:	67 e0       	ldi	r22, 0x07	; 7
+    19ca:	18 96       	adiw	r26, 0x08	; 8
+    19cc:	8c 91       	ld	r24, X
+    19ce:	19 95       	eicall
+    19d0:	81 11       	cpse	r24, r1
+    19d2:	09 c0       	rjmp	.+18     	; 0x19e6 <bno055_write_page_id+0x70>
+    19d4:	e0 91 5b 20 	lds	r30, 0x205B	; 0x80205b <p_bno055>
+    19d8:	f0 91 5c 20 	lds	r31, 0x205C	; 0x80205c <p_bno055+0x1>
+    19dc:	13 83       	std	Z+3, r17	; 0x03
+    19de:	03 c0       	rjmp	.+6      	; 0x19e6 <bno055_write_page_id+0x70>
+    19e0:	81 e8       	ldi	r24, 0x81	; 129
+    19e2:	01 c0       	rjmp	.+2      	; 0x19e6 <bno055_write_page_id+0x70>
+    19e4:	8f ef       	ldi	r24, 0xFF	; 255
+    19e6:	0f 90       	pop	r0
+    19e8:	df 91       	pop	r29
+    19ea:	cf 91       	pop	r28
+    19ec:	1f 91       	pop	r17
+    19ee:	08 95       	ret
+
+000019f0 <bno055_read_euler_hrp>:
+    19f0:	0f 93       	push	r16
+    19f2:	1f 93       	push	r17
+    19f4:	cf 93       	push	r28
+    19f6:	df 93       	push	r29
+    19f8:	00 d0       	rcall	.+0      	; 0x19fa <bno055_read_euler_hrp+0xa>
+    19fa:	00 d0       	rcall	.+0      	; 0x19fc <bno055_read_euler_hrp+0xc>
+    19fc:	cd b7       	in	r28, 0x3d	; 61
+    19fe:	de b7       	in	r29, 0x3e	; 62
+    1a00:	8c 01       	movw	r16, r24
+    1a02:	fe 01       	movw	r30, r28
+    1a04:	31 96       	adiw	r30, 0x01	; 1
+    1a06:	96 e0       	ldi	r25, 0x06	; 6
+    1a08:	df 01       	movw	r26, r30
+    1a0a:	1d 92       	st	X+, r1
+    1a0c:	9a 95       	dec	r25
+    1a0e:	e9 f7       	brne	.-6      	; 0x1a0a <bno055_read_euler_hrp+0x1a>
+    1a10:	e0 91 5b 20 	lds	r30, 0x205B	; 0x80205b <p_bno055>
+    1a14:	f0 91 5c 20 	lds	r31, 0x205C	; 0x80205c <p_bno055+0x1>
+    1a18:	30 97       	sbiw	r30, 0x00	; 0
+    1a1a:	09 f4       	brne	.+2      	; 0x1a1e <bno055_read_euler_hrp+0x2e>
+    1a1c:	3e c0       	rjmp	.+124    	; 0x1a9a <bno055_read_euler_hrp+0xaa>
+    1a1e:	83 81       	ldd	r24, Z+3	; 0x03
+    1a20:	88 23       	and	r24, r24
+    1a22:	59 f0       	breq	.+22     	; 0x1a3a <bno055_read_euler_hrp+0x4a>
+    1a24:	80 e0       	ldi	r24, 0x00	; 0
+    1a26:	a7 df       	rcall	.-178    	; 0x1976 <bno055_write_page_id>
+    1a28:	88 23       	and	r24, r24
+    1a2a:	39 f0       	breq	.+14     	; 0x1a3a <bno055_read_euler_hrp+0x4a>
+    1a2c:	e0 91 5b 20 	lds	r30, 0x205B	; 0x80205b <p_bno055>
+    1a30:	f0 91 5c 20 	lds	r31, 0x205C	; 0x80205c <p_bno055+0x1>
+    1a34:	83 81       	ldd	r24, Z+3	; 0x03
+    1a36:	81 11       	cpse	r24, r1
+    1a38:	32 c0       	rjmp	.+100    	; 0x1a9e <bno055_read_euler_hrp+0xae>
+    1a3a:	a0 91 5b 20 	lds	r26, 0x205B	; 0x80205b <p_bno055>
+    1a3e:	b0 91 5c 20 	lds	r27, 0x205C	; 0x80205c <p_bno055+0x1>
+    1a42:	1b 96       	adiw	r26, 0x0b	; 11
+    1a44:	ed 91       	ld	r30, X+
+    1a46:	fc 91       	ld	r31, X
+    1a48:	1c 97       	sbiw	r26, 0x0c	; 12
+    1a4a:	26 e0       	ldi	r18, 0x06	; 6
+    1a4c:	ae 01       	movw	r20, r28
+    1a4e:	4f 5f       	subi	r20, 0xFF	; 255
+    1a50:	5f 4f       	sbci	r21, 0xFF	; 255
+    1a52:	6a e1       	ldi	r22, 0x1A	; 26
+    1a54:	18 96       	adiw	r26, 0x08	; 8
+    1a56:	8c 91       	ld	r24, X
+    1a58:	19 95       	eicall
+    1a5a:	2a 81       	ldd	r18, Y+2	; 0x02
+    1a5c:	02 2e       	mov	r0, r18
+    1a5e:	00 0c       	add	r0, r0
+    1a60:	33 0b       	sbc	r19, r19
+    1a62:	32 2f       	mov	r19, r18
+    1a64:	22 27       	eor	r18, r18
+    1a66:	99 81       	ldd	r25, Y+1	; 0x01
+    1a68:	29 2b       	or	r18, r25
+    1a6a:	f8 01       	movw	r30, r16
+    1a6c:	20 83       	st	Z, r18
+    1a6e:	31 83       	std	Z+1, r19	; 0x01
+    1a70:	2c 81       	ldd	r18, Y+4	; 0x04
+    1a72:	02 2e       	mov	r0, r18
+    1a74:	00 0c       	add	r0, r0
+    1a76:	33 0b       	sbc	r19, r19
+    1a78:	32 2f       	mov	r19, r18
+    1a7a:	22 27       	eor	r18, r18
+    1a7c:	9b 81       	ldd	r25, Y+3	; 0x03
+    1a7e:	29 2b       	or	r18, r25
+    1a80:	22 83       	std	Z+2, r18	; 0x02
+    1a82:	33 83       	std	Z+3, r19	; 0x03
+    1a84:	2e 81       	ldd	r18, Y+6	; 0x06
+    1a86:	02 2e       	mov	r0, r18
+    1a88:	00 0c       	add	r0, r0
+    1a8a:	33 0b       	sbc	r19, r19
+    1a8c:	32 2f       	mov	r19, r18
+    1a8e:	22 27       	eor	r18, r18
+    1a90:	9d 81       	ldd	r25, Y+5	; 0x05
+    1a92:	29 2b       	or	r18, r25
+    1a94:	24 83       	std	Z+4, r18	; 0x04
+    1a96:	35 83       	std	Z+5, r19	; 0x05
+    1a98:	03 c0       	rjmp	.+6      	; 0x1aa0 <bno055_read_euler_hrp+0xb0>
+    1a9a:	81 e8       	ldi	r24, 0x81	; 129
+    1a9c:	01 c0       	rjmp	.+2      	; 0x1aa0 <bno055_read_euler_hrp+0xb0>
+    1a9e:	8f ef       	ldi	r24, 0xFF	; 255
+    1aa0:	26 96       	adiw	r28, 0x06	; 6
+    1aa2:	cd bf       	out	0x3d, r28	; 61
+    1aa4:	de bf       	out	0x3e, r29	; 62
+    1aa6:	df 91       	pop	r29
+    1aa8:	cf 91       	pop	r28
+    1aaa:	1f 91       	pop	r17
+    1aac:	0f 91       	pop	r16
+    1aae:	08 95       	ret
+
+00001ab0 <bno055_get_euler_unit>:
+    1ab0:	0f 93       	push	r16
+    1ab2:	1f 93       	push	r17
+    1ab4:	cf 93       	push	r28
+    1ab6:	df 93       	push	r29
+    1ab8:	1f 92       	push	r1
+    1aba:	cd b7       	in	r28, 0x3d	; 61
+    1abc:	de b7       	in	r29, 0x3e	; 62
+    1abe:	19 82       	std	Y+1, r1	; 0x01
+    1ac0:	e0 91 5b 20 	lds	r30, 0x205B	; 0x80205b <p_bno055>
+    1ac4:	f0 91 5c 20 	lds	r31, 0x205C	; 0x80205c <p_bno055+0x1>
+    1ac8:	30 97       	sbiw	r30, 0x00	; 0
+    1aca:	31 f1       	breq	.+76     	; 0x1b18 <bno055_get_euler_unit+0x68>
+    1acc:	8c 01       	movw	r16, r24
+    1ace:	83 81       	ldd	r24, Z+3	; 0x03
+    1ad0:	88 23       	and	r24, r24
+    1ad2:	59 f0       	breq	.+22     	; 0x1aea <bno055_get_euler_unit+0x3a>
+    1ad4:	80 e0       	ldi	r24, 0x00	; 0
+    1ad6:	4f df       	rcall	.-354    	; 0x1976 <bno055_write_page_id>
+    1ad8:	88 23       	and	r24, r24
+    1ada:	39 f0       	breq	.+14     	; 0x1aea <bno055_get_euler_unit+0x3a>
+    1adc:	e0 91 5b 20 	lds	r30, 0x205B	; 0x80205b <p_bno055>
+    1ae0:	f0 91 5c 20 	lds	r31, 0x205C	; 0x80205c <p_bno055+0x1>
+    1ae4:	83 81       	ldd	r24, Z+3	; 0x03
+    1ae6:	81 11       	cpse	r24, r1
+    1ae8:	19 c0       	rjmp	.+50     	; 0x1b1c <bno055_get_euler_unit+0x6c>
+    1aea:	a0 91 5b 20 	lds	r26, 0x205B	; 0x80205b <p_bno055>
+    1aee:	b0 91 5c 20 	lds	r27, 0x205C	; 0x80205c <p_bno055+0x1>
+    1af2:	1b 96       	adiw	r26, 0x0b	; 11
+    1af4:	ed 91       	ld	r30, X+
+    1af6:	fc 91       	ld	r31, X
+    1af8:	1c 97       	sbiw	r26, 0x0c	; 12
+    1afa:	21 e0       	ldi	r18, 0x01	; 1
+    1afc:	ae 01       	movw	r20, r28
+    1afe:	4f 5f       	subi	r20, 0xFF	; 255
+    1b00:	5f 4f       	sbci	r21, 0xFF	; 255
+    1b02:	6b e3       	ldi	r22, 0x3B	; 59
+    1b04:	18 96       	adiw	r26, 0x08	; 8
+    1b06:	8c 91       	ld	r24, X
+    1b08:	19 95       	eicall
+    1b0a:	99 81       	ldd	r25, Y+1	; 0x01
+    1b0c:	92 fb       	bst	r25, 2
+    1b0e:	99 27       	eor	r25, r25
+    1b10:	90 f9       	bld	r25, 0
+    1b12:	f8 01       	movw	r30, r16
+    1b14:	90 83       	st	Z, r25
+    1b16:	03 c0       	rjmp	.+6      	; 0x1b1e <bno055_get_euler_unit+0x6e>
+    1b18:	81 e8       	ldi	r24, 0x81	; 129
+    1b1a:	01 c0       	rjmp	.+2      	; 0x1b1e <bno055_get_euler_unit+0x6e>
+    1b1c:	8f ef       	ldi	r24, 0xFF	; 255
+    1b1e:	0f 90       	pop	r0
+    1b20:	df 91       	pop	r29
+    1b22:	cf 91       	pop	r28
+    1b24:	1f 91       	pop	r17
+    1b26:	0f 91       	pop	r16
+    1b28:	08 95       	ret
+
+00001b2a <bno055_get_operation_mode>:
+    1b2a:	0f 93       	push	r16
+    1b2c:	1f 93       	push	r17
+    1b2e:	cf 93       	push	r28
+    1b30:	df 93       	push	r29
+    1b32:	1f 92       	push	r1
+    1b34:	cd b7       	in	r28, 0x3d	; 61
+    1b36:	de b7       	in	r29, 0x3e	; 62
+    1b38:	19 82       	std	Y+1, r1	; 0x01
+    1b3a:	e0 91 5b 20 	lds	r30, 0x205B	; 0x80205b <p_bno055>
+    1b3e:	f0 91 5c 20 	lds	r31, 0x205C	; 0x80205c <p_bno055+0x1>
+    1b42:	30 97       	sbiw	r30, 0x00	; 0
+    1b44:	21 f1       	breq	.+72     	; 0x1b8e <bno055_get_operation_mode+0x64>
+    1b46:	8c 01       	movw	r16, r24
+    1b48:	83 81       	ldd	r24, Z+3	; 0x03
+    1b4a:	88 23       	and	r24, r24
+    1b4c:	59 f0       	breq	.+22     	; 0x1b64 <bno055_get_operation_mode+0x3a>
+    1b4e:	80 e0       	ldi	r24, 0x00	; 0
+    1b50:	12 df       	rcall	.-476    	; 0x1976 <bno055_write_page_id>
+    1b52:	88 23       	and	r24, r24
+    1b54:	39 f0       	breq	.+14     	; 0x1b64 <bno055_get_operation_mode+0x3a>
+    1b56:	e0 91 5b 20 	lds	r30, 0x205B	; 0x80205b <p_bno055>
+    1b5a:	f0 91 5c 20 	lds	r31, 0x205C	; 0x80205c <p_bno055+0x1>
+    1b5e:	83 81       	ldd	r24, Z+3	; 0x03
+    1b60:	81 11       	cpse	r24, r1
+    1b62:	17 c0       	rjmp	.+46     	; 0x1b92 <bno055_get_operation_mode+0x68>
+    1b64:	a0 91 5b 20 	lds	r26, 0x205B	; 0x80205b <p_bno055>
+    1b68:	b0 91 5c 20 	lds	r27, 0x205C	; 0x80205c <p_bno055+0x1>
+    1b6c:	1b 96       	adiw	r26, 0x0b	; 11
+    1b6e:	ed 91       	ld	r30, X+
+    1b70:	fc 91       	ld	r31, X
+    1b72:	1c 97       	sbiw	r26, 0x0c	; 12
+    1b74:	21 e0       	ldi	r18, 0x01	; 1
+    1b76:	ae 01       	movw	r20, r28
+    1b78:	4f 5f       	subi	r20, 0xFF	; 255
+    1b7a:	5f 4f       	sbci	r21, 0xFF	; 255
+    1b7c:	6d e3       	ldi	r22, 0x3D	; 61
+    1b7e:	18 96       	adiw	r26, 0x08	; 8
+    1b80:	8c 91       	ld	r24, X
+    1b82:	19 95       	eicall
+    1b84:	99 81       	ldd	r25, Y+1	; 0x01
+    1b86:	9f 70       	andi	r25, 0x0F	; 15
+    1b88:	f8 01       	movw	r30, r16
+    1b8a:	90 83       	st	Z, r25
+    1b8c:	03 c0       	rjmp	.+6      	; 0x1b94 <bno055_get_operation_mode+0x6a>
+    1b8e:	81 e8       	ldi	r24, 0x81	; 129
+    1b90:	01 c0       	rjmp	.+2      	; 0x1b94 <bno055_get_operation_mode+0x6a>
+    1b92:	8f ef       	ldi	r24, 0xFF	; 255
+    1b94:	0f 90       	pop	r0
+    1b96:	df 91       	pop	r29
+    1b98:	cf 91       	pop	r28
+    1b9a:	1f 91       	pop	r17
+    1b9c:	0f 91       	pop	r16
+    1b9e:	08 95       	ret
+
+00001ba0 <bno055_set_operation_mode>:
+    1ba0:	0f 93       	push	r16
+    1ba2:	1f 93       	push	r17
+    1ba4:	cf 93       	push	r28
+    1ba6:	df 93       	push	r29
+    1ba8:	1f 92       	push	r1
+    1baa:	1f 92       	push	r1
+    1bac:	cd b7       	in	r28, 0x3d	; 61
+    1bae:	de b7       	in	r29, 0x3e	; 62
+    1bb0:	19 82       	std	Y+1, r1	; 0x01
+    1bb2:	1a 82       	std	Y+2, r1	; 0x02
+    1bb4:	20 91 5b 20 	lds	r18, 0x205B	; 0x80205b <p_bno055>
+    1bb8:	30 91 5c 20 	lds	r19, 0x205C	; 0x80205c <p_bno055+0x1>
+    1bbc:	23 2b       	or	r18, r19
+    1bbe:	09 f4       	brne	.+2      	; 0x1bc2 <bno055_set_operation_mode+0x22>
+    1bc0:	9c c0       	rjmp	.+312    	; 0x1cfa <bno055_set_operation_mode+0x15a>
+    1bc2:	08 2f       	mov	r16, r24
+    1bc4:	ce 01       	movw	r24, r28
+    1bc6:	02 96       	adiw	r24, 0x02	; 2
+    1bc8:	b0 df       	rcall	.-160    	; 0x1b2a <bno055_get_operation_mode>
+    1bca:	81 11       	cpse	r24, r1
+    1bcc:	98 c0       	rjmp	.+304    	; 0x1cfe <bno055_set_operation_mode+0x15e>
+    1bce:	8a 81       	ldd	r24, Y+2	; 0x02
+    1bd0:	81 11       	cpse	r24, r1
+    1bd2:	35 c0       	rjmp	.+106    	; 0x1c3e <bno055_set_operation_mode+0x9e>
+    1bd4:	a0 91 5b 20 	lds	r26, 0x205B	; 0x80205b <p_bno055>
+    1bd8:	b0 91 5c 20 	lds	r27, 0x205C	; 0x80205c <p_bno055+0x1>
+    1bdc:	1b 96       	adiw	r26, 0x0b	; 11
+    1bde:	ed 91       	ld	r30, X+
+    1be0:	fc 91       	ld	r31, X
+    1be2:	1c 97       	sbiw	r26, 0x0c	; 12
+    1be4:	21 e0       	ldi	r18, 0x01	; 1
+    1be6:	ae 01       	movw	r20, r28
+    1be8:	4f 5f       	subi	r20, 0xFF	; 255
+    1bea:	5f 4f       	sbci	r21, 0xFF	; 255
+    1bec:	6d e3       	ldi	r22, 0x3D	; 61
+    1bee:	18 96       	adiw	r26, 0x08	; 8
+    1bf0:	8c 91       	ld	r24, X
+    1bf2:	19 95       	eicall
+    1bf4:	81 11       	cpse	r24, r1
+    1bf6:	85 c0       	rjmp	.+266    	; 0x1d02 <bno055_set_operation_mode+0x162>
+    1bf8:	89 81       	ldd	r24, Y+1	; 0x01
+    1bfa:	98 2f       	mov	r25, r24
+    1bfc:	90 7f       	andi	r25, 0xF0	; 240
+    1bfe:	80 2f       	mov	r24, r16
+    1c00:	8f 70       	andi	r24, 0x0F	; 15
+    1c02:	89 2b       	or	r24, r25
+    1c04:	89 83       	std	Y+1, r24	; 0x01
+    1c06:	a0 91 5b 20 	lds	r26, 0x205B	; 0x80205b <p_bno055>
+    1c0a:	b0 91 5c 20 	lds	r27, 0x205C	; 0x80205c <p_bno055+0x1>
+    1c0e:	19 96       	adiw	r26, 0x09	; 9
+    1c10:	ed 91       	ld	r30, X+
+    1c12:	fc 91       	ld	r31, X
+    1c14:	1a 97       	sbiw	r26, 0x0a	; 10
+    1c16:	21 e0       	ldi	r18, 0x01	; 1
+    1c18:	ae 01       	movw	r20, r28
+    1c1a:	4f 5f       	subi	r20, 0xFF	; 255
+    1c1c:	5f 4f       	sbci	r21, 0xFF	; 255
+    1c1e:	6d e3       	ldi	r22, 0x3D	; 61
+    1c20:	18 96       	adiw	r26, 0x08	; 8
+    1c22:	8c 91       	ld	r24, X
+    1c24:	19 95       	eicall
+    1c26:	18 2f       	mov	r17, r24
+    1c28:	e0 91 5b 20 	lds	r30, 0x205B	; 0x80205b <p_bno055>
+    1c2c:	f0 91 5c 20 	lds	r31, 0x205C	; 0x80205c <p_bno055+0x1>
+    1c30:	05 84       	ldd	r0, Z+13	; 0x0d
+    1c32:	f6 85       	ldd	r31, Z+14	; 0x0e
+    1c34:	e0 2d       	mov	r30, r0
+    1c36:	88 e5       	ldi	r24, 0x58	; 88
+    1c38:	92 e0       	ldi	r25, 0x02	; 2
+    1c3a:	19 95       	eicall
+    1c3c:	65 c0       	rjmp	.+202    	; 0x1d08 <bno055_set_operation_mode+0x168>
+    1c3e:	a0 91 5b 20 	lds	r26, 0x205B	; 0x80205b <p_bno055>
+    1c42:	b0 91 5c 20 	lds	r27, 0x205C	; 0x80205c <p_bno055+0x1>
+    1c46:	1b 96       	adiw	r26, 0x0b	; 11
+    1c48:	ed 91       	ld	r30, X+
+    1c4a:	fc 91       	ld	r31, X
+    1c4c:	1c 97       	sbiw	r26, 0x0c	; 12
+    1c4e:	21 e0       	ldi	r18, 0x01	; 1
+    1c50:	ae 01       	movw	r20, r28
+    1c52:	4f 5f       	subi	r20, 0xFF	; 255
+    1c54:	5f 4f       	sbci	r21, 0xFF	; 255
+    1c56:	6d e3       	ldi	r22, 0x3D	; 61
+    1c58:	18 96       	adiw	r26, 0x08	; 8
+    1c5a:	8c 91       	ld	r24, X
+    1c5c:	19 95       	eicall
+    1c5e:	18 2f       	mov	r17, r24
+    1c60:	81 11       	cpse	r24, r1
+    1c62:	14 c0       	rjmp	.+40     	; 0x1c8c <bno055_set_operation_mode+0xec>
+    1c64:	89 81       	ldd	r24, Y+1	; 0x01
+    1c66:	80 7f       	andi	r24, 0xF0	; 240
+    1c68:	89 83       	std	Y+1, r24	; 0x01
+    1c6a:	41 e0       	ldi	r20, 0x01	; 1
+    1c6c:	be 01       	movw	r22, r28
+    1c6e:	6f 5f       	subi	r22, 0xFF	; 255
+    1c70:	7f 4f       	sbci	r23, 0xFF	; 255
+    1c72:	8d e3       	ldi	r24, 0x3D	; 61
+    1c74:	6d de       	rcall	.-806    	; 0x1950 <bno055_write_register>
+    1c76:	18 2f       	mov	r17, r24
+    1c78:	e0 91 5b 20 	lds	r30, 0x205B	; 0x80205b <p_bno055>
+    1c7c:	f0 91 5c 20 	lds	r31, 0x205C	; 0x80205c <p_bno055+0x1>
+    1c80:	05 84       	ldd	r0, Z+13	; 0x0d
+    1c82:	f6 85       	ldd	r31, Z+14	; 0x0e
+    1c84:	e0 2d       	mov	r30, r0
+    1c86:	84 e1       	ldi	r24, 0x14	; 20
+    1c88:	90 e0       	ldi	r25, 0x00	; 0
+    1c8a:	19 95       	eicall
+    1c8c:	00 23       	and	r16, r16
+    1c8e:	e1 f1       	breq	.+120    	; 0x1d08 <bno055_set_operation_mode+0x168>
+    1c90:	a0 91 5b 20 	lds	r26, 0x205B	; 0x80205b <p_bno055>
+    1c94:	b0 91 5c 20 	lds	r27, 0x205C	; 0x80205c <p_bno055+0x1>
+    1c98:	1b 96       	adiw	r26, 0x0b	; 11
+    1c9a:	ed 91       	ld	r30, X+
+    1c9c:	fc 91       	ld	r31, X
+    1c9e:	1c 97       	sbiw	r26, 0x0c	; 12
+    1ca0:	21 e0       	ldi	r18, 0x01	; 1
+    1ca2:	ae 01       	movw	r20, r28
+    1ca4:	4f 5f       	subi	r20, 0xFF	; 255
+    1ca6:	5f 4f       	sbci	r21, 0xFF	; 255
+    1ca8:	6d e3       	ldi	r22, 0x3D	; 61
+    1caa:	18 96       	adiw	r26, 0x08	; 8
+    1cac:	8c 91       	ld	r24, X
+    1cae:	19 95       	eicall
+    1cb0:	81 11       	cpse	r24, r1
+    1cb2:	29 c0       	rjmp	.+82     	; 0x1d06 <bno055_set_operation_mode+0x166>
+    1cb4:	89 81       	ldd	r24, Y+1	; 0x01
+    1cb6:	98 2f       	mov	r25, r24
+    1cb8:	90 7f       	andi	r25, 0xF0	; 240
+    1cba:	80 2f       	mov	r24, r16
+    1cbc:	8f 70       	andi	r24, 0x0F	; 15
+    1cbe:	89 2b       	or	r24, r25
+    1cc0:	89 83       	std	Y+1, r24	; 0x01
+    1cc2:	a0 91 5b 20 	lds	r26, 0x205B	; 0x80205b <p_bno055>
+    1cc6:	b0 91 5c 20 	lds	r27, 0x205C	; 0x80205c <p_bno055+0x1>
+    1cca:	19 96       	adiw	r26, 0x09	; 9
+    1ccc:	ed 91       	ld	r30, X+
+    1cce:	fc 91       	ld	r31, X
+    1cd0:	1a 97       	sbiw	r26, 0x0a	; 10
+    1cd2:	21 e0       	ldi	r18, 0x01	; 1
+    1cd4:	ae 01       	movw	r20, r28
+    1cd6:	4f 5f       	subi	r20, 0xFF	; 255
+    1cd8:	5f 4f       	sbci	r21, 0xFF	; 255
+    1cda:	6d e3       	ldi	r22, 0x3D	; 61
+    1cdc:	18 96       	adiw	r26, 0x08	; 8
+    1cde:	8c 91       	ld	r24, X
+    1ce0:	19 95       	eicall
+    1ce2:	18 2f       	mov	r17, r24
+    1ce4:	e0 91 5b 20 	lds	r30, 0x205B	; 0x80205b <p_bno055>
+    1ce8:	f0 91 5c 20 	lds	r31, 0x205C	; 0x80205c <p_bno055+0x1>
+    1cec:	05 84       	ldd	r0, Z+13	; 0x0d
+    1cee:	f6 85       	ldd	r31, Z+14	; 0x0e
+    1cf0:	e0 2d       	mov	r30, r0
+    1cf2:	88 e5       	ldi	r24, 0x58	; 88
+    1cf4:	92 e0       	ldi	r25, 0x02	; 2
+    1cf6:	19 95       	eicall
+    1cf8:	07 c0       	rjmp	.+14     	; 0x1d08 <bno055_set_operation_mode+0x168>
+    1cfa:	11 e8       	ldi	r17, 0x81	; 129
+    1cfc:	05 c0       	rjmp	.+10     	; 0x1d08 <bno055_set_operation_mode+0x168>
+    1cfe:	1f ef       	ldi	r17, 0xFF	; 255
+    1d00:	03 c0       	rjmp	.+6      	; 0x1d08 <bno055_set_operation_mode+0x168>
+    1d02:	18 2f       	mov	r17, r24
+    1d04:	01 c0       	rjmp	.+2      	; 0x1d08 <bno055_set_operation_mode+0x168>
+    1d06:	18 2f       	mov	r17, r24
+    1d08:	81 2f       	mov	r24, r17
+    1d0a:	0f 90       	pop	r0
+    1d0c:	0f 90       	pop	r0
+    1d0e:	df 91       	pop	r29
+    1d10:	cf 91       	pop	r28
+    1d12:	1f 91       	pop	r17
+    1d14:	0f 91       	pop	r16
+    1d16:	08 95       	ret
+
+00001d18 <bno055_set_euler_unit>:
+    1d18:	0f 93       	push	r16
+    1d1a:	1f 93       	push	r17
+    1d1c:	cf 93       	push	r28
+    1d1e:	df 93       	push	r29
+    1d20:	1f 92       	push	r1
+    1d22:	1f 92       	push	r1
+    1d24:	cd b7       	in	r28, 0x3d	; 61
+    1d26:	de b7       	in	r29, 0x3e	; 62
+    1d28:	19 82       	std	Y+1, r1	; 0x01
+    1d2a:	1a 82       	std	Y+2, r1	; 0x02
+    1d2c:	20 91 5b 20 	lds	r18, 0x205B	; 0x80205b <p_bno055>
+    1d30:	30 91 5c 20 	lds	r19, 0x205C	; 0x80205c <p_bno055+0x1>
+    1d34:	23 2b       	or	r18, r19
+    1d36:	09 f4       	brne	.+2      	; 0x1d3a <bno055_set_euler_unit+0x22>
+    1d38:	44 c0       	rjmp	.+136    	; 0x1dc2 <bno055_set_euler_unit+0xaa>
+    1d3a:	08 2f       	mov	r16, r24
+    1d3c:	ce 01       	movw	r24, r28
+    1d3e:	02 96       	adiw	r24, 0x02	; 2
+    1d40:	f4 de       	rcall	.-536    	; 0x1b2a <bno055_get_operation_mode>
+    1d42:	81 11       	cpse	r24, r1
+    1d44:	35 c0       	rjmp	.+106    	; 0x1db0 <bno055_set_euler_unit+0x98>
+    1d46:	8a 81       	ldd	r24, Y+2	; 0x02
+    1d48:	88 23       	and	r24, r24
+    1d4a:	21 f0       	breq	.+8      	; 0x1d54 <bno055_set_euler_unit+0x3c>
+    1d4c:	80 e0       	ldi	r24, 0x00	; 0
+    1d4e:	28 df       	rcall	.-432    	; 0x1ba0 <bno055_set_operation_mode>
+    1d50:	81 11       	cpse	r24, r1
+    1d52:	30 c0       	rjmp	.+96     	; 0x1db4 <bno055_set_euler_unit+0x9c>
+    1d54:	a0 91 5b 20 	lds	r26, 0x205B	; 0x80205b <p_bno055>
+    1d58:	b0 91 5c 20 	lds	r27, 0x205C	; 0x80205c <p_bno055+0x1>
+    1d5c:	1b 96       	adiw	r26, 0x0b	; 11
+    1d5e:	ed 91       	ld	r30, X+
+    1d60:	fc 91       	ld	r31, X
+    1d62:	1c 97       	sbiw	r26, 0x0c	; 12
+    1d64:	21 e0       	ldi	r18, 0x01	; 1
+    1d66:	ae 01       	movw	r20, r28
+    1d68:	4f 5f       	subi	r20, 0xFF	; 255
+    1d6a:	5f 4f       	sbci	r21, 0xFF	; 255
+    1d6c:	6b e3       	ldi	r22, 0x3B	; 59
+    1d6e:	18 96       	adiw	r26, 0x08	; 8
+    1d70:	8c 91       	ld	r24, X
+    1d72:	19 95       	eicall
+    1d74:	18 2f       	mov	r17, r24
+    1d76:	81 11       	cpse	r24, r1
+    1d78:	1e c0       	rjmp	.+60     	; 0x1db6 <bno055_set_euler_unit+0x9e>
+    1d7a:	89 81       	ldd	r24, Y+1	; 0x01
+    1d7c:	98 2f       	mov	r25, r24
+    1d7e:	9b 7f       	andi	r25, 0xFB	; 251
+    1d80:	80 2f       	mov	r24, r16
+    1d82:	88 0f       	add	r24, r24
+    1d84:	88 0f       	add	r24, r24
+    1d86:	84 70       	andi	r24, 0x04	; 4
+    1d88:	89 2b       	or	r24, r25
+    1d8a:	89 83       	std	Y+1, r24	; 0x01
+    1d8c:	a0 91 5b 20 	lds	r26, 0x205B	; 0x80205b <p_bno055>
+    1d90:	b0 91 5c 20 	lds	r27, 0x205C	; 0x80205c <p_bno055+0x1>
+    1d94:	19 96       	adiw	r26, 0x09	; 9
+    1d96:	ed 91       	ld	r30, X+
+    1d98:	fc 91       	ld	r31, X
+    1d9a:	1a 97       	sbiw	r26, 0x0a	; 10
+    1d9c:	21 e0       	ldi	r18, 0x01	; 1
+    1d9e:	ae 01       	movw	r20, r28
+    1da0:	4f 5f       	subi	r20, 0xFF	; 255
+    1da2:	5f 4f       	sbci	r21, 0xFF	; 255
+    1da4:	6b e3       	ldi	r22, 0x3B	; 59
+    1da6:	18 96       	adiw	r26, 0x08	; 8
+    1da8:	8c 91       	ld	r24, X
+    1daa:	19 95       	eicall
+    1dac:	18 2f       	mov	r17, r24
+    1dae:	03 c0       	rjmp	.+6      	; 0x1db6 <bno055_set_euler_unit+0x9e>
+    1db0:	1f ef       	ldi	r17, 0xFF	; 255
+    1db2:	01 c0       	rjmp	.+2      	; 0x1db6 <bno055_set_euler_unit+0x9e>
+    1db4:	1f ef       	ldi	r17, 0xFF	; 255
+    1db6:	8a 81       	ldd	r24, Y+2	; 0x02
+    1db8:	88 23       	and	r24, r24
+    1dba:	29 f0       	breq	.+10     	; 0x1dc6 <bno055_set_euler_unit+0xae>
+    1dbc:	f1 de       	rcall	.-542    	; 0x1ba0 <bno055_set_operation_mode>
+    1dbe:	81 0f       	add	r24, r17
+    1dc0:	03 c0       	rjmp	.+6      	; 0x1dc8 <bno055_set_euler_unit+0xb0>
+    1dc2:	81 e8       	ldi	r24, 0x81	; 129
+    1dc4:	01 c0       	rjmp	.+2      	; 0x1dc8 <bno055_set_euler_unit+0xb0>
+    1dc6:	81 2f       	mov	r24, r17
+    1dc8:	0f 90       	pop	r0
+    1dca:	0f 90       	pop	r0
+    1dcc:	df 91       	pop	r29
+    1dce:	cf 91       	pop	r28
+    1dd0:	1f 91       	pop	r17
+    1dd2:	0f 91       	pop	r16
+    1dd4:	08 95       	ret
+
+00001dd6 <bno055_convert_float_euler_hpr_deg>:
+ *	@retval 1 -> BNO055_ERROR
+ *
+ */
+BNO055_RETURN_FUNCTION_TYPE bno055_convert_float_euler_hpr_deg(
+struct bno055_euler_float_t *euler_hpr)
+{
+    1dd6:	ef 92       	push	r14
+    1dd8:	ff 92       	push	r15
+    1dda:	1f 93       	push	r17
+    1ddc:	cf 93       	push	r28
+    1dde:	df 93       	push	r29
+    1de0:	cd b7       	in	r28, 0x3d	; 61
+    1de2:	de b7       	in	r29, 0x3e	; 62
+    1de4:	27 97       	sbiw	r28, 0x07	; 7
+    1de6:	cd bf       	out	0x3d, r28	; 61
+    1de8:	de bf       	out	0x3e, r29	; 62
+    1dea:	7c 01       	movw	r14, r24
+	/* Variable used to return value of
+	communication routine*/
+	BNO055_RETURN_FUNCTION_TYPE com_rslt = BNO055_ERROR;
+	struct bno055_euler_t reg_euler = {BNO055_INIT_VALUE,
+    1dec:	19 82       	std	Y+1, r1	; 0x01
+    1dee:	1a 82       	std	Y+2, r1	; 0x02
+    1df0:	1b 82       	std	Y+3, r1	; 0x03
+    1df2:	1c 82       	std	Y+4, r1	; 0x04
+    1df4:	1d 82       	std	Y+5, r1	; 0x05
+    1df6:	1e 82       	std	Y+6, r1	; 0x06
+	BNO055_INIT_VALUE, BNO055_INIT_VALUE};
+	u8 euler_unit_u8 = BNO055_INIT_VALUE;
+    1df8:	1f 82       	std	Y+7, r1	; 0x07
+	/* Read the current Euler unit and set the
+	unit as degree if the unit is in radians */
+	com_rslt = bno055_get_euler_unit(&euler_unit_u8);
+    1dfa:	ce 01       	movw	r24, r28
+    1dfc:	07 96       	adiw	r24, 0x07	; 7
+    1dfe:	58 de       	rcall	.-848    	; 0x1ab0 <bno055_get_euler_unit>
+    1e00:	18 2f       	mov	r17, r24
+	if (euler_unit_u8 != BNO055_EULER_UNIT_DEG)
+    1e02:	8f 81       	ldd	r24, Y+7	; 0x07
+    1e04:	88 23       	and	r24, r24
+    1e06:	19 f0       	breq	.+6      	; 0x1e0e <bno055_convert_float_euler_hpr_deg+0x38>
+		com_rslt += bno055_set_euler_unit(BNO055_EULER_UNIT_DEG);
+    1e08:	80 e0       	ldi	r24, 0x00	; 0
+    1e0a:	86 df       	rcall	.-244    	; 0x1d18 <bno055_set_euler_unit>
+    1e0c:	18 0f       	add	r17, r24
+		if (com_rslt == BNO055_SUCCESS) {
+    1e0e:	11 11       	cpse	r17, r1
+    1e10:	39 c0       	rjmp	.+114    	; 0x1e84 <bno055_convert_float_euler_hpr_deg+0xae>
+			/* Read Euler raw hrp data*/
+			com_rslt += bno055_read_euler_hrp(&reg_euler);
+    1e12:	ce 01       	movw	r24, r28
+    1e14:	01 96       	adiw	r24, 0x01	; 1
+    1e16:	ec dd       	rcall	.-1064   	; 0x19f0 <bno055_read_euler_hrp>
+			if (com_rslt == BNO055_SUCCESS) {
+    1e18:	81 11       	cpse	r24, r1
+    1e1a:	36 c0       	rjmp	.+108    	; 0x1e88 <bno055_convert_float_euler_hpr_deg+0xb2>
+				/* Convert raw Euler hrp to degree*/
+				euler_hpr->h =
+    1e1c:	69 81       	ldd	r22, Y+1	; 0x01
+    1e1e:	7a 81       	ldd	r23, Y+2	; 0x02
+    1e20:	07 2e       	mov	r0, r23
+    1e22:	00 0c       	add	r0, r0
+    1e24:	88 0b       	sbc	r24, r24
+    1e26:	99 0b       	sbc	r25, r25
+    1e28:	c6 d0       	rcall	.+396    	; 0x1fb6 <__floatsisf>
+    1e2a:	20 e0       	ldi	r18, 0x00	; 0
+    1e2c:	30 e0       	ldi	r19, 0x00	; 0
+    1e2e:	40 e8       	ldi	r20, 0x80	; 128
+    1e30:	5d e3       	ldi	r21, 0x3D	; 61
+    1e32:	4d d1       	rcall	.+666    	; 0x20ce <__mulsf3>
+    1e34:	f7 01       	movw	r30, r14
+    1e36:	60 83       	st	Z, r22
+    1e38:	71 83       	std	Z+1, r23	; 0x01
+    1e3a:	82 83       	std	Z+2, r24	; 0x02
+    1e3c:	93 83       	std	Z+3, r25	; 0x03
+				(float)(reg_euler.h/BNO055_EULER_DIV_DEG);
+				euler_hpr->p =
+    1e3e:	6d 81       	ldd	r22, Y+5	; 0x05
+    1e40:	7e 81       	ldd	r23, Y+6	; 0x06
+    1e42:	07 2e       	mov	r0, r23
+    1e44:	00 0c       	add	r0, r0
+    1e46:	88 0b       	sbc	r24, r24
+    1e48:	99 0b       	sbc	r25, r25
+    1e4a:	b5 d0       	rcall	.+362    	; 0x1fb6 <__floatsisf>
+    1e4c:	20 e0       	ldi	r18, 0x00	; 0
+    1e4e:	30 e0       	ldi	r19, 0x00	; 0
+    1e50:	40 e8       	ldi	r20, 0x80	; 128
+    1e52:	5d e3       	ldi	r21, 0x3D	; 61
+    1e54:	3c d1       	rcall	.+632    	; 0x20ce <__mulsf3>
+    1e56:	f7 01       	movw	r30, r14
+    1e58:	60 87       	std	Z+8, r22	; 0x08
+    1e5a:	71 87       	std	Z+9, r23	; 0x09
+    1e5c:	82 87       	std	Z+10, r24	; 0x0a
+    1e5e:	93 87       	std	Z+11, r25	; 0x0b
+				(float)(reg_euler.p/BNO055_EULER_DIV_DEG);
+				euler_hpr->r =
+    1e60:	6b 81       	ldd	r22, Y+3	; 0x03
+    1e62:	7c 81       	ldd	r23, Y+4	; 0x04
+    1e64:	07 2e       	mov	r0, r23
+    1e66:	00 0c       	add	r0, r0
+    1e68:	88 0b       	sbc	r24, r24
+    1e6a:	99 0b       	sbc	r25, r25
+    1e6c:	a4 d0       	rcall	.+328    	; 0x1fb6 <__floatsisf>
+    1e6e:	20 e0       	ldi	r18, 0x00	; 0
+    1e70:	30 e0       	ldi	r19, 0x00	; 0
+    1e72:	40 e8       	ldi	r20, 0x80	; 128
+    1e74:	5d e3       	ldi	r21, 0x3D	; 61
+    1e76:	2b d1       	rcall	.+598    	; 0x20ce <__mulsf3>
+    1e78:	f7 01       	movw	r30, r14
+    1e7a:	64 83       	std	Z+4, r22	; 0x04
+    1e7c:	75 83       	std	Z+5, r23	; 0x05
+    1e7e:	86 83       	std	Z+6, r24	; 0x06
+    1e80:	97 83       	std	Z+7, r25	; 0x07
+    1e82:	03 c0       	rjmp	.+6      	; 0x1e8a <bno055_convert_float_euler_hpr_deg+0xb4>
+    1e84:	1f ef       	ldi	r17, 0xFF	; 255
+				(float)(reg_euler.r/BNO055_EULER_DIV_DEG);
+			} else {
+			com_rslt = BNO055_ERROR;
+			}
+		} else {
+		com_rslt = BNO055_ERROR;
+    1e86:	01 c0       	rjmp	.+2      	; 0x1e8a <bno055_convert_float_euler_hpr_deg+0xb4>
+    1e88:	1f ef       	ldi	r17, 0xFF	; 255
+				euler_hpr->p =
+				(float)(reg_euler.p/BNO055_EULER_DIV_DEG);
+				euler_hpr->r =
+				(float)(reg_euler.r/BNO055_EULER_DIV_DEG);
+			} else {
+			com_rslt = BNO055_ERROR;
+    1e8a:	81 2f       	mov	r24, r17
+			}
+		} else {
+		com_rslt = BNO055_ERROR;
+		}
+	return com_rslt;
+}
+    1e8c:	27 96       	adiw	r28, 0x07	; 7
+    1e8e:	cd bf       	out	0x3d, r28	; 61
+    1e90:	de bf       	out	0x3e, r29	; 62
+    1e92:	df 91       	pop	r29
+    1e94:	cf 91       	pop	r28
+    1e96:	1f 91       	pop	r17
+    1e98:	ff 90       	pop	r15
+    1e9a:	ef 90       	pop	r14
+    1e9c:	08 95       	ret
+
+00001e9e <ioport_configure_port_pin>:
+#include "ioport_compat.h"
+
+#if defined(IOPORT_XMEGA_COMPAT)
+void ioport_configure_port_pin(void *port, pin_mask_t pin_mask,
+		port_pin_flags_t flags)
+{
+    1e9e:	cf 93       	push	r28
+    1ea0:	df 93       	push	r29
+    1ea2:	fc 01       	movw	r30, r24
+	uint8_t pin;
+
+	for (pin = 0; pin < 8; pin++) {
+		if (pin_mask & (1 << pin)) {
+			*((uint8_t *)port + PORT_PIN0CTRL + pin) = flags >> 8;
+    1ea4:	20 e0       	ldi	r18, 0x00	; 0
+    1ea6:	30 e0       	ldi	r19, 0x00	; 0
+		port_pin_flags_t flags)
+{
+	uint8_t pin;
+
+	for (pin = 0; pin < 8; pin++) {
+		if (pin_mask & (1 << pin)) {
+    1ea8:	c6 2f       	mov	r28, r22
+    1eaa:	d0 e0       	ldi	r29, 0x00	; 0
+    1eac:	de 01       	movw	r26, r28
+    1eae:	02 2e       	mov	r0, r18
+    1eb0:	02 c0       	rjmp	.+4      	; 0x1eb6 <ioport_configure_port_pin+0x18>
+    1eb2:	b5 95       	asr	r27
+    1eb4:	a7 95       	ror	r26
+    1eb6:	0a 94       	dec	r0
+    1eb8:	e2 f7       	brpl	.-8      	; 0x1eb2 <ioport_configure_port_pin+0x14>
+    1eba:	a0 fd       	sbrc	r26, 0
+			*((uint8_t *)port + PORT_PIN0CTRL + pin) = flags >> 8;
+    1ebc:	50 8b       	std	Z+16, r21	; 0x10
+    1ebe:	2f 5f       	subi	r18, 0xFF	; 255
+    1ec0:	3f 4f       	sbci	r19, 0xFF	; 255
+    1ec2:	31 96       	adiw	r30, 0x01	; 1
+void ioport_configure_port_pin(void *port, pin_mask_t pin_mask,
+		port_pin_flags_t flags)
+{
+	uint8_t pin;
+
+	for (pin = 0; pin < 8; pin++) {
+    1ec4:	28 30       	cpi	r18, 0x08	; 8
+    1ec6:	31 05       	cpc	r19, r1
+    1ec8:	89 f7       	brne	.-30     	; 0x1eac <ioport_configure_port_pin+0xe>
+		if (pin_mask & (1 << pin)) {
+			*((uint8_t *)port + PORT_PIN0CTRL + pin) = flags >> 8;
+		}
+	}
+	/* Select direction and initial pin state */
+	if (flags & IOPORT_DIR_OUTPUT) {
+    1eca:	40 ff       	sbrs	r20, 0
+    1ecc:	0a c0       	rjmp	.+20     	; 0x1ee2 <ioport_configure_port_pin+0x44>
+		if (flags & IOPORT_INIT_HIGH) {
+    1ece:	41 ff       	sbrs	r20, 1
+    1ed0:	03 c0       	rjmp	.+6      	; 0x1ed8 <ioport_configure_port_pin+0x3a>
+			*((uint8_t *)port + PORT_OUTSET) = pin_mask;
+    1ed2:	fc 01       	movw	r30, r24
+    1ed4:	65 83       	std	Z+5, r22	; 0x05
+    1ed6:	02 c0       	rjmp	.+4      	; 0x1edc <ioport_configure_port_pin+0x3e>
+		} else {
+			*((uint8_t *)port + PORT_OUTCLR) = pin_mask;
+    1ed8:	fc 01       	movw	r30, r24
+    1eda:	66 83       	std	Z+6, r22	; 0x06
+		}
+
+		*((uint8_t *)port + PORT_DIRSET) = pin_mask;
+    1edc:	fc 01       	movw	r30, r24
+    1ede:	61 83       	std	Z+1, r22	; 0x01
+    1ee0:	02 c0       	rjmp	.+4      	; 0x1ee6 <ioport_configure_port_pin+0x48>
+	} else {
+		*((uint8_t *)port + PORT_DIRCLR) = pin_mask;
+    1ee2:	fc 01       	movw	r30, r24
+    1ee4:	62 83       	std	Z+2, r22	; 0x02
+	}
+}
+    1ee6:	df 91       	pop	r29
+    1ee8:	cf 91       	pop	r28
+    1eea:	08 95       	ret
+
+00001eec <board_init>:
+ * \param flags Bitmask of flags specifying additional configuration
+ * parameters.
+ */
+static inline void ioport_configure_pin(port_pin_t pin, port_pin_flags_t flags)
+{
+	ioport_configure_port_pin(arch_ioport_pin_to_base(pin),
+    1eec:	43 e0       	ldi	r20, 0x03	; 3
+    1eee:	50 e0       	ldi	r21, 0x00	; 0
+    1ef0:	68 e0       	ldi	r22, 0x08	; 8
+    1ef2:	80 ec       	ldi	r24, 0xC0	; 192
+    1ef4:	97 e0       	ldi	r25, 0x07	; 7
+    1ef6:	d3 df       	rcall	.-90     	; 0x1e9e <ioport_configure_port_pin>
+    1ef8:	40 e0       	ldi	r20, 0x00	; 0
+    1efa:	58 e1       	ldi	r21, 0x18	; 24
+    1efc:	64 e0       	ldi	r22, 0x04	; 4
+    1efe:	80 ec       	ldi	r24, 0xC0	; 192
+    1f00:	97 e0       	ldi	r25, 0x07	; 7
+    1f02:	cd cf       	rjmp	.-102    	; 0x1e9e <ioport_configure_port_pin>
+    1f04:	08 95       	ret
+
+00001f06 <BNO055_I2C_bus_write>:
+	s32 BNO055_iERROR = BNO055_INIT_VALUE;
+	u8 array[I2C_BUFFER_LEN];
+	u8 stringpos = BNO055_INIT_VALUE;
+
+	array[BNO055_INIT_VALUE] = reg_addr;
+	for (stringpos = BNO055_INIT_VALUE; stringpos < cnt; stringpos++){
+    1f06:	22 23       	and	r18, r18
+    1f08:	21 f0       	breq	.+8      	; 0x1f12 <BNO055_I2C_bus_write+0xc>
+    1f0a:	80 e0       	ldi	r24, 0x00	; 0
+    1f0c:	8f 5f       	subi	r24, 0xFF	; 255
+    1f0e:	28 13       	cpse	r18, r24
+    1f10:	fd cf       	rjmp	.-6      	; 0x1f0c <BNO055_I2C_bus_write+0x6>
+		array[stringpos + BNO055_I2C_BUS_WRITE_ARRAY_INDEX] =
+			*(reg_data + stringpos);
+	}
+
+	return (s8)BNO055_iERROR;
+}
+    1f12:	80 e0       	ldi	r24, 0x00	; 0
+    1f14:	08 95       	ret
+
+00001f16 <BNO055_I2C_bus_read>:
+
+
+s8 BNO055_I2C_bus_read(u8 dev_addr, u8 reg_addr, u8 *reg_data, u8 cnt)
+{
+    1f16:	cf 93       	push	r28
+    1f18:	df 93       	push	r29
+    1f1a:	cd b7       	in	r28, 0x3d	; 61
+    1f1c:	de b7       	in	r29, 0x3e	; 62
+    1f1e:	28 97       	sbiw	r28, 0x08	; 8
+    1f20:	cd bf       	out	0x3d, r28	; 61
+    1f22:	de bf       	out	0x3e, r29	; 62
+	s32 BNO055_iERROR = BNO055_INIT_VALUE;
+	u8 array[I2C_BUFFER_LEN] = {BNO055_INIT_VALUE};
+    1f24:	fe 01       	movw	r30, r28
+    1f26:	31 96       	adiw	r30, 0x01	; 1
+    1f28:	88 e0       	ldi	r24, 0x08	; 8
+    1f2a:	df 01       	movw	r26, r30
+    1f2c:	1d 92       	st	X+, r1
+    1f2e:	8a 95       	dec	r24
+    1f30:	e9 f7       	brne	.-6      	; 0x1f2c <BNO055_I2C_bus_read+0x16>
+	u8 stringpos = BNO055_INIT_VALUE;
+
+	array[BNO055_INIT_VALUE] = reg_addr;
+    1f32:	69 83       	std	Y+1, r22	; 0x01
+
+	
+	for (stringpos = BNO055_INIT_VALUE; stringpos < cnt; stringpos++)
+    1f34:	22 23       	and	r18, r18
+    1f36:	69 f0       	breq	.+26     	; 0x1f52 <BNO055_I2C_bus_read+0x3c>
+    1f38:	df 01       	movw	r26, r30
+    1f3a:	fa 01       	movw	r30, r20
+    1f3c:	21 50       	subi	r18, 0x01	; 1
+    1f3e:	30 e0       	ldi	r19, 0x00	; 0
+    1f40:	2f 5f       	subi	r18, 0xFF	; 255
+    1f42:	3f 4f       	sbci	r19, 0xFF	; 255
+    1f44:	42 0f       	add	r20, r18
+    1f46:	53 1f       	adc	r21, r19
+		*(reg_data + stringpos) = array[stringpos];
+    1f48:	8d 91       	ld	r24, X+
+    1f4a:	81 93       	st	Z+, r24
+	u8 stringpos = BNO055_INIT_VALUE;
+
+	array[BNO055_INIT_VALUE] = reg_addr;
+
+	
+	for (stringpos = BNO055_INIT_VALUE; stringpos < cnt; stringpos++)
+    1f4c:	e4 17       	cp	r30, r20
+    1f4e:	f5 07       	cpc	r31, r21
+    1f50:	d9 f7       	brne	.-10     	; 0x1f48 <BNO055_I2C_bus_read+0x32>
+		*(reg_data + stringpos) = array[stringpos];
+	return (s8)BNO055_iERROR;
+}
+    1f52:	80 e0       	ldi	r24, 0x00	; 0
+    1f54:	28 96       	adiw	r28, 0x08	; 8
+    1f56:	cd bf       	out	0x3d, r28	; 61
+    1f58:	de bf       	out	0x3e, r29	; 62
+    1f5a:	df 91       	pop	r29
+    1f5c:	cf 91       	pop	r28
+    1f5e:	08 95       	ret
+
+00001f60 <BNO055_delay_msek>:
+/*	Brief : The delay routine
+ *	\param : delay in ms
+*/
+void BNO055_delay_msek(u32 msek)
+{
+    1f60:	08 95       	ret
+
+00001f62 <main>:
+	/*Here you can write your own delay routine*/
+}
+
+
+int main (void)
+{
+    1f62:	cf 93       	push	r28
+    1f64:	df 93       	push	r29
+    1f66:	cd b7       	in	r28, 0x3d	; 61
+    1f68:	de b7       	in	r29, 0x3e	; 62
+    1f6a:	6b 97       	sbiw	r28, 0x1b	; 27
+    1f6c:	cd bf       	out	0x3d, r28	; 61
+    1f6e:	de bf       	out	0x3e, r29	; 62
+	board_init();
+    1f70:	bd df       	rcall	.-134    	; 0x1eec <board_init>
+
+	/* This skeleton code simply sets the LED to the state of the button. */
+	
+	struct bno055_t myBNO;
+	
+	myBNO.bus_read = BNO055_I2C_bus_read;
+    1f72:	8b e8       	ldi	r24, 0x8B	; 139
+    1f74:	9f e0       	ldi	r25, 0x0F	; 15
+    1f76:	8c 87       	std	Y+12, r24	; 0x0c
+    1f78:	9d 87       	std	Y+13, r25	; 0x0d
+	myBNO.bus_write = BNO055_I2C_bus_write;
+    1f7a:	83 e8       	ldi	r24, 0x83	; 131
+    1f7c:	9f e0       	ldi	r25, 0x0F	; 15
+    1f7e:	8a 87       	std	Y+10, r24	; 0x0a
+    1f80:	9b 87       	std	Y+11, r25	; 0x0b
+	myBNO.delay_msec = BNO055_delay_msek;
+    1f82:	80 eb       	ldi	r24, 0xB0	; 176
+    1f84:	9f e0       	ldi	r25, 0x0F	; 15
+    1f86:	8e 87       	std	Y+14, r24	; 0x0e
+    1f88:	9f 87       	std	Y+15, r25	; 0x0f
+	myBNO.dev_addr = BNO055_I2C_ADDR1;	
+    1f8a:	88 e2       	ldi	r24, 0x28	; 40
+    1f8c:	89 87       	std	Y+9, r24	; 0x09
+	bno055_init(&myBNO);
+    1f8e:	ce 01       	movw	r24, r28
+    1f90:	01 96       	adiw	r24, 0x01	; 1
+    1f92:	21 dc       	rcall	.-1982   	; 0x17d6 <bno055_init>
+	bno055_set_operation_mode(BNO055_OPERATION_MODE_NDOF);//NDOF
+    1f94:	8c e0       	ldi	r24, 0x0C	; 12
+    1f96:	04 de       	rcall	.-1016   	; 0x1ba0 <bno055_set_operation_mode>
+	
+	struct bno055_euler_float_t eulerData;
+	bno055_convert_float_euler_hpr_deg(&eulerData);
+    1f98:	ce 01       	movw	r24, r28
+    1f9a:	40 96       	adiw	r24, 0x10	; 16
+    1f9c:	1c df       	rcall	.-456    	; 0x1dd6 <bno055_convert_float_euler_hpr_deg>
+    1f9e:	e0 ec       	ldi	r30, 0xC0	; 192
+
+__always_inline static bool arch_ioport_get_pin_level(ioport_pin_t pin)
+{
+	PORT_t *base = arch_ioport_pin_to_base(pin);
+
+	return base->IN & arch_ioport_pin_to_mask(pin);
+    1fa0:	f7 e0       	ldi	r31, 0x07	; 7
+    1fa2:	98 e0       	ldi	r25, 0x08	; 8
+		bool level)
+{
+	PORT_t *base = arch_ioport_pin_to_base(pin);
+
+	if (level) {
+		base->OUTSET = arch_ioport_pin_to_mask(pin);
+    1fa4:	80 85       	ldd	r24, Z+8	; 0x08
+
+__always_inline static bool arch_ioport_get_pin_level(ioport_pin_t pin)
+{
+	PORT_t *base = arch_ioport_pin_to_base(pin);
+
+	return base->IN & arch_ioport_pin_to_mask(pin);
+    1fa6:	82 ff       	sbrs	r24, 2
+	
+	
+	
+	while (1) {
+		/* Is button pressed? */
+		if (ioport_get_pin_level(BUTTON_0_PIN) != BUTTON_0_ACTIVE) {
+    1fa8:	02 c0       	rjmp	.+4      	; 0x1fae <main+0x4c>
+    1faa:	96 83       	std	Z+6, r25	; 0x06
+	PORT_t *base = arch_ioport_pin_to_base(pin);
+
+	if (level) {
+		base->OUTSET = arch_ioport_pin_to_mask(pin);
+	} else {
+		base->OUTCLR = arch_ioport_pin_to_mask(pin);
+    1fac:	fb cf       	rjmp	.-10     	; 0x1fa4 <main+0x42>
+    1fae:	95 83       	std	Z+5, r25	; 0x05
+		bool level)
+{
+	PORT_t *base = arch_ioport_pin_to_base(pin);
+
+	if (level) {
+		base->OUTSET = arch_ioport_pin_to_mask(pin);
+    1fb0:	f9 cf       	rjmp	.-14     	; 0x1fa4 <main+0x42>
+
+00001fb2 <__floatunsisf>:
+    1fb2:	e8 94       	clt
+    1fb4:	09 c0       	rjmp	.+18     	; 0x1fc8 <__floatsisf+0x12>
+
+00001fb6 <__floatsisf>:
+    1fb6:	97 fb       	bst	r25, 7
+    1fb8:	3e f4       	brtc	.+14     	; 0x1fc8 <__floatsisf+0x12>
+    1fba:	90 95       	com	r25
+    1fbc:	80 95       	com	r24
+    1fbe:	70 95       	com	r23
+    1fc0:	61 95       	neg	r22
+    1fc2:	7f 4f       	sbci	r23, 0xFF	; 255
+    1fc4:	8f 4f       	sbci	r24, 0xFF	; 255
+    1fc6:	9f 4f       	sbci	r25, 0xFF	; 255
+    1fc8:	99 23       	and	r25, r25
+    1fca:	a9 f0       	breq	.+42     	; 0x1ff6 <__floatsisf+0x40>
+    1fcc:	f9 2f       	mov	r31, r25
+    1fce:	96 e9       	ldi	r25, 0x96	; 150
+    1fd0:	bb 27       	eor	r27, r27
+    1fd2:	93 95       	inc	r25
+    1fd4:	f6 95       	lsr	r31
+    1fd6:	87 95       	ror	r24
+    1fd8:	77 95       	ror	r23
+    1fda:	67 95       	ror	r22
+    1fdc:	b7 95       	ror	r27
+    1fde:	f1 11       	cpse	r31, r1
+    1fe0:	f8 cf       	rjmp	.-16     	; 0x1fd2 <__floatsisf+0x1c>
+    1fe2:	fa f4       	brpl	.+62     	; 0x2022 <__floatsisf+0x6c>
+    1fe4:	bb 0f       	add	r27, r27
+    1fe6:	11 f4       	brne	.+4      	; 0x1fec <__floatsisf+0x36>
+    1fe8:	60 ff       	sbrs	r22, 0
+    1fea:	1b c0       	rjmp	.+54     	; 0x2022 <__floatsisf+0x6c>
+    1fec:	6f 5f       	subi	r22, 0xFF	; 255
+    1fee:	7f 4f       	sbci	r23, 0xFF	; 255
+    1ff0:	8f 4f       	sbci	r24, 0xFF	; 255
+    1ff2:	9f 4f       	sbci	r25, 0xFF	; 255
+    1ff4:	16 c0       	rjmp	.+44     	; 0x2022 <__floatsisf+0x6c>
+    1ff6:	88 23       	and	r24, r24
+    1ff8:	11 f0       	breq	.+4      	; 0x1ffe <__floatsisf+0x48>
+    1ffa:	96 e9       	ldi	r25, 0x96	; 150
+    1ffc:	11 c0       	rjmp	.+34     	; 0x2020 <__floatsisf+0x6a>
+    1ffe:	77 23       	and	r23, r23
+    2000:	21 f0       	breq	.+8      	; 0x200a <__floatsisf+0x54>
+    2002:	9e e8       	ldi	r25, 0x8E	; 142
+    2004:	87 2f       	mov	r24, r23
+    2006:	76 2f       	mov	r23, r22
+    2008:	05 c0       	rjmp	.+10     	; 0x2014 <__floatsisf+0x5e>
+    200a:	66 23       	and	r22, r22
+    200c:	71 f0       	breq	.+28     	; 0x202a <__floatsisf+0x74>
+    200e:	96 e8       	ldi	r25, 0x86	; 134
+    2010:	86 2f       	mov	r24, r22
+    2012:	70 e0       	ldi	r23, 0x00	; 0
+    2014:	60 e0       	ldi	r22, 0x00	; 0
+    2016:	2a f0       	brmi	.+10     	; 0x2022 <__floatsisf+0x6c>
+    2018:	9a 95       	dec	r25
+    201a:	66 0f       	add	r22, r22
+    201c:	77 1f       	adc	r23, r23
+    201e:	88 1f       	adc	r24, r24
+    2020:	da f7       	brpl	.-10     	; 0x2018 <__floatsisf+0x62>
+    2022:	88 0f       	add	r24, r24
+    2024:	96 95       	lsr	r25
+    2026:	87 95       	ror	r24
+    2028:	97 f9       	bld	r25, 7
+    202a:	08 95       	ret
+
+0000202c <__fp_inf>:
+    202c:	97 f9       	bld	r25, 7
+    202e:	9f 67       	ori	r25, 0x7F	; 127
+    2030:	80 e8       	ldi	r24, 0x80	; 128
+    2032:	70 e0       	ldi	r23, 0x00	; 0
+    2034:	60 e0       	ldi	r22, 0x00	; 0
+    2036:	08 95       	ret
+
+00002038 <__fp_nan>:
+    2038:	9f ef       	ldi	r25, 0xFF	; 255
+    203a:	80 ec       	ldi	r24, 0xC0	; 192
+    203c:	08 95       	ret
+
+0000203e <__fp_pscA>:
+    203e:	00 24       	eor	r0, r0
+    2040:	0a 94       	dec	r0
+    2042:	16 16       	cp	r1, r22
+    2044:	17 06       	cpc	r1, r23
+    2046:	18 06       	cpc	r1, r24
+    2048:	09 06       	cpc	r0, r25
+    204a:	08 95       	ret
+
+0000204c <__fp_pscB>:
+    204c:	00 24       	eor	r0, r0
+    204e:	0a 94       	dec	r0
+    2050:	12 16       	cp	r1, r18
+    2052:	13 06       	cpc	r1, r19
+    2054:	14 06       	cpc	r1, r20
+    2056:	05 06       	cpc	r0, r21
+    2058:	08 95       	ret
+
+0000205a <__fp_round>:
+    205a:	09 2e       	mov	r0, r25
+    205c:	03 94       	inc	r0
+    205e:	00 0c       	add	r0, r0
+    2060:	11 f4       	brne	.+4      	; 0x2066 <__fp_round+0xc>
+    2062:	88 23       	and	r24, r24
+    2064:	52 f0       	brmi	.+20     	; 0x207a <__fp_round+0x20>
+    2066:	bb 0f       	add	r27, r27
+    2068:	40 f4       	brcc	.+16     	; 0x207a <__fp_round+0x20>
+    206a:	bf 2b       	or	r27, r31
+    206c:	11 f4       	brne	.+4      	; 0x2072 <__fp_round+0x18>
+    206e:	60 ff       	sbrs	r22, 0
+    2070:	04 c0       	rjmp	.+8      	; 0x207a <__fp_round+0x20>
+    2072:	6f 5f       	subi	r22, 0xFF	; 255
+    2074:	7f 4f       	sbci	r23, 0xFF	; 255
+    2076:	8f 4f       	sbci	r24, 0xFF	; 255
+    2078:	9f 4f       	sbci	r25, 0xFF	; 255
+    207a:	08 95       	ret
+
+0000207c <__fp_split3>:
+    207c:	57 fd       	sbrc	r21, 7
+    207e:	90 58       	subi	r25, 0x80	; 128
+    2080:	44 0f       	add	r20, r20
+    2082:	55 1f       	adc	r21, r21
+    2084:	59 f0       	breq	.+22     	; 0x209c <__fp_splitA+0x10>
+    2086:	5f 3f       	cpi	r21, 0xFF	; 255
+    2088:	71 f0       	breq	.+28     	; 0x20a6 <__fp_splitA+0x1a>
+    208a:	47 95       	ror	r20
+
+0000208c <__fp_splitA>:
+    208c:	88 0f       	add	r24, r24
+    208e:	97 fb       	bst	r25, 7
+    2090:	99 1f       	adc	r25, r25
+    2092:	61 f0       	breq	.+24     	; 0x20ac <__fp_splitA+0x20>
+    2094:	9f 3f       	cpi	r25, 0xFF	; 255
+    2096:	79 f0       	breq	.+30     	; 0x20b6 <__fp_splitA+0x2a>
+    2098:	87 95       	ror	r24
+    209a:	08 95       	ret
+    209c:	12 16       	cp	r1, r18
+    209e:	13 06       	cpc	r1, r19
+    20a0:	14 06       	cpc	r1, r20
+    20a2:	55 1f       	adc	r21, r21
+    20a4:	f2 cf       	rjmp	.-28     	; 0x208a <__fp_split3+0xe>
+    20a6:	46 95       	lsr	r20
+    20a8:	f1 df       	rcall	.-30     	; 0x208c <__fp_splitA>
+    20aa:	08 c0       	rjmp	.+16     	; 0x20bc <__fp_splitA+0x30>
+    20ac:	16 16       	cp	r1, r22
+    20ae:	17 06       	cpc	r1, r23
+    20b0:	18 06       	cpc	r1, r24
+    20b2:	99 1f       	adc	r25, r25
+    20b4:	f1 cf       	rjmp	.-30     	; 0x2098 <__fp_splitA+0xc>
+    20b6:	86 95       	lsr	r24
+    20b8:	71 05       	cpc	r23, r1
+    20ba:	61 05       	cpc	r22, r1
+    20bc:	08 94       	sec
+    20be:	08 95       	ret
+
+000020c0 <__fp_zero>:
+    20c0:	e8 94       	clt
+
+000020c2 <__fp_szero>:
+    20c2:	bb 27       	eor	r27, r27
+    20c4:	66 27       	eor	r22, r22
+    20c6:	77 27       	eor	r23, r23
+    20c8:	cb 01       	movw	r24, r22
+    20ca:	97 f9       	bld	r25, 7
+    20cc:	08 95       	ret
+
+000020ce <__mulsf3>:
+    20ce:	0b d0       	rcall	.+22     	; 0x20e6 <__mulsf3x>
+    20d0:	c4 cf       	rjmp	.-120    	; 0x205a <__fp_round>
+    20d2:	b5 df       	rcall	.-150    	; 0x203e <__fp_pscA>
+    20d4:	28 f0       	brcs	.+10     	; 0x20e0 <__mulsf3+0x12>
+    20d6:	ba df       	rcall	.-140    	; 0x204c <__fp_pscB>
+    20d8:	18 f0       	brcs	.+6      	; 0x20e0 <__mulsf3+0x12>
+    20da:	95 23       	and	r25, r21
+    20dc:	09 f0       	breq	.+2      	; 0x20e0 <__mulsf3+0x12>
+    20de:	a6 cf       	rjmp	.-180    	; 0x202c <__fp_inf>
+    20e0:	ab cf       	rjmp	.-170    	; 0x2038 <__fp_nan>
+    20e2:	11 24       	eor	r1, r1
+    20e4:	ee cf       	rjmp	.-36     	; 0x20c2 <__fp_szero>
+
+000020e6 <__mulsf3x>:
+    20e6:	ca df       	rcall	.-108    	; 0x207c <__fp_split3>
+    20e8:	a0 f3       	brcs	.-24     	; 0x20d2 <__mulsf3+0x4>
+
+000020ea <__mulsf3_pse>:
+    20ea:	95 9f       	mul	r25, r21
+    20ec:	d1 f3       	breq	.-12     	; 0x20e2 <__mulsf3+0x14>
+    20ee:	95 0f       	add	r25, r21
+    20f0:	50 e0       	ldi	r21, 0x00	; 0
+    20f2:	55 1f       	adc	r21, r21
+    20f4:	62 9f       	mul	r22, r18
+    20f6:	f0 01       	movw	r30, r0
+    20f8:	72 9f       	mul	r23, r18
+    20fa:	bb 27       	eor	r27, r27
+    20fc:	f0 0d       	add	r31, r0
+    20fe:	b1 1d       	adc	r27, r1
+    2100:	63 9f       	mul	r22, r19
+    2102:	aa 27       	eor	r26, r26
+    2104:	f0 0d       	add	r31, r0
+    2106:	b1 1d       	adc	r27, r1
+    2108:	aa 1f       	adc	r26, r26
+    210a:	64 9f       	mul	r22, r20
+    210c:	66 27       	eor	r22, r22
+    210e:	b0 0d       	add	r27, r0
+    2110:	a1 1d       	adc	r26, r1
+    2112:	66 1f       	adc	r22, r22
+    2114:	82 9f       	mul	r24, r18
+    2116:	22 27       	eor	r18, r18
+    2118:	b0 0d       	add	r27, r0
+    211a:	a1 1d       	adc	r26, r1
+    211c:	62 1f       	adc	r22, r18
+    211e:	73 9f       	mul	r23, r19
+    2120:	b0 0d       	add	r27, r0
+    2122:	a1 1d       	adc	r26, r1
+    2124:	62 1f       	adc	r22, r18
+    2126:	83 9f       	mul	r24, r19
+    2128:	a0 0d       	add	r26, r0
+    212a:	61 1d       	adc	r22, r1
+    212c:	22 1f       	adc	r18, r18
+    212e:	74 9f       	mul	r23, r20
+    2130:	33 27       	eor	r19, r19
+    2132:	a0 0d       	add	r26, r0
+    2134:	61 1d       	adc	r22, r1
+    2136:	23 1f       	adc	r18, r19
+    2138:	84 9f       	mul	r24, r20
+    213a:	60 0d       	add	r22, r0
+    213c:	21 1d       	adc	r18, r1
+    213e:	82 2f       	mov	r24, r18
+    2140:	76 2f       	mov	r23, r22
+    2142:	6a 2f       	mov	r22, r26
+    2144:	11 24       	eor	r1, r1
+    2146:	9f 57       	subi	r25, 0x7F	; 127
+    2148:	50 40       	sbci	r21, 0x00	; 0
+    214a:	8a f0       	brmi	.+34     	; 0x216e <__mulsf3_pse+0x84>
+    214c:	e1 f0       	breq	.+56     	; 0x2186 <__mulsf3_pse+0x9c>
+    214e:	88 23       	and	r24, r24
+    2150:	4a f0       	brmi	.+18     	; 0x2164 <__mulsf3_pse+0x7a>
+    2152:	ee 0f       	add	r30, r30
+    2154:	ff 1f       	adc	r31, r31
+    2156:	bb 1f       	adc	r27, r27
+    2158:	66 1f       	adc	r22, r22
+    215a:	77 1f       	adc	r23, r23
+    215c:	88 1f       	adc	r24, r24
+    215e:	91 50       	subi	r25, 0x01	; 1
+    2160:	50 40       	sbci	r21, 0x00	; 0
+    2162:	a9 f7       	brne	.-22     	; 0x214e <__mulsf3_pse+0x64>
+    2164:	9e 3f       	cpi	r25, 0xFE	; 254
+    2166:	51 05       	cpc	r21, r1
+    2168:	70 f0       	brcs	.+28     	; 0x2186 <__mulsf3_pse+0x9c>
+    216a:	60 cf       	rjmp	.-320    	; 0x202c <__fp_inf>
+    216c:	aa cf       	rjmp	.-172    	; 0x20c2 <__fp_szero>
+    216e:	5f 3f       	cpi	r21, 0xFF	; 255
+    2170:	ec f3       	brlt	.-6      	; 0x216c <__mulsf3_pse+0x82>
+    2172:	98 3e       	cpi	r25, 0xE8	; 232
+    2174:	dc f3       	brlt	.-10     	; 0x216c <__mulsf3_pse+0x82>
+    2176:	86 95       	lsr	r24
+    2178:	77 95       	ror	r23
+    217a:	67 95       	ror	r22
+    217c:	b7 95       	ror	r27
+    217e:	f7 95       	ror	r31
+    2180:	e7 95       	ror	r30
+    2182:	9f 5f       	subi	r25, 0xFF	; 255
+    2184:	c1 f7       	brne	.-16     	; 0x2176 <__mulsf3_pse+0x8c>
+    2186:	fe 2b       	or	r31, r30
+    2188:	88 0f       	add	r24, r24
+    218a:	91 1d       	adc	r25, r1
+    218c:	96 95       	lsr	r25
+    218e:	87 95       	ror	r24
+    2190:	97 f9       	bld	r25, 7
+    2192:	08 95       	ret
+
+00002194 <_exit>:
+    2194:	f8 94       	cli
+
+00002196 <__stop_program>:
+    2196:	ff cf       	rjmp	.-2      	; 0x2196 <__stop_program>
