@@ -33,6 +33,7 @@
  */
 #include <asf.h>
 #include "drivers/bno055.h"
+#include "drivers/myuart.h"
 
 
 /************** I2C buffer length******/
@@ -83,34 +84,47 @@ void BNO055_delay_msek(u32 msek)
 
 int main (void)
 {
-	board_init();
+	//board_init();
 
 	/* Insert application code here, after the board has been initialized. */
 
 	/* This skeleton code simply sets the LED to the state of the button. */
 	
-	struct bno055_t myBNO;
+	//struct bno055_t myBNO;
 	
-	myBNO.bus_read = BNO055_I2C_bus_read;
-	myBNO.bus_write = BNO055_I2C_bus_write;
-	myBNO.delay_msec = BNO055_delay_msek;
-	myBNO.dev_addr = BNO055_I2C_ADDR1;	
-	bno055_init(&myBNO);
-	bno055_set_operation_mode(BNO055_OPERATION_MODE_NDOF);//NDOF
+	//myBNO.bus_read = BNO055_I2C_bus_read;
+	//myBNO.bus_write = BNO055_I2C_bus_write;
+	//myBNO.delay_msec = BNO055_delay_msek;
+	//myBNO.dev_addr = BNO055_I2C_ADDR1;	
+	//bno055_init(&myBNO);
+	//bno055_set_operation_mode(BNO055_OPERATION_MODE_NDOF);//NDOF
+	//
+	//struct bno055_euler_float_t eulerData;
+	//bno055_convert_float_euler_hpr_deg(&eulerData);
 	
-	struct bno055_euler_float_t eulerData;
-	bno055_convert_float_euler_hpr_deg(&eulerData);
+	sysclk_init();
+	uart_device mydevice;
+	mydevice.Baud=9600;
+	mydevice.Port=&PORTC;
+	mydevice.Usart=&USARTC0;
+	mydevice.Txpin=0b00001000;
+	mydevice.Rxpin=0b00000100;
+	usart_serial_init(mydevice->Usart);
 	
-	
-	
+	uart_init(&mydevice);
 	while (1) {
+		uart_write(&mydevice,45);
+		uart_write(&mydevice,26);
+		uart_write(&mydevice,26);
+		uart_write(&mydevice,26);
+		delay_s(5);
 		/* Is button pressed? */
-		if (ioport_get_pin_level(BUTTON_0_PIN) != BUTTON_0_ACTIVE) {
-			/* Yes, so turn LED on. */
-			ioport_set_pin_level(LED_0_PIN, LED_0_ACTIVE);
-		} else {
-			/* No, so turn LED off. */
-			ioport_set_pin_level(LED_0_PIN, !LED_0_ACTIVE);
-		}
+		//if (ioport_get_pin_level(BUTTON_0_PIN) != BUTTON_0_ACTIVE) {
+			///* Yes, so turn LED on. */
+			//ioport_set_pin_level(LED_0_PIN, LED_0_ACTIVE);
+		//} else {
+			///* No, so turn LED off. */
+			//ioport_set_pin_level(LED_0_PIN, !LED_0_ACTIVE);
+		//}
 	}
 }

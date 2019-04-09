@@ -59,6 +59,12 @@
 // From module: Chip Reset Cause Access - XMEGA implementation
 #include <reset_cause.h>
 
+// From module: Delay routines
+#include <delay.h>
+
+// From module: GPIO - General purpose Input/Output
+#include <gpio.h>
+
 // From module: Generic board support
 #include <board.h>
 
