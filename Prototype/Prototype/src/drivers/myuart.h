@@ -9,15 +9,21 @@
 
 
 #ifndef MYUART_H_
+
+
+
+
 //defines a struct to hold all the information about each uart device
 typedef struct uart_device{
 	PORT_t * Port;
 	USART_t * Usart;
-	uint8_t Rxpin;
-	uint8_t Txpin;
+	ioport_pin_t rx;
+	ioport_pin_t tx;
 	uint32_t Baud;
 	
 	} uart_device;
+	
+	
 void uart_init(uart_device* P_device);
 uint8_t uart_read(uart_device * device);
 void uart_write(uart_device * device,uint8_t data);

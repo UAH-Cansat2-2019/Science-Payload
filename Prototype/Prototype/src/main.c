@@ -103,20 +103,16 @@ int main (void)
 	//bno055_convert_float_euler_hpr_deg(&eulerData);
 	
 	sysclk_init();
-	uart_device mydevice;
-	mydevice.Baud=9600;
-	mydevice.Port=&PORTC;
-	mydevice.Usart=&USARTC0;
-	mydevice.Txpin=0b00001000;
-	mydevice.Rxpin=0b00000100;
-	usart_serial_init(mydevice->Usart);
+	uart_device openLog;
+	openLog.Baud=9600;
+	openLog.Port=&PORTC;
+	openLog.Usart=&USARTC0;
+	openLog.tx=0b00001000;
+	openLog.rx=0b00000100;
 	
-	uart_init(&mydevice);
+	uart_init(&openLog);
 	while (1) {
-		uart_write(&mydevice,45);
-		uart_write(&mydevice,26);
-		uart_write(&mydevice,26);
-		uart_write(&mydevice,26);
+		usart_serial_write_packet(openLog->Usart, "It's treason, then.\n",sizeof("It's treason, then.\n"));
 		delay_s(5);
 		/* Is button pressed? */
 		//if (ioport_get_pin_level(BUTTON_0_PIN) != BUTTON_0_ACTIVE) {
