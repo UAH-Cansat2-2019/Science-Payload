@@ -33,7 +33,7 @@
  */
 #include <asf.h>
 #include "drivers/bno055.h"
-#include "drivers/myuart.h"
+#include "drivers/uart.h"
 
 
 /************** I2C buffer length******/
@@ -104,7 +104,7 @@ int main (void)
 	
 	sysclk_init();
 	uart_device openLog;
-	openLog.Baud=9600;
+	openLog.Baud=115200;
 	openLog.Port=&PORTC;
 	openLog.Usart=&USARTC0;
 	openLog.tx=0b00001000;
@@ -112,9 +112,9 @@ int main (void)
 	
 	uart_init(&openLog);
 	while (1) {
-		const uint8_t* str = "It's treason, then.\n";
-		usart_serial_write_packet(openLog->Usart, str,sizeof(str));
-		delay_s(5);
+		const char  messege[] = "It's treason, then.";
+		usart_serial_write_packet(openLog.Usart, messege,sizeof(messege));
+		delay_ms(45);
 		/* Is button pressed? */
 		//if (ioport_get_pin_level(BUTTON_0_PIN) != BUTTON_0_ACTIVE) {
 			///* Yes, so turn LED on. */
