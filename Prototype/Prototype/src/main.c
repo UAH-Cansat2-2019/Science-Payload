@@ -112,7 +112,8 @@ int main (void)
 	
 	uart_init(&openLog);
 	while (1) {
-		usart_serial_write_packet(openLog->Usart, "It's treason, then.\n",sizeof("It's treason, then.\n"));
+		const uint8_t* str = "It's treason, then.\n";
+		usart_serial_write_packet(openLog->Usart, str,sizeof(str));
 		delay_s(5);
 		/* Is button pressed? */
 		//if (ioport_get_pin_level(BUTTON_0_PIN) != BUTTON_0_ACTIVE) {
