@@ -638,6 +638,12 @@
     <None Include="src\ASF\xmega\boards\xmega_a1u_xplained_pro\xmega_a1u_xplained_pro.h">
       <SubType>compile</SubType>
     </None>
+    <Compile Include="src\drivers\I2CDriver.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\drivers\I2CDriver.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="src\drivers\uart.c">
       <SubType>compile</SubType>
     </Compile>

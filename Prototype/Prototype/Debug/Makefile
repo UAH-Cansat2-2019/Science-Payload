@@ -92,6 +92,7 @@ C_SRCS +=  \
 ../src/drivers/bno055.c \
 ../src/ASF/common/services/ioport/xmega/ioport_compat.c \
 ../src/ASF/xmega/boards/xmega_a1u_xplained_pro/board_init.c \
+../src/drivers/I2CDriver.c \
 ../src/drivers/uart.c \
 ../src/main.c
 
@@ -120,6 +121,7 @@ src/ASF/xmega/drivers/usart/usart.o \
 src/drivers/bno055.o \
 src/ASF/common/services/ioport/xmega/ioport_compat.o \
 src/ASF/xmega/boards/xmega_a1u_xplained_pro/board_init.o \
+src/drivers/I2CDriver.o \
 src/drivers/uart.o \
 src/main.o
 
@@ -139,6 +141,7 @@ src/ASF/xmega/drivers/usart/usart.o \
 src/drivers/bno055.o \
 src/ASF/common/services/ioport/xmega/ioport_compat.o \
 src/ASF/xmega/boards/xmega_a1u_xplained_pro/board_init.o \
+src/drivers/I2CDriver.o \
 src/drivers/uart.o \
 src/main.o
 
@@ -158,6 +161,7 @@ src/ASF/xmega/drivers/usart/usart.d \
 src/drivers/bno055.d \
 src/ASF/common/services/ioport/xmega/ioport_compat.d \
 src/ASF/xmega/boards/xmega_a1u_xplained_pro/board_init.d \
+src/drivers/I2CDriver.d \
 src/drivers/uart.d \
 src/main.d
 
@@ -177,6 +181,7 @@ src/ASF/xmega/drivers/usart/usart.d \
 src/drivers/bno055.d \
 src/ASF/common/services/ioport/xmega/ioport_compat.d \
 src/ASF/xmega/boards/xmega_a1u_xplained_pro/board_init.d \
+src/drivers/I2CDriver.d \
 src/drivers/uart.d \
 src/main.d
 
@@ -279,6 +284,13 @@ src/ASF/common/services/ioport/xmega/ioport_compat.o: ../src/ASF/common/services
 	
 
 src/ASF/xmega/boards/xmega_a1u_xplained_pro/board_init.o: ../src/ASF/xmega/boards/xmega_a1u_xplained_pro/board_init.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)D:\Program Files (x86)\Atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -DDEBUG -DBOARD=XMEGA_A1U_XPLAINED_PRO -DIOPORT_XMEGA_COMPAT  -I"D:\Program Files (x86)\Atmel\7.0\Packs\atmel\XMEGAA_DFP\1.1.68\include" -I"../src/ASF/common/boards" -I"../src/ASF/xmega/utils/preprocessor" -I"../src/ASF/xmega/utils" -I"../src/ASF/common/utils" -I"../src/ASF/common/services/ioport" -I"../src/ASF/xmega/boards/xmega_a1u_xplained_pro" -I"../src/ASF/xmega/boards" -I"../src/config" -I"../src" -I"../src/ASF/xmega/drivers/cpu" -I"../src/ASF/xmega/drivers/nvm" -I"../src/ASF/xmega/drivers/pmic" -I"../src/ASF/xmega/drivers/rtc" -I"../src/ASF/xmega/drivers/sleep" -I"../src/ASF/xmega/drivers/spi" -I"../src/ASF/xmega/drivers/tc" -I"../src/ASF/common/services/clock" -I"../src/ASF/common/services/cpu" -I"../src/ASF/common/services/serial/xmega_usart" -I"../src/ASF/common/services/serial" -I"../src/ASF/common/services/sleepmgr" -I"../src/ASF/common/services/twi" -I"../src/ASF/xmega/drivers/twi" -I"../src/ASF/xmega/drivers/usart" -I"../src/ASF/common/services/delay" -I"../src/ASF/common/services/gpio"  -O1 -fdata-sections -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g3 -Wall -mmcu=atxmega128a1u -B "D:\Program Files (x86)\Atmel\7.0\Packs\atmel\XMEGAA_DFP\1.1.68\gcc\dev\atxmega128a1u" -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+src/drivers/I2CDriver.o: ../src/drivers/I2CDriver.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)D:\Program Files (x86)\Atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -DDEBUG -DBOARD=XMEGA_A1U_XPLAINED_PRO -DIOPORT_XMEGA_COMPAT  -I"D:\Program Files (x86)\Atmel\7.0\Packs\atmel\XMEGAA_DFP\1.1.68\include" -I"../src/ASF/common/boards" -I"../src/ASF/xmega/utils/preprocessor" -I"../src/ASF/xmega/utils" -I"../src/ASF/common/utils" -I"../src/ASF/common/services/ioport" -I"../src/ASF/xmega/boards/xmega_a1u_xplained_pro" -I"../src/ASF/xmega/boards" -I"../src/config" -I"../src" -I"../src/ASF/xmega/drivers/cpu" -I"../src/ASF/xmega/drivers/nvm" -I"../src/ASF/xmega/drivers/pmic" -I"../src/ASF/xmega/drivers/rtc" -I"../src/ASF/xmega/drivers/sleep" -I"../src/ASF/xmega/drivers/spi" -I"../src/ASF/xmega/drivers/tc" -I"../src/ASF/common/services/clock" -I"../src/ASF/common/services/cpu" -I"../src/ASF/common/services/serial/xmega_usart" -I"../src/ASF/common/services/serial" -I"../src/ASF/common/services/sleepmgr" -I"../src/ASF/common/services/twi" -I"../src/ASF/xmega/drivers/twi" -I"../src/ASF/xmega/drivers/usart" -I"../src/ASF/common/services/delay" -I"../src/ASF/common/services/gpio"  -O1 -fdata-sections -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g3 -Wall -mmcu=atxmega128a1u -B "D:\Program Files (x86)\Atmel\7.0\Packs\atmel\XMEGAA_DFP\1.1.68\gcc\dev\atxmega128a1u" -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

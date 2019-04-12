@@ -18,13 +18,9 @@ typedef struct uart_device{
 	USART_t * Usart;
 	uint8_t rx;
 	uint8_t tx;
-	ioport_pin_t rx_port;
-	ioport_pin_t tx_port;
 	uint32_t Baud;
 	
 	} uart_device;
-	
-	
 void uart_init(uart_device* P_device);
 uint8_t uart_read(uart_device * device);
 void uart_write(uart_device * device,uint8_t data);

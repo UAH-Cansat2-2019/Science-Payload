@@ -15,21 +15,21 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY
   5 .debug_aranges 00000390  00000000  00000000  00002420  2**3
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   0000d5a5  00000000  00000000  000027b0  2**0
+  6 .debug_info   0000d557  00000000  00000000  000027b0  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 000050a4  00000000  00000000  0000fd55  2**0
+  7 .debug_abbrev 000050a4  00000000  00000000  0000fd07  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   000053d4  00000000  00000000  00014df9  2**0
+  8 .debug_line   000053d3  00000000  00000000  00014dab  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  000014dc  00000000  00000000  0001a1d0  2**2
+  9 .debug_frame  000014dc  00000000  00000000  0001a180  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    0003de3e  00000000  00000000  0001b6ac  2**0
+ 10 .debug_str    0003de33  00000000  00000000  0001b65c  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    0000411c  00000000  00000000  000594ea  2**0
+ 11 .debug_loc    0000411c  00000000  00000000  0005948f  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 00000370  00000000  00000000  0005d606  2**0
+ 12 .debug_ranges 00000370  00000000  00000000  0005d5ab  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_macro  0000b8e6  00000000  00000000  0005d976  2**0
+ 13 .debug_macro  0000b78a  00000000  00000000  0005d91b  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -4897,21 +4897,19 @@ void uart_init(uart_device* P_device)
 		.paritytype = USART_PMODE_DISABLED_gc,
 		.stopbits = true
 	};
-	usart_options.baudrate=P_device->Baud;
+	usart_options.baudrate=P_device->Baud;//sets the baud rate to baud rate passed in with the struct
     1e04:	fc 01       	movw	r30, r24
-    1e06:	80 85       	ldd	r24, Z+8	; 0x08
-    1e08:	91 85       	ldd	r25, Z+9	; 0x09
-    1e0a:	a2 85       	ldd	r26, Z+10	; 0x0a
-    1e0c:	b3 85       	ldd	r27, Z+11	; 0x0b
+    1e06:	86 81       	ldd	r24, Z+6	; 0x06
+    1e08:	97 81       	ldd	r25, Z+7	; 0x07
+    1e0a:	a0 85       	ldd	r26, Z+8	; 0x08
+    1e0c:	b1 85       	ldd	r27, Z+9	; 0x09
     1e0e:	80 93 00 20 	sts	0x2000, r24	; 0x802000 <__data_start>
     1e12:	90 93 01 20 	sts	0x2001, r25	; 0x802001 <__data_start+0x1>
     1e16:	a0 93 02 20 	sts	0x2002, r26	; 0x802002 <__data_start+0x2>
     1e1a:	b0 93 03 20 	sts	0x2003, r27	; 0x802003 <__data_start+0x3>
-	P_device->Usart->CTRLC=0b00000011;//asynchronos mode, parity disabled, only 1 stop bit and char size is 7 bits
-	*/
-	//gpio_configure_pin(P_device->tx_port, IOPORT_DIR_OUTPUT); 
-	//gpio_configure_pin(P_device->rx_port, IOPORT_DIR_INPUT);
 	
+
+	//sets the direction of Tx to out and sets it to high. sets the direction of Rx to input
 	P_device->Port->DIR|=P_device->tx;
     1e1e:	01 90       	ld	r0, Z+
     1e20:	f0 81       	ld	r31, Z
@@ -4945,7 +4943,7 @@ void uart_init(uart_device* P_device)
     1e54:	89 23       	and	r24, r25
     1e56:	80 83       	st	Z, r24
 	
-	sysclk_enable_peripheral_clock(P_device->Usart);
+	sysclk_enable_peripheral_clock(P_device->Usart);//enables peripheral clock for uart
     1e58:	12 96       	adiw	r26, 0x02	; 2
     1e5a:	0d 91       	ld	r16, X+
     1e5c:	1c 91       	ld	r17, X
@@ -5472,7 +5470,7 @@ static inline void sysclk_enable_peripheral_clock(const volatile void *module)
     211a:	86 e0       	ldi	r24, 0x06	; 6
     211c:	0e 94 5a 01 	call	0x2b4	; 0x2b4 <sysclk_enable_module>
 	
-	usart_serial_init(P_device->Usart, &usart_options);
+	usart_serial_init(P_device->Usart, &usart_options);//asf function for initializing uart with the options from the struct we defined
     2120:	d7 01       	movw	r26, r14
     2122:	12 96       	adiw	r26, 0x02	; 2
     2124:	0d 91       	ld	r16, X+
@@ -5697,7 +5695,7 @@ int main (void)
     2244:	df 93       	push	r29
     2246:	cd b7       	in	r28, 0x3d	; 61
     2248:	de b7       	in	r29, 0x3e	; 62
-    224a:	a0 97       	sbiw	r28, 0x20	; 32
+    224a:	6e 97       	sbiw	r28, 0x1e	; 30
     224c:	cd bf       	out	0x3d, r28	; 61
     224e:	de bf       	out	0x3e, r29	; 62
 	//bno055_set_operation_mode(BNO055_OPERATION_MODE_NDOF);//NDOF
@@ -5713,10 +5711,10 @@ int main (void)
     2256:	92 ec       	ldi	r25, 0xC2	; 194
     2258:	a1 e0       	ldi	r26, 0x01	; 1
     225a:	b0 e0       	ldi	r27, 0x00	; 0
-    225c:	89 87       	std	Y+9, r24	; 0x09
-    225e:	9a 87       	std	Y+10, r25	; 0x0a
-    2260:	ab 87       	std	Y+11, r26	; 0x0b
-    2262:	bc 87       	std	Y+12, r27	; 0x0c
+    225c:	8f 83       	std	Y+7, r24	; 0x07
+    225e:	98 87       	std	Y+8, r25	; 0x08
+    2260:	a9 87       	std	Y+9, r26	; 0x09
+    2262:	ba 87       	std	Y+10, r27	; 0x0a
 	openLog.Port=&PORTC;
     2264:	80 e4       	ldi	r24, 0x40	; 64
     2266:	96 e0       	ldi	r25, 0x06	; 6
@@ -5744,7 +5742,7 @@ int main (void)
     2284:	e7 e0       	ldi	r30, 0x07	; 7
     2286:	f0 e2       	ldi	r31, 0x20	; 32
     2288:	de 01       	movw	r26, r28
-    228a:	1d 96       	adiw	r26, 0x0d	; 13
+    228a:	1b 96       	adiw	r26, 0x0b	; 11
     228c:	01 90       	ld	r0, Z+
     228e:	0d 92       	st	X+, r0
     2290:	8a 95       	dec	r24
@@ -5753,7 +5751,7 @@ int main (void)
     2294:	44 e1       	ldi	r20, 0x14	; 20
     2296:	50 e0       	ldi	r21, 0x00	; 0
     2298:	be 01       	movw	r22, r28
-    229a:	63 5f       	subi	r22, 0xF3	; 243
+    229a:	65 5f       	subi	r22, 0xF5	; 245
     229c:	7f 4f       	sbci	r23, 0xFF	; 255
     229e:	8b 81       	ldd	r24, Y+3	; 0x03
     22a0:	9c 81       	ldd	r25, Y+4	; 0x04
