@@ -644,6 +644,12 @@
     <Compile Include="src\drivers\I2CDriver.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="src\drivers\mybno055.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\drivers\mybno055.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="src\drivers\uart.c">
       <SubType>compile</SubType>
     </Compile>
