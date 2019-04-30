@@ -35,6 +35,15 @@ void uart_init(uart_device* P_device)
 	
 }
 
+void openlog_init(uart_device * openLog)
+{
+	openLog->Baud=115200;
+	openLog->Port=&PORTC;
+	openLog->Usart=&USARTC0;
+	openLog->tx=0b00001000;
+	openLog->rx=0b00000100;
+	
+}
 
 uint8_t uart_read(uart_device * device)
 {
@@ -48,4 +57,21 @@ void uart_write(uart_device * device,uint8_t data)
 	while(!(device->Usart->STATUS&0b00100000));//wait for transmition buffer to clear
 	device->Usart->DATA=data;
 	while((device->Usart->STATUS&0b01000000));//wait for data to be sent
+}
+
+void uart_terminal_init()
+{
+	sysclk_enable_peripheral_clock(UART_TERMINAL_SERIAL);	// enable the USART's clock
+	// initialize a configuration struct with USART settings
+	static usart_serial_options_t usart_config = {
+		.baudrate	=	UART_TERMINAL_SERIAL_BAUDRATE,
+		.charlength =	UART_TERMINAL_SERIAL_CHAR_LEN,
+		.paritytype =	UART_TERMINAL_SERIAL_PARITY,
+		.stopbits	=	UART_TERMINAL_SERIAL_STOP_BIT
+	};
+	
+	UART_TERMINAL_PORT.DIR |= UART_TERMINAL_TX_PIN;	// set the USART transmit pin to output
+	
+	stdio_serial_init(UART_TERMINAL_SERIAL, &usart_config); // function maps the serial output to printf
+	
 }

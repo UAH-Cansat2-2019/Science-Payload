@@ -46,6 +46,27 @@ typedef struct gyro{
 
 #define ID_reg 0x07
 
+//operation modes
+#define BNO055_OPERATION_MODE_CONFIG			(0X00)
+#define BNO055_OPERATION_MODE_ACCONLY			(0X01)
+#define BNO055_OPERATION_MODE_MAGONLY			(0X02)
+#define BNO055_OPERATION_MODE_GYRONLY			(0X03)
+#define BNO055_OPERATION_MODE_ACCMAG			(0X04)
+#define BNO055_OPERATION_MODE_ACCGYRO			(0X05)
+#define BNO055_OPERATION_MODE_MAGGYRO			(0X06)
+#define BNO055_OPERATION_MODE_AMG				(0X07)
+#define BNO055_OPERATION_MODE_IMUPLUS			(0X08)
+#define BNO055_OPERATION_MODE_COMPASS			(0X09)
+#define BNO055_OPERATION_MODE_M4G				(0X0A)
+#define BNO055_OPERATION_MODE_NDOF_FMC_OFF		(0X0B)
+#define BNO055_OPERATION_MODE_NDOF				(0X0C)
+
+//operation modes
+#define BNO055_OPERATION_MODE_POS			(0)
+#define BNO055_OPERATION_MODE_MSK			(0X0F)
+#define BNO055_OPERATION_MODE_LEN			(4)
+#define BNO055_OPERATION_MODE_REG			BNO055_OPR_MODE_ADDR
+
 //register addresses
 #define BNO055_CHIP_ID_ADDR                 (0x00)
 #define BNO055_ACCEL_REV_ID_ADDR			(0x01)
@@ -222,7 +243,12 @@ typedef struct gyro{
 
 
 
+/* Mode registers*/
+#define BNO055_OPR_MODE_ADDR				(0X3D)
+#define BNO055_PWR_MODE_ADDR				(0X3E)
 
+#define BNO055_SYS_TRIGGER_ADDR				(0X3F)
+#define BNO055_TEMP_SOURCE_ADDR				(0X40)
 
 
 
@@ -233,8 +259,18 @@ typedef struct gyro{
 
 
 
+//funciton prototypes
+void BNO055_Write(uint8_t *data);
 
+void BNO_Read(uint8_t * data);
 
+void BNO055_Config();
+void get_acceleration(uint16_t * acceleration);
+void get_Angle(uint16_t * angle);
+void get_mag(uint16_t * mag);
+void get_gyro(uint16_t*gyro);
+void BNO055_Sleep();
+void BNO055_Wake();
 
 #define MYBNO055_H_
 

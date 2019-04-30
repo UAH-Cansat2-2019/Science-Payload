@@ -21,9 +21,24 @@ typedef struct uart_device{
 	uint32_t Baud;
 	
 	} uart_device;
+	
+	void openlog_init(uart_device * openLog);
+	
 void uart_init(uart_device* P_device);
 uint8_t uart_read(uart_device * device);
 void uart_write(uart_device * device,uint8_t data);
+
+
+#define UART_TERMINAL_SERIAL			&USARTE0
+#define UART_TERMINAL_SERIAL_BAUDRATE	115200
+#define UART_TERMINAL_SERIAL_CHAR_LEN	USART_CHSIZE_8BIT_gc
+#define UART_TERMINAL_SERIAL_PARITY		USART_PMODE_DISABLED_gc
+#define UART_TERMINAL_SERIAL_STOP_BIT	true
+
+#define UART_TERMINAL_TX_PIN			PIN3_bm
+#define UART_TERMINAL_PORT				PORTE
+
+void uart_terminal_init(void);
 #define UART_H_
 
 

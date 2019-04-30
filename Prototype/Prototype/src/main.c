@@ -34,7 +34,7 @@
 #include <asf.h>
 #include "drivers/bno055.h"
 #include "drivers/uart.h"
-
+#include "drivers/mybno055.h"
 
 /************** I2C buffer length******/
 
@@ -104,17 +104,16 @@ int main (void)
 	
 	sysclk_init();
 	uart_device openLog;
-	openLog.Baud=115200;
-	openLog.Port=&PORTC;
-	openLog.Usart=&USARTC0;
-	openLog.tx=0b00001000;
-	openLog.rx=0b00000100;
-	
+	openlog_init(&openLog);
 	uart_init(&openLog);
+	uart_terminal_init();
+	printf("uart is working\n");
+	void BNO055_Config();
+	uint16_t acel[]={0,0,0};
 	while (1) {
-		const char  messege[] = "It's treason, then.";
-		usart_serial_write_packet(openLog.Usart, messege,sizeof(messege));
-		delay_ms(45);
+		printf("x = %i\ny = %i\nz = %i\n",acel[0],acel[1],acel[2]);
+		get_acceleration(acel);
+		delay_s(2);
 		/* Is button pressed? */
 		//if (ioport_get_pin_level(BUTTON_0_PIN) != BUTTON_0_ACTIVE) {
 			///* Yes, so turn LED on. */

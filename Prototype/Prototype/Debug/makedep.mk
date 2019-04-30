@@ -8,6 +8,10 @@ src\ASF\common\services\serial\usart_serial.c
 
 src\ASF\common\services\sleepmgr\xmega\sleepmgr.c
 
+src\ASF\common\utils\stdio\read.c
+
+src\ASF\common\utils\stdio\write.c
+
 src\ASF\xmega\drivers\cpu\ccp.s
 
 src\ASF\xmega\drivers\nvm\nvm.c
