@@ -11,13 +11,13 @@
 #define MYI2C TWIC
 #define BUSAD (uint16_t)(&TWIC)
 
-void I2CInit(uint32_t baud);
+void I2CInit(uint32_t baud,uint8_t busad);
 
 void twi_write(uint8_t * Data,uint8_t address);
 
 status_code_t twi_read(uint8_t * Data,uint8_t address);
 
-unsigned long readbitrate();
+uint8_t readBusad();
 #define I2CDRIVER_H_
 
 

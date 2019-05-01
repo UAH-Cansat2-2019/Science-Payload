@@ -9,17 +9,17 @@
 #include "I2CDriver.h"
 //needed to use I2C. two devices use different baud rates call this function again.
 //there is some example code at http://asf.atmel.com/docs/latest/xmegaa/html/twi_quickstart.html
-unsigned long bitrate;
+uint8_t busAddress;
 
-void I2CInit(uint32_t baud)
+void I2CInit(uint32_t baud,uint8_t busad)
 {
-	bitrate=baud;
-	twi_master_options_t opt={.speed=baud,.chip=BUSAD};//creats options struct for initialazation
+	busAddress=busad;
+	twi_master_options_t opt={.speed=baud,.chip=busad};//creats options struct for initialazation
 	twi_master_setup(&MYI2C,&opt);//sets up master
 }
-unsigned long readbitrate()
+uint8_t readBusad()
 {
-	return bitrate;
+	return busAddress;
 }
 // writes to a device using two wire interface. the address is the seven bit identifier for the specific device
 //data is an array of data that you wish to transfer. 
@@ -35,8 +35,7 @@ void twi_write(uint8_t * Data,uint8_t address)
 		.buffer       = (void *)Data, // transfer data source buffer
 		.length       = sizeof(Data)  // transfer data size (bytes)
 	};
-	//while (twi_master_write(&MYI2C, &packet_write) != TWI_SUCCESS);//transfers data and waits until transfer is finished to do anything else
-	delay_ms(3);
+	while (twi_master_write(&MYI2C, &packet_write) != TWI_SUCCESS);//transfers data and waits until transfer is finished to do anything else
 }
 
 //reads using two wire interface. address is the 7 bit identifier for each device. Data is the array the data will be stored in.

@@ -40,7 +40,7 @@ typedef struct gyro{
 
 #define UNIT_SEL_ANGLE_WINDOWS 0x00
 #define UNIT_SEL_ANGLE_ANDROID 0x80
-
+//the address and baud rate
 #define BN0_ADDR 0x29
 #define BN0_BAUD_KHZ 400
 

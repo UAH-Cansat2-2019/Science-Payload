@@ -113,7 +113,7 @@ int main (void)
 	while (1) {
 		printf("x = %i\ny = %i\nz = %i\n",acel[0],acel[1],acel[2]);
 		get_acceleration(acel);
-		delay_s(2);
+		delay_ms(500);
 		/* Is button pressed? */
 		//if (ioport_get_pin_level(BUTTON_0_PIN) != BUTTON_0_ACTIVE) {
 			///* Yes, so turn LED on. */

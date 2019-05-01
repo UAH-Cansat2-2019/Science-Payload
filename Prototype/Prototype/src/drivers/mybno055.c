@@ -10,9 +10,9 @@
 //writes data to the to the imu 
 void BNO055_Write(uint8_t *data)
 {
-	if(readbitrate()!=(BN0_BAUD_KHZ)*1000)//checks if I2C to the right bitrate has been initialized
+	if(readBusad()!=BN0_ADDR)//checks if I2C to the right bitrate has been initialized
 	{
-		I2CInit(BN0_BAUD_KHZ*1000);
+		I2CInit(BN0_BAUD_KHZ*1000,BN0_ADDR);
 	}
 	twi_write(data,BN0_ADDR);//writes data to the sensor
 }
@@ -44,6 +44,7 @@ void get_acceleration(uint16_t * acceleration)
 	uint8_t data;
 	//read x data
 	data=BNO055_ACCEL_DATA_X_MSB_ADDR;
+	
 	 BNO055_Write(&data);
 	 BNO_Read(&data);
 	 acceleration[0]= ((uint16_t) data)<<8;
