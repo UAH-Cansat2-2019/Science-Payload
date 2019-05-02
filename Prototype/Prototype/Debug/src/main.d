@@ -73,7 +73,8 @@ src/main.d src/main.o: ../src/main.c ../src/asf.h \
  ../src/ASF/common/services/twi/xmega_twi/twi_master.h \
  ../src/ASF/common/services/twi/xmega_twi/twi_slave.h \
  ../src/ASF/xmega/boards/xmega_a1u_xplained_pro/xmega_a1u_xplained_pro.h \
- ../src/drivers/bno055.h ../src/drivers/uart.h ../src/drivers/mybno055.h
+ ../src/drivers/bno055.h ../src/drivers/uart.h ../src/drivers/mybno055.h \
+ ../src/drivers/I2CDriver.h
 
 ../src/asf.h:
 
@@ -246,3 +247,5 @@ d:\program\ files\ (x86)\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr
 ../src/drivers/uart.h:
 
 ../src/drivers/mybno055.h:
+
+../src/drivers/I2CDriver.h:

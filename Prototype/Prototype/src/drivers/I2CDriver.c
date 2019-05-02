@@ -23,14 +23,12 @@ uint8_t readBusad()
 }
 // writes to a device using two wire interface. the address is the seven bit identifier for the specific device
 //data is an array of data that you wish to transfer. 
-void twi_write(uint8_t * Data,uint8_t address)
+void twi_write(uint8_t * Data,uint8_t address,uint8_t memAddress)
 {
 	twi_package_t packet_write = 
 	{
-		.addr=0,			//as far as I can tell this is something tacked on to the beginning for reading and writing to
-		//memories such as roms it sends this with the data to tell it where to read from. Not entirely sure. I think if we need something
-		//like this we will just code it ourselves for the individual device for debugging purposes.
-		.addr_length=0,
+		.addr=memAddress,	
+		.addr_length=sizeof(uint8_t),
 		.chip         = address,      // TWI slave bus address
 		.buffer       = (void *)Data, // transfer data source buffer
 		.length       = sizeof(Data)  // transfer data size (bytes)
@@ -40,15 +38,15 @@ void twi_write(uint8_t * Data,uint8_t address)
 
 //reads using two wire interface. address is the 7 bit identifier for each device. Data is the array the data will be stored in.
 //returns the status of the transfer
-status_code_t twi_read(uint8_t * Data,uint8_t address)
+status_code_t twi_read(uint8_t * Data,uint8_t address,uint8_t memAddress)
 {
 	twi_package_t packet_read = 
 	{
-		.addr=0,
-		.addr_length=0,
+		.addr=memAddress,
+		.addr_length=sizeof(uint8_t),
 		.chip         = address,       // TWI slave bus address
 		.buffer       = Data,          // transfer data destination buffer
-		.length       = sizeof(Data)        // transfer data size (bytes)
+		.length       = 1        // transfer data size (bytes)
 	};
 	return twi_master_read(&MYI2C, &packet_read); //preform read and return the status of the read
 	

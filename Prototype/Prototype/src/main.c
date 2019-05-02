@@ -35,6 +35,7 @@
 #include "drivers/bno055.h"
 #include "drivers/uart.h"
 #include "drivers/mybno055.h"
+#include "drivers/I2CDriver.h"
 
 /************** I2C buffer length******/
 
@@ -103,16 +104,18 @@ int main (void)
 	//bno055_convert_float_euler_hpr_deg(&eulerData);
 	
 	sysclk_init();
+	board_init();
 	uart_device openLog;
 	openlog_init(&openLog);
 	uart_init(&openLog);
 	uart_terminal_init();
 	printf("uart is working\n");
-	void BNO055_Config();
+	I2CInit(BN0_BAUD_HZ,BN0_ADDR);
+	//BNO055_Config();
 	uint16_t acel[]={0,0,0};
 	while (1) {
-		printf("x = %i\ny = %i\nz = %i\n",acel[0],acel[1],acel[2]);
-		get_acceleration(acel);
+		
+		printf("the data is %x \n",WhoAmIBNO());
 		delay_ms(500);
 		/* Is button pressed? */
 		//if (ioport_get_pin_level(BUTTON_0_PIN) != BUTTON_0_ACTIVE) {
