@@ -41,7 +41,7 @@ typedef struct gyro{
 #define UNIT_SEL_ANGLE_WINDOWS 0x00
 #define UNIT_SEL_ANGLE_ANDROID 0x80
 //the address and baud rate
-#define BN0_ADDR 0x28
+#define BN0_ADDR 0x29
 #define BN0_BAUD_HZ 400000
 
 #define ID_reg 0x07
@@ -260,18 +260,17 @@ typedef struct gyro{
 
 
 //funciton prototypes
-void BNO055_Write(uint8_t* data,uint8_t memAddress);
+void BNO_Write(uint8_t* data,uint8_t memAddress);
 
 void BNO_Read(uint8_t * data,uint8_t memAddress);
-uint8_t WhoAmIBNO(void);
+uint16_t WhoAmIBNO(void);
 
-//void BNO055_Config();
-//void get_acceleration(uint16_t * acceleration);
-//void get_Angle(uint16_t * angle);
-//void get_mag(uint16_t * mag);
-//void get_gyro(uint16_t*gyro);
-//void BNO055_Sleep();
-//void BNO055_Wake();
+void BNO055_Config();
+void get_acceleration(int16_t * acceleration);
+void get_Angle(int16_t * angle);
+void get_mag(int16_t * mag);
+void get_gyro(int16_t*gyro);
+
 
 #define MYBNO055_H_
 

@@ -93,16 +93,6 @@ int main (void)
 	
 	//struct bno055_t myBNO;
 	
-	//myBNO.bus_read = BNO055_I2C_bus_read;
-	//myBNO.bus_write = BNO055_I2C_bus_write;
-	//myBNO.delay_msec = BNO055_delay_msek;
-	//myBNO.dev_addr = BNO055_I2C_ADDR1;	
-	//bno055_init(&myBNO);
-	//bno055_set_operation_mode(BNO055_OPERATION_MODE_NDOF);//NDOF
-	//
-	//struct bno055_euler_float_t eulerData;
-	//bno055_convert_float_euler_hpr_deg(&eulerData);
-	
 	sysclk_init();
 	board_init();
 	uart_device openLog;
@@ -111,19 +101,23 @@ int main (void)
 	uart_terminal_init();
 	printf("uart is working\n");
 	I2CInit(BN0_BAUD_HZ,BN0_ADDR);
-	//BNO055_Config();
+	BNO055_Config();
 	uint16_t acel[]={0,0,0};
+	uint8_t dat = 0x0C;
+	BNO_Write(&dat,0x3D);
+	printf("Data %x\n", dat);
 	while (1) {
+		int16_t acceleration [3];
+		int16_t mag [3];
+		int16_t gyro [3];
 		
-		printf("the data is %x \n",WhoAmIBNO());
-		delay_ms(500);
-		/* Is button pressed? */
-		//if (ioport_get_pin_level(BUTTON_0_PIN) != BUTTON_0_ACTIVE) {
-			///* Yes, so turn LED on. */
-			//ioport_set_pin_level(LED_0_PIN, LED_0_ACTIVE);
-		//} else {
-			///* No, so turn LED off. */
-			//ioport_set_pin_level(LED_0_PIN, !LED_0_ACTIVE);
-		//}
+		get_acceleration(acceleration);
+		get_mag(mag);
+		get_gyro(gyro);
+		printf("\nAccelerometer is %i, \t %i, \t %i \n",acceleration[0], acceleration[1], acceleration[2]);
+		printf("Magnetometer is %i, \t %i, \t %i \n",mag[0],mag[1],mag[2] );
+		printf("Gyroscope is %i, \t %i, \t %i \n\n",gyro[0],gyro[1],gyro[2] );
+		delay_ms(50);
+
 	}
 }
