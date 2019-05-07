@@ -30,7 +30,7 @@ src\ASF\xmega\drivers\twi\twis.c
 
 src\ASF\xmega\drivers\usart\usart.c
 
-src\drivers\bno055.c
+src\RingBuff.c
 
 src\ASF\common\services\ioport\xmega\ioport_compat.c
 

@@ -42,45 +42,6 @@
 #define	I2C_BUFFER_LEN 8
 #define I2C0 5
 
-#define	BNO055_I2C_BUS_WRITE_ARRAY_INDEX	((u8)1)
-
-
-s8 BNO055_I2C_bus_write(u8 dev_addr, u8 reg_addr, u8 *reg_data, u8 cnt)
-{
-	s32 BNO055_iERROR = BNO055_INIT_VALUE;
-	u8 array[I2C_BUFFER_LEN];
-	u8 stringpos = BNO055_INIT_VALUE;
-
-	array[BNO055_INIT_VALUE] = reg_addr;
-	for (stringpos = BNO055_INIT_VALUE; stringpos < cnt; stringpos++){
-		array[stringpos + BNO055_I2C_BUS_WRITE_ARRAY_INDEX] =
-			*(reg_data + stringpos);
-	}
-
-	return (s8)BNO055_iERROR;
-}
-
-
-s8 BNO055_I2C_bus_read(u8 dev_addr, u8 reg_addr, u8 *reg_data, u8 cnt)
-{
-	s32 BNO055_iERROR = BNO055_INIT_VALUE;
-	u8 array[I2C_BUFFER_LEN] = {BNO055_INIT_VALUE};
-	u8 stringpos = BNO055_INIT_VALUE;
-
-	array[BNO055_INIT_VALUE] = reg_addr;
-
-	
-	for (stringpos = BNO055_INIT_VALUE; stringpos < cnt; stringpos++)
-		*(reg_data + stringpos) = array[stringpos];
-	return (s8)BNO055_iERROR;
-}
-/*	Brief : The delay routine
- *	\param : delay in ms
-*/
-void BNO055_delay_msek(u32 msek)
-{
-	/*Here you can write your own delay routine*/
-}
 
 
 int main (void)
@@ -102,10 +63,7 @@ int main (void)
 	printf("uart is working\n");
 	I2CInit(BN0_BAUD_HZ,BN0_ADDR);
 	BNO055_Config();
-	uint16_t acel[]={0,0,0};
-	uint8_t dat = 0x0C;
-	BNO_Write(&dat,0x3D);
-	printf("Data %x\n", dat);
+	
 	while (1) {
 		int16_t acceleration [3];
 		int16_t mag [3];

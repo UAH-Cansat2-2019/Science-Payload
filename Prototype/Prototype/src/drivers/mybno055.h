@@ -10,16 +10,6 @@
 
 
 
-typedef struct mag{
-	uint16_t x;
-	uint16_t y;
-	uint16_t z;
-	} mag;
-typedef struct gyro{
-	uint16_t x;
-	uint16_t y;
-	uint16_t z;
-	};
 
 //power modes
 #define NORM_PWR_MODE 0x00
@@ -204,7 +194,8 @@ typedef struct gyro{
 #define BNO055_GYRO_OFFSET_Y_MSB_ADDR				(0X64)
 #define BNO055_GYRO_OFFSET_Z_LSB_ADDR				(0X65)
 #define BNO055_GYRO_OFFSET_Z_MSB_ADDR				(0X66)
-
+//page ID register
+#define BNO055_PAGE_ID_ADDR				    (0X07)
 /* Radius registers*/
 #define	BNO055_ACCEL_RADIUS_LSB_ADDR				(0X67)
 #define	BNO055_ACCEL_RADIUS_MSB_ADDR				(0X68)
@@ -242,7 +233,6 @@ typedef struct gyro{
 #define BNO055_GYRO_ANY_MOTION_SET_ADDR			(0X1F)
 
 
-
 /* Mode registers*/
 #define BNO055_OPR_MODE_ADDR				(0X3D)
 #define BNO055_PWR_MODE_ADDR				(0X3E)
@@ -265,17 +255,13 @@ void BNO_Write(uint8_t* data,uint8_t memAddress);
 void BNO_Read(uint8_t * data,uint8_t memAddress);
 uint16_t WhoAmIBNO(void);
 
-void BNO055_Config();
+void BNO055_Config(void);
 void get_acceleration(int16_t * acceleration);
 void get_Angle(int16_t * angle);
 void get_mag(int16_t * mag);
 void get_gyro(int16_t*gyro);
-
-
+uint8_t isBnoCalib(void);
+void getoffsets(uint8_t * offsets);
+void set_offsets(uint8_t * offsets);
 #define MYBNO055_H_
-
-
-
-
-
 #endif /* MYBNO055_H_ */

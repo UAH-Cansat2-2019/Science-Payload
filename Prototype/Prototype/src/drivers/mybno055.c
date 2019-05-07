@@ -12,7 +12,7 @@
 //writes data to the to the imu 
 void BNO_Write(uint8_t *data,uint8_t memAddress)
 {
-	if(readBusad()!=BN0_ADDR)//checks if I2C to the right bitrate has been initialized
+	if(readBusad()!=BN0_ADDR)
 	{
 		I2CInit(BN0_BAUD_HZ,BN0_ADDR);
 	}
@@ -25,34 +25,26 @@ void BNO_Read(uint8_t * data,uint8_t memAddress)
 	twi_read(data,BN0_ADDR,memAddress);
 }
 
-//who am I register
-uint16_t WhoAmIBNO()
-{
-	
-	uint8_t dataMSB = 0xFF;
-	BNO_Read(&dataMSB,0x0C);
-	uint8_t dataLSB = 0xFF;
-	BNO_Read(&dataLSB, 0x0D);
-	int16_t data = ((int16_t)dataMSB) << 8 + (uint16_t)dataLSB; 
-	return data;
-}
 
 void BNO055_Config()
 {
+	//sets the page to page zero
+	uint8_t data=0;
+	BNO_Write(&data,BNO055_PAGE_ID_ADDR);
 	//sets mode to config mode
-	uint8_t data=BNO055_OPERATION_MODE_REG;
-	BNO_Write (&data, BNO055_OPERATION_MODE_CONFIG);
+	data=BNO055_OPERATION_MODE_CONFIG;
+	BNO_Write (&data, BNO055_OPERATION_MODE_REG);
+	delay_ms(22);
 	
 	//select units
-	 data=BNO055_UNIT_SEL_ADDR;
+	 data=UNIT_SEL;
 	 
-	BNO_Write(BNO055_UNIT_SEL_ADDR,UNIT_SEL);
+	BNO_Write(&data,BNO055_UNIT_SEL_ADDR);
 	
 	
 	//sets mode to fusion bno
-	data=BNO055_OPERATION_MODE_REG;
-
-	BNO_Write (&data,BNO055_OPERATION_MODE_NDOF);
+	data=BNO055_OPERATION_MODE_NDOF;
+	BNO_Write (&data,BNO055_OPERATION_MODE_REG);
 	
 }
 //store a three long array containing the x, y and z acceleration in that order units of cm/s^2
@@ -108,8 +100,8 @@ void get_Angle(int16_t * angle)//takes a three element array
 	
 	//reads the pitch
 	data=BNO055_EULER_P_MSB_ADDR;
-
 	data=0xFF;
+	
 	BNO_Read(&data,BNO055_EULER_P_MSB_ADDR);
 	angle[1]=((uint16_t)data)<<8;
 	data=0xff;
@@ -137,7 +129,7 @@ void get_mag(int16_t * mag)
 	data=0xff;
 	
 	BNO_Read(&data,BNO055_MAG_DATA_X_MSB_ADDR);
-	mag[0]=(uint16_t)data<<8;
+	mag[0]=((uint16_t)data)<<8;
 	data=0xff;
 	
 	BNO_Read(&data,BNO055_MAG_DATA_X_LSB_ADDR);
@@ -148,7 +140,7 @@ void get_mag(int16_t * mag)
 	data=0xff;
 	
 	BNO_Read(&data,BNO055_MAG_DATA_Y_MSB_ADDR);
-	mag[2]=(uint16_t)data<<8;
+	mag[2]=((uint16_t)data)<<8;
 	data=0xff;
 	
 	BNO_Read(&data,BNO055_MAG_DATA_Y_LSB_ADDR);
@@ -159,7 +151,7 @@ void get_mag(int16_t * mag)
 	data=0xff;
 	
 	BNO_Read(&data,BNO055_MAG_DATA_Z_MSB_ADDR);
-	mag[2]=(uint16_t)data<<8;
+	mag[2]=((uint16_t)data)<<8;
 	data=0xff;
 	
 	BNO_Read(&data,BNO055_MAG_DATA_Z_LSB_ADDR);
@@ -174,7 +166,7 @@ void get_gyro(int16_t*gyro)
 	uint8_t data;
 	
 	BNO_Read(&data,BNO055_GYRO_DATA_X_MSB_ADDR);
-	gyro[0]=data<<8;
+	gyro[0]=((uint16_t)data)<<8;
 	
 	BNO_Read(&data,BNO055_GYRO_DATA_X_LSB_ADDR);
 	gyro[0]+=data;
@@ -182,17 +174,53 @@ void get_gyro(int16_t*gyro)
 	
 	
 	BNO_Read(&data,BNO055_GYRO_DATA_Y_MSB_ADDR);
-	gyro[1]=data<<8;
+	gyro[1]=((uint16_t)data)<<8;
 	
 	BNO_Read(&data,BNO055_GYRO_DATA_Y_LSB_ADDR);
 	gyro[1]+=data;
 	gyro[1]=gyro[1]/16;
 	
 	BNO_Read(&data,BNO055_GYRO_DATA_Z_MSB_ADDR);
-	gyro[2]=data<<8;
+	gyro[2]=((uint16_t)data)<<8;
 	
 	BNO_Read(&data,BNO055_GYRO_DATA_Z_LSB_ADDR);
 	gyro[2]+=data;
 	gyro[2]=gyro[0]/16;
 }
 
+uint8_t isBnoCalib()
+{
+	static uint8_t calibstat=0;//static variable in case the function is called multiple times
+	uint8_t data;
+	if(!calibstat)
+	{
+		BNO_Read(&data,BNO055_CALIB_STAT_ADDR);//the first two values of the calib_stat register determin if calibrated
+		calibstat=(data>>7)&&((data&0x40)>>6);//this checks the two leading registers
+	}
+	return calibstat;
+}
+//populates array with offset array needs to be of length 18 
+void get_offsets(uint8_t * offsets)
+{
+	if(!isBnoCalib()) return;
+	uint8_t data=BNO055_OPERATION_MODE_CONFIG;
+	BNO_Write(&data,BNO055_OPR_MODE_ADDR);//mode needs to be config to read offsets
+	delay_ms(22);//by the data sheet it takes 19 ms to switch to config mode
+	BNO_Read(offsets,BNO055_ACCEL_OFFSET_X_LSB_ADDR);//addresses the first element and the sensor automatically increments itself
+	data=BNO055_OPERATION_MODE_NDOF;
+	BNO_Write(&data,BNO055_OPR_MODE_ADDR);
+}
+//needs to be the exact same array as read gives you
+void set_offsets(uint8_t * offsets)
+{
+		uint8_t data=BNO055_OPERATION_MODE_CONFIG;
+		BNO_Write(&data,BNO055_OPR_MODE_ADDR);//mode needs to be config to Write offsets
+		delay_ms(22);//by the data sheet it takes 19 ms to switch to config mode
+		for(uint8_t i=0;i<18;i++)// It doesn't look like a multiple write is supported so I just loop through all possible values
+		{
+			BNO_Write(&data,i+BNO055_ACCEL_OFFSET_X_LSB_ADDR);
+			offsets[i]=data;
+		}
+			data=BNO055_OPERATION_MODE_NDOF;
+			BNO_Write(&data,BNO055_OPR_MODE_ADDR);
+}

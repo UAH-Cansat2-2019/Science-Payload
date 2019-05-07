@@ -46,7 +46,7 @@ status_code_t twi_read(uint8_t * Data,uint8_t address,uint8_t memAddress)
 		.addr_length=sizeof(uint8_t),
 		.chip         = address,       // TWI slave bus address
 		.buffer       = Data,          // transfer data destination buffer
-		.length       = 1        // transfer data size (bytes)
+		.length       = sizeof(Data)        // transfer data size (bytes)
 	};
 	return twi_master_read(&MYI2C, &packet_read); //preform read and return the status of the read
 	
