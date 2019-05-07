@@ -10,7 +10,7 @@
 #define RINGBUFF_H_
 
 #define BUFSIZE 10
-#include <asf.h>
+
 struct uint16RingBuff {
 	uint16_t * data;
 	uint8_t  lastItem;

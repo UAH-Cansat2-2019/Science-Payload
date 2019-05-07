@@ -2,6 +2,12 @@
 # Automatically-generated file. Do not edit or delete the file
 ################################################################################
 
+src\ASF\xmega\drivers\wdt\wdt.c
+
+src\drivers\OpenLog.c
+
+src\ResetHandle.c
+
 src\ASF\common\services\clock\xmega\sysclk.c
 
 src\ASF\common\services\serial\usart_serial.c

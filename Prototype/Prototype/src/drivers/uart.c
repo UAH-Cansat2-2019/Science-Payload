@@ -34,6 +34,14 @@ void uart_init(uart_device* P_device)
 	
 	
 }
+void UARTReadArray(uart_device device,char * data)
+{
+	usart_serial_read_packet(device.Usart,data,sizeof(data));
+}
+void UARTWriteArray(uart_device device, char * data)//uses usart to write an array of data to the specified device
+{
+	usart_serial_write_packet(device.Usart,data,sizeof(data));
+}
 
 void openlog_init(uart_device * openLog)
 {
@@ -42,7 +50,6 @@ void openlog_init(uart_device * openLog)
 	openLog->Usart=&USARTC0;
 	openLog->tx=0b00001000;
 	openLog->rx=0b00000100;
-	
 }
 
 uint8_t uart_read(uart_device * device)

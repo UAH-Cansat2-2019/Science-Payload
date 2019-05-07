@@ -4,8 +4,9 @@
  * Created: 5/4/2019 9:27:07 PM
  *  Author: natha
  */ 
-#include "RingBuff.h"
 #include <asf.h>
+#include "RingBuff.h"
+
 //the user initializes a p_bstru variable and passes it into the buff init and they can use the below functions to store data in it.
 void u16BuffInit(p_bstru rstru)
 {

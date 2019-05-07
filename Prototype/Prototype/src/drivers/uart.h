@@ -19,7 +19,6 @@ typedef struct uart_device{
 	uint8_t rx;
 	uint8_t tx;
 	uint32_t Baud;
-	
 	} uart_device;
 	
 	void openlog_init(uart_device * openLog);
@@ -27,13 +26,16 @@ typedef struct uart_device{
 void uart_init(uart_device* P_device);
 uint8_t uart_read(uart_device * device);
 void uart_write(uart_device * device,uint8_t data);
-
+void UARTWriteArray(uart_device device, char * data);
+void UARTReadArray(uart_device device,char * data);
 
 #define UART_TERMINAL_SERIAL			&USARTE0
 #define UART_TERMINAL_SERIAL_BAUDRATE	115200
 #define UART_TERMINAL_SERIAL_CHAR_LEN	USART_CHSIZE_8BIT_gc
 #define UART_TERMINAL_SERIAL_PARITY		USART_PMODE_DISABLED_gc
 #define UART_TERMINAL_SERIAL_STOP_BIT	true
+
+
 
 #define UART_TERMINAL_TX_PIN			PIN3_bm
 #define UART_TERMINAL_PORT				PORTE
