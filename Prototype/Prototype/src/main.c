@@ -32,11 +32,11 @@
  * Support and FAQ: visit <a href="http://www.atmel.com/design-support/">Atmel Support</a>
  */
 #include <asf.h>
-#include "drivers/bno055.h"
+
 #include "drivers/uart.h"
 #include "drivers/mybno055.h"
 #include "drivers/I2CDriver.h"
-
+#include "RingBuff.h"
 /************** I2C buffer length******/
 
 #define	I2C_BUFFER_LEN 8
@@ -61,21 +61,31 @@ int main (void)
 	uart_init(&openLog);
 	uart_terminal_init();
 	printf("uart is working\n");
-	I2CInit(BN0_BAUD_HZ,BN0_ADDR);
-	BNO055_Config();
-	
+	//I2CInit(BN0_BAUD_HZ,BN0_ADDR);
+	//BNO055_Config();
+	p_bstru nums;
+	u16BuffInit(&nums);
+	uint8_t i=0;
 	while (1) {
-		int16_t acceleration [3];
-		int16_t mag [3];
-		int16_t gyro [3];
 		
-		get_acceleration(acceleration);
-		get_mag(mag);
-		get_gyro(gyro);
-		printf("\nAccelerometer is %i, \t %i, \t %i \n",acceleration[0], acceleration[1], acceleration[2]);
-		printf("Magnetometer is %i, \t %i, \t %i \n",mag[0],mag[1],mag[2] );
-		printf("Gyroscope is %i, \t %i, \t %i \n\n",gyro[0],gyro[1],gyro[2] );
-		delay_ms(50);
+		i++;
+		putu16(nums,i);
+		printf("\n\nThe array is: ");
+		for(uint8_t j=0;j<10;j++)
+		{
+			printf(" %i", getu16(nums,j));
+		}
+		delay_s(2);
+		//int16_t acceleration [3];
+		//int16_t mag [3];
+		//int16_t gyro [3];
+		
+		//get_acceleration(acceleration);
+		//get_mag(mag);
+		//get_gyro(gyro);
+		//printf("\nAccelerometer is %i, \t %i, \t %i \n",acceleration[0], acceleration[1], acceleration[2]);
+		//printf("Magnetometer is %i, \t %i, \t %i \n",mag[0],mag[1],mag[2] );
+		//printf("Gyroscope is %i, \t %i, \t %i \n\n",gyro[0],gyro[1],gyro[2] );
 
 	}
 }

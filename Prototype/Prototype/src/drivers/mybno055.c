@@ -12,10 +12,6 @@
 //writes data to the to the imu 
 void BNO_Write(uint8_t *data,uint8_t memAddress)
 {
-	if(readBusad()!=BN0_ADDR)
-	{
-		I2CInit(BN0_BAUD_HZ,BN0_ADDR);
-	}
 	twi_write(data,BN0_ADDR,memAddress);//writes data to the sensor
 }
 

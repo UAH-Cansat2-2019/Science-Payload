@@ -5,7 +5,6 @@
  *  Author: natha
  */ 
 #include <asf.h>
-#include "drivers/bno055.h"
 #include "drivers/uart.h"
 #include "drivers/mybno055.h"
 #include "drivers/I2CDriver.h"
