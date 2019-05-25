@@ -4,6 +4,10 @@
 
 src\ASF\xmega\drivers\wdt\wdt.c
 
+src\RingBuffer.c
+
+src\drivers\gps.c
+
 src\drivers\OpenLog.c
 
 src\ResetHandle.c

@@ -1,10 +1,12 @@
-src/drivers/uart.d src/drivers/uart.o: ../src/drivers/uart.c ../src/asf.h \
- ../src/ASF/xmega/drivers/cpu/ccp.h ../src/ASF/xmega/utils/compiler.h \
- d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h \
- d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h \
+src/RingBuffer.d src/RingBuffer.o: ../src/RingBuffer.c \
+ ../src/RingBuffer.h \
  d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h \
  d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdint.h \
  d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdint.h \
+ ../src/asf.h ../src/ASF/xmega/drivers/cpu/ccp.h \
+ ../src/ASF/xmega/utils/compiler.h \
+ d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h \
+ d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h \
  D:\programs\AtmelStudio\7.0\Packs\atmel\XMEGAA_DFP\1.1.68\include/avr/iox128a1u.h \
  d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\portpins.h \
  d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\common.h \
@@ -73,8 +75,15 @@ src/drivers/uart.d src/drivers/uart.o: ../src/drivers/uart.c ../src/asf.h \
  ../src/ASF/common/services/twi/xmega_twi/twi_master.h \
  ../src/ASF/common/services/twi/xmega_twi/twi_slave.h \
  ../src/ASF/xmega/drivers/wdt/wdt.h \
- ../src/ASF/xmega/boards/xmega_a1u_xplained_pro/xmega_a1u_xplained_pro.h \
- ../src/drivers/uart.h ../src/config/conf_clock.h
+ ../src/ASF/xmega/boards/xmega_a1u_xplained_pro/xmega_a1u_xplained_pro.h
+
+../src/RingBuffer.h:
+
+d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h:
+
+d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdint.h:
+
+d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdint.h:
 
 ../src/asf.h:
 
@@ -85,12 +94,6 @@ src/drivers/uart.d src/drivers/uart.o: ../src/drivers/uart.c ../src/asf.h \
 d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 
 d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h:
-
-d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h:
-
-d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdint.h:
-
-d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdint.h:
 
 D:\programs\AtmelStudio\7.0\Packs\atmel\XMEGAA_DFP\1.1.68\include/avr/iox128a1u.h:
 
@@ -243,7 +246,3 @@ d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\
 ../src/ASF/xmega/drivers/wdt/wdt.h:
 
 ../src/ASF/xmega/boards/xmega_a1u_xplained_pro/xmega_a1u_xplained_pro.h:
-
-../src/drivers/uart.h:
-
-../src/config/conf_clock.h:

@@ -30,15 +30,15 @@ void twi_write(uint8_t * Data,uint8_t address,uint8_t memAddress)
 		.addr=memAddress,	
 		.addr_length=sizeof(uint8_t),
 		.chip         = address,      // TWI slave bus address
-		.buffer       = (void *)Data, // transfer data source buffer
+		.buffer       = Data, // transfer data source buffer
 		.length       = sizeof(Data)  // transfer data size (bytes)
 	};
-	while (twi_master_write(&MYI2C, &packet_write) != TWI_SUCCESS);//transfers data and waits until transfer is finished to do anything else
+	while (twi_master_write(&MYI2C, &packet_write) != TWI_SUCCESS) printf("fail");//transfers data and waits until transfer is finished to do anything else
 }
 
 //reads using two wire interface. address is the 7 bit identifier for each device. Data is the array the data will be stored in.
 //returns the status of the transfer
-status_code_t twi_read(uint8_t * Data,uint8_t address,uint8_t memAddress)
+void twi_read(uint8_t * Data,uint8_t address,uint8_t memAddress)
 {
 	twi_package_t packet_read = 
 	{
@@ -48,6 +48,8 @@ status_code_t twi_read(uint8_t * Data,uint8_t address,uint8_t memAddress)
 		.buffer       = Data,          // transfer data destination buffer
 		.length       = sizeof(Data)        // transfer data size (bytes)
 	};
-	return twi_master_read(&MYI2C, &packet_read); //preform read and return the status of the read
+	twi_master_read(&MYI2C, &packet_read); //preform read and return the status of the read
+	//Data = packet_read.buffer;
+	//printf("%d",status);
 	
 }

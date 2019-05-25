@@ -21,6 +21,16 @@ void BNO_Read(uint8_t * data,uint8_t memAddress)
 	twi_read(data,BN0_ADDR,memAddress);
 }
 
+uint16_t WhoAmIBNO()
+{
+	
+	uint8_t dataMSB = 0xFF;
+	BNO_Read(&dataMSB,0x0C);
+	uint8_t dataLSB = 0xFF;
+	BNO_Read(&dataLSB, 0x0D);
+	int16_t data = ((int16_t)dataMSB) << 8 + (uint16_t)dataLSB;
+	return data;
+}
 
 void BNO055_Config()
 {
@@ -29,7 +39,7 @@ void BNO055_Config()
 	BNO_Write(&data,BNO055_PAGE_ID_ADDR);
 	//sets mode to config mode
 	data=BNO055_OPERATION_MODE_CONFIG;
-	BNO_Write (&data, BNO055_OPERATION_MODE_REG);
+	BNO_Write (&data, BNO055_OPR_MODE_ADDR);
 	delay_ms(22);
 	
 	//select units
@@ -40,7 +50,7 @@ void BNO055_Config()
 	
 	//sets mode to fusion bno
 	data=BNO055_OPERATION_MODE_NDOF;
-	BNO_Write (&data,BNO055_OPERATION_MODE_REG);
+	BNO_Write (&data,BNO055_OPR_MODE_ADDR);
 	
 }
 //store a three long array containing the x, y and z acceleration in that order units of cm/s^2
@@ -186,7 +196,7 @@ void get_gyro(int16_t*gyro)
 
 uint8_t isBnoCalib()
 {
-	static uint8_t calibstat=0;//static variable in case the function is called multiple times
+	uint8_t calibstat=0;//static variable in case the function is called multiple times
 	uint8_t data;
 	if(!calibstat)
 	{

@@ -14,7 +14,7 @@ void uart_init(uart_device* P_device)
 {
 	//initializes struct containing all the options for uart communication
 	static usart_serial_options_t usart_options = {
-		.baudrate = 0,
+		.baudrate = 115200,
 		.charlength = USART_CHSIZE_8BIT_gc,
 		.paritytype = USART_PMODE_DISABLED_gc,
 		.stopbits = true
@@ -47,9 +47,29 @@ void openlog_init(uart_device * openLog)
 {
 	openLog->Baud=115200;
 	openLog->Port=&PORTC;
-	openLog->Usart=&USARTC0;
-	openLog->tx=0b00001000;
-	openLog->rx=0b00000100;
+	openLog->Usart=&USARTC1;
+	openLog->tx=0b10000000;
+	openLog->rx=0b01000000;
+}
+
+void xbee_init(uart_device * xbee)
+{
+	
+	xbee->Baud=115200;
+	xbee->Port=&PORTF;
+	xbee->Usart=&USARTF0;
+	xbee->tx=0b00001000;
+	xbee->rx=0b00000100;
+}
+
+void gps_init(uart_device * gps)
+{
+	
+	gps->Baud=115200;
+	gps->Port=&PORTE;
+	gps->Usart=&USARTE1;
+	gps->tx=0b10000000;
+	gps->rx=0b01000000;
 }
 
 uint8_t uart_read(uart_device * device)
