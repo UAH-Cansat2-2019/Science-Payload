@@ -1,4 +1,4 @@
-src/drivers/uart.d src/drivers/uart.o: ../src/drivers/uart.c ../src/asf.h \
+src/drivers/Xbee.d src/drivers/Xbee.o: ../src/drivers/Xbee.c ../src/asf.h \
  ../src/ASF/xmega/drivers/cpu/ccp.h ../src/ASF/xmega/utils/compiler.h \
  d:\program\ files\ (x86)\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h \
  d:\program\ files\ (x86)\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h \
@@ -74,7 +74,7 @@ src/drivers/uart.d src/drivers/uart.o: ../src/drivers/uart.c ../src/asf.h \
  ../src/ASF/common/services/twi/xmega_twi/twi_slave.h \
  ../src/ASF/xmega/drivers/wdt/wdt.h \
  ../src/ASF/xmega/boards/xmega_a1u_xplained_pro/xmega_a1u_xplained_pro.h \
- ../src/drivers/uart.h ../src/config/conf_clock.h
+ ../src/drivers/uart.h ../src/drivers/Xbee.h
 
 ../src/asf.h:
 
@@ -246,4 +246,4 @@ d:\program\ files\ (x86)\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr
 
 ../src/drivers/uart.h:
 
-../src/config/conf_clock.h:
+../src/drivers/Xbee.h:

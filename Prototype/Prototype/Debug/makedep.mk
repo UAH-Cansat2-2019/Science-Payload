@@ -4,6 +4,8 @@
 
 src\ASF\xmega\drivers\wdt\wdt.c
 
+src\drivers\Xbee.c
+
 src\RingBuffer.c
 
 src\drivers\gps.c

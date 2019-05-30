@@ -52,16 +52,6 @@ void openlog_init(uart_device * openLog)
 	openLog->rx=0b01000000;
 }
 
-void xbee_init(uart_device * xbee)
-{
-	
-	xbee->Baud=115200;
-	xbee->Port=&PORTF;
-	xbee->Usart=&USARTF0;
-	xbee->tx=0b00001000;
-	xbee->rx=0b00000100;
-}
-
 void gps_init(uart_device * gps)
 {
 	

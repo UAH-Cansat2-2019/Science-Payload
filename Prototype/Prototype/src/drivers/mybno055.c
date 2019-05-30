@@ -21,16 +21,16 @@ void BNO_Read(uint8_t * data,uint8_t memAddress)
 	twi_read(data,BN0_ADDR,memAddress);
 }
 
-uint16_t WhoAmIBNO()
-{
-	
-	uint8_t dataMSB = 0xFF;
-	BNO_Read(&dataMSB,0x0C);
-	uint8_t dataLSB = 0xFF;
-	BNO_Read(&dataLSB, 0x0D);
-	int16_t data = ((int16_t)dataMSB) << 8 + (uint16_t)dataLSB;
-	return data;
-}
+//uint16_t WhoAmIBNO()
+//{
+	//
+	//uint8_t dataMSB = 0xFF;
+	//BNO_Read(&dataMSB,0x0C);
+	//uint8_t dataLSB = 0xFF;
+	//BNO_Read(&dataLSB, 0x0D);
+	//int16_t data = ((int16_t)dataMSB) << 8 + (uint16_t)dataLSB;
+	//return data;
+//}
 
 void BNO055_Config()
 {
@@ -51,6 +51,7 @@ void BNO055_Config()
 	//sets mode to fusion bno
 	data=BNO055_OPERATION_MODE_NDOF;
 	BNO_Write (&data,BNO055_OPR_MODE_ADDR);
+	delay_ms(20);
 	
 }
 //store a three long array containing the x, y and z acceleration in that order units of cm/s^2
@@ -87,6 +88,17 @@ void get_acceleration(int16_t * acceleration)
 	 BNO_Read(&data,BNO055_ACCEL_DATA_Z_LSB_ADDR);
 	 acceleration[2]+=data;
 	 
+}
+uint8_t is_BNO_calib()
+{
+	uint8_t data;
+	BNO_Read(&data,BNO055_CALIB_STAT_ADDR);
+	for(uint8_t i=0;i>6;i++)
+	{
+		if(!(data&1)) return 0;
+		data=data>>1;
+	}
+	return 1;
 }
 
 //function to get heading, pitch, and roll in that order. degree measure
@@ -193,22 +205,10 @@ void get_gyro(int16_t*gyro)
 	gyro[2]+=data;
 	gyro[2]=gyro[0]/16;
 }
-
-uint8_t isBnoCalib()
-{
-	uint8_t calibstat=0;//static variable in case the function is called multiple times
-	uint8_t data;
-	if(!calibstat)
-	{
-		BNO_Read(&data,BNO055_CALIB_STAT_ADDR);//the first two values of the calib_stat register determin if calibrated
-		calibstat=(data>>7)&&((data&0x40)>>6);//this checks the two leading registers
-	}
-	return calibstat;
-}
 //populates array with offset array needs to be of length 18 
 void get_offsets(uint8_t * offsets)
 {
-	if(!isBnoCalib()) return;
+	if(!is_BNO_calib()) return;
 	uint8_t data=BNO055_OPERATION_MODE_CONFIG;
 	BNO_Write(&data,BNO055_OPR_MODE_ADDR);//mode needs to be config to read offsets
 	delay_ms(22);//by the data sheet it takes 19 ms to switch to config mode

@@ -234,8 +234,6 @@
 
 
 /* Mode registers*/
-#define BNO055_OPR_MODE_ADDR				(0X3D)
-#define BNO055_PWR_MODE_ADDR				(0X3E)
 
 #define BNO055_SYS_TRIGGER_ADDR				(0X3F)
 #define BNO055_TEMP_SOURCE_ADDR				(0X40)
@@ -253,15 +251,15 @@
 void BNO_Write(uint8_t* data,uint8_t memAddress);
 
 void BNO_Read(uint8_t * data,uint8_t memAddress);
-uint16_t WhoAmIBNO(void);
+//uint16_t WhoAmIBNO(void);
+uint8_t is_BNO_calib(void);
 
 void BNO055_Config(void);
 void get_acceleration(int16_t * acceleration);
 void get_Angle(int16_t * angle);
 void get_mag(int16_t * mag);
 void get_gyro(int16_t*gyro);
-uint8_t isBnoCalib(void);
-void getoffsets(uint8_t * offsets);
+void get_offsets(uint8_t * offsets);
 void set_offsets(uint8_t * offsets);
 #define MYBNO055_H_
 #endif /* MYBNO055_H_ */

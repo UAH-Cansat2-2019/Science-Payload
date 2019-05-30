@@ -22,7 +22,6 @@ typedef struct uart_device{
 	} uart_device;
 	
 	void openlog_init(uart_device * openLog);
-	void xbee_init(uart_device * xbee);
 	void gps_init(uart_device * gps);
 void uart_init(uart_device* P_device);
 uint8_t uart_read(uart_device * device);
