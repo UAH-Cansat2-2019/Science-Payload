@@ -4,6 +4,8 @@
 
 src\ASF\xmega\drivers\wdt\wdt.c
 
+src\BNO055Driver.c
+
 src\drivers\Xbee.c
 
 src\RingBuffer.c
@@ -49,8 +51,6 @@ src\ASF\common\services\ioport\xmega\ioport_compat.c
 src\ASF\xmega\boards\xmega_a1u_xplained_pro\board_init.c
 
 src\drivers\I2CDriver.c
-
-src\drivers\mybno055.c
 
 src\drivers\uart.c
 

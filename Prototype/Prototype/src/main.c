@@ -34,7 +34,7 @@
 #include <asf.h>
 
 #include "drivers/uart.h"
-#include "drivers/mybno055.h"
+#include "BNO055Driver.h"
 #include "drivers/I2CDriver.h"
 #include "RingBuff.h"
 #include <string.h>
@@ -64,29 +64,40 @@ int main (void)
 	
 	I2CInit(115200,0x29);
 	xbee_init();
-	//BNO055_Config();
-	delay_ms(20);
+	
+	
+	
 	uint8_t data;
-	int16_t acel[3];
+	int16_t acel[]={0,0,0};
+	int16_t acelx;
+		data=BNO055_OPERATION_MODE_CONFIG;
+		BNO_Write (&data, BNO055_OPR_MODE_ADDR);
+		delay_ms(22);
+		
+		data=BNO055_OPERATION_MODE_NDOF;
+		BNO_Write (&data,BNO055_OPR_MODE_ADDR);
+		delay_ms(8);
 	while (1) 
 	{
-		BNO_Read(&data,0);
 		
-		printf("\n id = %i",data);
+		BNO_Read(&data,BNO055_SELFTEST_RESULT_ADDR);
 		
-		//BNO_Read(&data,BNO055_SELFTEST_RESULT_ADDR);
-		//
-		//printf("st_result = %i\n",data);
-		//
-		//BNO_Read(&data,BNO055_PAGE_ID_ADDR);
-		//
-		//printf("page id = %i\n",data);
+		printf("st_result = %i\n",data);
 		
-		//BNO_Read(&data,BNO055_CALIB_STAT_ADDR);
-		//printf("Calibstat %i\n",data);
+		BNO_Read(&data,BNO055_OPR_MODE_ADDR);
 		
-		//printf("is calib %u",is_BNO_calib());
+		printf("opr mode = %i\n",data);
 		
+		BNO_Read(&data,BNO055_CALIB_STAT_ADDR);
+		printf("Calibstat %i\n",data);
+		
+		//get_acceleration(acel);
+		//printf("acceleration is x = %i",acel[0]);
+		//printf(", y=%i",acel[1]);
+		//printf(", z=%i\n",acel[2]);
+		
+		
+		printf("acelx %i\n",get_acceleration_x());
 		delay_ms(500);
 		
 

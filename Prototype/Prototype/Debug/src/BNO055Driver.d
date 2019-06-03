@@ -1,6 +1,5 @@
-src/drivers/mybno055.d src/drivers/mybno055.o: ../src/drivers/mybno055.c \
- ../src/ASF.h ../src/ASF/xmega/drivers/cpu/ccp.h \
- ../src/ASF/xmega/utils/compiler.h \
+src/BNO055Driver.d src/BNO055Driver.o: ../src/BNO055Driver.c ../src/ASF.h \
+ ../src/ASF/xmega/drivers/cpu/ccp.h ../src/ASF/xmega/utils/compiler.h \
  d:\program\ files\ (x86)\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h \
  d:\program\ files\ (x86)\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h \
  d:\program\ files\ (x86)\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h \
@@ -75,7 +74,7 @@ src/drivers/mybno055.d src/drivers/mybno055.o: ../src/drivers/mybno055.c \
  ../src/ASF/common/services/twi/xmega_twi/twi_slave.h \
  ../src/ASF/xmega/drivers/wdt/wdt.h \
  ../src/ASF/xmega/boards/xmega_a1u_xplained_pro/xmega_a1u_xplained_pro.h \
- ../src/drivers/mybno055.h ../src/drivers/I2CDriver.h
+ ../src/drivers/I2CDriver.h ../src/BNO055Driver.h
 
 ../src/ASF.h:
 
@@ -245,6 +244,6 @@ d:\program\ files\ (x86)\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr
 
 ../src/ASF/xmega/boards/xmega_a1u_xplained_pro/xmega_a1u_xplained_pro.h:
 
-../src/drivers/mybno055.h:
-
 ../src/drivers/I2CDriver.h:
+
+../src/BNO055Driver.h:

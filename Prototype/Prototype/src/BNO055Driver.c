@@ -1,15 +1,15 @@
 /*
- * mybno055.c
+ * BNO055Driver.c
  *
- * Created: 4/15/2019 1:35:15 PM
- *  Author: Nathan
+ * Created: 5/30/2019 8:18:35 PM
+ *  Author: natha
  */ 
+
+//writes data to the to the imu
 #include <ASF.h>
-#include "mybno055.h"
-#include "I2CDriver.h"
+#include "drivers/I2CDriver.h"
+#include "BNO055Driver.h"
 
-
-//writes data to the to the imu 
 void BNO_Write(uint8_t *data,uint8_t memAddress)
 {
 	twi_write(data,BN0_ADDR,memAddress);//writes data to the sensor
@@ -20,74 +20,90 @@ void BNO_Read(uint8_t * data,uint8_t memAddress)
 {
 	twi_read(data,BN0_ADDR,memAddress);
 }
-
+void BNO_init()
+{
+	//uint8_t data;
+	//data=0;
+	//twi_write(&data,BN0_ADDR,0X3D);
+	//delay_ms(30);
+	//
+	//data=0X0C;
+	//twi_write(&data,BN0_ADDR,0X3D);
+	//delay_ms(10);
+}
 //uint16_t WhoAmIBNO()
 //{
-	//
-	//uint8_t dataMSB = 0xFF;
-	//BNO_Read(&dataMSB,0x0C);
-	//uint8_t dataLSB = 0xFF;
-	//BNO_Read(&dataLSB, 0x0D);
-	//int16_t data = ((int16_t)dataMSB) << 8 + (uint16_t)dataLSB;
-	//return data;
+//
+//uint8_t dataMSB = 0xFF;
+//BNO_Read(&dataMSB,0x0C);
+//uint8_t dataLSB = 0xFF;
+//BNO_Read(&dataLSB, 0x0D);
+//int16_t data = ((int16_t)dataMSB) << 8 + (uint16_t)dataLSB;
+//return data;
 //}
 
-void BNO055_Config()
-{
-	//sets the page to page zero
-	uint8_t data=0;
-	BNO_Write(&data,BNO055_PAGE_ID_ADDR);
-	//sets mode to config mode
-	data=BNO055_OPERATION_MODE_CONFIG;
-	BNO_Write (&data, BNO055_OPR_MODE_ADDR);
-	delay_ms(22);
-	
-	//select units
-	 data=UNIT_SEL;
-	 
-	BNO_Write(&data,BNO055_UNIT_SEL_ADDR);
-	
-	
-	//sets mode to fusion bno
-	data=BNO055_OPERATION_MODE_NDOF;
-	BNO_Write (&data,BNO055_OPR_MODE_ADDR);
-	delay_ms(20);
-	
-}
 //store a three long array containing the x, y and z acceleration in that order units of cm/s^2
-void get_acceleration(int16_t * acceleration)
+uint16_t get_acceleration_x()
+{
+	uint16_t acelx;
+	uint8_t data;
+	BNO_Read(&data,BNO055_ACCEL_DATA_X_MSB_ADDR);
+	acelx=(int16_t)data;
+	acelx=acelx<<8;
+	BNO_Read(&data,BNO055_ACCEL_DATA_X_LSB_ADDR);
+	acelx+=data;
+	return acelx;
+}
+void get_acceleration(int16_t acceleration[3])
 {
 	uint8_t data=0xFF;
 	//read x data
 	
-	 BNO_Read(&data,BNO055_ACCEL_DATA_X_MSB_ADDR);
-	 acceleration[0]= ((uint16_t) data)<<8;
-	 data=0xFF;
+	BNO_Read(&data,BNO055_ACCEL_DATA_X_MSB_ADDR);
+	delay_ms(10);
+	acceleration[0] = (((uint16_t) data)<<8);
+	delay_ms(10);
+	data=0xFF;
+	delay_ms(10);
+	BNO_Read(&data,BNO055_ACCEL_DATA_X_LSB_ADDR);
+	delay_ms(10);
+	acceleration[0]+=data;
+	delay_ms(10);
+	//read y data
+	data=0xFF;
 	
-	 BNO_Read(&data,BNO055_ACCEL_DATA_X_LSB_ADDR);
-	 acceleration[0]+=data;
-	 
-	 //read y data
-	 data=0xFF;
-	 
-	 BNO_Read(&data,BNO055_ACCEL_DATA_Y_MSB_ADDR);
-	 acceleration[1]=((uint16_t) data)<<8;
-	 
-	 data=0xFF;
-	 
-	 BNO_Read(&data,BNO055_ACCEL_DATA_Y_LSB_ADDR);
-	 acceleration[1]+=data;
-	 
-	 //read z data
-	 data=0xff;
-	 
-	 BNO_Read(&data,BNO055_ACCEL_DATA_Z_MSB_ADDR);
-	 acceleration[2]= ((uint16_t) data)<<8;
-	 data=0xff;
+	BNO_Read(&data,BNO055_ACCEL_DATA_Y_MSB_ADDR);
 	
-	 BNO_Read(&data,BNO055_ACCEL_DATA_Z_LSB_ADDR);
-	 acceleration[2]+=data;
-	 
+	delay_ms(10);
+	
+	acceleration[1]=(((uint16_t) data)<<8);
+	
+	delay_ms(10);
+	
+	data=0xFF;
+	
+	BNO_Read(&data,BNO055_ACCEL_DATA_Y_LSB_ADDR);
+	acceleration[1]+=data;
+	delay_ms(10);
+	//read z data
+	data=0xff;
+	
+	BNO_Read(&data,BNO055_ACCEL_DATA_Z_MSB_ADDR);
+	
+	delay_ms(10);
+	
+	acceleration[2]= (((uint16_t) data)<<8);
+	
+	delay_ms(10);
+	
+	data=0xff;
+	delay_ms(10);
+	BNO_Read(&data,BNO055_ACCEL_DATA_Z_LSB_ADDR);
+	
+	delay_ms(10);
+	
+	acceleration[2]+=data;
+	
 }
 uint8_t is_BNO_calib()
 {
@@ -205,7 +221,7 @@ void get_gyro(int16_t*gyro)
 	gyro[2]+=data;
 	gyro[2]=gyro[0]/16;
 }
-//populates array with offset array needs to be of length 18 
+//populates array with offset array needs to be of length 18
 void get_offsets(uint8_t * offsets)
 {
 	if(!is_BNO_calib()) return;
@@ -219,14 +235,14 @@ void get_offsets(uint8_t * offsets)
 //needs to be the exact same array as read gives you
 void set_offsets(uint8_t * offsets)
 {
-		uint8_t data=BNO055_OPERATION_MODE_CONFIG;
-		BNO_Write(&data,BNO055_OPR_MODE_ADDR);//mode needs to be config to Write offsets
-		delay_ms(22);//by the data sheet it takes 19 ms to switch to config mode
-		for(uint8_t i=0;i<18;i++)// It doesn't look like a multiple write is supported so I just loop through all possible values
-		{
-			BNO_Write(&data,i+BNO055_ACCEL_OFFSET_X_LSB_ADDR);
-			offsets[i]=data;
-		}
-			data=BNO055_OPERATION_MODE_NDOF;
-			BNO_Write(&data,BNO055_OPR_MODE_ADDR);
+	uint8_t data=BNO055_OPERATION_MODE_CONFIG;
+	BNO_Write(&data,BNO055_OPR_MODE_ADDR);//mode needs to be config to Write offsets
+	delay_ms(22);//by the data sheet it takes 19 ms to switch to config mode
+	for(uint8_t i=0;i<18;i++)// It doesn't look like a multiple write is supported so I just loop through all possible values
+	{
+		BNO_Write(&data,i+BNO055_ACCEL_OFFSET_X_LSB_ADDR);
+		offsets[i]=data;
+	}
+	data=BNO055_OPERATION_MODE_NDOF;
+	BNO_Write(&data,BNO055_OPR_MODE_ADDR);
 }
