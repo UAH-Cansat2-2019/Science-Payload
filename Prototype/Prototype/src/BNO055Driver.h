@@ -264,5 +264,7 @@ void get_offsets(uint8_t * offsets);
 void set_offsets(uint8_t * offsets);
 void BNO_init(void);
 uint16_t get_acceleration_x(void);
+uint16_t get_acceleration_y(void);
+uint16_t get_acceleration_z(void);
 
 #endif /* BNO055DRIVER_H_ */

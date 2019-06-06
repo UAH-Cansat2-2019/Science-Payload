@@ -46,13 +46,67 @@ void BNO_init()
 uint16_t get_acceleration_x()
 {
 	uint16_t acelx;
-	uint8_t data;
+	uint8_t data = 0xff;
+	delay_ms(10);
 	BNO_Read(&data,BNO055_ACCEL_DATA_X_MSB_ADDR);
+	delay_ms(10);
+	
 	acelx=(int16_t)data;
+	
 	acelx=acelx<<8;
+	
+	
+	data = 0xff;
+	delay_ms(10);
 	BNO_Read(&data,BNO055_ACCEL_DATA_X_LSB_ADDR);
+	delay_ms(10);
+
 	acelx+=data;
 	return acelx;
+}
+
+uint16_t get_acceleration_y()
+{
+	uint16_t acely;
+	uint8_t data = 0xff;
+	delay_ms(10);
+	BNO_Read(&data,BNO055_ACCEL_DATA_Y_MSB_ADDR);
+	delay_ms(10);
+	
+	acely=(int16_t)data;
+	
+	acely=acely<<8;
+	
+	
+	data = 0xff;
+	delay_ms(10);
+	BNO_Read(&data,BNO055_ACCEL_DATA_Y_LSB_ADDR);
+	delay_ms(10);
+
+	acely+=data;
+	return acely;
+}
+
+uint16_t get_acceleration_z()
+{
+	uint16_t acelz;
+	uint8_t data = 0xff;
+	delay_ms(10);
+	BNO_Read(&data,BNO055_ACCEL_DATA_Z_MSB_ADDR);
+	delay_ms(10);
+	
+	acelz=(int16_t)data;
+	
+	acelz=acelz<<8;
+	
+	
+	data = 0xff;
+	delay_ms(10);
+	BNO_Read(&data,BNO055_ACCEL_DATA_Z_LSB_ADDR);
+	delay_ms(10);
+
+	acelz+=data;
+	return acelz;
 }
 void get_acceleration(int16_t acceleration[3])
 {

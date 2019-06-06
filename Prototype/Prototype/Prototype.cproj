@@ -439,6 +439,9 @@
     <Compile Include="src\BNO055Driver.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="src\drivers\definitions.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="src\drivers\Xbee.c">
       <SubType>compile</SubType>
     </Compile>

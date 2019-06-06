@@ -17,10 +17,10 @@
 
 #define XBEE_UART USARTF0
 #define READ_INTURUPT USARTF0_RXC_vect
-
+#include <string.h>
 volatile uint8_t XbeeRx;
 
 void xbee_init(void);
-void xbeeWrite(uint8_t);
+void xbeeWrite(uint8_t* data);
 
 #endif /* XBEE_H_ */

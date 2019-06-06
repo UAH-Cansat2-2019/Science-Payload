@@ -50,6 +50,6 @@ void twi_read(uint8_t * Data,uint8_t address,uint8_t memAddress)
 	};
 	twi_master_read(&MYI2C, &packet_read); //preform read and return the status of the read
 	//Data = packet_read.buffer;
-	//printf("%d",status);
+	
 	
 }

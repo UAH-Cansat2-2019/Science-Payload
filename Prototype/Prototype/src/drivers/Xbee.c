@@ -23,9 +23,14 @@ void xbee_init()
 	XBEE_UART.CTRLA=0x14;
 }
 
-void xbeeWrite(uint8_t data)
+void xbeeWrite(uint8_t* data)
 {
-	usart_putchar(P_XBEEUART,data);
+	printf("\n%i\n",strlen(data));
+	usart_serial_write_packet(P_XBEEUART, data, strlen(data));
+	//uart_write(P_XBEEUART,data);
+	
+	
+	
 }
 
 ISR(READ_INTURUPT)
