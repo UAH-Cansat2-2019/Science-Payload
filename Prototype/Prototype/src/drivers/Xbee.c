@@ -13,7 +13,6 @@ volatile extern uint8_t XbeeRx;
 
 void xbee_init()
 {
-	
 	xbee_uart.Baud=XBEEBAUD;
 	xbee_uart.Port=P_XBEEPORT;
 	xbee_uart.Usart=P_XBEEUART;
@@ -24,13 +23,8 @@ void xbee_init()
 }
 
 void xbeeWrite(uint8_t* data)
-{
-	printf("\n%i\n",strlen(data));
+{	
 	usart_serial_write_packet(P_XBEEUART, data, strlen(data));
-	//uart_write(P_XBEEUART,data);
-	
-	
-	
 }
 
 ISR(READ_INTURUPT)

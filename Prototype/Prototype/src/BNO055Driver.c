@@ -108,57 +108,7 @@ uint16_t get_acceleration_z()
 	acelz+=data;
 	return acelz;
 }
-void get_acceleration(int16_t acceleration[3])
-{
-	uint8_t data=0xFF;
-	//read x data
-	
-	BNO_Read(&data,BNO055_ACCEL_DATA_X_MSB_ADDR);
-	delay_ms(10);
-	acceleration[0] = (((uint16_t) data)<<8);
-	delay_ms(10);
-	data=0xFF;
-	delay_ms(10);
-	BNO_Read(&data,BNO055_ACCEL_DATA_X_LSB_ADDR);
-	delay_ms(10);
-	acceleration[0]+=data;
-	delay_ms(10);
-	//read y data
-	data=0xFF;
-	
-	BNO_Read(&data,BNO055_ACCEL_DATA_Y_MSB_ADDR);
-	
-	delay_ms(10);
-	
-	acceleration[1]=(((uint16_t) data)<<8);
-	
-	delay_ms(10);
-	
-	data=0xFF;
-	
-	BNO_Read(&data,BNO055_ACCEL_DATA_Y_LSB_ADDR);
-	acceleration[1]+=data;
-	delay_ms(10);
-	//read z data
-	data=0xff;
-	
-	BNO_Read(&data,BNO055_ACCEL_DATA_Z_MSB_ADDR);
-	
-	delay_ms(10);
-	
-	acceleration[2]= (((uint16_t) data)<<8);
-	
-	delay_ms(10);
-	
-	data=0xff;
-	delay_ms(10);
-	BNO_Read(&data,BNO055_ACCEL_DATA_Z_LSB_ADDR);
-	
-	delay_ms(10);
-	
-	acceleration[2]+=data;
-	
-}
+
 uint8_t is_BNO_calib()
 {
 	uint8_t data;
@@ -172,42 +122,64 @@ uint8_t is_BNO_calib()
 }
 
 //function to get heading, pitch, and roll in that order. degree measure
-void get_Angle(int16_t * angle)//takes a three element array
+void get_Angle(uint16_t angle[])//takes a three element array
 {
+	//angle = (uint16_t*)malloc(4*sizeof(uint16_t));
+	
 	uint8_t data;
 	//gets heading
-	data=BNO055_EULER_H_MSB_ADDR;
+	data=0xff;
 	
-	BNO_Read(&data,BNO055_EULER_H_MSB_ADDR);
+	delay_ms(5);
+	BNO_Read(&data,BNO055_QUATERNION_DATA_W_MSB_ADDR);
 	angle[0]=((uint16_t)data)<<8;
 	data=0xFF;
 	
-	BNO_Read(&data,BNO055_EULER_H_LSB_ADDR);
+	delay_ms(5);
+	BNO_Read(&data,BNO055_QUATERNION_DATA_W_LSB_ADDR);
 	angle[0]+=data;
-	angle[0]=angle[0]/16;//convert to degrees
+	angle[0]=angle[0];//convert to degrees
 	
 	//reads the pitch
-	data=BNO055_EULER_P_MSB_ADDR;
+	
 	data=0xFF;
 	
-	BNO_Read(&data,BNO055_EULER_P_MSB_ADDR);
+	delay_ms(10);
+	BNO_Read(&data,BNO055_QUATERNION_DATA_X_MSB_ADDR);
 	angle[1]=((uint16_t)data)<<8;
-	data=0xff;
+	data=0xFF;
 	
-	BNO_Read(&data,BNO055_EULER_P_LSB_ADDR);
+	delay_ms(10);
+	BNO_Read(&data,BNO055_QUATERNION_DATA_X_LSB_ADDR);
 	angle[1]+=data;
-	angle[1]=angle[1]/16;
+	angle[1]=angle[1];
 	
 	//reads the roll
-	data=0xff;
+	data=0xFF;
 	
-	BNO_Read(&data,BNO055_EULER_R_MSB_ADDR);
+	delay_ms(10);
+	BNO_Read(&data,BNO055_QUATERNION_DATA_Y_MSB_ADDR);
 	angle[2]=((uint16_t)data)<<8;
-	data=0xff;
 	
-	BNO_Read(&data,BNO055_EULER_R_LSB_ADDR);
+	data=0xFF;
+	
+	delay_ms(10);
+	BNO_Read(&data,BNO055_QUATERNION_DATA_Y_LSB_ADDR);
 	angle[2]+=data;
-	angle[2]=angle[2]/16;
+	angle[2]=angle[2];
+	
+	data = 0xFF;
+		
+	delay_ms(10);
+	BNO_Read(&data,BNO055_QUATERNION_DATA_Z_MSB_ADDR);
+	angle[3]=((uint16_t)data)<<8;
+	
+	data=0xFF;
+		
+	delay_ms(10);
+	BNO_Read(&data,BNO055_QUATERNION_DATA_Z_LSB_ADDR);
+	angle[3]+=data;
+	angle[3]=angle[3];
 }
 //takes a pointer to store the x, y and z components of the magnetic field in microteslas
 void get_mag(int16_t * mag)
@@ -300,3 +272,58 @@ void set_offsets(uint8_t * offsets)
 	data=BNO055_OPERATION_MODE_NDOF;
 	BNO_Write(&data,BNO055_OPR_MODE_ADDR);
 }
+
+
+
+
+//void get_acceleration(int16_t acceleration[3])
+//{
+//uint8_t data=0xFF;
+////read x data
+//
+//BNO_Read(&data,BNO055_ACCEL_DATA_X_MSB_ADDR);
+//delay_ms(10);
+//acceleration[0] = (((uint16_t) data)<<8);
+//delay_ms(10);
+//data=0xFF;
+//delay_ms(10);
+//BNO_Read(&data,BNO055_ACCEL_DATA_X_LSB_ADDR);
+//delay_ms(10);
+//acceleration[0]+=data;
+//delay_ms(10);
+////read y data
+//data=0xFF;
+//
+//BNO_Read(&data,BNO055_ACCEL_DATA_Y_MSB_ADDR);
+//
+//delay_ms(10);
+//
+//acceleration[1]=(((uint16_t) data)<<8);
+//
+//delay_ms(10);
+//
+//data=0xFF;
+//
+//BNO_Read(&data,BNO055_ACCEL_DATA_Y_LSB_ADDR);
+//acceleration[1]+=data;
+//delay_ms(10);
+////read z data
+//data=0xff;
+//
+//BNO_Read(&data,BNO055_ACCEL_DATA_Z_MSB_ADDR);
+//
+//delay_ms(10);
+//
+//acceleration[2]= (((uint16_t) data)<<8);
+//
+//delay_ms(10);
+//
+//data=0xff;
+//delay_ms(10);
+//BNO_Read(&data,BNO055_ACCEL_DATA_Z_LSB_ADDR);
+//
+//delay_ms(10);
+//
+//acceleration[2]+=data;
+//
+//}

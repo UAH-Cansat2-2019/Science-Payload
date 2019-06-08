@@ -256,15 +256,24 @@ void BNO_Read(uint8_t * data,uint8_t memAddress);
 //uint16_t WhoAmIBNO(void);
 uint8_t is_BNO_calib(void);
 
-void get_acceleration(int16_t acceleration[3]);
-void get_Angle(int16_t * angle);
+void get_Angle(uint16_t angle[]);
 void get_mag(int16_t * mag);
 void get_gyro(int16_t*gyro);
 void get_offsets(uint8_t * offsets);
 void set_offsets(uint8_t * offsets);
 void BNO_init(void);
+
 uint16_t get_acceleration_x(void);
 uint16_t get_acceleration_y(void);
 uint16_t get_acceleration_z(void);
+
+uint16_t get_gyro_x(void);
+uint16_t get_gyro_y(void);
+uint16_t get_gyro_z(void);
+
+uint16_t get_pitch(void);
+uint16_t get_roll(void);
+
+
 
 #endif /* BNO055DRIVER_H_ */

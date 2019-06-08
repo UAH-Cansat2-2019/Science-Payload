@@ -278,7 +278,10 @@
 	//
 		//It can access global variables, but only if they're declared with the "volatile" keyword
 		//It should not have any code that waits for anything. Examples include
-			//* printf
+			//*
+			
+			
+			
 			//* while (!(SPIC.STATUS >> 7));
 		//Essentially, it needs to run fast. This can be called as many as 25,000 times per second, and the cansat has other stuff to do
 	//*/
