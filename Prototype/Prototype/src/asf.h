@@ -52,6 +52,9 @@
  * running the ASF driver selector tool. Any changes will be discarded.
  */
 
+// From module: ADC - XMEGA A/AU Implementation
+#include <adc.h>
+
 // From module: CPU specific features
 #include <ccp.h>
 #include <xmega_reset_cause.h>
@@ -88,6 +91,10 @@
 
 // From module: SPI - Serial Peripheral Interface
 #include <spi.h>
+
+// From module: SPI - XMEGA implementation
+#include <spi_master.h>
+#include <spi_master.h>
 
 // From module: Sleep Controller driver
 #include <sleep.h>

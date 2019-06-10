@@ -33,7 +33,7 @@
 #define UNIT_SEL_ANGLE_WINDOWS 0x00
 #define UNIT_SEL_ANGLE_ANDROID 0x80
 //the address and baud rate
-#define BN0_ADDR 0x29
+#define BN0_ADDR 0x28
 #define BN0_BAUD_HZ 400000
 
 #define ID_reg 0x07
@@ -246,7 +246,12 @@
 #define UNIT_SEL (UNIT_SEL_MPS||UNIT_SEL_DEG||UNIT_SEL_DPS||UNIT_SEL_ANGLE_ANDROID||UNIT_SEL_TEMP_C)
 #define DATA_RATE 0x07
 
-
+struct quat{
+	double w;
+	double x;
+	double y;
+	double z;
+};
 
 
 //funciton prototypes
@@ -256,7 +261,7 @@ void BNO_Read(uint8_t * data,uint8_t memAddress);
 //uint16_t WhoAmIBNO(void);
 uint8_t is_BNO_calib(void);
 
-void get_Angle(uint16_t angle[]);
+void get_Angle(double * quaternion);
 void get_mag(int16_t * mag);
 void get_gyro(int16_t*gyro);
 void get_offsets(uint8_t * offsets);

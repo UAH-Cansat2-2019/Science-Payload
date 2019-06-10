@@ -33,182 +33,182 @@
  */
 #include <asf.h>
 
+
+
 #include "drivers/uart.h"
 #include "BNO055Driver.h"
-#include "drivers/I2CDriver.h"
+
 #include "RingBuff.h"
+
 #include <string.h>
-#include "drivers/gps.h"
 #include <util/atomic.h>
-#include "drivers/Xbee.h"
 #include <math.h>
-#include <string.h>
+
+//#include "drivers/I2CDriver.h"
+#include "drivers/gps.h"
+#include "drivers/Xbee.h"
 #include "drivers/definitions.h"
+#include "drivers/OpenLog.h"
+#include "drivers/bno055.h"
+#include "drivers/IMU.h"
+#include "drivers/adc_sensors.h"
+#include "driver/mechanism.h"
 /************** I2C buffer length******/
 volatile extern uint8_t XbeeRx;
 
 
 
-
+void print_calibration_data(void);
 
 int main (void)
 {
 	
 	
-	//char* telemetryString = (char*)malloc(255 * sizeof(char)) ;
-	//char* s_teamID = "2118";
-	//char* s_missionTime = (char*)malloc(10 * sizeof(char));
-	//char* s_packetCount =(char*)malloc(10 * sizeof(char));
-	//char* s_altitude= (char*)malloc(10 * sizeof(char));
-	//char* s_pressure= (char*)malloc(10 * sizeof(char));
-	//char* s_temp= (char*)malloc(10 * sizeof(char));
-	//char* s_voltage= (char*)malloc(10 * sizeof(char));
-	//char* s_gpsTime= (char*)malloc(10 * sizeof(char));
-	//char* s_gpsLat= (char*)malloc(10 * sizeof(char));
-	//char* s_gpsLong= (char*)malloc(10 * sizeof(char));
-	//char* s_gpsAlt= (char*)malloc(10 * sizeof(char));
-	//char* s_gpsSats= (char*)malloc(10 * sizeof(char));
-	//char* s_pitch= (char*)malloc(10 * sizeof(char));
-	//char* s_roll= (char*)malloc(10 * sizeof(char));
-	//char* s_spinRate= (char*)malloc(10 * sizeof(char));
-	//char* s_flightState= (char*)malloc(10 * sizeof(char));
-	//char* s_cardinalDir= (char*)malloc(10 * sizeof(char));
-	//
-	//uint16_t packetCount = 0;
-	//
 	
-	sysclk_init();
+	
+	uint16_t packetCount = 0;
+	
 	board_init();
+	sysclk_init();
+	
+	
+	//sysclk_enable_module(SYSCLK_PORT_C, SYSCLK_HIRES);
+	//sysclk_enable_module(SYSCLK_PORT_C, SYSCLK_HIRES);
+	//sysclk_enable_module(SYSCLK_PORT_D, SYSCLK_HIRES);
+	sysclk_enable_module(SYSCLK_PORT_F, PR_TWI_bm);
+	//sysclk_enable_module(SYSCLK_PORT_F, PR_TWI_bm);
+
+	//sysclk_enable_peripheral_clock(&USARTE0);
+
+	
+	
 	uart_terminal_init();
+	newOLogInit();
 	printf("uart is working\n");
 	
-	//pmic_init();
-	//pmic_set_scheduling(PMIC_SCH_ROUND_ROBIN);
-	//cpu_irq_enable();
-	//
+	char* telemetryString = (char*)malloc(255 * sizeof(char)) ;
+	*telemetryString = "\0";
+	char* s_teamID = "2118";
+	char* s_missionTime = (char*)malloc(10 * sizeof(char));
+	char* s_packetCount =(char*)malloc(10 * sizeof(char));
+	char* s_altitude= (char*)malloc(10 * sizeof(char));
+	char* s_pressure= (char*)malloc(10 * sizeof(char));
+	char* s_temp= (char*)malloc(10 * sizeof(char));
+	char* s_voltage= (char*)malloc(10 * sizeof(char));
+	char* s_gpsTime= (char*)malloc(10 * sizeof(char));
+	char* s_gpsLat= (char*)malloc(10 * sizeof(char));
+	char* s_gpsLong= (char*)malloc(10 * sizeof(char));
+	char* s_gpsAlt= (char*)malloc(10 * sizeof(char));
+	char* s_gpsSats= (char*)malloc(10 * sizeof(char));
+	char* s_pitch= (char*)malloc(10 * sizeof(char));
+	char* s_roll= (char*)malloc(10 * sizeof(char));
+	char* s_spinRate= (char*)malloc(10 * sizeof(char));
+	char* s_flightState= (char*)malloc(10 * sizeof(char));
+	char* s_cardinalDir= (char*)malloc(10 * sizeof(char));
+	
+	pmic_init();
+	delay_ms(1000);
+	pmic_set_scheduling(PMIC_SCH_ROUND_ROBIN);
+	cpu_irq_enable();
+	
 	printf("\tpmic Init\n");
 	
-	I2CInit(115200,0x29);
+	//I2CInit(115200,0x28);
+	//delay_ms(1000);
+	sysclk_enable_peripheral_clock(&TWIF);
 	
-	//printf("\tI2CInit\n");
+	imu_init();
+	xbee_init();
 	
-	//xbee_init();
-	
-	//printf("\tXbee Init\n");
+	thermistor_init();
+	volt_init();
+	printf("\tXbee Init\n");
 	
 	
 	
 	uint8_t data;
-	int16_t acel[]={0,0,0};
-	int16_t acelx;
-		data=BNO055_OPERATION_MODE_CONFIG;
-		BNO_Write(&data, BNO055_OPR_MODE_ADDR);
-		delay_ms(22);
-		
-		data=BNO055_OPERATION_MODE_NDOF;
-		BNO_Write(&data,BNO055_OPR_MODE_ADDR);
-		delay_ms(8);
-		
-		//const char* accXStr = (char*)malloc(83 * sizeof(char)) ;
-		//const char* accYStr = (char*)malloc(83 * sizeof(char)) ;
-		//const char* accZStr = (char*)malloc(83 * sizeof(char)) ;
-		
-		
-		BNO_Read(&data,BNO055_SELFTEST_RESULT_ADDR);
-		
-		printf("st_result = %i\n",data);
-		
-		BNO_Read(&data,BNO055_OPR_MODE_ADDR);
-		
-		printf("opr mode = %i\n",data);
-		
-		BNO_Read(&data,BNO055_CALIB_STAT_ADDR);
-		printf("Calibstat %i\n",data);
-		uint16_t gyrox [4];
+	float temp;
+	float voltage;
+			
+
 		
 	while (1) 
 	{
-		BNO_Read(&data,BNO055_CALIB_STAT_ADDR);
-		//
-		
-		
-		if(data == 255){
-		
-		get_Angle(gyrox);
-		//
-		printf("%i, %i, %i, %i\n", gyrox[0],gyrox[1],gyrox[2],gyrox[3]);
-		//int accX = 0;//get_acceleration_x();
-		//int accY = 0;//get_acceleration_y();
-		//int accZ = 0;//get_acceleration_z();
-		//
-		//
-		//
-		//
-		//delay_ms(5);
-		//if(accX>=0) sprintf(accXStr,"%i.%i",abs(accX/100), abs(accX%100));
-		//else sprintf(accXStr,"-%i.%i",abs(accX/100), abs(accX%100));
-		//delay_ms(5);
-		//if(accY>=0)sprintf(accYStr,"%i.%i",abs(accY/100), abs(accY%100) );
-		//else sprintf(accYStr,"-%i.%i",abs(accY/100), abs(accY%100) );
-		//delay_ms(5);
-		//if(accZ>=0)sprintf(accZStr,"%i.%i",abs(accZ/100), abs(accZ%100));
-		//else sprintf(accZStr,"-%i.%i",abs(accZ/100), abs(accZ%100));
-		//
-		
-		
-		//printf("%s,  %s,  %s\n",accXStr,accYStr,accZStr);
 	
-	
-		//sprintf(s_missionTime, " ");
-		//sprintf(s_packetCount, " ");
-		//sprintf(s_altitude, " ");
-		//sprintf(s_pressure, " ");
-		//sprintf(s_temp, " ");
-		//sprintf(s_voltage, " ");
-		//sprintf(s_gpsTime, " ");
-		//sprintf(s_gpsLat, " ");
-		//sprintf(s_gpsLong, " ");
-		//sprintf(s_gpsAlt, " ");
-		//sprintf(s_gpsSats, " ");
-		//sprintf(s_pitch, " ");
-		//sprintf(s_roll, " ");
-		//sprintf(s_spinRate, " ");
-		//sprintf(s_flightState, " ");
-		//sprintf(s_cardinalDir, " ");
-		//
-		//
-		//sprintf(telemetryString,"%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,",
-			//s_teamID,
-			//s_missionTime,
-			//s_packetCount,
-			//s_altitude,
-			//s_pressure,
-			//s_temp,
-			//s_voltage,
-			//s_gpsTime,
-			//s_gpsLat,
-			//s_gpsLong,
-			//s_gpsAlt,
-			//s_gpsSats,
-			//s_pitch,
-			//s_roll,
-			//s_spinRate,
-			//s_flightState,
-			//s_cardinalDir);
-		//
-		//xbeeWrite(telemetryString);
-	//
-		//
-		delay_ms(1000);
-		//printf("HELEHLALH\n");
+		buzz_on();
+		imu_update();
 		
-		}
-		else printf("Calibstat %i\n",data);
+		printf("Pitch: %i\nRoll: %i\nYaw: %i\n",(int)imu_pitch(), (int)imu_roll(), (int)imu_heading());
+		printf("CALBRATION STATUSES:  Accel: %u, Gyro: %u, Mag: %u, Sys: %u\n", imu_accel_cal(), imu_gyro_cal(), imu_mag_cal(), imu_sys_cal());
+		
+		
+		
+		temp = getTemperature();
+		printf("temp: %f\n", temp);
+		
+		voltage = getVoltage();
+		printf("volt: %f\n",voltage);
+			
+		//print_calibration_data();
+		
+		
+	
+		sprintf(s_missionTime, " ");
+		sprintf(s_packetCount, " ");
+		sprintf(s_altitude, " ");
+		sprintf(s_pressure, " ");
+		sprintf(s_temp, " ");
+		sprintf(s_voltage, " ");
+		sprintf(s_gpsTime, " ");
+		sprintf(s_gpsLat, " ");
+		sprintf(s_gpsLong, " ");
+		sprintf(s_gpsAlt, " ");
+		sprintf(s_gpsSats, " ");
+		sprintf(s_pitch, " ");
+		sprintf(s_roll, " ");
+		sprintf(s_spinRate, " ");
+		sprintf(s_flightState, " ");
+		sprintf(s_cardinalDir, " ");
+		
+		
+		sprintf(telemetryString,"%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,",
+			s_teamID,
+			s_missionTime,
+			s_packetCount,
+			s_altitude,
+			s_pressure,
+			s_temp,
+			s_voltage,
+			s_gpsTime,
+			s_gpsLat,
+			s_gpsLong,
+			s_gpsAlt,
+			s_gpsSats,
+			s_pitch,
+			s_roll,
+			s_spinRate,
+			s_flightState,
+			s_cardinalDir);
+		
+		xbeeWrite(telemetryString);
+		delay_ms(25):
+		buzz_off();
+		delay_ms(25);
+
+		
+	
 							
 	}
 }
 
-void tprintf()
-{
 
+void get_offset(int MSB_reg, uint16_t * returnData)
+{
+	
 }
+
+void print_calibration_data()
+{
+	
+}
+

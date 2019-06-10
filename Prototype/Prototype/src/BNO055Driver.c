@@ -10,6 +10,9 @@
 #include "drivers/I2CDriver.h"
 #include "BNO055Driver.h"
 
+
+
+
 void BNO_Write(uint8_t *data,uint8_t memAddress)
 {
 	twi_write(data,BN0_ADDR,memAddress);//writes data to the sensor
@@ -122,64 +125,75 @@ uint8_t is_BNO_calib()
 }
 
 //function to get heading, pitch, and roll in that order. degree measure
-void get_Angle(uint16_t angle[])//takes a three element array
+void get_Angle(double * quaternion)//takes a three element array
 {
-	//angle = (uint16_t*)malloc(4*sizeof(uint16_t));
+	uint16_t angle[4];
 	
 	uint8_t data;
 	//gets heading
 	data=0xff;
 	
-	delay_ms(5);
+	delay_ms(15);
 	BNO_Read(&data,BNO055_QUATERNION_DATA_W_MSB_ADDR);
 	angle[0]=((uint16_t)data)<<8;
 	data=0xFF;
 	
-	delay_ms(5);
+	delay_ms(15);
 	BNO_Read(&data,BNO055_QUATERNION_DATA_W_LSB_ADDR);
-	angle[0]+=data;
-	angle[0]=angle[0];//convert to degrees
+	angle[0]|=((uint16_t)data);
+	
 	
 	//reads the pitch
 	
 	data=0xFF;
 	
-	delay_ms(10);
+	delay_ms(15);
 	BNO_Read(&data,BNO055_QUATERNION_DATA_X_MSB_ADDR);
 	angle[1]=((uint16_t)data)<<8;
 	data=0xFF;
 	
-	delay_ms(10);
+	delay_ms(15);
 	BNO_Read(&data,BNO055_QUATERNION_DATA_X_LSB_ADDR);
-	angle[1]+=data;
-	angle[1]=angle[1];
+	angle[1]|=((uint16_t)data);
 	
-	//reads the roll
-	data=0xFF;
 	
-	delay_ms(10);
-	BNO_Read(&data,BNO055_QUATERNION_DATA_Y_MSB_ADDR);
-	angle[2]=((uint16_t)data)<<8;
-	
-	data=0xFF;
-	
-	delay_ms(10);
-	BNO_Read(&data,BNO055_QUATERNION_DATA_Y_LSB_ADDR);
-	angle[2]+=data;
-	angle[2]=angle[2];
-	
-	data = 0xFF;
+		data=0xff;
 		
-	delay_ms(10);
-	BNO_Read(&data,BNO055_QUATERNION_DATA_Z_MSB_ADDR);
-	angle[3]=((uint16_t)data)<<8;
-	
-	data=0xFF;
+		delay_ms(15);
+		BNO_Read(&data,BNO055_QUATERNION_DATA_Y_MSB_ADDR);
+		angle[2]=((uint16_t)data)<<8;
+		data=0xFF;
 		
-	delay_ms(10);
-	BNO_Read(&data,BNO055_QUATERNION_DATA_Z_LSB_ADDR);
-	angle[3]+=data;
-	angle[3]=angle[3];
+		delay_ms(15);
+		BNO_Read(&data,BNO055_QUATERNION_DATA_Y_LSB_ADDR);
+		angle[2]|=((uint16_t)data);
+		
+		
+		//reads the pitch
+		
+		data=0xFF;
+		
+		delay_ms(15);
+		BNO_Read(&data,BNO055_QUATERNION_DATA_Z_MSB_ADDR);
+		angle[3]=((uint16_t)data)<<8;
+		data=0xFF;
+		
+		delay_ms(15);
+		BNO_Read(&data,BNO055_QUATERNION_DATA_Z_LSB_ADDR);
+		angle[3]|=((uint16_t)data);
+		
+		
+	
+	
+	const double scale = (1.0/(1<<14));
+	
+	quaternion[0] = 5;//*angle * scale;
+	quaternion[1] =4;// angle[1] * scale;
+	quaternion[2] = 3;//angle[2] * scale;//* scale;
+	quaternion[3] = 2;//angle[3] * scale;//* scale;
+	
+	
+	
 }
 //takes a pointer to store the x, y and z components of the magnetic field in microteslas
 void get_mag(int16_t * mag)

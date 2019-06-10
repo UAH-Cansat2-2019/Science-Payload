@@ -2,9 +2,17 @@
 # Automatically-generated file. Do not edit or delete the file
 ################################################################################
 
+src\ASF\xmega\drivers\adc\adc.c
+
+src\ASF\xmega\drivers\adc\xmega_aau\adc_aau.c
+
 src\ASF\xmega\drivers\wdt\wdt.c
 
-src\BNO055Driver.c
+src\drivers\adc_sensors.c
+
+src\drivers\bno055.c
+
+src\drivers\IMU.c
 
 src\drivers\Xbee.c
 
@@ -49,8 +57,6 @@ src\RingBuff.c
 src\ASF\common\services\ioport\xmega\ioport_compat.c
 
 src\ASF\xmega\boards\xmega_a1u_xplained_pro\board_init.c
-
-src\drivers\I2CDriver.c
 
 src\drivers\uart.c
 
