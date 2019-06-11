@@ -66,7 +66,7 @@ int main (void)
 	
 	packetCount = 0;
 	missionTime = rtc_get_time();
-	printf("%u", missionTime >> 16);
+	printf("%f", missionTime);
 	
 	if(DEBUG && 0)
 	{
@@ -81,25 +81,25 @@ int main (void)
 
 	printf("uart is working\n");
 	
-	char* telemetryString = (char*)malloc(255 * sizeof(char)) ;
-	*telemetryString = "\0";
-	char* s_teamID = "2118";//what a hardcoded char pointer?
-	char* s_missionTime = (char*)malloc(10 * sizeof(char));
-	char* s_packetCount =(char*)malloc(10 * sizeof(char));
-	char* s_altitude= (char*)malloc(10 * sizeof(char));
-	char* s_pressure= (char*)malloc(10 * sizeof(char));
-	char* s_temp= (char*)malloc(10 * sizeof(char));
-	char* s_voltage= (char*)malloc(10 * sizeof(char));
-	char* s_gpsTime= (char*)malloc(10 * sizeof(char));
-	char* s_gpsLat= (char*)malloc(10 * sizeof(char));
-	char* s_gpsLong= (char*)malloc(10 * sizeof(char));
-	char* s_gpsAlt= (char*)malloc(10 * sizeof(char));
-	char* s_gpsSats= (char*)malloc(10 * sizeof(char));
-	char* s_pitch= (char*)malloc(10 * sizeof(char));
-	char* s_roll= (char*)malloc(10 * sizeof(char));
-	char* s_spinRate= (char*)malloc(10 * sizeof(char));
-	char* s_flightState= (char*)malloc(10 * sizeof(char));
-	char* s_cardinalDir= (char*)malloc(10 * sizeof(char));
+	//char* telemetryString = (char*)malloc(255 * sizeof(char)) ;
+	//*telemetryString = "\0";
+	//char* s_teamID = "2118";
+	//char* s_missionTime = (char*)malloc(10 * sizeof(char));
+	//char* s_packetCount =(char*)malloc(10 * sizeof(char));
+	//char* s_altitude= (char*)malloc(10 * sizeof(char));
+	//char* s_pressure= (char*)malloc(10 * sizeof(char));
+	//char* s_temp= (char*)malloc(10 * sizeof(char));
+	//char* s_voltage= (char*)malloc(10 * sizeof(char));
+	//char* s_gpsTime= (char*)malloc(10 * sizeof(char));
+	//char* s_gpsLat= (char*)malloc(10 * sizeof(char));
+	//char* s_gpsLong= (char*)malloc(10 * sizeof(char));
+	//char* s_gpsAlt= (char*)malloc(10 * sizeof(char));
+	//char* s_gpsSats= (char*)malloc(10 * sizeof(char));
+	//char* s_pitch= (char*)malloc(10 * sizeof(char));
+	//char* s_roll= (char*)malloc(10 * sizeof(char));
+	//char* s_spinRate= (char*)malloc(10 * sizeof(char));
+	//char* s_flightState= (char*)malloc(10 * sizeof(char));
+	//char* s_cardinalDir= (char*)malloc(10 * sizeof(char));
 
 	
 	pmic_init();
@@ -118,7 +118,6 @@ int main (void)
 	
 	
 	
-	uint8_t data;
 
 	uint8_t servoPos = 0;
 	set_servo(0);
@@ -161,25 +160,25 @@ int main (void)
 
 void write_telem_to_xbee()
 {
-	char* telemetryString [255];
-	*telemetryString = "\0";
-	char* s_teamID = "2118";
-	char* s_missionTime  [10];
-	char* s_packetCount [10];
-	char* s_altitude [10];
-	char* s_pressure [10];
-	char* s_temp [10];
-	char* s_voltage [10];
-	char* s_gpsTime [10];
-	char* s_gpsLat [10];
-	char* s_gpsLong [10];
-	char* s_gpsAlt [10];
-	char* s_gpsSats [10];
-	char* s_pitch [10];
-	char* s_roll [10];
-	char* s_spinRate [10];
-	char* s_flightState [10];
-	char* s_cardinalDir [10];
+	char telemetryString [255];
+	*telemetryString = '\0';
+	char s_teamID[] = "2118";
+	char s_missionTime  [10];
+	char s_packetCount [10];
+	char s_altitude [10];
+	char s_pressure [10];
+	char s_temp [10];
+	char s_voltage [10];
+	char s_gpsTime [10];
+	char s_gpsLat [10];
+	char s_gpsLong [10];
+	char s_gpsAlt [10];
+	char s_gpsSats [10];
+	char s_pitch [10];
+	char s_roll [10];
+	char s_spinRate [10];
+	char s_flightState [10];
+	char s_cardinalDir [10];
 	
 	sprintf(s_missionTime, "%i", missionTime);
 	sprintf(s_packetCount, "%i", packetCount);
@@ -199,7 +198,7 @@ void write_telem_to_xbee()
 	sprintf(s_cardinalDir, "%f", heading);
 	
 	
-	sprintf(telemetryString,"%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,",
+	sprintf(telemetryString,"%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s",
 	s_teamID,
 	s_missionTime,
 	s_packetCount,
@@ -221,10 +220,6 @@ void write_telem_to_xbee()
 	xbeeWrite(telemetryString);
 }
 
-void get_offset(int MSB_reg, uint16_t * returnData)
-{
-	
-}
 
 void print_calibration_data()
 {
