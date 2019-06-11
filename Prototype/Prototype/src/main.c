@@ -88,7 +88,7 @@ int main (void)
 	
 	char* telemetryString = (char*)malloc(255 * sizeof(char)) ;
 	*telemetryString = "\0";
-	char* s_teamID = "2118";
+	char* s_teamID = "2118";//what a hardcoded char pointer?
 	char* s_missionTime = (char*)malloc(10 * sizeof(char));
 	char* s_packetCount =(char*)malloc(10 * sizeof(char));
 	char* s_altitude= (char*)malloc(10 * sizeof(char));
