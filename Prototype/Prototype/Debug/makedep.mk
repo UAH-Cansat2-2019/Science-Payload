@@ -2,17 +2,25 @@
 # Automatically-generated file. Do not edit or delete the file
 ################################################################################
 
+src\ASF\common\services\spi\xmega_spi\spi_master.c
+
 src\ASF\xmega\drivers\adc\adc.c
 
 src\ASF\xmega\drivers\adc\xmega_aau\adc_aau.c
 
 src\ASF\xmega\drivers\wdt\wdt.c
 
+src\ASF\xmega\services\pwm\pwm.c
+
 src\drivers\adc_sensors.c
 
 src\drivers\bno055.c
 
 src\drivers\IMU.c
+
+src\drivers\mechanisms.c
+
+src\drivers\ms5607.c
 
 src\drivers\Xbee.c
 

@@ -11,6 +11,8 @@
 #ifndef UART_H_
 
 
+#include "definitions.h"
+
 
 //defines a struct to hold all the information about each uart device
 typedef struct uart_device{

@@ -9,6 +9,8 @@
 #ifndef OPENLOG_H_
 #define OPENLOG_H_
 
+#include "definitions.h"
+
 #define OPENLOG_BAUD 115200
 #define P_OPENLOG_PORT (&PORTC)
 #define P_OPENLOG_UART (&USARTC0)

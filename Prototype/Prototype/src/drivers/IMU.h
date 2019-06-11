@@ -5,13 +5,15 @@
  *  Author: trbinsc
  */ 
 
-#include <asf.h>
-#include <string.h>
-#include "DRIVERS/bno055.h"
 
 
 #ifndef IMU_H_
 #define IMU_H_
+
+#include <asf.h>
+#include <string.h>
+#include "DRIVERS/bno055.h"
+#include "definitions.h"
 
 #define FIXMATH_NO_CACHE 1
 

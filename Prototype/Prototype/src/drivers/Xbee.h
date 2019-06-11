@@ -9,6 +9,8 @@
 #ifndef XBEE_H_
 #define XBEE_H_
 
+#include "definitions.h"
+
 #define P_XBEEUART (&USARTF0)
 #define P_XBEEPORT (&PORTF)
 #define XBEETXPIN 0b00001000

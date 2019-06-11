@@ -12,7 +12,7 @@
 #include <asf.h>
 #include <adc.h>
 #include <math.h>
-
+#include "definitions.h"
 
 #define THERM_ADC ADCA
 #define THERM_ADC_CH ADC_CH0

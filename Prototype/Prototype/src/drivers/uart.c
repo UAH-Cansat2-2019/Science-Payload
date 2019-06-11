@@ -91,4 +91,9 @@ void uart_terminal_init()
 	
 	stdio_serial_init(UART_TERMINAL_SERIAL, &usart_config); // function maps the serial output to printf
 	
+	
+	if(DEBUG) {
+		printf("\n\n\n\n\nCansat DaiAtlas Initializing...\n");
+		printf("UART Initialized\n");
+	}
 }

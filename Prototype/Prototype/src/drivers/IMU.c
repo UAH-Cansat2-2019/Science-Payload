@@ -22,6 +22,10 @@ uint8_t sys_calib;
 
 void imu_init()
 {
+	
+	sysclk_enable_module(SYSCLK_PORT_F, PR_TWI_bm);
+	sysclk_enable_peripheral_clock(&TWIF);
+	
 	twi_options_t m_options = {
 		.speed = 400000,
 		.speed_reg = TWI_BAUD(32000000, 400000),
@@ -57,7 +61,7 @@ void imu_init()
 	}
 	
 
-
+	if(DEBUG) printf("IMU Initialized.\n");
 	
 }
 

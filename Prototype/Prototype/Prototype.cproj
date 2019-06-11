@@ -37,6 +37,7 @@
     <option id="common.services.basic.gpio" value="Add" config="" content-id="Atmel.ASF" />
     <option id="common.services.ioport" value="Add" config="" content-id="Atmel.ASF" />
     <option id="common.services.basic.serial" value="Add" config="" content-id="Atmel.ASF" />
+    <option id="common.services.basic.spi_master" value="Add" config="standard_spi" content-id="Atmel.ASF" />
     <option id="common.services.basic.twi" value="Add" config="" content-id="Atmel.ASF" />
     <option id="common.utils.interrupt" value="Add" config="" content-id="Atmel.ASF" />
     <option id="common.utils.stdio.stdio_serial" value="Add" config="" content-id="Atmel.ASF" />
@@ -48,7 +49,7 @@
     <option id="xmega.drivers.twi" value="Add" config="both" content-id="Atmel.ASF" />
     <option id="xmega.drivers.usart" value="Add" config="" content-id="Atmel.ASF" />
     <option id="xmega.drivers.wdt" value="Add" config="" content-id="Atmel.ASF" />
-    <option id="common.services.basic.spi_master" value="Add" config="standard_spi" content-id="Atmel.ASF" />
+    <option id="xmega.services.pwm" value="Add" config="" content-id="Atmel.ASF" />
     <option id="common.applications.user_application.xplained_pro" value="Add" config="" content-id="Atmel.ASF" />
     <option id="common.utils" value="Add" config="" content-id="Atmel.ASF" />
   </options>
@@ -138,6 +139,8 @@
     <file path="src/ASF/common/services/spi/spi_master.h" framework="" version="3.35.1" source="common\services\spi\spi_master.h" changed="False" content-id="Atmel.ASF" />
     <file path="src/ASF/common/services/spi/xmega_spi/spi_master.h" framework="" version="3.35.1" source="common\services\spi\xmega_spi\spi_master.h" changed="False" content-id="Atmel.ASF" />
     <file path="src/Config/conf_spi_master.h" framework="" version="3.35.1" source="common\services\spi\xmega_spi\module_config\conf_spi_master.h" changed="False" content-id="Atmel.ASF" />
+    <file path="src/ASF/xmega/services/pwm/pwm.c" framework="" version="3.35.1" source="xmega\services\pwm\pwm.c" changed="False" content-id="Atmel.ASF" />
+    <file path="src/ASF/xmega/services/pwm/pwm.h" framework="" version="3.35.1" source="xmega\services\pwm\pwm.h" changed="False" content-id="Atmel.ASF" />
   </files>
   <documentation help="http://asf.atmel.com/docs/3.35.1/common.applications.user_application.xplained_pro.xmega_a1u_xplained_pro/html/index.html" />
   <offline-documentation help="" />
@@ -240,6 +243,7 @@
       <Value>../src/ASF/xmega/drivers/adc</Value>
       <Value>../src/ASF/common/services/spi/xmega_spi</Value>
       <Value>../src/ASF/common/services/spi</Value>
+      <Value>../src/ASF/xmega/services/pwm</Value>
     </ListValues>
   </avrgcc.compiler.directories.IncludePaths>
   <avrgcc.compiler.optimization.level>Optimize for size (-Os)</avrgcc.compiler.optimization.level>
@@ -289,6 +293,7 @@
       <Value>../src/ASF/xmega/drivers/adc</Value>
       <Value>../src/ASF/common/services/spi/xmega_spi</Value>
       <Value>../src/ASF/common/services/spi</Value>
+      <Value>../src/ASF/xmega/services/pwm</Value>
     </ListValues>
   </avrgcc.assembler.general.IncludePaths>
 </AvrGcc>
@@ -344,6 +349,7 @@
       <Value>../src/ASF/xmega/drivers/adc</Value>
       <Value>../src/ASF/common/services/spi/xmega_spi</Value>
       <Value>../src/ASF/common/services/spi</Value>
+      <Value>../src/ASF/xmega/services/pwm</Value>
     </ListValues>
   </avrgcc.compiler.directories.IncludePaths>
   <avrgcc.compiler.optimization.OtherFlags>-fdata-sections</avrgcc.compiler.optimization.OtherFlags>
@@ -394,6 +400,7 @@
       <Value>../src/ASF/xmega/drivers/adc</Value>
       <Value>../src/ASF/common/services/spi/xmega_spi</Value>
       <Value>../src/ASF/common/services/spi</Value>
+      <Value>../src/ASF/xmega/services/pwm</Value>
     </ListValues>
   </avrgcc.assembler.general.IncludePaths>
   <avrgcc.assembler.debugging.DebugLevel>Default (-Wa,-g)</avrgcc.assembler.debugging.DebugLevel>
@@ -445,6 +452,8 @@
     <Folder Include="src\ASF\xmega\drivers\twi\" />
     <Folder Include="src\ASF\xmega\drivers\usart\" />
     <Folder Include="src\ASF\xmega\drivers\wdt\" />
+    <Folder Include="src\ASF\xmega\services\" />
+    <Folder Include="src\ASF\xmega\services\pwm\" />
     <Folder Include="src\ASF\xmega\utils\" />
     <Folder Include="src\ASF\xmega\utils\assembler\" />
     <Folder Include="src\ASF\xmega\utils\bit_handling\" />
@@ -481,6 +490,12 @@
       <SubType>compile</SubType>
     </None>
     <None Include="src\config\conf_spi_master.h">
+      <SubType>compile</SubType>
+    </None>
+    <Compile Include="src\ASF\xmega\services\pwm\pwm.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <None Include="src\ASF\xmega\services\pwm\pwm.h">
       <SubType>compile</SubType>
     </None>
     <Compile Include="src\drivers\adc_sensors.c">

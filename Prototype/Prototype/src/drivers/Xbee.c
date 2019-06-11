@@ -20,11 +20,13 @@ void xbee_init()
 	xbee_uart.rx=XBEERXPIN;
 	uart_init(&xbee_uart);
 	XBEE_UART.CTRLA=0x14;
+	if(DEBUG) printf("Xbee Initialized.\n");
 }
 
 void xbeeWrite(uint8_t* data)
 {	
 	usart_serial_write_packet(P_XBEEUART, data, strlen(data));
+	if(DEBUG) printf("%s \n",(const)data);
 }
 
 ISR(READ_INTURUPT)

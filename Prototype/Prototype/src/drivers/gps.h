@@ -4,7 +4,7 @@
  * Created: 5/25/2019 4:49:48 PM
  *  Author: quaz9
  */ 
-
+#include "definitions.h"
 //
 //#ifndef GPS_H_
 //#define GPS_H_
