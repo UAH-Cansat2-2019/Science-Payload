@@ -85,7 +85,28 @@ int main (void)
 	
 	uart_terminal_init();
 	newOLogInit();
-		
+
+	printf("uart is working\n");
+	
+	char* telemetryString = (char*)malloc(255 * sizeof(char)) ;
+	*telemetryString = "\0";
+	char* s_teamID = "2118";//what a hardcoded char pointer?
+	char* s_missionTime = (char*)malloc(10 * sizeof(char));
+	char* s_packetCount =(char*)malloc(10 * sizeof(char));
+	char* s_altitude= (char*)malloc(10 * sizeof(char));
+	char* s_pressure= (char*)malloc(10 * sizeof(char));
+	char* s_temp= (char*)malloc(10 * sizeof(char));
+	char* s_voltage= (char*)malloc(10 * sizeof(char));
+	char* s_gpsTime= (char*)malloc(10 * sizeof(char));
+	char* s_gpsLat= (char*)malloc(10 * sizeof(char));
+	char* s_gpsLong= (char*)malloc(10 * sizeof(char));
+	char* s_gpsAlt= (char*)malloc(10 * sizeof(char));
+	char* s_gpsSats= (char*)malloc(10 * sizeof(char));
+	char* s_pitch= (char*)malloc(10 * sizeof(char));
+	char* s_roll= (char*)malloc(10 * sizeof(char));
+	char* s_spinRate= (char*)malloc(10 * sizeof(char));
+	char* s_flightState= (char*)malloc(10 * sizeof(char));
+	char* s_cardinalDir= (char*)malloc(10 * sizeof(char));
 
 	
 	pmic_init();
