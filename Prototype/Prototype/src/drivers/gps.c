@@ -10,7 +10,7 @@
 #include "drivers/uart.h"
 #include <string.h>
 static uart_device gps_uart;
-extern uint8_t is_gps_rx_triggered=0;
+uint8_t is_gps_rx_triggered;
 char rxdata;
 char rxDataBuff[80];
 uint8_t sentencePosition=0;
@@ -371,11 +371,11 @@ void gps_init()
 		gps_uart.rx=GPS_RX_PIN;
 		uart_init(&gps_uart);//function that initializes uart
 		GPS_UART.CTRLA=0x14;
-		
+		is_gps_rx_triggered=0;
 }
 void gps_write(char * data,size_t length)
 {
-	usart_serial_write_packet(gps_uart.Usart,data,length)
+	usart_serial_write_packet(gps_uart.Usart,data,length);
 }
 uint8_t gps_read()
 {
@@ -384,6 +384,7 @@ uint8_t gps_read()
 ISR(GPS_READ_INTERUPT)
 {
 	rxdata=gps_read();
+	printf(rxdata);
 	is_gps_rx_triggered=1;
 }
 
@@ -396,7 +397,7 @@ void gps_update()
 	if(rxdata=='$')
 	{
 		sentencePosition=0;
-	
+	}
 	else if(is_gpgga())
 	{
 		uint8_t commaCount=0;
@@ -478,9 +479,15 @@ void gps_update()
 			
 		}
 	}
+	}
 }
 uint8_t is_gpgga()
 {
 	if(sentencePosition<5) return 0;
-	return (rxDataBuff[0]=='G')&&(rxDataBuff[1]=='P')&&(rxDataBuff[2]=='G')&&(rxDataBuff[3]=='G')&&(rxDataBuff[4]=='A')
+	uint8_t output= (rxDataBuff[0]=='G')&&(rxDataBuff[1]=='P')&&(rxDataBuff[2]=='G')&&(rxDataBuff[3]=='G')&&(rxDataBuff[4]=='A');
+	return output;
+}
+uint8_t is_rx_triggered()
+{
+	return is_gps_rx_triggered;
 }

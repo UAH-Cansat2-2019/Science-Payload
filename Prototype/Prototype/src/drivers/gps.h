@@ -111,11 +111,15 @@
 //
 //
 #define  GPS_BAUD 9600
-#define P_GPS_PORT (*PORTE)
-#define P_GPS_UART (*USARTE1)
+#define P_GPS_PORT (&PORTE)
+#define P_GPS_UART (&USARTE1)
 #define GPS_UART USARTE1
 #define GPS_TX_PIN 0x80
 #define GPS_RX_PIN 0x40
 
+void gps_init(void);
+uint8_t is_gpgga(void);
+void gps_update(void);
+uint8_t is_rx_triggered(void);
 #define  GPS_READ_INTERUPT USARTE1_RXC_vect
 #endif /* GPS_H_ */

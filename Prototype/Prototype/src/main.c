@@ -69,11 +69,11 @@ int main (void)
 {
 	board_init();
 	sysclk_init();
-	rtc_init();
+	//rtc_init();
 	
-	packetCount = 0;
-	missionTime = rtc_get_time();
-	printf("%u", missionTime >> 16);
+	//packetCount = 0;
+	//missionTime = rtc_get_time();
+	//printf("%u", missionTime >> 16);
 	
 	if(DEBUG && 0)
 	{
@@ -84,76 +84,57 @@ int main (void)
 
 	
 	uart_terminal_init();
-	newOLogInit();
+	//newOLogInit();
 
 	printf("uart is working\n");
 	
-	char* telemetryString = (char*)malloc(255 * sizeof(char)) ;
-	*telemetryString = "\0";
-	char* s_teamID = "2118";//what a hardcoded char pointer?
-	char* s_missionTime = (char*)malloc(10 * sizeof(char));
-	char* s_packetCount =(char*)malloc(10 * sizeof(char));
-	char* s_altitude= (char*)malloc(10 * sizeof(char));
-	char* s_pressure= (char*)malloc(10 * sizeof(char));
-	char* s_temp= (char*)malloc(10 * sizeof(char));
-	char* s_voltage= (char*)malloc(10 * sizeof(char));
-	char* s_gpsTime= (char*)malloc(10 * sizeof(char));
-	char* s_gpsLat= (char*)malloc(10 * sizeof(char));
-	char* s_gpsLong= (char*)malloc(10 * sizeof(char));
-	char* s_gpsAlt= (char*)malloc(10 * sizeof(char));
-	char* s_gpsSats= (char*)malloc(10 * sizeof(char));
-	char* s_pitch= (char*)malloc(10 * sizeof(char));
-	char* s_roll= (char*)malloc(10 * sizeof(char));
-	char* s_spinRate= (char*)malloc(10 * sizeof(char));
-	char* s_flightState= (char*)malloc(10 * sizeof(char));
-	char* s_cardinalDir= (char*)malloc(10 * sizeof(char));
 
 	
 	pmic_init();
 	pmic_set_scheduling(PMIC_SCH_ROUND_ROBIN);
 	cpu_irq_enable();
-
+	gps_init();
 	
-	imu_init();
-	delay_s(1);
-	xbee_init();
-	servo_init();
-	thermistor_init();
-	volt_init();
+	//imu_init();
+	//delay_s(1);
+	//xbee_init();
+	//servo_init();
+	//thermistor_init();
+	//volt_init();
 	//spi_init_module();
 	
 	
 	
 	
-	uint8_t data;
+	//uint8_t data;
 
-	uint8_t servoPos = 0;
-	set_servo(0);
-	buzz_on();
-	buzz_off();
+	//uint8_t servoPos = 0;
+	//set_servo(0);
+	//buzz_on();
+	//buzz_off();
 	while (1) 
 	{
-		imu_update();
+		//imu_update();
 		
 		//printf("Pitch: %i\nRoll: %i\nYaw: %i\n",(int)imu_pitch(), (int)imu_roll(), (int)imu_heading());
 		//printf("CALBRATION STATUSES:  Accel: %u, Gyro: %u, Mag: %u, Sys: %u\n", imu_accel_cal(), imu_gyro_cal(), imu_mag_cal(), imu_sys_cal());
 
 		//Get Telemetry
-		missionTime = rtc_get_time();
-		packetCount++;
+		//missionTime = rtc_get_time();
+		//packetCount++;
 		//pressure = getPressure();
-		altitude = pressure / 9000; // TODO: finish function
-		temp = getTemperature();	
-		voltage = getVoltage();
+		//altitude = pressure / 9000; // TODO: finish function
+		//temp = getTemperature();	
+		//voltage = getVoltage();
 
-		set_servo(servoPos);
-		servoPos +=100;
-		pitch = imu_pitch();
-		roll = imu_roll();
-		heading = imu_heading();
+		//set_servo(servoPos);
+		//servoPos +=100;
+		//pitch = imu_pitch();
+		//roll = imu_roll();
+		//heading = imu_heading();
 		
 		
-		write_telem_to_xbee();
+		//write_telem_to_xbee();
 		
 		
 		
