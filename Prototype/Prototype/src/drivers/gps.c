@@ -5,6 +5,30 @@
  //*  Author: quaz9
  //*/ 
 //
+#include <asf.h>
+#include "drivers/gps.h"
+#include "drivers/uart.h"
+#include <string.h>
+static uart_device gps_uart;
+extern uint8_t is_gps_rx_triggered=0;
+char rxdata;
+char rxDataBuff[80];
+uint8_t sentencePosition=0;
+
+#define LONGITUDE_SIZE 22
+char longitude[LONGITUDE_SIZE];
+
+#define LATITUDE_SIZE 22
+char latitude[LATITUDE_SIZE];
+
+#define TIMESTR_SIZE 12
+char time[TIMESTR_SIZE];
+
+#define NUMSAT_SIZE 3
+char num_sat[NUMSAT_SIZE];
+
+#define ALTATUDE_SIZE 10
+char altatude[ALTATUDE_SIZE];
 //
 //#include <string.h>
 //#include "drivers/GPS.h"
@@ -338,3 +362,125 @@
   //rbu8_read(&gps_send_buffer, &(GPS_USART.DATA), 1);
   //rbu8_delete_oldest(&gps_send_buffer, 1);
 //}
+void gps_init()
+{
+		gps_uart.Baud=GPS_BAUD;
+		gps_uart.Port=P_GPS_PORT;
+		gps_uart.Usart=P_GPS_UART;
+		gps_uart.tx=GPS_TX_PIN;
+		gps_uart.rx=GPS_RX_PIN;
+		uart_init(&gps_uart);//function that initializes uart
+		GPS_UART.CTRLA=0x14;
+		
+}
+void gps_write(char * data,size_t length)
+{
+	usart_serial_write_packet(gps_uart.Usart,data,length)
+}
+uint8_t gps_read()
+{
+	return GPS_UART.DATA;
+}
+ISR(GPS_READ_INTERUPT)
+{
+	rxdata=gps_read();
+	is_gps_rx_triggered=1;
+}
+
+void gps_update()
+{
+	sentencePosition++;
+	rxDataBuff[sentencePosition%80]=rxdata;
+	is_gps_rx_triggered=0;
+	uint8_t pos;
+	if(rxdata=='$')
+	{
+		sentencePosition=0;
+	
+	else if(is_gpgga())
+	{
+		uint8_t commaCount=0;
+		for(uint8_t i=5;i<=sentencePosition;i++)
+		{
+			if(rxdata==',')
+			{
+				commaCount++;
+				if(commaCount==2){
+					pos=sentencePosition-1;
+					for(uint8_t i=0; i<TIMESTR_SIZE;i++)
+					{
+						time[i]='\0';
+					}
+					while(rxDataBuff[pos]!=',')
+					{
+						time[(sentencePosition-pos)%TIMESTR_SIZE]=rxDataBuff[pos];
+						pos--;
+					}
+				}
+				
+				else if(commaCount==4)
+				{
+					
+					for(uint8_t i=0; i<LONGITUDE_SIZE;i++)
+					{
+						longitude[i]='\0';
+					}
+					pos=sentencePosition-3;
+					while(rxDataBuff[pos]!=',')
+					{
+						longitude[(sentencePosition-pos)%LONGITUDE_SIZE]=rxDataBuff[pos];
+						pos--;
+					}
+					longitude[(sentencePosition-pos)%LONGITUDE_SIZE]=rxDataBuff[sentencePosition-1];
+					
+				}
+				else if (commaCount==6)
+				{
+					for(uint8_t i=0; i<LATITUDE_SIZE;i++)
+					{
+						latitude[i]='\0';
+					}
+					pos=sentencePosition-3;
+					while(rxDataBuff[pos]!=',')
+					{
+						latitude[(sentencePosition-pos)%LATITUDE_SIZE]=rxDataBuff[pos];
+						pos--;
+					}
+					latitude[(sentencePosition-pos)%LATITUDE_SIZE]=rxDataBuff[sentencePosition-1];
+				}
+				else if(commaCount==8)
+				{
+					pos=sentencePosition-1;
+					for(uint8_t i=0; i<NUMSAT_SIZE;i++)
+					{
+						num_sat[i]='\0';
+					}
+					while(rxDataBuff[pos]!=',')
+					{
+						num_sat[(sentencePosition-pos)%NUMSAT_SIZE]=rxDataBuff[pos];
+						pos--;
+					}
+				}
+				else if(commaCount==10)
+				{
+						pos=sentencePosition-1;
+						for(uint8_t i=0; i<ALTATUDE_SIZE;i++)
+						{
+							altatude[i]='\0';
+						}
+						while(rxDataBuff[pos]!=',')
+						{
+							altatude[(sentencePosition-pos)%ALTATUDE_SIZE]=rxDataBuff[pos];
+							pos--;
+						}
+				
+				}
+			
+		}
+	}
+}
+uint8_t is_gpgga()
+{
+	if(sentencePosition<5) return 0;
+	return (rxDataBuff[0]=='G')&&(rxDataBuff[1]=='P')&&(rxDataBuff[2]=='G')&&(rxDataBuff[3]=='G')&&(rxDataBuff[4]=='A')
+}

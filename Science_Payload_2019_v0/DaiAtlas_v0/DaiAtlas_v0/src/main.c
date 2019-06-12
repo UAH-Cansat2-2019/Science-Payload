@@ -62,11 +62,11 @@ int main (void)
 {
 	board_init();
 	sysclk_init();
-	rtc_init();
-	
-	packetCount = 0;
-	missionTime = rtc_get_time();
-	printf("%f", missionTime);
+	//rtc_init();
+	//
+	//packetCount = 0;
+	//missionTime = rtc_get_time();
+	//printf("%f", missionTime);
 	
 	if(DEBUG && 0)
 	{
@@ -76,10 +76,9 @@ int main (void)
 	
 
 	
-	uart_terminal_init();
+	//uart_terminal_init();
 	newOLogInit();
 
-	printf("uart is working\n");
 	
 	//char* telemetryString = (char*)malloc(255 * sizeof(char)) ;
 	//*telemetryString = "\0";
@@ -107,22 +106,22 @@ int main (void)
 	cpu_irq_enable();
 
 	
-	imu_init();
-	delay_s(1);
+	//imu_init();
+	//delay_s(1);
 	xbee_init();
-	servo_init();
-	thermistor_init();
-	volt_init();
+	//servo_init();
+	//thermistor_init();
+	//volt_init();
 	//spi_init_module();
 	
 	
 	
 	
 
-	uint8_t servoPos = 0;
-	set_servo(0);
-	buzz_on();
-	buzz_off();
+	//uint8_t servoPos = 0;
+	//set_servo(0);
+	//buzz_on();
+	//buzz_off();
 	while (1)
 	{
 		imu_update();
@@ -131,21 +130,22 @@ int main (void)
 		//printf("CALBRATION STATUSES:  Accel: %u, Gyro: %u, Mag: %u, Sys: %u\n", imu_accel_cal(), imu_gyro_cal(), imu_mag_cal(), imu_sys_cal());
 
 		//Get Telemetry
-		missionTime = rtc_get_time();
-		packetCount++;
+		//missionTime = rtc_get_time();
+		//packetCount++;
 		//pressure = getPressure();
-		altitude = pressure / 9000; // TODO: finish function
-		temper = getTemperature();
-		voltage = getVoltage();
+		//altitude = pressure / 9000; // TODO: finish function
+		//temper = getTemperature();
+		//voltage = getVoltage();
 
-		set_servo(servoPos);
-		servoPos +=100;
-		pitch = imu_pitch();
-		roll = imu_roll();
-		heading = imu_heading();
+		//set_servo(servoPos);
+		//servoPos +=100;
+		//pitch = imu_pitch();
+		//roll = imu_roll();
+		//heading = imu_heading();
+		openLogWrite("Hello There!");
+		xbeeWrite("Hello There!");
 		
-		
-		write_telem_to_xbee();
+		//write_telem_to_xbee();
 		
 		
 		

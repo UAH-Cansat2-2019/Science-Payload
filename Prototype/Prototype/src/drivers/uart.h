@@ -24,7 +24,6 @@ typedef struct uart_device{
 	} uart_device;
 	
 	void openlog_init(uart_device * openLog);
-	void gps_init(uart_device * gps);
 void uart_init(uart_device* P_device);
 uint8_t uart_read(uart_device * device);
 void uart_write(uart_device * device,uint8_t data);

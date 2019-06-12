@@ -52,15 +52,6 @@ void openlog_init(uart_device * openLog)
 	openLog->rx=0b01000000;
 }
 
-void gps_init(uart_device * gps)
-{
-	
-	gps->Baud=115200;
-	gps->Port=&PORTE;
-	gps->Usart=&USARTE1;
-	gps->tx=0b10000000;
-	gps->rx=0b01000000;
-}
 
 uint8_t uart_read(uart_device * device)
 {

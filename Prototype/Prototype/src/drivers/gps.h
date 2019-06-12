@@ -6,8 +6,8 @@
  */ 
 #include "definitions.h"
 //
-//#ifndef GPS_H_
-//#define GPS_H_
+#ifndef GPS_H_
+#define GPS_H_
 //
 //#include <asf.h>
 //#include "RingBuffer.h"
@@ -110,4 +110,12 @@
 //
 //
 //
-//#endif /* GPS_H_ */
+#define  GPS_BAUD 9600
+#define P_GPS_PORT (*PORTE)
+#define P_GPS_UART (*USARTE1)
+#define GPS_UART USARTE1
+#define GPS_TX_PIN 0x80
+#define GPS_RX_PIN 0x40
+
+#define  GPS_READ_INTERUPT USARTE1_RXC_vect
+#endif /* GPS_H_ */
