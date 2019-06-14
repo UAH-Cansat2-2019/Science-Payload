@@ -32,8 +32,6 @@ char altatude[ALTATUDE_SIZE];*/
 #include <string.h>
 #include "drivers/GPS.h"
 //#include "config/ports.h"
-#include <string.h>
-#include "drivers/GPS.h"
 
 //#include "config/ports.h"
 //#include "drivers/uart_tools.h"
@@ -279,6 +277,51 @@ uint8_t findnext(uint8_t* searchstr, uint8_t target, uint8_t length)
 	}
 }
 
+void altitude_from_gpgga(char *NMEAMESSAGE,char * buff)
+{
+	findAfterCommma(8, NMEAMESSAGE,buff);
+}
+void latitude_from_gpgga(char *NMEAMESSAGE,char * buff)
+{
+	findAfterCommma(1, NMEAMESSAGE,buff);
+}
+void longitude_from_gpgga(char *NMEAMESSAGE,char * buff)
+{
+	findAfterCommma(3, NMEAMESSAGE,buff);
+}
+void time_from_gpgga(char *NMEAMESSAGE,char * buff)
+{
+	findAfterCommma(0, NMEAMESSAGE,buff);
+}
+void num_sat_from_gpgga(char *NMEAMESSAGE,char * buff)
+{
+	findAfterCommma(6, NMEAMESSAGE,buff);
+}
+void findAfterCommma(uint8_t Cnum,char* NMEAMESSAGE,char * buff)
+{
+	uint8_t strpos=0;
+	uint8_t Ccount=0;
+	while (Ccount<Cnum)
+	{
+		if(NMEAMESSAGE[strpos%SENTENCE_MAXSIZE]==NULL||NMEAMESSAGE[strpos%SENTENCE_MAXSIZE]=='\n')
+		return;
+		
+		if(NMEAMESSAGE[strpos%SENTENCE_MAXSIZE]==',')
+		Ccount++;
+		strpos++;
+	}
+	uint8_t buffPos=0;
+	while(NMEAMESSAGE[strpos%SENTENCE_MAXSIZE]!=',')
+	{
+		if(NMEAMESSAGE[strpos%SENTENCE_MAXSIZE]==NULL||NMEAMESSAGE[strpos%SENTENCE_MAXSIZE]=='\n')
+		return;
+		
+		buff[buffPos%WORD_MAXSIZE]=NMEAMESSAGE[strpos%SENTENCE_MAXSIZE];
+		
+		buffPos++;
+		strpos++;
+	}
+}
 
 
 
