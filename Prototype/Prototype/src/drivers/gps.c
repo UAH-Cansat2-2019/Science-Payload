@@ -6,9 +6,8 @@
  //*/ 
 //
 #include <asf.h>
-#include "drivers/gps.h"
-#include "drivers/uart.h"
-#include <string.h>
+#include "gps.h"
+
 static uart_device gps_uart;
 uint8_t is_gps_rx_triggered;
 char rxdata;
@@ -373,7 +372,7 @@ void gps_init()
 		GPS_UART.CTRLA=0x14;
 		is_gps_rx_triggered=0;
 }
-void gps_write(char * data,size_t length)
+void gps_write(char * data, size_t length)
 {
 	usart_serial_write_packet(gps_uart.Usart,data,length);
 }
@@ -384,7 +383,7 @@ uint8_t gps_read()
 ISR(GPS_READ_INTERUPT)
 {
 	rxdata=gps_read();
-	printf(rxdata);
+	if(DEBUG_GPS) printf(rxdata);
 	is_gps_rx_triggered=1;
 }
 

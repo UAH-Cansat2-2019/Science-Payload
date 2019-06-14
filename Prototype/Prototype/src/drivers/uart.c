@@ -34,14 +34,17 @@ void uart_init(uart_device* P_device)
 	
 	
 }
+
 void UARTReadArray(uart_device device,char * data)
 {
 	usart_serial_read_packet(device.Usart,data,sizeof(data));
 }
+
 void UARTWriteArray(uart_device device, char * data)//uses usart to write an array of data to the specified device
 {
 	usart_serial_write_packet(device.Usart,data,sizeof(data));
 }
+
 
 void openlog_init(uart_device * openLog)
 {
@@ -60,7 +63,7 @@ uint8_t uart_read(uart_device * device)
 	return device->Usart->DATA;
 	
 }
-void uart_write(uart_device * device,uint8_t data)
+void uart_write(uart_device * device, uint8_t data)
 {
 	while(!(device->Usart->STATUS&0b00100000));//wait for transmition buffer to clear
 	device->Usart->DATA=data;

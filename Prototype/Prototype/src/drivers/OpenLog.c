@@ -5,10 +5,10 @@
  *  Author: natha
  */ 
 #include <asf.h>
-#include "uart.h"
+
 #include "config/conf_clock.h"
 #include "OpenLog.h"
-
+#include "uart.h"
 static uart_device openLog;
 
 

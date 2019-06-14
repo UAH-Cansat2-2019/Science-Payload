@@ -5,8 +5,8 @@
  *  Author: quaz9
  */ 
 
-#include "drivers/mechanisms.h"
-#include "pwm.h"
+#include "mechanisms.h"
+
 
 void servo_init(void)
 {
