@@ -50,7 +50,7 @@ ISR (GPS_RECEIVE_INTERRUPT_VECTOR)
 		if (ch == '\n')
 		{
 			
-			rbu8_write(gpgga_buff, gps_receive_buffer, gpgga_index);
+			rbu8_write(gpgga_buff, &gps_receive_buffer, gpgga_index);
 			last_finished = current_sentence;
 			gpgga_index=0;
 			current_sentence = SENTENCE_WAIT;

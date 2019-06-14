@@ -14,7 +14,9 @@ volatile extern uint8_t XbeeRx;
 static void xbee_callback(void)
 {
 	write_telem_to_xbee();
-	tc_clear_overflow(&XBEE_TC);
+
+		tc_clear_overflow(&XBEE_TC);
+		
 	
 }
 
@@ -43,7 +45,7 @@ void xbeeWrite(uint8_t* data)
 	if(blockTransmission) return NULL;
 	usart_serial_write_packet(P_XBEEUART, data, strlen(data));
 	packetCount++;
-	if(DEBUG) printf("%s \n",(const)data);
+    if(DEBUG) printf("%s \n",(const)data);
 }
 
 void write_telem_to_xbee()
@@ -86,7 +88,7 @@ void write_telem_to_xbee()
 	sprintf(s_cardinalDir, "%f", heading);
 	
 	
-	sprintf(telemetryString,"%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,",
+	sprintf(telemetryString,"%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s\n\0",
 	s_teamID,
 	s_missionTime,
 	s_packetCount,

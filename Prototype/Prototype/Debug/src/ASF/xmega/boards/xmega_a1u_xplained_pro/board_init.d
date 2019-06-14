@@ -2,22 +2,22 @@ src/ASF/xmega/boards/xmega_a1u_xplained_pro/board_init.d \
  src/ASF/xmega/boards/xmega_a1u_xplained_pro/board_init.o: \
  ../src/ASF/xmega/boards/xmega_a1u_xplained_pro/board_init.c \
  ../src/ASF/common/boards/board.h ../src/ASF/xmega/utils/compiler.h \
- d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h \
- d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h \
- d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h \
- d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdint.h \
- d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdint.h \
- D:\programs\AtmelStudio\7.0\Packs\atmel\XMEGAA_DFP\1.1.68\include/avr/iox128a1u.h \
- d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\portpins.h \
- d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\common.h \
- d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\version.h \
- d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\xmega.h \
- d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\fuse.h \
- d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h \
- d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\builtins.h \
- d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdbool.h \
- d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h \
- d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdlib.h \
+ d:\program\ files\ (x86)\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h \
+ d:\program\ files\ (x86)\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h \
+ d:\program\ files\ (x86)\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h \
+ d:\program\ files\ (x86)\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdint.h \
+ d:\program\ files\ (x86)\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdint.h \
+ D:\Program\ Files\ (x86)\Atmel\7.0\Packs\atmel\XMEGAA_DFP\1.1.68\include/avr/iox128a1u.h \
+ d:\program\ files\ (x86)\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\portpins.h \
+ d:\program\ files\ (x86)\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\common.h \
+ d:\program\ files\ (x86)\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\version.h \
+ d:\program\ files\ (x86)\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\xmega.h \
+ d:\program\ files\ (x86)\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\fuse.h \
+ d:\program\ files\ (x86)\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h \
+ d:\program\ files\ (x86)\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\builtins.h \
+ d:\program\ files\ (x86)\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdbool.h \
+ d:\program\ files\ (x86)\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h \
+ d:\program\ files\ (x86)\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdlib.h \
  ../src/ASF/common/utils/parts.h \
  ../src/ASF/xmega/utils/bit_handling/clz_ctz.h \
  ../src/ASF/xmega/utils/preprocessor/preprocessor.h \
@@ -26,10 +26,10 @@ src/ASF/xmega/boards/xmega_a1u_xplained_pro/board_init.d \
  ../src/ASF/xmega/utils/preprocessor/mrepeat.h \
  ../src/ASF/xmega/utils/preprocessor/preprocessor.h \
  ../src/ASF/xmega/utils/progmem.h \
- d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\pgmspace.h \
+ d:\program\ files\ (x86)\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\pgmspace.h \
  ../src/ASF/common/utils/interrupt.h \
  ../src/ASF/common/utils/interrupt/interrupt_avr8.h \
- d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h \
+ d:\program\ files\ (x86)\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h \
  ../src/ASF/xmega/boards/xmega_a1u_xplained_pro/xmega_a1u_xplained_pro.h \
  ../src/config/conf_board.h ../src/ASF/common/services/ioport/ioport.h \
  ../src/ASF/common/services/ioport/xmega/ioport.h \
@@ -40,37 +40,37 @@ src/ASF/xmega/boards/xmega_a1u_xplained_pro/board_init.d \
 
 ../src/ASF/xmega/utils/compiler.h:
 
-d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
+d:\program\ files\ (x86)\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 
-d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h:
+d:\program\ files\ (x86)\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h:
 
-d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h:
+d:\program\ files\ (x86)\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h:
 
-d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdint.h:
+d:\program\ files\ (x86)\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdint.h:
 
-d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdint.h:
+d:\program\ files\ (x86)\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdint.h:
 
-D:\programs\AtmelStudio\7.0\Packs\atmel\XMEGAA_DFP\1.1.68\include/avr/iox128a1u.h:
+D:\Program\ Files\ (x86)\Atmel\7.0\Packs\atmel\XMEGAA_DFP\1.1.68\include/avr/iox128a1u.h:
 
-d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\portpins.h:
+d:\program\ files\ (x86)\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\portpins.h:
 
-d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\common.h:
+d:\program\ files\ (x86)\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\common.h:
 
-d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\version.h:
+d:\program\ files\ (x86)\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\version.h:
 
-d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\xmega.h:
+d:\program\ files\ (x86)\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\xmega.h:
 
-d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\fuse.h:
+d:\program\ files\ (x86)\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\fuse.h:
 
-d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h:
+d:\program\ files\ (x86)\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h:
 
-d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\builtins.h:
+d:\program\ files\ (x86)\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\builtins.h:
 
-d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdbool.h:
+d:\program\ files\ (x86)\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdbool.h:
 
-d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h:
+d:\program\ files\ (x86)\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h:
 
-d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdlib.h:
+d:\program\ files\ (x86)\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdlib.h:
 
 ../src/ASF/common/utils/parts.h:
 
@@ -88,13 +88,13 @@ d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdlib
 
 ../src/ASF/xmega/utils/progmem.h:
 
-d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\pgmspace.h:
+d:\program\ files\ (x86)\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\pgmspace.h:
 
 ../src/ASF/common/utils/interrupt.h:
 
 ../src/ASF/common/utils/interrupt/interrupt_avr8.h:
 
-d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h:
+d:\program\ files\ (x86)\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h:
 
 ../src/ASF/xmega/boards/xmega_a1u_xplained_pro/xmega_a1u_xplained_pro.h:
 

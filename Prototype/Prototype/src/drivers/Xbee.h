@@ -12,18 +12,18 @@
 #include "definitions.h"
 #include <string.h>
 #include "uart.h"
-#define P_XBEEUART (&USARTF0)
-#define P_XBEEPORT (&PORTF)
+#define P_XBEEUART (&USARTC0)
+#define P_XBEEPORT (&PORTC)
 #define XBEETXPIN 0b00001000
 #define XBEERXPIN 0b00000100
 #define XBEEBAUD 115200
 
-#define XBEE_UART USARTF0
-#define READ_INTURUPT USARTF0_RXC_vect
+#define XBEE_UART USARTC0
+#define READ_INTURUPT USARTC0_RXC_vect
 
 
 #define XBEE_TC TCC0
-#define XBEE_WRITE_INTERVAL 1000
+#define XBEE_WRITE_INTERVAL 50
 
 volatile uint8_t XbeeRx;
 

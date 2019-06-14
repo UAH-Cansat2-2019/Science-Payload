@@ -26,7 +26,7 @@ void newOLogInit()//initializes the openLog uart communication interface
 }
 void openLogWrite(char * data)
 {
-	UARTWriteArray(openLog,data);
+	usart_serial_write_packet(P_OPENLOG_UART,data,strlen(data));
 }
 //maximum read length 99 chars
 void openLogRead(char * data,char * fname)
@@ -34,7 +34,7 @@ void openLogRead(char * data,char * fname)
 	openLogWrite("262626");//switch to command mode
 	char mode='\0';
 	while(mode!='>')
-		UARTReadArray(openLog,&mode);//wait for mode to switch
+	UARTReadArray(openLog,&mode);//wait for mode to switch
 	
 	
 	char length[2];

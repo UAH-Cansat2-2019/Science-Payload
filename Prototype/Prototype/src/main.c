@@ -133,7 +133,7 @@ int main (void)
 
 	
 	uart_terminal_init();
-	//newOLogInit();
+	newOLogInit();
 
 	if(DEBUG) printf("uart is working\n");
 	
@@ -141,20 +141,21 @@ int main (void)
 	
 	pmic_init();
 	pmic_set_scheduling(PMIC_SCH_ROUND_ROBIN);
+	irq_initialize_vectors();
 	cpu_irq_enable();
 	
 	init_GPS_pins_and_usart();
 	init_gps_interrupts();
 	init_gps_buffers();	
-	//imu_init();
+	imu_init();
 	//delay_s(1);
-	//xbee_init();
-	//servo_init();
-	//thermistor_init();
-	//volt_init();
-	spi_init_module();
+	xbee_init();
+	
+	servo_init();
+	thermistor_init();
+	volt_init();
 
-	//uint8_t servoPos = 0;
+	uint8_t servoPos = 0;
 	//set_servo(0);
 	
 	//buzz_on();
@@ -163,21 +164,26 @@ int main (void)
 	//delay_ms(5);
 	//buzz_on();
 	//delay_ms(5);
+	//asm("nop");
 	//buzz_off();
 	
 	/**
 		MAIN PROGRAM LOOP	
 	**/
+	//xbeeWrite("hello There!");
 	while (true)
 	{
 		
-		//imu_update();
+		
+		printf("\ngood morning realterm");
+		//xbeeWrite("hello There! xbee");
+		imu_update();
 		
 		
 		/***
 		Get Telemetry - Part of every flight state
 		***/
-		missionTime = (float)rtc_get_time()/10.0;
+		missionTime = ((float)rtc_get_time())/10.0;
 		//pressure = getPressure();
 		//printf("%f\n", pressure);
 		//printf("is it me?");
@@ -185,7 +191,7 @@ int main (void)
 		
 		if (last_finished != SENTENCE_NONE)
 		{
-			rbu8_read(gps_receive_buffer,gpstmp,85);
+			rbu8_read(&gps_receive_buffer,gpstmp,85);
 			GPS_data_t gps_data = getGPSDatafromNMEA(gpstmp, strlen(gpstmp));
 			GPSAlt = gps_data.altitude;
 			GPSLat = gps_data.latdecimal;
@@ -194,9 +200,9 @@ int main (void)
 			
 		}
 		//printf("Sats: %u\n",GPSSats);
-		//printf("Lat: %u\n",GPSLat);
-		//printf("Long: %u\n",GPSLong);
-		/*temp = getTemperature();
+		////printf("Lat: %u\n",GPSLat);
+		////printf("Long: %u\n",GPSLong);
+		temp = getTemperature();
 		altitude = pressure / 9000; // TODO: finish function
 		voltage = getVoltage();
 		velocity = imu_vel_z();
@@ -223,7 +229,7 @@ int main (void)
 			default: 
 				break;
 			
-		};*/
+		};
 		
 			
 		delay_ms(50);		
