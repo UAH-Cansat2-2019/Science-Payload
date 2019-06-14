@@ -10,7 +10,7 @@
 #define GPS_H_
 //
 //#include <asf.h>
-#include "RingBuffer.h"
+//#include "RingBuffer.h"
 //
 //
 //#define GPS_PORT							PORTE	
@@ -111,29 +111,15 @@
 //
 //
 #define  GPS_BAUD 9600
-#define P_GPS_PORT (&PORTF)
-#define P_GPS_UART (&USARTF1)
-#define GPS_UART USARTF1
+#define P_GPS_PORT (&PORTE)
+#define P_GPS_UART (&USARTE1)
+#define GPS_UART USARTE1
 #define GPS_TX_PIN 0x80
 #define GPS_RX_PIN 0x40
-#define GPS_RX_INTERUPT USARTF1_RXC_vect
 
-#define GPS_RECEIVE_BUFFER_SIZE 256
-#define GPS_TRANSMIT_BUFFER_SIZE 64
-
-void init_gps_interrupts(void);
-void init_gps_buffers(void);
-
-
-volatile uint8_t RAW_gps_recieve_buffer[GPS_RECEIVE_BUFFER_SIZE];
-volatile uint8_t RAW_gps_send_buffer[GPS_TRANSMIT_BUFFER_SIZE];
-
-volatile RingBufferu8_t gps_receive_buffer;
-
-volatile RingBufferu8_t gps_send_buffer;
-
-/*void gps_init(void);
+void gps_init(void);
 uint8_t is_gpgga(void);
 void gps_update(void);
-uint8_t is_rx_triggered(void);*/
+uint8_t is_rx_triggered(void);
+#define  GPS_READ_INTERUPT USARTE1_RXC_vect
 #endif /* GPS_H_ */

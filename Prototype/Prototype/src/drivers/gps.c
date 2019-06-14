@@ -11,7 +11,7 @@
 #include <string.h>
 static uart_device gps_uart;
 uint8_t is_gps_rx_triggered;
-uint8_t rxdata;
+char rxdata;
 char rxDataBuff[80];
 uint8_t sentencePosition=0;
 
@@ -371,18 +371,20 @@ void gps_init()
 		gps_uart.rx=GPS_RX_PIN;
 		uart_init(&gps_uart);//function that initializes uart
 		GPS_UART.CTRLA=0x14;
-		usart_set_rx_interrupt_level(P_GPS_UART,USART_INT_LVL_HI);
 		is_gps_rx_triggered=0;
-		printf("GPS Initialized");
 }
 void gps_write(char * data,size_t length)
 {
 	usart_serial_write_packet(gps_uart.Usart,data,length);
 }
-ISR(GPS_RX_INTERUPT)
+uint8_t gps_read()
 {
-	rxdata=GPS_UART.DATA;
-
+	return GPS_UART.DATA;
+}
+ISR(GPS_READ_INTERUPT)
+{
+	rxdata=gps_read();
+	printf(rxdata);
 	is_gps_rx_triggered=1;
 }
 
@@ -489,22 +491,3 @@ uint8_t is_rx_triggered()
 {
 	return is_gps_rx_triggered;
 }
-
-
-
-void init_gps_interrupts(void)
-{
-	GPS_USART.CTRLA = 0b00010100;
-	gpgga_index = 0;
-	uint8_t dollar
-	
-}
-void init_gps_buffers(void);
-
-
-volatile uint8_t RAW_gps_recieve_buffer[GPS_RECEIVE_BUFFER_SIZE];
-volatile uint8_t RAW_gps_send_buffer[GPS_TRANSMIT_BUFFER_SIZE];
-
-volatile RingBufferu8_t gps_receive_buffer;
-
-volatile RingBufferu8_t gps_send_buffer;

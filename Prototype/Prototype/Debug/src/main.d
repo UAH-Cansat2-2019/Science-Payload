@@ -85,8 +85,7 @@ src/main.d src/main.o: ../src/main.c ../src/asf.h \
  ../src/drivers/gps.h ../src/drivers/Xbee.h ../src/drivers/definitions.h \
  ../src/drivers/OpenLog.h ../src/drivers/bno055.h ../src/drivers/IMU.h \
  ../src/DRIVERS/bno055.h ../src/drivers/adc_sensors.h \
- ../src/drivers/mechanisms.h ../src/drivers/ms5607.h \
- ../src/drivers/spi_controller.h
+ ../src/drivers/mechanisms.h ../src/drivers/ms5607.h
 
 ../src/asf.h:
 
@@ -299,5 +298,3 @@ d:\program\ files\ (x86)\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include
 ../src/drivers/mechanisms.h:
 
 ../src/drivers/ms5607.h:
-
-../src/drivers/spi_controller.h:

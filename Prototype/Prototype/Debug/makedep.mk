@@ -22,8 +22,6 @@ src\drivers\mechanisms.c
 
 src\drivers\ms5607.c
 
-src\drivers\spi_controller.c
-
 src\drivers\Xbee.c
 
 src\RingBuffer.c

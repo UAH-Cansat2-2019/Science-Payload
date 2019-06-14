@@ -56,7 +56,7 @@
 #include "drivers/mechanisms.h"
 #include "drivers/gps.h"
 #include "drivers/ms5607.h"
-#include "drivers/spi_controller.h"
+
 
 /************** I2C buffer length******/
 volatile extern uint8_t XbeeRx;
@@ -85,17 +85,15 @@ int main (void)
 	
 	uart_terminal_init();
 	//newOLogInit();
-	
+
 	printf("uart is working\n");
-	//spi_init();
+	
 
 	
 	pmic_init();
 	pmic_set_scheduling(PMIC_SCH_ROUND_ROBIN);
-	irq_initialize_vectors();
 	cpu_irq_enable();
 	gps_init();
-	//gps_init();
 	
 	//imu_init();
 	//delay_s(1);
@@ -137,6 +135,7 @@ int main (void)
 		
 		
 		//write_telem_to_xbee();
+		
 		
 		
 		delay_ms(1000);
