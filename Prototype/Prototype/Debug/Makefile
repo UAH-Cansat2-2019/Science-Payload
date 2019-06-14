@@ -96,6 +96,7 @@ C_SRCS +=  \
 ../src/ASF/xmega/services/pwm/pwm.c \
 ../src/drivers/adc_sensors.c \
 ../src/drivers/bno055.c \
+../src/drivers/gps_interrupts.c \
 ../src/drivers/IMU.c \
 ../src/drivers/mechanisms.c \
 ../src/drivers/ms5607.c \
@@ -139,6 +140,7 @@ src/ASF/xmega/drivers/wdt/wdt.o \
 src/ASF/xmega/services/pwm/pwm.o \
 src/drivers/adc_sensors.o \
 src/drivers/bno055.o \
+src/drivers/gps_interrupts.o \
 src/drivers/IMU.o \
 src/drivers/mechanisms.o \
 src/drivers/ms5607.o \
@@ -175,6 +177,7 @@ src/ASF/xmega/drivers/wdt/wdt.o \
 src/ASF/xmega/services/pwm/pwm.o \
 src/drivers/adc_sensors.o \
 src/drivers/bno055.o \
+src/drivers/gps_interrupts.o \
 src/drivers/IMU.o \
 src/drivers/mechanisms.o \
 src/drivers/ms5607.o \
@@ -211,6 +214,7 @@ src/ASF/xmega/drivers/wdt/wdt.d \
 src/ASF/xmega/services/pwm/pwm.d \
 src/drivers/adc_sensors.d \
 src/drivers/bno055.d \
+src/drivers/gps_interrupts.d \
 src/drivers/IMU.d \
 src/drivers/mechanisms.d \
 src/drivers/ms5607.d \
@@ -247,6 +251,7 @@ src/ASF/xmega/drivers/wdt/wdt.d \
 src/ASF/xmega/services/pwm/pwm.d \
 src/drivers/adc_sensors.d \
 src/drivers/bno055.d \
+src/drivers/gps_interrupts.d \
 src/drivers/IMU.d \
 src/drivers/mechanisms.d \
 src/drivers/ms5607.d \
@@ -289,6 +294,8 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
 
 
 

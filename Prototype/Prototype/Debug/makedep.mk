@@ -16,6 +16,8 @@ src\drivers\adc_sensors.c
 
 src\drivers\bno055.c
 
+src\drivers\gps_interrupts.c
+
 src\drivers\IMU.c
 
 src\drivers\mechanisms.c

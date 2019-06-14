@@ -1,5 +1,9 @@
-src/main.d src/main.o: ../src/main.c ../src/asf.h \
- ../src/ASF/xmega/drivers/adc/adc.h ../src/ASF/xmega/utils/compiler.h \
+src/drivers/gps_interrupts.d src/drivers/gps_interrupts.o: \
+ ../src/drivers/gps_interrupts.c \
+ d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h \
+ d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h \
+ ../src/drivers/gps.h ../src/drivers/definitions.h \
+ d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\atomic.h \
  d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h \
  d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h \
  d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h \
@@ -12,9 +16,11 @@ src/main.d src/main.o: ../src/main.c ../src/asf.h \
  d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\xmega.h \
  d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\fuse.h \
  d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h \
+ d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h \
+ d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
+ ../src/ASF/xmega/drivers/wdt/wdt.h ../src/ASF/xmega/utils/compiler.h \
  d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\builtins.h \
  d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdbool.h \
- d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h \
  d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdlib.h \
  ../src/ASF/common/utils/parts.h \
  ../src/ASF/xmega/utils/bit_handling/clz_ctz.h \
@@ -26,10 +32,9 @@ src/main.d src/main.o: ../src/main.c ../src/asf.h \
  ../src/ASF/xmega/utils/progmem.h \
  d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\pgmspace.h \
  ../src/ASF/common/utils/interrupt.h \
- ../src/ASF/common/utils/interrupt/interrupt_avr8.h \
- d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h \
- ../src/config/conf_adc.h ../src/ASF/xmega/drivers/nvm/nvm.h \
- ../src/ASF/xmega/drivers/cpu/ccp.h \
+ ../src/ASF/common/utils/interrupt/interrupt_avr8.h ../src/drivers/uart.h \
+ ../src/asf.h ../src/ASF/xmega/drivers/adc/adc.h ../src/config/conf_adc.h \
+ ../src/ASF/xmega/drivers/nvm/nvm.h ../src/ASF/xmega/drivers/cpu/ccp.h \
  ../src/ASF/common/services/sleepmgr/sleepmgr.h \
  ../src/ASF/common/services/sleepmgr/xmega/sleepmgr.h \
  ../src/config/conf_sleepmgr.h ../src/ASF/xmega/drivers/sleep/sleep.h \
@@ -75,24 +80,18 @@ src/main.d src/main.o: ../src/main.c ../src/asf.h \
  ../src/ASF/xmega/drivers/twi/twis.h \
  ../src/ASF/common/services/twi/xmega_twi/twi_master.h \
  ../src/ASF/common/services/twi/xmega_twi/twi_slave.h \
- ../src/ASF/xmega/drivers/wdt/wdt.h \
  ../src/ASF/xmega/boards/xmega_a1u_xplained_pro/xmega_a1u_xplained_pro.h \
- ../src/drivers/definitions.h \
- d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h \
- d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\atomic.h \
- d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
- ../src/drivers/gps.h ../src/drivers/definitions.h ../src/drivers/uart.h \
- ../src/RingBuffer.h ../src/drivers/gps_interrupts.h \
- ../src/drivers/adc_sensors.h ../src/drivers/IMU.h \
- ../src/drivers/bno055.h ../src/drivers/mechanisms.h \
- ../src/drivers/ms5607.h ../src/drivers/OpenLog.h ../src/drivers/uart.h \
- ../src/drivers/Xbee.h
+ ../src/RingBuffer.h ../src/drivers/gps_interrupts.h
 
-../src/asf.h:
+d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h:
 
-../src/ASF/xmega/drivers/adc/adc.h:
+d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h:
 
-../src/ASF/xmega/utils/compiler.h:
+../src/drivers/gps.h:
+
+../src/drivers/definitions.h:
+
+d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\atomic.h:
 
 d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 
@@ -118,11 +117,17 @@ d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\fu
 
 d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h:
 
+d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h:
+
+d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h:
+
+../src/ASF/xmega/drivers/wdt/wdt.h:
+
+../src/ASF/xmega/utils/compiler.h:
+
 d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\builtins.h:
 
 d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdbool.h:
-
-d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h:
 
 d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdlib.h:
 
@@ -148,7 +153,11 @@ d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\pg
 
 ../src/ASF/common/utils/interrupt/interrupt_avr8.h:
 
-d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h:
+../src/drivers/uart.h:
+
+../src/asf.h:
+
+../src/ASF/xmega/drivers/adc/adc.h:
 
 ../src/config/conf_adc.h:
 
@@ -262,40 +271,8 @@ d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\
 
 ../src/ASF/common/services/twi/xmega_twi/twi_slave.h:
 
-../src/ASF/xmega/drivers/wdt/wdt.h:
-
 ../src/ASF/xmega/boards/xmega_a1u_xplained_pro/xmega_a1u_xplained_pro.h:
-
-../src/drivers/definitions.h:
-
-d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h:
-
-d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\atomic.h:
-
-d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h:
-
-../src/drivers/gps.h:
-
-../src/drivers/definitions.h:
-
-../src/drivers/uart.h:
 
 ../src/RingBuffer.h:
 
 ../src/drivers/gps_interrupts.h:
-
-../src/drivers/adc_sensors.h:
-
-../src/drivers/IMU.h:
-
-../src/drivers/bno055.h:
-
-../src/drivers/mechanisms.h:
-
-../src/drivers/ms5607.h:
-
-../src/drivers/OpenLog.h:
-
-../src/drivers/uart.h:
-
-../src/drivers/Xbee.h:

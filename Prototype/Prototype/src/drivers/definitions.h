@@ -64,6 +64,24 @@
 #define FS3_MAX_HEIGHT_DRIFT 50  // m
 #define FS3_MAX_ALTITUDE     80  // m
 
+typedef struct GPS_data
+{
+	uint16_t latdegrees;
+	uint32_t latminutes; // actually minutes * 10000
+	char latdirection;
+	double latdecimal;
+	uint16_t londegrees;
+	uint32_t lonminutes; // actually minutes * 10000
+	char londirection;
+	double londecimal;
+	float altitude;
+	uint8_t hour;
+	uint8_t minutes;
+	uint8_t seconds;
+	uint8_t fix_status;
+	uint8_t sats;
+	
+} GPS_data_t;
 
 
 bool blockTransmission;
@@ -74,9 +92,23 @@ float voltage;
 float accZ;
 
 uint32_t packetCount;
-uint32_t missionTime;
+float missionTime;
 int32_t pressure;
 float altitude;
+
+uint32_t GPSTime;
+uint32_t GPSLat;
+uint32_t GPSLong;
+uint32_t GPSAlt;
+uint32_t GPSSats;
+
+uint8_t openlogger[512];
+	
+	uint8_t gpstmp[85];
+	GPS_data_t gps_data;
+	uint8_t got_good_time;
+	int32_t gps_local_delta; //local time + this = gps time (ish)
+
 
 double pitch;
 double roll;

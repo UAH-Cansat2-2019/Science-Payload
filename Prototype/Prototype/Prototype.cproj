@@ -511,6 +511,12 @@
     <Compile Include="src\drivers\definitions.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="src\drivers\gps_interrupts.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\drivers\gps_interrupts.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="src\drivers\IMU.c">
       <SubType>compile</SubType>
     </Compile>

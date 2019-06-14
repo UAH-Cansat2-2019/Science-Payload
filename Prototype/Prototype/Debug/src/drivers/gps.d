@@ -81,7 +81,7 @@ src/drivers/gps.d src/drivers/gps.o: ../src/drivers/gps.c ../src/asf.h \
  d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h \
  d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\atomic.h \
  d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
- ../src/drivers/uart.h
+ ../src/drivers/uart.h ../src/RingBuffer.h ../src/drivers/GPS.h
 
 ../src/asf.h:
 
@@ -272,3 +272,7 @@ d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\a
 d:\programs\atmelstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h:
 
 ../src/drivers/uart.h:
+
+../src/RingBuffer.h:
+
+../src/drivers/GPS.h:

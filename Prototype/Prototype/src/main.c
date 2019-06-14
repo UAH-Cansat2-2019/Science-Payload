@@ -9,9 +9,10 @@
 #include <asf.h>
 #include "drivers/definitions.h"
 
-
-#include "drivers/adc_sensors.h"
 #include "drivers/gps.h"
+#include "drivers/gps_interrupts.h"
+#include "drivers/adc_sensors.h"
+
 #include "drivers/IMU.h"
 #include "drivers/mechanisms.h"
 #include "drivers/ms5607.h"
@@ -23,7 +24,17 @@
 /************** I2C buffer length******/
 volatile extern uint8_t XbeeRx;
 
-
+uint16_t packetlen(const uint8_t* buff);
+uint16_t packetlen(const uint8_t* buff)
+{
+	uint16_t i = 0;
+	for (i = 0; i < 1024; i++)
+	{
+		if (buff[i] == '\n')
+		return i;
+	}
+	return 1024;
+}
 
 //#include "asf.h"
 void fs_0()
@@ -110,9 +121,8 @@ int main (void)
 	rtc_init();
 	
 	
-	//missionTime = rtc_get_time();
+
 	
-	if(DEBUG && DEBUG_TELEM) printf("%u", missionTime >> 16);
 	
 	if(DEBUG && 0)
 	{
@@ -129,11 +139,13 @@ int main (void)
 	
 
 	
-	//pmic_init();
-	//pmic_set_scheduling(PMIC_SCH_ROUND_ROBIN);
-	//cpu_irq_enable();
+	pmic_init();
+	pmic_set_scheduling(PMIC_SCH_ROUND_ROBIN);
+	cpu_irq_enable();
 	
-	//gps_init();	
+	init_GPS_pins_and_usart();
+	init_gps_interrupts();
+	init_gps_buffers();	
 	//imu_init();
 	//delay_s(1);
 	//xbee_init();
@@ -165,9 +177,25 @@ int main (void)
 		/***
 		Get Telemetry - Part of every flight state
 		***/
-		//missionTime = rtc_get_time();
-		pressure = getPressure();
-		printf("%f\n", pressure);
+		missionTime = (float)rtc_get_time()/10.0;
+		//pressure = getPressure();
+		//printf("%f\n", pressure);
+		//printf("is it me?");
+		
+		
+		if (last_finished != SENTENCE_NONE)
+		{
+			rbu8_read(gps_receive_buffer,gpstmp,85);
+			GPS_data_t gps_data = getGPSDatafromNMEA(gpstmp, strlen(gpstmp));
+			GPSAlt = gps_data.altitude;
+			GPSLat = gps_data.latdecimal;
+			GPSLong = gps_data.londecimal;
+			GPSSats = gps_data.sats;
+			
+		}
+		//printf("Sats: %u\n",GPSSats);
+		//printf("Lat: %u\n",GPSLat);
+		//printf("Long: %u\n",GPSLong);
 		/*temp = getTemperature();
 		altitude = pressure / 9000; // TODO: finish function
 		voltage = getVoltage();
