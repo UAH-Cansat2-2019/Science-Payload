@@ -10,7 +10,8 @@
 #define XBEE_H_
 
 #include "definitions.h"
-
+#include <string.h>
+#include "uart.h"
 #define P_XBEEUART (&USARTF0)
 #define P_XBEEPORT (&PORTF)
 #define XBEETXPIN 0b00001000
@@ -19,10 +20,15 @@
 
 #define XBEE_UART USARTF0
 #define READ_INTURUPT USARTF0_RXC_vect
-#include <string.h>
+
+
+#define XBEE_TC TCC0
+#define XBEE_WRITE_INTERVAL 1000
+
 volatile uint8_t XbeeRx;
 
 void xbee_init(void);
 void xbeeWrite(uint8_t* data);
+void write_telem_to_xbee();
 
 #endif /* XBEE_H_ */

@@ -23,7 +23,7 @@ typedef struct uart_device{
 	uint32_t Baud;
 	} uart_device;
 	
-	void openlog_init(uart_device * openLog);
+void openlog_init(uart_device * openLog);
 void uart_init(uart_device* P_device);
 uint8_t uart_read(uart_device * device);
 void uart_write(uart_device * device,uint8_t data);

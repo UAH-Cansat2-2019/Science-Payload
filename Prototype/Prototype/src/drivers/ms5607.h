@@ -11,7 +11,7 @@
 
 #include <asf.h>
 #include <spi.h>
-#include "definitions.h"
+//#include "definitions.h"
 
 #define MS5607_PORT &PORTC
 #define MS5607_SPI_PORT SPIC

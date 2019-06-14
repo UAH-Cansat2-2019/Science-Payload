@@ -4,10 +4,13 @@
  * Created: 5/25/2019 4:49:48 PM
  *  Author: quaz9
  */ 
-#include "definitions.h"
+
 //
 #ifndef GPS_H_
 #define GPS_H_
+#include "definitions.h"
+#include "uart.h"
+#include <string.h>
 //
 //#include <asf.h>
 //#include "RingBuffer.h"
@@ -117,9 +120,12 @@
 #define GPS_TX_PIN 0x80
 #define GPS_RX_PIN 0x40
 
+uint8_t gps_read();
 void gps_init(void);
 uint8_t is_gpgga(void);
 void gps_update(void);
 uint8_t is_rx_triggered(void);
+void gps_write(char * data,size_t length);
+
 #define  GPS_READ_INTERUPT USARTE1_RXC_vect
 #endif /* GPS_H_ */

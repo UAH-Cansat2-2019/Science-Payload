@@ -4,7 +4,6 @@
  * Created: 6/7/2019 11:22:59 AM
  *  Author: trbinsc
  */ 
-
 #include "IMU.h"
 
 s8 BNO055_I2C_bus_write(u8 dev_addr, u8 reg_addr, u8 *reg_data, u8 cnt);
@@ -22,7 +21,14 @@ uint8_t sys_calib;
 
 void imu_init()
 {
-	
+	 currentAccZ;
+	 currentVelZ=0;
+	 currentPosZ=0;
+	 prevAccZ = 0;
+	 prevVelZ = 0;
+	 prevPosZ = 0;
+	 prevTime = 0;
+	 prevPrevTime = 0;
 	sysclk_enable_module(SYSCLK_PORT_F, PR_TWI_bm);
 	sysclk_enable_peripheral_clock(&TWIF);
 	
@@ -74,6 +80,26 @@ void imu_update()
 	bno055_get_gyro_calib_stat(&gyro_calib);
 	bno055_get_mag_calib_stat(&mag_calib);
 	bno055_get_sys_calib_stat(&sys_calib);
+	
+	
+	prevPrevTime = prevTime;
+	prevTime = rtc_get_time();
+	
+	prevAccZ = currentAccZ;
+	currentAccZ = imu_accel_z();
+	
+	prevVelZ = currentVelZ;
+	currentVelZ = prevVelZ + (prevAccZ + currentAccZ)/2.0*(prevTime - prevPrevTime);
+
+	prevPosZ = currentPosZ;
+	currentPosZ = prevPosZ + (currentVelZ + prevVelZ)/2.0 * (prevTime - prevPrevTime);
+	
+	if(DEBUG && DEBUG_IMU)
+	{ 
+		printf("Pitch: %i\nRoll: %i\nYaw: %i\n",(int)imu_pitch(), (int)imu_roll(), (int)imu_heading());
+		printf("CALBRATION STATUSES:  Accel: %u, Gyro: %u, Mag: %u, Sys: %u\n", imu_accel_cal(), imu_gyro_cal(), imu_mag_cal(), imu_sys_cal());
+	}
+
 }
 
 
@@ -91,6 +117,23 @@ double imu_accel_z()
 {
 	return bno055_linear_accel.z;
 }
+
+double imu_accel_dist()
+{	
+	return sqrt(bno055_linear_accel.x*bno055_linear_accel.x+ bno055_linear_accel.y*bno055_linear_accel.y +bno055_linear_accel.z*bno055_linear_accel.z)-9.8;
+}
+
+
+double imu_vel_z()
+{
+	return currentVelZ;
+}
+
+double imu_pos_z()
+{
+	return currentPosZ;
+}
+
 
 
 

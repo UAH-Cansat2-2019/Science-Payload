@@ -12,7 +12,7 @@
 
 #include <asf.h>
 #include <string.h>
-#include "DRIVERS/bno055.h"
+#include "bno055.h"
 #include "definitions.h"
 
 #define FIXMATH_NO_CACHE 1
@@ -27,9 +27,22 @@ void imu_init();
 
 void imu_update();
 
+double currentAccZ;
+double currentVelZ;
+double currentPosZ;
+double prevAccZ;
+double prevVelZ;
+double prevPosZ ;
+double prevTime;
+double prevPrevTime;
+
 double imu_accel_x();
 double imu_accel_y();
 double imu_accel_z();
+double imu_accel_dist();
+
+double imu_vel_z();
+double imu_pos_z();
 
 double imu_roll();
 double imu_pitch();
