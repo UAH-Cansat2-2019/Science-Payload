@@ -78,9 +78,9 @@ void prom_read(void)
 int32_t getPressure(void)
 {
 
-struct spi_device  spi_device_cong = {
-	.id = IOPORT_CREATE_PIN(PORTC,1)
-};
+	struct spi_device  spi_device_cong = {
+		.id = IOPORT_CREATE_PIN(PORTC,1)
+	};
 	
 	spi_select_device(&MS5607_SPI_PORT, &spi_device_cong);
 

@@ -76,7 +76,8 @@ void fs_2()
 		&& abs(accelHeight - altitude) < FS2_MAX_HEIGHT_DRIFT 
 		&& altitude < FS2_MAX_ALTITUDE)
 	{
-			set_servo(100);
+			servo_init();
+			//set_servo(100);
 			flightState ++;
 	}
 }
@@ -137,6 +138,10 @@ int main (void)
 
 	if(DEBUG) printf("uart is working\n");
 	
+	
+	spi_init_module();
+	
+	
 
 	
 	pmic_init();
@@ -147,20 +152,20 @@ int main (void)
 	init_GPS_pins_and_usart();
 	init_gps_interrupts();
 	init_gps_buffers();	
-	imu_init();
+	//imu_init();
 	//delay_s(1);
 	xbee_init();
 	
-	servo_init();
+
 	thermistor_init();
 	volt_init();
 
 	uint8_t servoPos = 0;
 	//set_servo(0);
 	
-	//buzz_on();
-	//delay_ms(5);
-	//buzz_off();
+	buzz_on();
+	delay_ms(1000);
+	buzz_off();
 	//delay_ms(5);
 	//buzz_on();
 	//delay_ms(5);
@@ -184,8 +189,8 @@ int main (void)
 		Get Telemetry - Part of every flight state
 		***/
 		missionTime = ((float)rtc_get_time())/10.0;
-		//pressure = getPressure();
-		//printf("%f\n", pressure);
+		pressure = getPressure();
+		printf("%f\n", pressure);
 		//printf("is it me?");
 		
 		
@@ -203,7 +208,8 @@ int main (void)
 		////printf("Lat: %u\n",GPSLat);
 		////printf("Long: %u\n",GPSLong);
 		temp = getTemperature();
-		altitude = pressure / 9000; // TODO: finish function
+		printf("%f\n", temp);
+		altitude = pressure ; // TODO: finish function
 		voltage = getVoltage();
 		velocity = imu_vel_z();
 		accelHeight = imu_pos_z();

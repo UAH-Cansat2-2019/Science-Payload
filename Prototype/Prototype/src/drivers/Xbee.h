@@ -23,7 +23,7 @@
 
 
 #define XBEE_TC TCC0
-#define XBEE_WRITE_INTERVAL 50
+#define XBEE_WRITE_INTERVAL 31249
 
 volatile uint8_t XbeeRx;
 

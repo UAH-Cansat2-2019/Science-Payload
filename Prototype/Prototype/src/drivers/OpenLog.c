@@ -22,7 +22,7 @@ void newOLogInit()//initializes the openLog uart communication interface
 	openLog.rx=OPENLOG_RX_PIN;
 	uart_init(&openLog);//function that initializes uart
 	 
-	if(DEBUG) printf("OpenLog Initialized\n");
+	if(DEBUG) printf("OpenLog Initialized\n\0");
 }
 void openLogWrite(char * data)
 {

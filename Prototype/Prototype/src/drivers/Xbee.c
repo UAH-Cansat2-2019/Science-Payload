@@ -45,7 +45,7 @@ void xbeeWrite(uint8_t* data)
 	if(blockTransmission) return NULL;
 	usart_serial_write_packet(P_XBEEUART, data, strlen(data));
 	packetCount++;
-    if(DEBUG) printf("%s \n",(const)data);
+   // if(DEBUG) printf("%s \n",(const)data);
 }
 
 void write_telem_to_xbee()

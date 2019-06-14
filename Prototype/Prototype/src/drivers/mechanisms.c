@@ -11,8 +11,9 @@
 void servo_init(void)
 {
 	
-	
-	pwm_init(&pwm_cfg, SERVO_TC, SERVO_PWM, 500);
+	PORTE.DIRSET |= 0b00000001;
+	PORTE.OUTSET |= 0b00000001;
+	//pwm_init(&pwm_cfg, SERVO_TC, SERVO_PWM, 500);
 	
 	if(DEBUG) printf("Servos Initialized.\n");
 }
