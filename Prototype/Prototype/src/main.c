@@ -192,18 +192,29 @@ int main (void)
 		pressure = getPressure();
 		printf("%f\n", pressure);
 		//printf("is it me?");
-		
+		char alt[10];
+		char lat[10];
+		char longi[10];
+		char numSat[10];
+		char gpstime[10];
 		
 		if (last_finished != SENTENCE_NONE)
 		{
 			rbu8_read(&gps_receive_buffer,gpstmp,85);
-			GPS_data_t gps_data = getGPSDatafromNMEA(gpstmp, strlen(gpstmp));
-			GPSAlt = gps_data.altitude;
-			GPSLat = gps_data.latdecimal;
-			GPSLong = gps_data.londecimal;
-			GPSSats = gps_data.sats;
+			altitude_from_gpgga(gps_receive_buffer.buffer,alt);
+			latitude_from_gpgga(gps_receive_buffer.buffer,lat);
+			longitude_from_gpgga(gps_receive_buffer.buffer,longi);
+			num_sat_from_gpgga(gps_receive_buffer.buffer,numSat);
+			time_from_gpgga(gps_receive_buffer.buffer,gpstime);
+			current_sentence=SENTENCE_NONE;
+				printf("%s\n",gps_receive_buffer.buffer);
+				delay_s(1);
+				printf("alt=%s, lat=%s longi=%s, numsat=%s, gpstime=%s \n",alt,lat,longi,numSat,gpstime);
+				
 			
 		}
+	
+		
 		//printf("Sats: %u\n",GPSSats);
 		////printf("Lat: %u\n",GPSLat);
 		////printf("Long: %u\n",GPSLong);

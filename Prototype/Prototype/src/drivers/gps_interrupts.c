@@ -41,7 +41,7 @@ ISR (GPS_RECEIVE_INTERRUPT_VECTOR)
 	*/
 	uint8_t ch = GPS_USART.DATA;
 	
-	//printf("%c\n",ch);
+	printf("%c\n",ch);
 	//printf("%c""\0", (char)ch);
 	//putchar(c);
 	//putchar(c);

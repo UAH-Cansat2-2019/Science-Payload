@@ -78,7 +78,7 @@ uint8_t current_sentence, last_finished;
 #define WORD_MAXSIZE 10
 void altitude_from_gpgga(char *NMEAMESSAGE,char * buff);
 void latitude_from_gpgga(char *NMEAMESSAGE,char * buff);
-void longitude_from_gpgga(char *NMEAMESSAGE,char * buff)
+void longitude_from_gpgga(char *NMEAMESSAGE,char * buff);
 void time_from_gpgga(char *NMEAMESSAGE,char * buff);
 void num_sat_from_gpgga(char *NMEAMESSAGE,char * buff);
 void findAfterCommma(uint8_t Cnum,char* NMEAMESSAGE,char * buff);
