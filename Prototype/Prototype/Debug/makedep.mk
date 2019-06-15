@@ -18,6 +18,8 @@ src\drivers\bno055.c
 
 src\drivers\gps_interrupts.c
 
+src\drivers\Hall_sensor.c
+
 src\drivers\IMU.c
 
 src\drivers\mechanisms.c

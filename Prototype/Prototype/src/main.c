@@ -19,7 +19,7 @@
 #include "drivers/OpenLog.h"
 #include "drivers/uart.h"
 #include "drivers/Xbee.h"
-
+#include "drivers/Hall_sensor.h"
 /*#include "flight_states.h"*/
 /************** I2C buffer length******/
 volatile extern uint8_t XbeeRx;
@@ -176,11 +176,17 @@ int main (void)
 		MAIN PROGRAM LOOP	
 	**/
 	//xbeeWrite("hello There!");
+	hall_init();
 	while (true)
 	{
 		
 		
 		printf("\ngood morning realterm");
+		while(1)
+		{
+			printf("hall reading %u \n",hallVoltRead());
+			delay_ms(500);
+		}
 		//xbeeWrite("hello There! xbee");
 		imu_update();
 		

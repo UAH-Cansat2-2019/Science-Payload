@@ -1,4 +1,5 @@
-src/main.d src/main.o: ../src/main.c ../src/asf.h \
+src/drivers/Hall_sensor.d src/drivers/Hall_sensor.o: \
+ ../src/drivers/Hall_sensor.c ../src/asf.h \
  ../src/ASF/xmega/drivers/adc/adc.h ../src/ASF/xmega/utils/compiler.h \
  d:\program\ files\ (x86)\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h \
  d:\program\ files\ (x86)\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h \
@@ -77,16 +78,7 @@ src/main.d src/main.o: ../src/main.c ../src/asf.h \
  ../src/ASF/common/services/twi/xmega_twi/twi_slave.h \
  ../src/ASF/xmega/drivers/wdt/wdt.h \
  ../src/ASF/xmega/boards/xmega_a1u_xplained_pro/xmega_a1u_xplained_pro.h \
- ../src/drivers/definitions.h \
- d:\program\ files\ (x86)\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h \
- d:\program\ files\ (x86)\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\atomic.h \
- d:\program\ files\ (x86)\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
- ../src/drivers/gps.h ../src/drivers/definitions.h ../src/drivers/uart.h \
- ../src/RingBuffer.h ../src/drivers/gps_interrupts.h \
- ../src/drivers/adc_sensors.h ../src/drivers/IMU.h \
- ../src/drivers/bno055.h ../src/drivers/mechanisms.h \
- ../src/drivers/ms5607.h ../src/drivers/OpenLog.h ../src/drivers/uart.h \
- ../src/drivers/Xbee.h ../src/drivers/Hall_sensor.h
+ ../src/drivers/Hall_sensor.h
 
 ../src/asf.h:
 
@@ -265,39 +257,5 @@ d:\program\ files\ (x86)\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr
 ../src/ASF/xmega/drivers/wdt/wdt.h:
 
 ../src/ASF/xmega/boards/xmega_a1u_xplained_pro/xmega_a1u_xplained_pro.h:
-
-../src/drivers/definitions.h:
-
-d:\program\ files\ (x86)\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h:
-
-d:\program\ files\ (x86)\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\atomic.h:
-
-d:\program\ files\ (x86)\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h:
-
-../src/drivers/gps.h:
-
-../src/drivers/definitions.h:
-
-../src/drivers/uart.h:
-
-../src/RingBuffer.h:
-
-../src/drivers/gps_interrupts.h:
-
-../src/drivers/adc_sensors.h:
-
-../src/drivers/IMU.h:
-
-../src/drivers/bno055.h:
-
-../src/drivers/mechanisms.h:
-
-../src/drivers/ms5607.h:
-
-../src/drivers/OpenLog.h:
-
-../src/drivers/uart.h:
-
-../src/drivers/Xbee.h:
 
 ../src/drivers/Hall_sensor.h:
